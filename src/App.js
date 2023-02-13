@@ -2,12 +2,14 @@ import React from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import Nav from './components/nav/nav';
+import Cards from './components/cards/cards';
 
 function App() {
   return (
     <div className="App">
       <Switch>
-        <Route path='/' component={Nav}></Route>
+        <Route exact path='/' component={Nav}></Route>
+        <Route path='/card' component={Cards}></Route>
       </Switch>
     </div>
   );
