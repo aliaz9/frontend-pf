@@ -11,7 +11,7 @@ export default function Cards() {
 
     useEffect(() => {
         dispatch(getProducts())
-    }, [])
+    }, [dispatch])
 
     return (
         <div>
