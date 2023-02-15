@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+/* body{
+    font-family: 'Inter', sans-serif;
+
+} */
+
+.container{
+    font-family: 'Inter', sans-serif;   
+    margin: 50px 0;
+}
+
+.titleSteps{
+    color: #002A39;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 40px;
+    max-width: 550px;
+    word-break: break-all;
+    text-align: center;
+}
+
+.containerSteps{
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+    gap: 16px;
+    margin: 0 100px;
+}
+
+.steps{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    margin: 20px;
+    /* padding: 20px; */
+}
+
+.stepsTitle{
+    color: #18191F;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+}
+
+.stepsImg{
+    width: 64px;
+    height: 64px;
+    z-index: 100;
+    /* border-radius: 50%; */
+}
+
+.stepsDescription{
+    /* text-align: justify; */
+    max-width: 220px;
+    line-height: 25px;
+    word-break: break-word;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.separatorSteps{
+    position: absolute;
+    left: 19.14%;
+    right: 19.14%;
+    top: 28%;
+    bottom: 60.21%;
+    opacity: 0.4;
+    border: none;
+    border-top: 2px dashed #D6B1FF;
+    z-index: 2;
+}
+
+button{
+   
+    width: 22em;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    text-transform: uppercase;
+    padding: 18px 0px;
+    letter-spacing: 0.1em;
+    overflow: hidden;
+    font-weight: 500;
+    color: #fff;
+    background-color: #FFBB00;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-out 0s;
+}
+button:hover{
+    background-color: #74C8DB;
+    box-shadow: 0px 5px 10px rgba(0, 102, 153, 0.3);
+    color: #fff;
+    transform: translateY(-3px);
+    cursor: pointer;
+  }
