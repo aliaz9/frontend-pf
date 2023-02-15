@@ -1,6 +1,6 @@
-import json from '../jsons/products.json'
 import axios from "axios";
 export const GET_PRODUCTS = "GET_PRODUCTS";
+export const GET_PRODUCT_INFO = "GET_PRODUCT_INFO";
 
 export default function getProducts() {
 
@@ -11,6 +11,20 @@ export default function getProducts() {
     
     return dispatch({
     type: "GET_PRODUCTS",
+    payload: json.data,
+    })
+}
+};
+
+export function getProductInfo() {
+
+    return async function (dispatch){
+
+    const json = await axios.get("https://run.mocky.io/v3/c6ed0652-776d-476c-b22a-5e0121c66e37");
+    console.log("Entra a la action", json.data)
+    
+    return dispatch({
+    type: "GET_PRODUCT_INFO",
     payload: json.data,
     })
 }
