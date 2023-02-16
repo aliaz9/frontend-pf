@@ -1,51 +1,118 @@
 .nav {
-    box-sizing: border-box;
-    position: absolute;
+    
+    display: flex;
     width: 100%;
-    height: 72px;
-    left: 0px;
-    top: 0px;
-    background-color: black;
+    height: 50px;
+    font-family: "inter";
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
     }
     
     .nav1 {
-        display: flex;
+   
+    display: flex;
     flex-direction: row;
+    justify-content: center;
+    margin-left: 90px;
+    height: 50px;
+    font-family: "inter";
     align-items: center;
-    padding: 0px;
-    gap: 32px;
     
-    position: absolute;
-    width: 333px;
-    height: 20px;
-    left: 165px;
-    top: calc(50% - 20px/2);
     }
+    .nav1 a {
+        margin: 20px;
+        font-size: 18px;
+        text-align: center;
+        text-decoration: none;
+        color: #002A39;
+        font-weight: bold;
+    }
+
+    .nav1 a:hover {
+        
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
     
     .nav2 {
-        display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 14px;
-    
-    position: absolute;
-    width: 257px;
-    height: 40px;
-    right: 165px;
-    top: calc(50% - 40px/2);
-    }
-    
-    .nav3 {
-        display: flex;
-    flex-direction: row;
+
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    margin-right: 90px;
     align-items: center;
-    padding: 10px 20px;
-    gap: 10px;
+    }
+    .nav2 button{
+        margin: 20px;
+    }
+
+    .button1 {
+            width: 10em;
+            margin-right: 10px;
+            margin-bottom: 20px;
+            font-family: "inter";
+            font-size: 13px;
+            padding: 18px 0px;
+            overflow: hidden;
+            font-weight: 500;
+            color: #fff;
+            background-color: #FFBB00;
+            border: none;
+            border-radius: 3px;
+            box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease-out 0s;
+            padding: 10px 0px;
+    }
+    button:hover{
+        
+        box-shadow: 0px 5px 10px rgba(0, 102, 153, 0.3);
+        color: #fff;
+        transform: translateY(-3px);
+        cursor: pointer;
+      }
     
-    position: absolute;
-    left: 92.15%;
-    right: 5%;
-    top: 22.22%;
-    bottom: 22.22%;
+    .button2{
+        width: 10em;
+            margin-right: 10px;
+            margin-bottom: 20px;
+            font-family: "inter";
+            font-size: 13px;
+            padding: 18px 0px;
+            overflow: hidden;
+            font-weight: 500;
+            color: #fff;
+            background-color: #74C8DB;
+            border: none;
+            border-radius: 3px;
+            box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease-out 0s;
+            padding: 10px 0px;
+    }
+
+   
+
+
+    .nav2 .cart{
+        color: white;
+        background-color: #FFBB00;
+        width: 35px;
+        height: 35px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 3px;
+        box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease-out 0s;
+
+            
+     
+    }
+    .nav2 .cart a{
+        text-align: center;
+        text-decoration: none;
+        color: white;
     }
