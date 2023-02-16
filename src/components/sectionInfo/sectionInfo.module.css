@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+.container{
+background-color: #FFf;
+display: flex;
+flex-direction: row;
+height: 350px;
+}
+
+.izquierda{
+ display: flex;
+}
+
+.izquierda img{
+    display: flex;
+    width: 700px;
+    object-fit:cover;
+}
+   
+
+.derecha{
+    display: flex;
+    flex-direction: column;
+    background-color: #FFBB00;
+    background-size: cover;
+    width: 100%;
+}
+.derecha .containerText{
+    color: #002A39;
+    font-family: 'Inter';
+    align-items: flex-start;
+    padding: 50px;
+    text-align: start;
+}
+.derecha .containerText h1{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 42px;
+    color: #002A39;
+    text-align: start;
+}
+.derecha .containerText h4{
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: 21px;
+    line-height: 21px;
+    color: #002A39;
+    text-align: start;
+}
+.derecha .containerText p{
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: 18px;
+    line-height: 21px;
+    color: #002A39;
+    text-align: start;
+}
+
+
+
+
+
+.derecha .containerButton{
+    align-items: center;
+
+}
+.derecha button{
+    width: 22em;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    text-transform: uppercase;
+    padding: 18px 0px;
+    letter-spacing: 0.1em;
+    overflow: hidden;
+    font-weight: 500;
+    color: #002A39;
+    background-color: #fff;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-out 0s;
+}
+.derecha button:hover{
+    background-color: #002A39;
+    box-shadow: 0px 5px 10px rgba(0, 102, 153, 0.3);
+    color: #fff;
+    transform: translateY(-3px);
+    cursor: pointer;
+}
