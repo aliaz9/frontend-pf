@@ -3,8 +3,8 @@ import './steps.css';
 
 
 export default function Steps() {
-    return (
-        <div className="container">
+    return ( 
+        <div className="containerStepsAll">
             <center><h2 className="titleSteps">¡Cambia a energia solar en simples pasos!</h2></center>
             <hr className="separatorSteps"/>
             <div className="containerSteps">
@@ -29,7 +29,6 @@ export default function Steps() {
                     <small className="stepsDescription">Un asesor se comunicará para coordinar el día más pronto para la instalación</small>
                 </div>
             </div>
-            <button>hola</button>
         </div>
     )
 }

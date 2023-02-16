@@ -1,11 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
 
-/* body{
-    font-family: 'Inter', sans-serif;
-
-} */
-
-.container{
+.containerStepsAll{
     font-family: 'Inter', sans-serif;   
     margin: 50px 0;
 }
@@ -67,7 +62,7 @@
     position: absolute;
     left: 19.14%;
     right: 19.14%;
-    top: 28%;
+    top: 30%;
     bottom: 60.21%;
     opacity: 0.4;
     border: none;
