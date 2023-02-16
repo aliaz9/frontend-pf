@@ -1,4 +1,4 @@
-import { GET_PRODUCTS, GET_PRODUCT_INFO } from "../actions";
+import { GET_PRODUCTS, GET_PRODUCT_INFO, ADD_USER } from "../actions";
 
 const initialState = {
 products: [],
@@ -23,6 +23,15 @@ if(action.type === GET_PRODUCT_INFO) {
     }
 
 }
+
+// if(action.type === ADD_USER) {
+
+//     //console.log("entra en el reducer")
+//     return {
+//         ...state,
+//     }
+
+// }
 
 return state;
 
