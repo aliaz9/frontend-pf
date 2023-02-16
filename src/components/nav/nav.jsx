@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import './nav.css';
-import Logo from "../Img/darkLogo.png";
+import Logo from "../../img/darkLogo.png"
 
 
 export default function Nav () {
