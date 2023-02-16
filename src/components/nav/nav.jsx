@@ -12,7 +12,7 @@ export default function Nav () {
               <a href="#home">Productos</a>
             </div>
             <div className="img">
-                <img src={Logo} height={50} />
+                <img src={Logo} height={50} alt={'logo'} />
             </div>
             <div className="nav2">
               <Link to="/log In">

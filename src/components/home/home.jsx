@@ -9,7 +9,6 @@ import SectionInfo from "../sectionInfo/sectionInfo";
 export default function Home() {
     return (
      <div>
-     <Nav />
      <Hero />
      <Cards />
      <Steps />
