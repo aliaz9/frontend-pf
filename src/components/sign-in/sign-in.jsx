@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../../actions";
 import '../sign-in/sign-in.css';
 
@@ -9,8 +9,8 @@ import '../sign-in/sign-in.css';
 export default function SignIn() {
 
 let dispatch = useDispatch();
-let [ success, setSuccess ] = useState(false);
-
+// let [ success, setSuccess ] = useState(false);
+    const { msg , error } =  useSelector(state => state.message)
     return (
         <div className="box">
             {/* <h1>Registrate!</h1> */}
@@ -34,8 +34,8 @@ let [ success, setSuccess ] = useState(false);
             onSubmit = {(values, {resetForm}) => {
                 resetForm();
                 dispatch(addUser(values));
-                setSuccess(true);
-                setTimeout(() => setSuccess(false), 5000)
+                // setSuccess(true);
+                // setTimeout(() => setSuccess(false), 5000)
             }}
 
             >
@@ -63,8 +63,8 @@ let [ success, setSuccess ] = useState(false);
                             Regitrarse
                         </button>
 
-                        { success && <p> Su Usuario ha sido registrado con éxito. </p> }
-
+                        {/* { success && <p> Su Usuario ha sido registrado con éxito. </p> } */}
+                        {msg && <p> {msg} </p>}
                     </Form>
                 )}
             </Formik>
