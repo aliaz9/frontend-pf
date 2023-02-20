@@ -1,7 +1,6 @@
 import React from "react";
 import Hero from "../hero/hero";
 import Cards from "../cards/cards";
-import Nav from "../nav/nav";
 import Steps from "../steps/steps";
 import Questions from "../questions/questions";
 import SectionInfo from "../sectionInfo/sectionInfo";

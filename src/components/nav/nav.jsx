@@ -15,10 +15,10 @@ export default function Nav () {
                 <img src={Logo} height={50} alt={'logo'} />
             </div>
             <div className="nav2">
-              <Link to="/log In">
+              <Link to="/log-in">
                 <button className="button1">Iniciar sesión</button>
               </Link>
-              <Link to="/sign in">
+              <Link to="/sign-in">
                 <button className="button2">Registrarse</button>
               </Link>
               <div className="cart">
