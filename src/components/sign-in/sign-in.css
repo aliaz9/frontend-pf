@@ -1,0 +1,10 @@
+.form {
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0)
+}
+
+.box {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

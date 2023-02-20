@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
 import { getProductInfo } from "../../actions";
-import Nav from "../nav/nav";
 import '../product-page/product-page.css';
 
 export default function ProductPage() {
