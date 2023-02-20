@@ -1,4 +1,4 @@
-import axios from "axios";
+// import axios from "axios";
 import { clientAxios } from '../config/clientAxios.js';
 export const GET_PRODUCTS = "GET_PRODUCTS";
 export const GET_PRODUCT_INFO = "GET_PRODUCT_INFO";
@@ -10,7 +10,7 @@ export default function getProducts() {
 
     // const json = await axios.get("https://run.mocky.io/v3/dd8097a8-8336-4f15-9237-64f72472faa1");
     //console.log(json.data)
-    const { data: { products } } = await clientAxios('/api/products?number=10')
+    const { data: { products } } = await clientAxios('/products?number=10')
     console.log("Entra a la action", products)
     return dispatch({
     type: "GET_PRODUCTS",
@@ -24,7 +24,7 @@ export function getProductInfo(id) {
 
     return async function (dispatch){
 
-    const  { data } = await  clientAxios(`/api/products/${id}`);
+    const  { data } = await  clientAxios(`/products/${id}`);
         console.log(data)
     return dispatch({
     type: "GET_PRODUCT_INFO",
@@ -36,12 +36,27 @@ export function getProductInfo(id) {
 export function addUser(payload) {
 
     return async function (dispatch){
+        try {
+        const json = await  clientAxios.post('/users/register', payload)
 
-        const json = await axios.post("https://run.mocky.io/v3/c6ed0652-776d-476c-b22a-5e0121c66e37", payload);
-        console.log("Entra a la action", json.data)
-        
-        return dispatch({
+         dispatch({
         type: "ADD_USER",
         payload: json.data,
         })
+        dispatch(setMessage(json.data))
+        setTimeout(() => {
+            dispatch(setMessage({ msg: '', error: null})) 
+        },5000);
+        } catch (error) {
+            dispatch(setMessage(error.response.data))        
+        }
     }}
+
+
+function setMessage (mensaje) {
+   return {
+    type: 'SET_MESSAGE',
+        payload: mensaje
+    }
+
+}

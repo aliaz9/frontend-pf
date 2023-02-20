@@ -3,6 +3,7 @@ import { GET_PRODUCTS, GET_PRODUCT_INFO, ADD_USER } from "../actions";
 const initialState = {
 products: [],
 productInfo: "",
+message: {}
 };
 
 export default function reducer(state = initialState, action) {
@@ -31,6 +32,13 @@ if(action.type === ADD_USER) {
         ...state,
     }
 
+}
+
+if(action.type === 'SET_MESSAGE'){
+    return {
+        ...state,
+        message:  action.payload
+    }
 }
 
 return state;
