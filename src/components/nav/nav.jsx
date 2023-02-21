@@ -9,7 +9,7 @@ export default function Nav () {
             <div className="nav1">
               <a href="/home">Inicio</a>
               <a href="/about">Acerca de</a>
-              <Link to="/product" target={true}>Productos</Link>
+              <Link to="/product" >Productos</Link>
             </div>
             <div className="img">
                 <img src={Logo} height={50} alt={'logo'} />

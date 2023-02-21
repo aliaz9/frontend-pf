@@ -1,27 +1,48 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import getProducts from "../../actions";
-import Card from "../card/card";
-import '../cards/cards.css';
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import getProducts from '../../actions'
+import Card from '../card/card'
+import '../cards/cards.css'
 
 export default function Cards() {
+  let products = useSelector((state) => state.products)
+  let dispatch = useDispatch()
 
-    let products = useSelector((state) => state.products);
-    let dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(getProducts())
-    }, [dispatch])
-
+  useEffect(() => {
+    dispatch(getProducts())
+  }, [dispatch])
+  const search = useSelector((state) => state.search)
+  if (search.length > 0) {
     return (
-        <div>
-            <div className='container'>
-                {products.map(p => 
-                    <Card key={p.id} id={p.id} title={p.name} image={p.image} price={p.price} score={p.score} />
-                )}
-            </div>
-        
-        </div>
+      <>
+        {search.map((p) => (
+          <Card
+            key={p.id}
+            id={p.id}
+            title={p.name}
+            image={p.image}
+            price={p.price}
+            score={p.score}
+          />
+        ))}
+      </>
     )
+  }
 
-} 
+  return (
+    <>
+      <div className='container'>
+        {products.map((p) => (
+          <Card
+            key={p.id}
+            id={p.id}
+            title={p.name}
+            image={p.image}
+            price={p.price}
+            score={p.score}
+          />
+        ))}
+      </div>
+    </>
+  )
+}

@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import Style from "./card.module.css"
 export default function Card({ title, price, image, score, id }) {
-    console.log(id)
     return (
         <div key={id} className={Style.card}>
             <img src={image} alt={title} className={Style.image} />
