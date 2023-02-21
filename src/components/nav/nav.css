@@ -8,6 +8,8 @@
     justify-content: space-between;
     align-items: center;
     margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
     }
     
     .nav1 {
@@ -32,7 +34,8 @@
 
     .nav1 a:hover {
         
-        text-decoration: underline;
+        text-decoration:underline;
+        font-weight: bolder;
         cursor: pointer;
     }
 
@@ -107,6 +110,7 @@
         border-radius: 3px;
         box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
         transition: all 0.3s ease-out 0s;
+        cursor: pointer;
 
         
      
@@ -115,4 +119,8 @@
         text-align: center;
         text-decoration: none;
         color: white;
+    }
+    .nav2 .cart a:hover{
+        color: #74C8DB;
+        transition: all 0.3s ease-out 0s;
     }

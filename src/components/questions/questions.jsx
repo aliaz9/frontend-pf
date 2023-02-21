@@ -16,14 +16,12 @@ export default function Questions() {
                     <details>
                         <summary>
                             <div className="question">
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                                <p>¿Mi compra tiene garantía?</p>
                                 <img src="/images/add.png" alt="" />
                             </div>
                         </summary>
                         <div className="questionDescription">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                            Velit placeat ab sed? Sapiente tempore minus obcaecati impedit ducimus ut iusto ipsam vel cumque odit,
-                            voluptatibus ipsa numquam nostrum mollitia cupiditate!
+                            Todos los productos de nuestra tienda tienen 12 meses de garantía. Puedes cambiar tu producto de forma directa dentro del tiempo de garantía.
                         </div>
                     </details>
                     {/* <div className="questionSeparator">

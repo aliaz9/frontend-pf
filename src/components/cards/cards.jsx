@@ -15,7 +15,6 @@ export default function Cards() {
 
     return (
         <div>
-            <h1>Our Products</h1>
             <div className='container'>
                 {products.map(p => 
                     <Card key={p.id} id={p.id} title={p.name} image={p.image} price={p.price} score={p.score} />

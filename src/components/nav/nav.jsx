@@ -7,9 +7,9 @@ export default function Nav () {
     return (
         <div className= "nav">
             <div className="nav1">
-              <a href="#home">Inicio</a>
-              <a href="#home">Acerca de</a>
-              <a href="#home">Productos</a>
+              <a href="/home">Inicio</a>
+              <a href="/about">Acerca de</a>
+              <a href="/product">Productos</a>
             </div>
             <div className="img">
                 <img src={Logo} height={50} alt={'logo'} />
@@ -22,7 +22,7 @@ export default function Nav () {
                 <button className="button2">Registrarse</button>
               </Link>
               <div className="cart">
-              <a href="#home"><i class="fa-solid fa-cart-shopping"></i></a>
+              <a href="/cart"><i class="fa-solid fa-cart-shopping"></i></a>
               </div>
             </div>
     

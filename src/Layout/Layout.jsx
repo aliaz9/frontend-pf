@@ -1,4 +1,5 @@
 import Nav from '../components/nav/nav.jsx';
+import Footer from '../components/footer/footer.jsx';
 
 
 export default function Layout({children})  {
@@ -7,7 +8,8 @@ export default function Layout({children})  {
     <div>
       <Nav/>
       {children}
-      {/*  Aqui podria ir el footer para que se renderize en todas las rutas */}
+      <Footer/>
+      
     </div>
   )
 }
