@@ -13,7 +13,7 @@ export default function getProducts() {
     //const products = await axios.get("https://run.mocky.io/v3/dd8097a8-8336-4f15-9237-64f72472faa1");
     //console.log(json.data)
     //const { data: { products } } = await clientAxios('/api/products?number=10')
-    const { data: { products } } = await axios.get('https://pf-backend-production-8b24.up.railway.app/api/products?number=10')
+    const { data: { products } } = await axios.get(`${process.env.REACT_APP_BACK_END_URL}/products`)
     console.log("Entra a la action", products)
     return dispatch({
     type: "GET_PRODUCTS",
@@ -28,9 +28,8 @@ export function getProductInfo(id) {
     return async function (dispatch){
 
     //const  { data } = await  clientAxios(`/api/products/${id}`);
-    const { data } = await axios.get(`https://pf-backend-production-8b24.up.railway.app/api/products/${id}`)
+    const { data } = await axios.get(`${process.env.REACT_APP_BACK_END_URL}/${id}`)
 
-    console.log(data)
     
     return dispatch({
     type: "GET_PRODUCT_INFO",
