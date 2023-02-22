@@ -1,5 +1,7 @@
 import styles from '../styles/Products.module.css'
 import Cards from './Cards.jsx'
+import FilterAndOrder from './FilterAndOrder.jsx'
+import Pagination from './Pagination.jsx'
 import Search from './Search.jsx'
 
 export default function Products () {
@@ -28,10 +30,12 @@ export default function Products () {
       </div>
       {/* Search  */}
       <Search />
+      <FilterAndOrder/>
       <h1 className={styles.titulo}>Nuestros Productos</h1>
 
       <div className="Cards-component">
         <Cards />
+        <Pagination/>
       </div>
     </div>
   )

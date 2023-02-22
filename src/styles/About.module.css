@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+.container {
+  background-color: #FFf;
+  display: flex;
+  flex-direction: row;
+  height: 350px;
+}
+
+.izquierda {
+  display: flex;
+}
+
+.izquierda img {
+  display: flex;
+  width: 700px;
+  object-fit: cover;
+}
+
+
+.derecha {
+  display: flex;
+  flex-direction: column;
+  background-color: #FFf;
+  background-size: cover;
+  width: 100%;
+  justify-content: center;
+}
+
+.derecha .containerText {
+  color: #002A39;
+  font-family: 'Inter';
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  text-align: center;
+}
+
+.derecha .containerText h1 {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 50px;
+  color: #002A39;
+  text-align: center;
+}
+
+.derecha .containerText h4 {
+  font-family: 'Inter';
+  font-style: normal;
+  font-size: 21px;
+  line-height: 24px;
+  color: #002A39;
+  text-align: center;
+}
+
+.derecha .containerText p {
+  font-family: 'Inter';
+  font-style: normal;
+  font-size: 18px;
+  line-height: 24px;
+  color: #002A39;
+  text-align: center;
+}
+
+
+
+
+
+.derecha .containerButton {
+  align-items: center;
+
+}
+
+.derecha button {
+  width: 22em;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  text-transform: uppercase;
+  padding: 18px 0px;
+  letter-spacing: 0.1em;
+  overflow: hidden;
+  font-weight: 500;
+  color: #002A39;
+  background-color: #FFBB00;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease-out 0s;
+}
+
+.derecha button:hover {
+  background-color: #002A39;
+  box-shadow: 0px 5px 10px rgba(0, 102, 153, 0.3);
+  color: #fff;
+  transform: translateY(-3px);
+  cursor: pointer;
+}
+
+.Info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: start;
+  justify-content: center;
+  font-family: 'inter';
+}
+
+.titleInfo {
+  color: #28647a;
+  margin-top: 80px;
+  margin-bottom: 50px;
+
+}
+
+.boxInfo {
+  width: 500px;
+  margin: 30px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.boxInfo:hover {
+  box-shadow: 3px 3px 10px rgba(121, 121, 121, 0.1);
+  transition: all 0.1s ease-out 0.1s;
+
+}
+
+.boxInfo h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #28647a;
+}
+
+.boxInfo p {
+  font-size: 15px;
+  font-family: 'Roboto';
+  line-height: 24px;
+  color: #949494;
+}
