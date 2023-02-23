@@ -17,6 +17,7 @@ export const logUser = (user) => {
     try {
       const { data } = await clientAxios.post('/auth/login', user)
       dispatch(setMessage(data))
+      localStorage.setItem('token', data.token)
     } catch (error) {
       dispatch(setMessage(error.response.data))
     }
