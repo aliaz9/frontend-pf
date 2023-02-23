@@ -17,6 +17,7 @@
 }
 
 .containerSteps {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 16px;
@@ -39,6 +40,7 @@
   font-weight: 600;
   font-size: 24px;
   line-height: 32px;
+  text-align: center;
 }
 
 .stepsImg {
@@ -49,7 +51,7 @@
 }
 
 .stepsDescription {
-  /* text-align: justify; */
+  text-align:center;
   max-width: 220px;
   line-height: 25px;
   word-break: break-word;
@@ -63,7 +65,7 @@
   position: absolute;
   left: 19.14%;
   right: 19.14%;
-  top: 30%;
+  top: 20%;
   bottom: 60.21%;
   opacity: 0.4;
   border: none;
