@@ -1,5 +1,5 @@
 import { clientAxios } from '../../config/clientAxios.js'
-import { setMessage } from './users.js'
+import { setMessage } from './usersSlice.js'
 
 export const registerUser = (user) => {
   return async (dispatch) => {
