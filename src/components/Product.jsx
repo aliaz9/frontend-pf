@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { getProductsDetails } from '../redux/slices/thunks.js'
+import { getProductsDetails } from '../redux/slices/thunksProducts.js'
 import styles from '../styles/ProductDetail.module.css'
 import Questions from './Questions.jsx'
 

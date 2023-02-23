@@ -1,8 +1,8 @@
 import styles from '../styles/Products.module.css'
-import Cards from './Cards.jsx'
-import FilterAndOrder from './FilterAndOrder.jsx'
-import Pagination from './Pagination.jsx'
-import Search from './Search.jsx'
+import Cards from '../components/Cards.jsx'
+import FilterAndOrder from '../components/FilterAndOrder.jsx'
+import Pagination from '../components/Pagination.jsx'
+import Search from '../components/Search.jsx'
 
 export default function Products () {
   return (

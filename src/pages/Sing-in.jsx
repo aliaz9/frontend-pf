@@ -1,11 +1,12 @@
 // import React, { useState } from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { registerUser } from '../redux/slices/thunksUsers.js'
 // import { addUser } from '../../actions'
 import '../styles/Sing-in.css'
 
 export default function SignIn () {
-  // const dispatch = useDispatch()
+  const dispatch = useDispatch()
   // let [ success, setSuccess ] = useState(false);
   // const { msg, error } = useSelector((state) => state.message)
   return (
@@ -27,9 +28,9 @@ export default function SignIn () {
           return errors
         }}
         onSubmit={(values, { resetForm }) => {
+          dispatch(registerUser(values))
+          // setSuccess(true)
           resetForm()
-          // dispatch(addUser(values))
-          // setSuccess(true);
           // setTimeout(() => setSuccess(false), 5000)
         }}
       >

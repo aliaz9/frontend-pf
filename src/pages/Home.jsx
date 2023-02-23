@@ -1,9 +1,9 @@
-import Hero from './Hero.jsx'
+import Hero from '../components/Hero.jsx'
 import Style from '../styles/Home.module.css'
-import Steps from './Steps.jsx'
-import SectionInfo from './SectionInfo.jsx'
-import Cards from './Cards.jsx'
-import Questions from './Questions.jsx'
+import Steps from '../components/Steps.jsx'
+import SectionInfo from '../components/SectionInfo.jsx'
+import Cards from '../components/Cards.jsx'
+import Questions from '../components/Questions.jsx'
 
 export default function Home () {
   return (

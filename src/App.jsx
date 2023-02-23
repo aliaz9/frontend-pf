@@ -1,13 +1,14 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import Layout from './Layout/Layout.jsx'
-import Home from './components/Home.jsx'
+import Home from './pages/Home.jsx'
 import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
-import { getBrands, getProducts, getTypes } from './redux/slices/thunks.js'
-import Products from './components/Products.jsx'
+import { getBrands, getProducts, getTypes } from './redux/slices/thunksProducts.js'
+import Products from './pages/Products.jsx'
 import ProductPage from './components/Product.jsx'
-import About from './components/About.jsx'
-import SignIn from './components/Sing-in.jsx'
+import About from './pages/About.jsx'
+import SignIn from './pages/Sing-in.jsx'
+import LoginForm from './pages/LoginForm.jsx'
 function App () {
   const dispatch = useDispatch()
   useEffect(() => {
@@ -24,7 +25,7 @@ function App () {
             <Route path='/products' element={<Products/>}/>
             <Route path='/product/:id' element={<ProductPage/>} />
             <Route path='/about' element={<About/>} />
-            <Route path='/log-in' element={<h1>Log in</h1>} />
+            <Route path='/log-in' element={<LoginForm/>} />
             <Route path='/sign-in' element={<SignIn/>} />
             <Route path='*' element={<h1>404</h1>} />
           </Route>

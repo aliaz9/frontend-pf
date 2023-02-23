@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { setPageCurrent } from '../redux/slices/productsSlice.js'
-import { getProducts } from '../redux/slices/thunks.js'
+import { getProducts } from '../redux/slices/thunksProducts.js'
 export default function Pagination () {
   const { pageCurrent } = useSelector((state) => state.products)
   // const { products } = useSelector(state => state.products)
