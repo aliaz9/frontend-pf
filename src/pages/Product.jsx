@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { getProductsDetails } from '../redux/slices/thunksProducts.js'
 import styles from '../styles/ProductDetail.module.css'
-import Questions from './Questions.jsx'
+import Questions from '../components/Questions.jsx'
 
 export default function ProductPage () {
   const { product } = useSelector((state) => state.products)

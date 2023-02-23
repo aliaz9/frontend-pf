@@ -5,10 +5,10 @@ import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { getBrands, getProducts, getTypes } from './redux/slices/thunksProducts.js'
 import Products from './pages/Products.jsx'
-import ProductPage from './components/Product.jsx'
 import About from './pages/About.jsx'
 import SignIn from './pages/Sing-in.jsx'
 import LoginForm from './pages/LoginForm.jsx'
+import ProductPage from './pages/Product.jsx'
 function App () {
   const dispatch = useDispatch()
   useEffect(() => {
