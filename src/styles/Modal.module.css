@@ -18,7 +18,7 @@
 .modalBackground {
     position: fixed; /* Posición fija */
     z-index: 1; /* Se situará por encima de otros elementos de la página*/
-    padding-top: 200px; /* El contenido estará situado a 200px de la parte superior */
+    padding-top: 150px; /* El contenido estará situado a 200px de la parte superior */
     left: 0;
     top: 0;
     width: 100%; /* Ancho completo */
@@ -45,7 +45,7 @@
     border-radius: 5px;
 }
 
-@-webkit-keyframes animatetop {
+@keyframes animatetop {
     from {top:-300px; opacity:0} 
     to {top:0; opacity:1}
 }
@@ -69,7 +69,8 @@
 
 .modalBody{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
     align-items: center;
@@ -80,6 +81,9 @@
 .modalFooter{
     margin: 0;
     padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .separatorModal{
@@ -88,4 +92,34 @@
     background-color:#F4F1EB;
     border: 1px solid #F4F1EB;
     width: 100%;
+}
+
+.formModal{
+    flex: 1;
+}
+
+.formModalRight{
+    border-right: 1px solid #F4F1EB;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.formModal div p {
+    font-weight: 600;
+}
+
+.formModal div small {
+    font-weight: 400;
+    text-align: center;
+}
+
+.txtareaModal{
+    border-radius: 5px;
+    border: 2px solid #F4F1EB;
+    outline: none;
+    font-family: 'Inter', sans-serif; 
+    padding: 10px;
 }
