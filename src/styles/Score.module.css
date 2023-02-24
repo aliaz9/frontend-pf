@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+.ContainerScore{
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.titleScore{
+    color: #002A39;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;   
+}
+
+.titleScore:hover{
+    color: #74C8DB;
+    text-decoration: underline;
+}
+
+.isVisibility{
+    display: none;
+}
+
