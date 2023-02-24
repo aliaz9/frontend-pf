@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { addCart, removeCart } from '../redux/slices/usersSlice.js'
+import { addCart } from '../redux/slices/thunksUsers.js'
 import generateHash from '../utils/genKeys.js'
 // import '../cart/cart.css'
 
@@ -10,11 +10,13 @@ export default function Cart () {
   console.log(productsInCart)
   const dispatch = useDispatch()
 
-  useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(productsInCart))
-    total();
-  }, [productsInCart])
+  // useEffect(() => {
+  //   localStorage.setItem('cart', JSON.stringify(productsInCart))
+  //   total();
+  // }, [productsInCart])
+  function handleAddCart () {
 
+  }
   function handleClose (id) {
     dispatch(removeCart(id))
   }
@@ -28,14 +30,14 @@ export default function Cart () {
     console.log('remove')
   }
 
-  function total() {
-    let total = 0; 
+  function total () {
+    let total = 0
     for (let i = 0; i < productsInCart.length; i++) {
-    const subtotal = productsInCart[i].price * productsInCart[i].quantity; 
-    total = total + subtotal;
+      const subtotal = productsInCart[i].price * productsInCart[i].quantity
+      total = total + subtotal
     }
-    return total;
-    }
+    return total
+  }
 
   return (
 
@@ -62,7 +64,7 @@ export default function Cart () {
               </div>
               <div className="col-4">
                 <p className="title"> {p.quantity} </p>
-                <button onClick={() => addCart({ id: p.id, name: p.name, price: p.price, image: p.image })}>+</button>
+                <button onClick={() => handleAddCart()}>+</button>
                 <button onClick={() => removeOne(p.id)}>-</button>
               </div>
               <div className="col-4">
