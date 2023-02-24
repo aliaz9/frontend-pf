@@ -9,6 +9,8 @@ import About from './pages/About.jsx'
 import SignIn from './pages/Sing-in.jsx'
 import LoginForm from './pages/LoginForm.jsx'
 import ProductPage from './pages/Product.jsx'
+import Cart from './components/Cart.jsx'
+import Score from './components/Score.jsx'
 function App () {
   const dispatch = useDispatch()
   useEffect(() => {
@@ -27,6 +29,8 @@ function App () {
             <Route path='/about' element={<About/>} />
             <Route path='/log-in' element={<LoginForm/>} />
             <Route path='/sign-in' element={<SignIn/>} />
+            <Route path='/shopping-cart' element={<Cart/>}/>
+            <Route path='/detail-score' element={<Score/>}/>
             <Route path='*' element={<h1>404</h1>} />
           </Route>
         </Routes>

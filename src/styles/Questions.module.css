@@ -5,6 +5,7 @@
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   grid-template-columns: 2fr 1fr;
   margin: 10px 100px;
+  font-family: 'Inter', sans-serif;
 }
 
 .containerQuestionDescription {

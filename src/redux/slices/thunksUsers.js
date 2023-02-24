@@ -1,5 +1,5 @@
 import { clientAxios } from '../../config/clientAxios.js'
-import { setMessage } from './users.js'
+import { setMessage } from './usersSlice.js'
 
 export const registerUser = (user) => {
   return async (dispatch) => {
@@ -17,6 +17,7 @@ export const logUser = (user) => {
     try {
       const { data } = await clientAxios.post('/auth/login', user)
       dispatch(setMessage(data))
+      localStorage.setItem('token', data.token)
     } catch (error) {
       dispatch(setMessage(error.response.data))
     }

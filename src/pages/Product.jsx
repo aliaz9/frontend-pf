@@ -1,55 +1,57 @@
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
+// import { addCart, getProductInfo } from '../../actions'
+// import '../product-page/product-page.css'
 import { getProductsDetails } from '../redux/slices/thunksProducts.js'
-import styles from '../styles/ProductDetail.module.css'
-import Questions from '../components/Questions.jsx'
+import { addCart } from '../redux/slices/usersSlice.js'
 
 export default function ProductPage () {
-  const { product } = useSelector((state) => state.products)
+  const productsInCart = useSelector((state) => state.users.productsInCart)
+
+  // useEffect(() => {
+  // localStorage.setItem("cart", JSON.stringify(productsInCart) )
+  // }, [productsInCart])
+
+  const productInfo = useSelector((state) => state.products.product)
   const dispatch = useDispatch()
   const params = useParams()
-  // console.log( props.match.params.id)
-  // console.log(id)
+
   const { id } = params
   useEffect(() => {
     dispatch(getProductsDetails(id))
-    // console.log('En los detalles')
+    console.log('Al cargar', productInfo)
   }, [dispatch, id])
 
+  function handleClick (payload) {
+    const filtered = productsInCart.filter(p => p.id === payload.id)
+    // console.log("ya estaba en carrito", filtered)
+
+    if (!filtered) {
+      console.log('Agregarlo nuevo')
+    } else {
+      console.log('Sumarle 1')
+    }
+    dispatch(addCart(payload))
+    localStorage.setItem('cart', JSON.stringify(productsInCart))
+    // console.log(payload)
+  }
+
   return (
-    <div className={styles.container}>
-      <h1>Detalles del producto</h1>
+        <div className="pp-container" key={productInfo.id}>
+            <div className="card-wrapper">
+                <img src={productInfo.image} alt={productInfo.title} className="pp-image" />
+                <div className="pp-product-content">
+                    <h1 className="pp-title">{productInfo.title}</h1>
+                    <p className="pp-price">{productInfo.price}</p>
+                    {/* <button className="pp-button" onClick={() => dispatch(addCart({name: productInfo.name, price: productInfo.price}))}>ADD TO CART</button> */}
+                    <button className="pp-button" onClick={() => handleClick({ id: productInfo.id, title: productInfo.title, price: productInfo.price, image: productInfo.image })}>ADD TO CART</button>
 
-      <div className={styles.containerAll} key={product.id}>
-        <div className={styles.containerImg}>
-          <img
-            src={product.image}
-            alt={product.name}
-            className={styles.image}
-          />
+                    <p className="pp-description">{productInfo.description}</p>
+                    <p className="pp-type">{productInfo.type}</p>
+                    <p className="pp-brand">{productInfo.brand}</p>
+                </div>
+            </div>
         </div>
-
-        <div className={styles.productContent}>
-          <h2 className={styles.title}>{product.name}</h2>
-          <p className={styles.price}>${product.price}</p>
-          <div className={styles.stars}>
-            <i className="fa-solid fa-star"/>
-            <i className="fa-solid fa-star"/>
-            <i className="fa-solid fa-star"/>
-            <i className="fa-regular fa-star"/>
-          </div>
-          <button className={styles.button}>Agregar al carrito</button>
-          <p className={styles.description}>{product.description}</p>
-          <div className={styles.protectContainer}>
-            <h4>Compra segura</h4>
-            <i className="fa-solid fa-shield-halved"/>
-          </div>
-          <p className={styles.type}>{product.type}</p>
-          <p className={styles.brand}>{product.brand}</p>
-        </div>
-      </div>
-      <Questions />
-    </div>
   )
 }

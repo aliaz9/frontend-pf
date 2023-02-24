@@ -1,4 +1,5 @@
 import React from 'react'
+
 import Styles from './../styles/Steps.module.css'
 
 export default function Steps () {
@@ -26,8 +27,3 @@ export default function Steps () {
                     <img className={Styles.stepsImg} src="https://res.cloudinary.com/daieynebb/image/upload/v1677244506/FlatIcon/support_gkwahs.png" alt="" />
                     <b className={Styles.stepsTitle}>¡Coordinamos nuestra vida!</b>
                     <small className={Styles.stepsDescription}>Un asesor se comunicará para coordinar el día más pronto para la instalación</small>
-                </div>
-            </div>
-        </div>
-  )
-}
