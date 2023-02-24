@@ -1,5 +1,5 @@
 import { clientAxios } from '../../config/clientAxios.js'
-import { setMessage } from './usersSlice.js'
+import { addCantidad, setCart, setMessage } from './usersSlice.js'
 
 export const registerUser = (user) => {
   return async (dispatch) => {
@@ -21,5 +21,17 @@ export const logUser = (user) => {
     } catch (error) {
       dispatch(setMessage(error.response.data))
     }
+  }
+}
+
+export const addCart = (product) => {
+  return (dispatch, getState) => {
+    const { users: { productsInCart } } = getState()
+    const copia = [...productsInCart]
+    if (copia.some(el => el.id === product.id)) {
+      dispatch(addCantidad(product))
+      return
+    }
+    dispatch(setCart(product))
   }
 }
