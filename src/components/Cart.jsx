@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { removeCart } from '../redux/slices/usersSlice.js'
+import { addCart, removeCart } from '../redux/slices/usersSlice.js'
 import generateHash from '../utils/genKeys.js'
-// import { addCart, removeCart } from '../../actions'
 // import '../cart/cart.css'
 
 export default function Cart () {
@@ -13,6 +12,7 @@ export default function Cart () {
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(productsInCart))
+    total();
   }, [productsInCart])
 
   function handleClose (id) {
@@ -27,6 +27,15 @@ export default function Cart () {
   function removeOne () {
     console.log('remove')
   }
+
+  function total() {
+    let total = 0; 
+    for (let i = 0; i < productsInCart.length; i++) {
+    const subtotal = productsInCart[i].price * productsInCart[i].quantity; 
+    total = total + subtotal;
+    }
+    return total;
+    }
 
   return (
 
@@ -52,12 +61,12 @@ export default function Cart () {
                 </div>
               </div>
               <div className="col-4">
-                <p className="title"> 1 </p>
-                <button onClick={() => addOne({ id: p.id, name: p.name, price: p.price, image: p.image })}>+</button>
+                <p className="title"> {p.quantity} </p>
+                <button onClick={() => addCart({ id: p.id, name: p.name, price: p.price, image: p.image })}>+</button>
                 <button onClick={() => removeOne(p.id)}>-</button>
               </div>
               <div className="col-4">
-                {<p>{p.price * 2}</p>}
+                {<p>{p.price * p.quantity}</p>}
               </div>
             </div>
           )
@@ -68,8 +77,7 @@ export default function Cart () {
 
       </div>
 
-      <div> <p>Impuestos: XXX</p> </div>
-      <div> <p>Total: XXX </p></div>
+      <div> <p>Total: {total()}</p></div>
 
       <Link to='/checkout'>
       <button>Finalizar Compra</button>
