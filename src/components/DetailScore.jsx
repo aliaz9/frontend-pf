@@ -35,7 +35,7 @@ export default function DetailScore () {
                         <div className={styles.cardData}>
                             <h5>Salvador Yepes</h5>
                             <p>@salvador-yepes</p>
-                            <Score count='4' disabled={1} />
+                            <Score count='2' disabledStart={0} disabledOpinion={1}/>
                         </div>
                     </div>
                     <hr className={styles.cardSeparator} />
@@ -53,7 +53,7 @@ export default function DetailScore () {
                         <div className={styles.cardData}>
                             <h5>Salvador Yepes</h5>
                             <p>@salvador-yepes</p>
-                            <Score count='4' disabled={1} />
+                            <Score count='2' disabledStart={0} disabledOpinion={1}/>
                         </div>
                     </div>
                     <hr className={styles.cardSeparator} />
@@ -71,7 +71,7 @@ export default function DetailScore () {
                         <div className={styles.cardData}>
                             <h5>Salvador Yepes</h5>
                             <p>@salvador-yepes</p>
-                            <Score count='4' disabled={1} />
+                            <Score count='2' disabledStart={0} disabledOpinion={1}/>
                         </div>
                     </div>
                     <hr className={styles.cardSeparator} />
@@ -89,7 +89,7 @@ export default function DetailScore () {
                         <div className={styles.cardData}>
                             <h5>Salvador Yepes</h5>
                             <p>@salvador-yepes</p>
-                            <Score count='4' disabled={1} />
+                            <Score count='2' disabledStart={0} disabledOpinion={1}/>
                         </div>
                     </div>
                     <hr className={styles.cardSeparator} />
@@ -107,7 +107,7 @@ export default function DetailScore () {
                         <div className={styles.cardData}>
                             <h5>Salvador Yepes</h5>
                             <p>@salvador-yepes</p>
-                            <Score count='4' disabled={1} />
+                            <Score count='2' disabledStart={0} disabledOpinion={1}/>
                         </div>
                     </div>
                     <hr className={styles.cardSeparator} />
@@ -125,7 +125,7 @@ export default function DetailScore () {
                         <div className={styles.cardData}>
                             <h5>Salvador Yepes</h5>
                             <p>@salvador-yepes</p>
-                            <Score count='4' disabled={1} />
+                            <Score count='2' disabledStart={0} disabledOpinion={1}/>
                         </div>
                     </div>
                     <hr className={styles.cardSeparator} />

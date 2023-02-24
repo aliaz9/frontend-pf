@@ -24,3 +24,7 @@
     display: none;
 }
 
+.ContainerScore p {
+    text-align: center;
+    color: #0d735a;
+}
