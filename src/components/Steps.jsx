@@ -25,5 +25,10 @@ export default function Steps () {
                 </div>
                 <div className={Styles.steps}>
                     <img className={Styles.stepsImg} src="https://res.cloudinary.com/daieynebb/image/upload/v1677244506/FlatIcon/support_gkwahs.png" alt="" />
-                    <b className={Styles.stepsTitle}>¡Coordinamos nuestra vida!</b>
+                    <b className={Styles.stepsTitle}>¡Coordinamos nuestra visita!</b>
                     <small className={Styles.stepsDescription}>Un asesor se comunicará para coordinar el día más pronto para la instalación</small>
+                </div>
+            </div>
+        </div>
+    )
+}
