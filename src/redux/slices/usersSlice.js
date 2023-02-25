@@ -6,7 +6,7 @@ export const users = createSlice(
 
     initialState: {
       message: { msg: '', error: null },
-      productsInCart: [] // localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []
+      productsInCart: localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []
     },
 
     reducers: {
@@ -19,10 +19,18 @@ export const users = createSlice(
       setCart (state, action) {
         state.productsInCart = [...state.productsInCart, action.payload]
       },
-      addCantidad (state, action) {
+      addOne (state, action) {
         state.productsInCart = state.productsInCart.map(p => {
           if (p.id === action.payload.id) {
             p.cantidad = p.cantidad + 1
+          }
+          return p
+        })
+      },
+      lessOne (state, action) {
+        state.productsInCart = state.productsInCart.map(p => {
+          if (p.id === action.payload) {
+            p.cantidad = p.cantidad - 1
           }
           return p
         })
@@ -31,6 +39,6 @@ export const users = createSlice(
   }
 )
 
-export const { setMessage, setCart, removeCart, addCantidad } = users.actions
+export const { setMessage, setCart, removeCart, addOne, lessOne } = users.actions
 
 export default users.reducer

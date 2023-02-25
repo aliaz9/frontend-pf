@@ -13,7 +13,6 @@ export default function FilterAndOrder () {
   const { brands } = useSelector((state) => state.products)
 
   function handleBrandChange (brand) {
-    console.log(brand)
     if (!brand) {
       dispatch(setBrand({ value: '', label: '' }))
       dispatch(getProducts())
