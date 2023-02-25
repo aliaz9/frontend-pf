@@ -1,7 +1,7 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import Layout from './Layout/Layout.jsx'
 import Home from './pages/Home.jsx'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { getBrands, getProducts, getTypes } from './redux/slices/thunksProducts.js'
 import Products from './pages/Products.jsx'
@@ -18,6 +18,11 @@ function App () {
     dispatch(getBrands())
   }, [])
 
+  const cart = useSelector(state => state.users.productsInCart)
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart))
+  }, [cart])
   return (
       <BrowserRouter>
         <Routes>
