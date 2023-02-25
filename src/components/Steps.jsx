@@ -1,34 +1,34 @@
 import React from 'react'
-import styles from '../styles/Steps.module.css'
+
+import Styles from './../styles/Steps.module.css'
 
 export default function Steps () {
   return (
-        <div className={styles.containerStepsAll}>
-            <center><h2 className={styles.titleSteps}>¡Cambia a energia solar en simples pasos!</h2></center>
-            <div className={styles.containerSteps}>
-                <hr className={styles.separatorSteps}/>
-                <div className={styles.steps}>
-                    <img className={styles.stepsImg} src="/images/signup.png" alt=""/>
-                    <b className={styles.stepsTitle}>Registrate</b>
-                    <small className={styles.stepsDescription}>Regístrate o Inicia Sesión en nuestro sitio</small>
+        <div className={Styles.containerStepsAll}>
+            <center><h2 className={Styles.titleSteps}>¡Cambia a energia solar en simples pasos!</h2></center>
+            <div className={Styles.containerSteps}>
+                <hr className={Styles.separatorSteps}/>
+                <div className={Styles.steps}>
+                    <img className={Styles.stepsImg} src="https://res.cloudinary.com/daieynebb/image/upload/v1677244506/FlatIcon/signup_wvpdb5.png" alt=""/>
+                    <b className={Styles.stepsTitle}>Registrate</b>
+                    <small className={Styles.stepsDescription}>Regístrate o Inicia Sesión en nuestro sitio</small>
                 </div>
-                <div className={styles.steps}>
-                    <img className={styles.stepsImg} src="/images/shopping-cart.png" alt="" />
-                    <b className={styles.stepsTitle}>Elige un Kit</b>
-                    <small className={styles.stepsDescription}>Elije el Kit de Paneles que se adapte a tu consumo habitual de energía</small>
+                <div className={Styles.steps}>
+                    <img className={Styles.stepsImg} src="https://res.cloudinary.com/daieynebb/image/upload/v1677244506/FlatIcon/shopping-cart_yzsjet.png" alt="" />
+                    <b className={Styles.stepsTitle}>Elige un Kit</b>
+                    <small className={Styles.stepsDescription}>Elije el Kit de Paneles que se adapte a tu consumo habitual de energía</small>
                 </div>
-                <div className={styles.steps}>
-                    <img className={styles.stepsImg} src="/images/payment.png" alt="" />
-                    <b className={styles.stepsTitle}>Realiza el Pago</b>
-                    <small className={styles.stepsDescription}>Elije entre diversas formas de pago</small>
+                <div className={Styles.steps}>
+                    <img className={Styles.stepsImg} src="https://res.cloudinary.com/daieynebb/image/upload/v1677244506/FlatIcon/payment_mwwqwm.png" alt="" />
+                    <b className={Styles.stepsTitle}>Realiza el Pago</b>
+                    <small className={Styles.stepsDescription}>Elije entre diversas formas de pago</small>
                 </div>
-                <div className={styles.steps}>
-                    <img className={styles.stepsImg} src="/images/support.png" alt="" />
-                    <b className={styles.stepsTitle}>¡Coordinamos nuestra vida!</b>
-                    <small className={styles.stepsDescription}>Un asesor se comunicará para coordinar el día más pronto para la instalación</small>
+                <div className={Styles.steps}>
+                    <img className={Styles.stepsImg} src="https://res.cloudinary.com/daieynebb/image/upload/v1677244506/FlatIcon/support_gkwahs.png" alt="" />
+                    <b className={Styles.stepsTitle}>¡Coordinamos nuestra visita!</b>
+                    <small className={Styles.stepsDescription}>Un asesor se comunicará para coordinar el día más pronto para la instalación</small>
                 </div>
-
             </div>
         </div>
-  )
+    )
 }
