@@ -9,7 +9,7 @@ export default function Modal ({ closeModal }) {
 
                 <div className={styles.modalHead}>
                     <div className={styles.modalTitle}>
-                        <b>Calificar Opinion</b>
+                        <b>Calificar Producto</b>
                     </div>
                     <div className={styles.btnModal} onClick={() => closeModal(false)}>
                         <i className="fa-solid fa-x"></i>
@@ -44,6 +44,5 @@ export default function Modal ({ closeModal }) {
                     <button><i className="fa-solid fa-paper-plane"></i>&nbsp;Publicar</button>
                 </div>
             </div>
-        </div>
-  )
+        </div>)
 }
