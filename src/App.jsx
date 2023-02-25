@@ -1,7 +1,7 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import Layout from './Layout/Layout.jsx'
 import Home from './pages/Home.jsx'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { getBrands, getProducts, getTypes } from './redux/slices/thunksProducts.js'
 import Products from './pages/Products.jsx'
@@ -11,12 +11,31 @@ import LoginForm from './pages/LoginForm.jsx'
 import ProductPage from './pages/Product.jsx'
 import Cart from './components/Cart.jsx'
 import Score from './components/Score.jsx'
+import { autehnticateUser } from './redux/slices/thunksUsers.js'
 function App () {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getProducts())
     dispatch(getTypes())
     dispatch(getBrands())
+  }, [])
+
+  const cart = useSelector(state => state.users.productsInCart)
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart))
+  }, [cart])
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (!token) return
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    }
+    dispatch(autehnticateUser(config))
+    // navigate('/')
   }, [])
 
   return (
