@@ -55,7 +55,7 @@ export default function Cart () {
 
             <div className="row" key={p.id}>
               <div className="col-4" >
-                <img src={p.image} className="cart-image" />
+                <img src={p.image} className="cart-image" alt='imagen' />
                 <div className="container-data">
                   <p className="title">{p.title} </p>
                   <p className="title">{p.price}</p>
@@ -82,7 +82,7 @@ export default function Cart () {
       <div> <p>Total: {total()}</p></div>
 
       <Link to='/checkout'>
-      <button>Finalizar Compra</button>
+      <button type='button'>Finalizar Compra</button>
       </Link>
     </div>
   )

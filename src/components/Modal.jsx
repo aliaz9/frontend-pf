@@ -11,8 +11,9 @@ export default function Modal ({ closeModal }) {
                     <div className={styles.modalTitle}>
                         <b>Calificar Opinion</b>
                     </div>
+                    {/* rome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
                     <div className={styles.btnModal} onClick={() => closeModal(false)}>
-                        <i className="fa-solid fa-x"></i>
+                        <i className="fa-solid fa-x"/>
                     </div>
                 </div>
                     <hr className={styles.separatorModal}/>
@@ -26,7 +27,7 @@ export default function Modal ({ closeModal }) {
                     <hr className={styles.separatorModal}/>
                 <div className={styles.modalFooter}>
                     <button onClick={() => closeModal(false)}>Cancelar</button>
-                    <button>Aceptar</button>
+                    <button type='button'>Aceptar</button>
                 </div>
             </div>
         </div>
