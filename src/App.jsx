@@ -14,7 +14,6 @@ import Score from './components/Score.jsx'
 import { autehnticateUser } from './redux/slices/thunksUsers.js'
 function App () {
   const dispatch = useDispatch()
-  const navigate = useNavigate
   useEffect(() => {
     dispatch(getProducts())
     dispatch(getTypes())

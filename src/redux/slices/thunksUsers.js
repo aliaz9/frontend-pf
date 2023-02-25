@@ -22,11 +22,11 @@ export const logUser = (user) => {
     try {
       const { data } = await clientAxios.post('/auth/login', user)
       // dispatch(setMessage(data))
+      dispatch(setAuth(data))
+      localStorage.setItem('token', data.token)
       setTimeout(() => {
         dispatch(setMessage({ msg: '', error: null }))
       }, 5000)
-
-      localStorage.setItem('token', data.token)
     } catch (error) {
       dispatch(setMessage(error.response.data))
       setTimeout(() => {
