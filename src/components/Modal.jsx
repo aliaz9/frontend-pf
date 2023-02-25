@@ -9,7 +9,7 @@ export default function Modal ({ closeModal }) {
 
                 <div className={styles.modalHead}>
                     <div className={styles.modalTitle}>
-                        <b>Calificar Opinion</b>
+                        <b>Calificar Producto</b>
                     </div>
                     {/* rome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
                     <div className={styles.btnModal} onClick={() => closeModal(false)}>
