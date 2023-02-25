@@ -1,17 +1,12 @@
 import React, { useState } from 'react'
 import styles from '../styles/ProfilePage.module.css'
-
+import UserProfile from '../components/UserProfile.jsx'
 export default function Pagination () {
   const [style, setStyle] = useState(1)
   const [style1, setStyle1] = useState(0)
   const [style2, setStyle2] = useState(0)
 
   const handleChange = (value) => {
-    // if (style === 0) {
-    // setStyle(1)
-    // } else {
-    //     setStyle(0)
-    // }
     switch (value) {
       case 1:
         if (style === 0) {
@@ -75,28 +70,11 @@ export default function Pagination () {
         </div>
 
         <div>
-            <h1>Perfil público</h1>
-            <p>Las personas que visiten tu perfil verán la siguiente información</p><br />
-            <div className={styles.imageProfile}>
-                <small>Foto</small>
-                <div>
-                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" width={80} alt="" />
-                    <button href="" className={styles.btnImage}>cambiar</button>
-                </div>
-            </div>
-            <div className={styles.infoProfile}>
-                <small>Nombre(s)</small>
-                <div className={styles.containerInfo}>
-                    <p>Gonzalo Pineda</p>
-                </div>
-            </div>
-            <div className={styles.infoProfile}>
-                <small>Correo Electronico</small>
-                <div className={styles.containerInfo}>
-                    <p>demo@demo.com</p>
-                </div>
-            </div>
+            {
+                style === 1 ? <UserProfile /> : <h1>En construccion</h1>
+            }
         </div>
+
     </div>
   )
 }
