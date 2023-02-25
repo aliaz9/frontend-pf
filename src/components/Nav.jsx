@@ -4,6 +4,8 @@ import '../styles/Nav.css'
 export default function Nav () {
   const productsInCart = useSelector((state) => state.users.productsInCart)
   const numberInCart = productsInCart.length
+  const { name } = useSelector(state => state.users.auth)
+  const { loading } = useSelector(state => state.users)
   return (
     <div className="nav">
       <div className="nav1">
@@ -21,9 +23,12 @@ export default function Nav () {
         />
       </div>
       <div className="nav2">
-        <Link to="/log-in">
-          <button className="button1">Iniciar sesión</button>
-        </Link>
+        {name}
+        {!loading && name
+          ? <Link to="/profile">{name}</Link>
+          : <Link to="/log-in">
+           <button className="button1">Iniciar sesión</button>
+        </Link> }
         <Link to="/sign-in">
           <button className="button2">Registrarse</button>
         </Link>

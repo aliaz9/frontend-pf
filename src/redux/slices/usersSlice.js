@@ -3,10 +3,11 @@ import { createSlice } from '@reduxjs/toolkit'
 export const users = createSlice(
   {
     name: 'users',
-
     initialState: {
       message: { msg: '', error: null },
-      productsInCart: localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []
+      productsInCart: JSON.parse(localStorage.getItem('cart')) || [],
+      auth: {},
+      loading: false
     },
 
     reducers: {
@@ -34,11 +35,17 @@ export const users = createSlice(
           }
           return p
         })
+      },
+      setAuth (state, action) {
+        state.auth = action.payload
+      },
+      setUserLoading (state, action) {
+        state.loading = action.payload
       }
     }
   }
 )
 
-export const { setMessage, setCart, removeCart, addOne, lessOne } = users.actions
+export const { setMessage, setCart, removeCart, addOne, lessOne, setAuth, setUserLoading } = users.actions
 
 export default users.reducer
