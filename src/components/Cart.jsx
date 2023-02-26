@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { remove, addCart } from '../redux/slices/thunksUsers.js'
+import { addCart, remove } from '../redux/slices/thunksUsers.js'
 import { removeCart } from '../redux/slices/usersSlice.js'
 import '../styles/Cart.css'
 
