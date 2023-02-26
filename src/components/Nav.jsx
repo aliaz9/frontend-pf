@@ -38,7 +38,7 @@ export default function Nav () {
         <Link to="/sign-in">
           <button className="button2">Registrarse</button>
         </Link>
-        <div className="cart">
+        <div className="cart position-relative">
           <Link to="/shopping-cart">
             <i className="fa-solid fa-cart-shopping" />
             {numberInCart
