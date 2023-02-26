@@ -1,19 +1,10 @@
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { setAuth } from '../redux/slices/usersSlice.js'
 import '../styles/Nav.css'
 export default function Nav () {
   const productsInCart = useSelector((state) => state.users.productsInCart)
-  
-  function numberInCart() {
-  let agregados = 0;
-  for (let i = 0; i < productsInCart.length; i++) {
-    agregados = agregados + productsInCart[i].cantidad;
-    return agregados;
-  }
-  }
- 
-
-
+  const numberInCart = productsInCart.length
   return (
     <div className="nav">
       <div className="nav1">
@@ -31,9 +22,11 @@ export default function Nav () {
         />
       </div>
       <div className="nav2">
+        <Link to="/profile">{name}</Link>
         <Link to="/log-in">
           <button className="button1">Iniciar sesión</button>
         </Link>
+        <button type='button' onClick={handleLogout} className="button2">Cerrar Sesion</button>
         <Link to="/sign-in">
           <button className="button2">Registrarse</button>
         </Link>
@@ -42,7 +35,7 @@ export default function Nav () {
             <i className="fa-solid fa-cart-shopping" />
   { numberInCart
     ? <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
-              {numberInCart()}
+              {numberInCart}
             </span>
     : null
           }

@@ -10,6 +10,7 @@ import SignIn from './pages/Sing-in.jsx'
 import LoginForm from './pages/LoginForm.jsx'
 import ProductPage from './pages/Product.jsx'
 import Cart from './components/Cart.jsx'
+import ProfilePage from './pages/ProfilePage.jsx'
 function App () {
   const dispatch = useDispatch()
   useEffect(() => {
@@ -23,6 +24,19 @@ function App () {
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart))
   }, [cart])
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (!token) return
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    }
+    dispatch(autehnticateUser(config))
+    // navigate('/')
+  }, [])
+
   return (
       <BrowserRouter>
         <Routes>
@@ -34,6 +48,7 @@ function App () {
             <Route path='/log-in' element={<LoginForm/>} />
             <Route path='/sign-in' element={<SignIn/>} />
             <Route path='/shopping-cart' element={<Cart/>}/>
+            <Route path='/user-page-profile' element={<ProfilePage />}/>
             <Route path='*' element={<h1>404</h1>} />
           </Route>
         </Routes>

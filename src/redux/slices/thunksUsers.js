@@ -1,25 +1,37 @@
 import { clientAxios } from '../../config/clientAxios.js'
-import { addOne, lessOne, removeCart, setCart, setMessage } from './usersSlice.js'
-
+import { addOne, lessOne, removeCart, setAuth, setCart, setMessage, setUserLoading } from './usersSlice.js'
 export const registerUser = (user) => {
   return async (dispatch) => {
     try {
       const { data } = await clientAxios.post('/users/register', user)
       dispatch(setMessage(data))
+      setTimeout(() => {
+        dispatch(setMessage({ msg: '', error: null }))
+      }, 5000)
     } catch (error) {
       dispatch(setMessage(error.response.data))
+
+      setTimeout(() => {
+        dispatch(setMessage({ msg: '', error: null }))
+      }, 5000)
     }
   }
 }
-
 export const logUser = (user) => {
   return async (dispatch) => {
     try {
       const { data } = await clientAxios.post('/auth/login', user)
-      dispatch(setMessage(data))
+      // dispatch(setMessage(data))
+      dispatch(setAuth(data))
       localStorage.setItem('token', data.token)
+      setTimeout(() => {
+        dispatch(setMessage({ msg: '', error: null }))
+      }, 5000)
     } catch (error) {
       dispatch(setMessage(error.response.data))
+      setTimeout(() => {
+        dispatch(setMessage({ msg: '', error: null }))
+      }, 5000)
     }
   }
 }
@@ -42,5 +54,18 @@ export const remove = (product) => {
       return
     }
     dispatch(lessOne(product.id))
+  }
+}
+
+export const autehnticateUser = (config) => {
+  return async (dispatch) => {
+    try {
+      dispatch(setUserLoading(true))
+      const { data } = await clientAxios('/users/profile', config)
+      dispatch(setAuth(data))
+    } catch (error) {
+      console.log(error)
+    }
+    dispatch(setUserLoading(false))
   }
 }
