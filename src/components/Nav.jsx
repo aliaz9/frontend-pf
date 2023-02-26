@@ -4,6 +4,7 @@ import { setAuth } from '../redux/slices/usersSlice.js'
 import '../styles/Nav.css'
 export default function Nav () {
   const productsInCart = useSelector((state) => state.users.productsInCart)
+  const { name } = useSelector((state) => state.users.auth)
 
   function numberInCart() {
     let agregados = 0;
@@ -30,11 +31,11 @@ export default function Nav () {
         />
       </div>
       <div className="nav2">
-        <Link to="/profile">{name}</Link>
+        <Link to="/user-page-profile">{name}</Link>
         <Link to="/log-in">
           <button className="button1">Iniciar sesión</button>
         </Link>
-        <button type='button' onClick={handleLogout} className="button2">Cerrar Sesion</button>
+        <button type='button' className="button2">Cerrar Sesion</button>
         <Link to="/sign-in">
           <button className="button2">Registrarse</button>
         </Link>
