@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
+import Score from '../components/Score.jsx'
 // import { addCart, getProductInfo } from '../../actions'
 // import '../product-page/product-page.css'
 import { getProductsDetails } from '../redux/slices/thunksProducts.js'
@@ -46,6 +47,7 @@ export default function ProductPage () {
           <p className="pp-brand">{productInfo.brand}</p>
         </div>
       </div>
+          <Score count={5} disabledStart = {0} disabledOpinion = {0} disabledNumber = {0}/>
     </div>
   )
 }
