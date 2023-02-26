@@ -80,3 +80,14 @@ export const confirmUser = (token) => {
     }
   }
 }
+
+// export const recoverPassword = (email) => {
+//   return async (dispatch) => {
+//     try {
+//       const { data } = await clientAxios(`/users/reset-password/${email}`)
+//       dispatch(setMessage(data))
+//     } catch (error) {
+//       dispatch(setMessage(error.response.data))
+//     }
+//   }
+// }
