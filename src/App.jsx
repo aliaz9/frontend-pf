@@ -11,6 +11,7 @@ import LoginForm from './pages/LoginForm.jsx'
 import ProductPage from './pages/Product.jsx'
 import Cart from './components/Cart.jsx'
 import ProfilePage from './pages/ProfilePage.jsx'
+import { autehnticateUser } from './redux/slices/thunksUsers.js'
 function App () {
   const dispatch = useDispatch()
   useEffect(() => {

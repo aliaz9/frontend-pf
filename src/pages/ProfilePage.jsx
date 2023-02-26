@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import styles from '../styles/ProfilePage.module.css'
 import UserProfile from '../components/UserProfile.jsx'
+import { useSelector } from 'react-redux'
 export default function Pagination () {
   const [style, setStyle] = useState(1)
   const [style1, setStyle1] = useState(0)
   const [style2, setStyle2] = useState(0)
+
+  const { name, email, image } = useSelector((state) => state.users.auth)
 
   const handleChange = (value) => {
     switch (value) {
@@ -71,7 +74,7 @@ export default function Pagination () {
 
         <div>
             {
-                style === 1 ? <UserProfile /> : <h1>En construccion</h1>
+                style === 1 ? <UserProfile name={name} email={email} image={image} /> : <h1>En construccion</h1>
             }
         </div>
 
