@@ -19,7 +19,7 @@ export default function DetailScore () {
                 <h3>Opiniones del Producto</h3>
                 <div>
                     <button onClick={ () => handleOpen(true)}>
-                        <i className="fa-solid fa-plus"></i>
+                        <i className="fa-solid fa-plus"/>
                         &nbsp;
                         Mi Opinion
                     </button>
