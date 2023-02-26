@@ -1,14 +1,12 @@
-// import React, { useState } from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import Alert from '../components/Alert.jsx'
 import { registerUser } from '../redux/slices/thunksUsers.js'
-// import { addUser } from '../../actions'
 import '../styles/Sing-in.css'
 
 export default function SignIn () {
   const dispatch = useDispatch()
-  // let [ success, setSuccess ] = useState(false);
-  // const { msg, error } = useSelector((state) => state.message)
+  const { msg, error } = useSelector((state) => state.users.message)
   return (
     <div className="box">
       {/* <h1>Registrate!</h1> */}
@@ -29,9 +27,7 @@ export default function SignIn () {
         }}
         onSubmit={(values, { resetForm }) => {
           dispatch(registerUser(values))
-          // setSuccess(true)
           resetForm()
-          // setTimeout(() => setSuccess(false), 5000)
         }}
       >
         {({ values, touched, handleSubmit, handleChange, handleBlur }) => (
@@ -39,29 +35,28 @@ export default function SignIn () {
             <div className="mb-3">
               <label className="form-label">Nombre:</label>
               <Field type="text" name="name" className="form-control" />
-              {touched.name && <ErrorMessage name="name" component="div" />}
+              {touched.name && <ErrorMessage name="name" component="span" />}
             </div>
 
             <div className="mb-3">
               <label className="form-label">Email:</label>
               <Field type="email" name="email" className="form-control" />
-              {touched.email && <ErrorMessage name="email" component="div" />}
+              {touched.email && <ErrorMessage name="email" component="span" />}
             </div>
 
             <div className="mb-3">
               <label className="form-label">Contraseña:</label>
               <Field type="password" name="password" className="form-control" />
               {touched.password && (
-                <ErrorMessage name="password" component="div" />
+                <ErrorMessage name="password" className='alert alert-primary' component="span" />
               )}
             </div>
 
-            <button type="submit" className="btn btn-primary mb-3">
+            <button type="submit" className="btn btn-primary mb-3 ">
               Regitrarse
             </button>
 
-            {/* { success && <p> Su Usuario ha sido registrado con éxito. </p> } */}
-            {/* {msg && <p> {msg} </p>} */}
+            {msg && <Alert error={error}>{msg} </Alert>}
           </Form>
         )}
       </Formik>

@@ -2,8 +2,9 @@ import React from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import s from '../styles/LoginForm.module.css'
 import * as Yup from 'yup'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { logUser } from '../redux/slices/thunksUsers.js'
+import Alert from '../components/Alert.jsx'
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Required'),
@@ -18,6 +19,9 @@ const LoginForm = () => {
       setSubmitting(false)
     })
   }
+
+  const { msg, error } = useSelector(state => state.users.message)
+
   return (
     <Formik
       initialValues={{ email: '', password: '' }}
@@ -29,16 +33,17 @@ const LoginForm = () => {
           <div>
             <label htmlFor="email">Email</label>
             <Field type="email" name="email" />
-            <ErrorMessage name="email" component="div" />
+            <ErrorMessage name="email" component="span" />
           </div>
           <div>
             <label htmlFor="password">Password</label>
             <Field type="password" name="password" />
-            <ErrorMessage name="password" component="div" />
+            <ErrorMessage name="password" component="span" />
           </div>
           <button type="submit" disabled={isSubmitting}>
             Submit
           </button>
+          { msg && <Alert error={error}>{msg}</Alert> }
         </Form>
       )}
     </Formik>

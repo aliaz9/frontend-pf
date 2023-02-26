@@ -32,6 +32,16 @@ export default function Hero () {
           />
         </div>
       </div>
+      <div>
+      <img
+            src={
+              'https://res.cloudinary.com/daieynebb/image/upload/v1677244010/wave_1_syhna5.svg'
+            }
+            alt="decoracion"
+            className={Style.separador}
+          /> 
+
+      </div>
     </div>
   )
 }

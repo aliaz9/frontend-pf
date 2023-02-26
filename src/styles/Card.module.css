@@ -1,5 +1,5 @@
 .card {
-  display: block;
+  display: flex;
   width: 300px;
   height: auto;
   border-radius: 10px;
@@ -19,9 +19,11 @@
 
 .title {
   text-decoration: none;
-  color: black;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   padding: 10px;
-  font-size: 15px;
+  font-size: 20px;
 }
 
 a:link {
@@ -49,4 +51,16 @@ a:link {
 
 .stars {
   color: rgb(228, 169, 20);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 20px;
 }
+
+.price{
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: green;
+}
+
