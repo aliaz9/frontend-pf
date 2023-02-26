@@ -12,8 +12,9 @@ import ProductPage from './pages/Product.jsx'
 import Cart from './components/Cart.jsx'
 import Score from './components/Score.jsx'
 import { autehnticateUser } from './redux/slices/thunksUsers.js'
-import { ConfirmUser } from './components/ConfirmUser.jsx'
-// import { RecoverPassword } from './components/RecoverPassword.jsx'
+import ConfirmUser from './components/ConfirmUser.jsx'
+import { RecoverPassword } from './components/RecoverPassword.jsx'
+
 function App () {
   const dispatch = useDispatch()
   useEffect(() => {
@@ -53,7 +54,7 @@ function App () {
             <Route path='/shopping-cart' element={<Cart/>}/>
             <Route path='/detail-score' element={<Score/>}/>
             <Route path='/users/confirm/:token' element={<ConfirmUser/>} />
-            {/* <Route path='/users/reset-password' element={<RecoverPassword/>} /> */}
+            <Route path='/users/reset-password' element={<RecoverPassword/>} />
             <Route path='*' element={<h1>404</h1>} />
           </Route>
         </Routes>
