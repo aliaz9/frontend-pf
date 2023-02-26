@@ -4,7 +4,15 @@ import { setAuth } from '../redux/slices/usersSlice.js'
 import '../styles/Nav.css'
 export default function Nav () {
   const productsInCart = useSelector((state) => state.users.productsInCart)
-  const numberInCart = productsInCart.length
+
+  function numberInCart() {
+    let agregados = 0;
+    for (let i = 0; i < productsInCart.length; i++) {
+      agregados = productsInCart[i].cantidad + agregados;
+    }
+    return agregados;
+  }
+
   return (
     <div className="nav">
       <div className="nav1">
@@ -35,7 +43,7 @@ export default function Nav () {
             <i className="fa-solid fa-cart-shopping" />
   { numberInCart
     ? <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
-              {numberInCart}
+              {numberInCart()}
             </span>
     : null
           }
