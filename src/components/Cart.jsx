@@ -1,9 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { remove } from '../redux/slices/thunksUsers.js'
+import { remove, addCart } from '../redux/slices/thunksUsers.js'
 import { removeCart } from '../redux/slices/usersSlice.js'
 import '../styles/Cart.css'
-
 
 export default function Cart () {
   const productsInCart = useSelector((state) => state.users.productsInCart)
@@ -11,8 +10,8 @@ export default function Cart () {
   const dispatch = useDispatch()
 
   function handleAddCart (product) {
-    dispatch(setCart(product))
-   }
+    dispatch(addCart(product))
+  }
 
   function removeOne (product) {
     dispatch(remove(product))
@@ -53,8 +52,12 @@ export default function Cart () {
             </div>
             <div className="col-4">
               <p className="title"> {p.cantidad} </p>
-              <button className='btn btn-info' onClick={() => handleAddCart(p)}>+</button>
-              <button className='btn btn-info' onClick={() => removeOne(p)}>-</button>
+              <button className="btn btn-info" onClick={() => handleAddCart(p)}>
+                +
+              </button>
+              <button className="btn btn-info" onClick={() => removeOne(p)}>
+                -
+              </button>
             </div>
             <div className="col-4">{<p>{p.price * p.cantidad}</p>}</div>
           </div>
@@ -67,7 +70,7 @@ export default function Cart () {
       </div>
 
       <Link to="/checkout">
-        <button type='button'>Finalizar Compra</button>
+        <button type="button">Finalizar Compra</button>
       </Link>
     </div>
   )
