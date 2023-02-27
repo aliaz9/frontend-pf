@@ -9,6 +9,7 @@
   align-items: center;
   justify-content: center;
   box-shadow: 3px 3px 8px rgba(39, 39, 39, 0.1);
+  padding: 20px;
 }
 
 .card:hover {
