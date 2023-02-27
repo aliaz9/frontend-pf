@@ -8,7 +8,7 @@ export default function Card ({ product }) {
     <div key={id} className={styles.card}>
         <Link to={`/product/${id}`}>
         <img src={image} alt={title} className={styles.image} />
-        <h1 className={styles.title}>título{title}</h1>
+        <h1 className={styles.title}>{title}</h1>
         <p className={styles.price}>${price}</p>
         {/* <img src={score} alt="Rating" className={Style.score} /> */}
         {/* <div className={styles.stars}>

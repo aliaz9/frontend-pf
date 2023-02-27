@@ -37,9 +37,7 @@ export const getTypes = () => {
   return async (dispatch) => {
     try {
       const { data } = await clientAxios('/types')
-      const types = data.map(({ name }) => (
-        { label: name, value: name }
-      ))
+      const types = data.map(({ name }) => ({ label: name, value: name }))
       dispatch(setTypes(types))
     } catch (error) {
       dispatch(setMessage(error.message))
@@ -51,9 +49,7 @@ export const getBrands = () => {
   return async (dispatch) => {
     try {
       const { data } = await clientAxios('/brands')
-      const brands = data.map(({ name }) => (
-        { value: name, label: name }
-      ))
+      const brands = data.map(({ name }) => ({ value: name, label: name }))
       dispatch(setBrands(brands))
     } catch (error) {
       dispatch(setMessage(error.message))
@@ -74,3 +70,19 @@ export const getByNames = (name) => {
     }
   }
 }
+
+// export const createProducts = async (formData) => {
+//   return async (dispatch) {
+//   try {
+//     const result = await clientAxios.post('/products', formData, {
+//       withCredentials: false,
+//       headers: {
+//         'Access-Control-Allow-Origin': '*'
+//       }
+//     })
+//     return result
+//   } catch (error) {
+//     dispatch(setMessage(error.message))
+//   }
+// }
+// }

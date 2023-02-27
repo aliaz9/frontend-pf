@@ -6,7 +6,6 @@
   margin-top: -50px;
   margin-bottom: 50px;
 
-
 }
 
 .titleSteps {
@@ -26,6 +25,7 @@
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 16px;
   margin: 0 100px;
+  
 }
 
 .steps {
@@ -33,8 +33,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  gap: 15px;
-  margin: 20px;
+
 
 }
 
