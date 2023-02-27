@@ -18,10 +18,6 @@ export const productsSlice = createSlice({
   },
   reducers: {
     setMessage: (state, action) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
       state.message = action.payload
     },
     setProducts: (state, action) => {
@@ -50,6 +46,15 @@ export const productsSlice = createSlice({
     },
     setNumberOfpages: (state, action) => {
       state.numberOfpages = action.payload
+    },
+    setOrder (state, action) {
+      state.order = action.payload
+    },
+    cleanSearch (state) {
+      state.search = []
+    },
+    setSearch (state, action) {
+      state.search = action.payload
     }
   }
 })
@@ -65,5 +70,8 @@ export const {
   setPageCurrent,
   setBrand,
   setType,
-  setNumberOfpages
+  setNumberOfpages,
+  setOrder,
+  setSearch,
+  cleanSearch
 } = productsSlice.actions

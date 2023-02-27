@@ -1,18 +1,20 @@
 import { useState } from 'react'
-
+import { useDispatch } from 'react-redux'
+import { cleanSearch } from '../redux/slices/productsSlice.js'
+import { getByNames } from '../redux/slices/thunksProducts.js'
 export default function Search () {
   const [search, setSearch] = useState('')
-
+  const dispatch = useDispatch()
   const onChange = (e) => {
     setSearch(e.target.value)
     if (e.target.value === '') {
-      // dispatch(cleanSearch())
+      dispatch(cleanSearch())
     }
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // dispatch(getByName(search))
+    dispatch(getByNames(search))
   }
   return (
     <>

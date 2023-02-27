@@ -69,3 +69,25 @@ export const autehnticateUser = (config) => {
     dispatch(setUserLoading(false))
   }
 }
+
+export const confirmUser = (token) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await clientAxios(`/users/confirm/${token}`)
+      dispatch(setMessage(data))
+    } catch (error) {
+      dispatch(setMessage(error.response.data))
+    }
+  }
+}
+
+export const recoverPassword = (email) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await clientAxios.post('/users/reset-password/', email)
+      dispatch(setMessage(data))
+    } catch (error) {
+      dispatch(setMessage(error.response.data))
+    }
+  }
+}
