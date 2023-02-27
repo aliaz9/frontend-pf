@@ -14,18 +14,12 @@ import SignIn from './pages/Sing-in.jsx'
 import LoginForm from './pages/LoginForm.jsx'
 import ProductPage from './pages/Product.jsx'
 import Cart from './components/Cart.jsx'
-<<<<<<< HEAD
 import ProfilePage from './pages/ProfilePage.jsx'
 import { autehnticateUser } from './redux/slices/thunksUsers.js'
 import ConfirmUser from './components/ConfirmUser.jsx'
 import { RecoverPassword } from './components/RecoverPassword.jsx'
 
 function App () {
-=======
-import Form from './components/Form.jsx'
-
-function App() {
->>>>>>> origin/form
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getProducts())
@@ -33,7 +27,7 @@ function App() {
     dispatch(getBrands())
   }, [])
 
-  const cart = useSelector(state => state.users.productsInCart)
+  const cart = useSelector((state) => state.users.productsInCart)
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart))
@@ -52,26 +46,6 @@ function App() {
   }, [])
 
   return (
-<<<<<<< HEAD
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Layout />}>
-            <Route path='/' element={<Home />} />
-            <Route path='/products' element={<Products/>}/>
-            <Route path='/product/:id' element={<ProductPage/>} />
-            <Route path='/about' element={<About/>} />
-            <Route path='/log-in' element={<LoginForm/>} />
-            <Route path='/sign-in' element={<SignIn/>} />
-            <Route path='/shopping-cart' element={<Cart/>}/>
-            <Route path='/user-page-profile' element={<ProfilePage />}/>
-            {/* <Route path='/detail-score' element={<Score/>}/> */}
-            <Route path='/users/confirm/:token' element={<ConfirmUser/>} />
-            <Route path='/users/reset-password' element={<RecoverPassword/>} />
-            <Route path='*' element={<h1>404</h1>} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-=======
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -82,12 +56,14 @@ function App() {
           <Route path="/log-in" element={<LoginForm />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/shopping-cart" element={<Cart />} />
+          <Route path="/user-page-profile" element={<ProfilePage />} />
+          {/* <Route path='/detail-score' element={<Score/>}/> */}
+          <Route path="/users/confirm/:token" element={<ConfirmUser />} />
+          <Route path="/users/reset-password" element={<RecoverPassword />} />
           <Route path="*" element={<h1>404</h1>} />
-          <Route path="/formulario" element={<Form />} />
         </Route>
       </Routes>
     </BrowserRouter>
->>>>>>> origin/form
   )
 }
 

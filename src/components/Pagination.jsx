@@ -1,13 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { setPageCurrent } from '../redux/slices/productsSlice.js'
-<<<<<<< HEAD
 import { getProducts } from '../redux/slices/thunksProducts.js'
-=======
-import { getProducts } from '../redux/slices/thunks.js'
-import styles from "../styles/Pagination.module.css"
-
->>>>>>> origin/pagination
-export default function Pagination () {
+export default function Pagination() {
   const { pageCurrent } = useSelector((state) => state.products)
   // const { products } = useSelector(state => state.products)
   const dispatch = useDispatch()
@@ -21,15 +15,15 @@ export default function Pagination () {
     dispatch(getProducts())
   }
   const pageNumber = []
-  for (let i=0;i<numberOfpages;i++){
-    pageNumber.push(i+1)
-}
-const changePage = (e)=>{
-  console.log(e.target.value)
-    e.preventDefault();
-    dispatch(setPageCurrent(e.target.value)) ;
+  for (let i = 0; i < numberOfpages; i++) {
+    pageNumber.push(i + 1)
+  }
+  const changePage = (e) => {
+    console.log(e.target.value)
+    e.preventDefault()
+    dispatch(setPageCurrent(e.target.value))
     dispatch(getProducts())
-}
+  }
 
   return (
     <div>
@@ -37,19 +31,27 @@ const changePage = (e)=>{
         type="button"
         onClick={() => previusPage()}
         disabled={pageCurrent === 1}
-        className={styles.Pagination}
+        // className={styles.Pagination}
       >
         {' '}
         ←
       </button>
-      {pageNumber && pageNumber.map((i, key) => 
-         <button className={styles.button} key={key} value={i}  onClick= {changePage} >{i}</button>
-      )}
+      {pageNumber &&
+        pageNumber.map((i, key) => (
+          <button
+            // className={styles.button}
+            key={key}
+            value={i}
+            onClick={changePage}
+          >
+            {i}
+          </button>
+        ))}
       <button
         type="button"
         onClick={() => nextPage()}
         disabled={pageCurrent === numberOfpages}
-        className={styles.Pagination}
+        // className={styles.Pagination}
       >
         →
       </button>

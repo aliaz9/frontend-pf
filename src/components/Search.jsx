@@ -1,6 +1,9 @@
 import { useState } from 'react'
-<<<<<<< HEAD
-import { cleanSearch, setBrand, setType } from '../redux/slices/productsSlice.js'
+import {
+  cleanSearch,
+  setBrand,
+  setType
+} from '../redux/slices/productsSlice.js'
 import { getByNames, getProducts } from '../redux/slices/thunksProducts.js'
 import Style from './../styles/Search.module.css'
 
@@ -12,9 +15,6 @@ import { useSelector, useDispatch } from 'react-redux'
 // import { getProducts } from '../redux/slices/thunksProducts.js'
 import Select from 'react-select'
 
-=======
-import styles from "../styles/Search.module.css"
->>>>>>> origin/pagination
 export default function Search () {
   const dispatch = useDispatch()
   const { types } = useSelector((state) => state.products)
@@ -53,39 +53,41 @@ export default function Search () {
   return (
     <>
       <div className={Style.container}>
-        <input 
-          type='search'
+        <input
+          type="search"
           value={search}
           onChange={onChange}
-          placeholder='Buscar..'
-          className={styles.button}
+          placeholder="Buscar.."
+          // className={styles.button}
         />
         {/* rome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
-        <i onClick={ (e) => handleSubmit(e)} className='fa-solid fa-magnifying-glass'/>
+        <i
+          onClick={(e) => handleSubmit(e)}
+          className="fa-solid fa-magnifying-glass"
+        />
 
+        {/* filtros ____________________________---- */}
+        <div className={Style.filters}>
+          <Select
+            options={brands}
+            onChange={handleBrandChange}
+            isClearable
+            // defaultValue={brands[0]}
+          />
 
-{/* filtros ____________________________---- */}
-      <div className={Style.filters}>
-      <Select
-        options={brands}
-        onChange={handleBrandChange}
-        isClearable
-        // defaultValue={brands[0]}
-      />
-
-       <Select
-        options={types}
-        onChange={handleTypeChange}
-        isClearable
-        // defaultValue={''}
-      />
-      <select>
-        <option label="Seleccione un orden" value={''} />
-        <option label="asc" value={'asc'} />
-        <option label="desc" value={'desc'} />
-      </select>
-    </div>
-    </div>
+          <Select
+            options={types}
+            onChange={handleTypeChange}
+            isClearable
+            // defaultValue={''}
+          />
+          <select>
+            <option label="Seleccione un orden" value={''} />
+            <option label="asc" value={'asc'} />
+            <option label="desc" value={'desc'} />
+          </select>
+        </div>
+      </div>
     </>
   )
 }
