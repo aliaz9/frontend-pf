@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 import styles from '../styles/Score.module.css'
 import DetailScore from './DetailScore'
 
@@ -73,12 +72,12 @@ export default function Score ({ count, disabledStart = 0, disabledOpinion = 0, 
         <p className={`${disabledNumber === 0 ? styles.isVisibility : ''}`}>{ handleText() }</p>
         </div>
 
-        <Link
+        <button
           className={`${disabledOpinion === 1 ? styles.isVisibility : ''}`}
           onClick={ () => handleDisplay(true)}
         >
           <small className={styles.titleScore} title="Ver Opiniones" >80 Opiniones</small>
-        </Link>
+        </button>
       </div>
         {display && <DetailScore />}
     </>

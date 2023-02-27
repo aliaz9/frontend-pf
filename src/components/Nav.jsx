@@ -6,14 +6,17 @@ export default function Nav () {
   const productsInCart = useSelector((state) => state.users.productsInCart)
   const { name } = useSelector((state) => state.users.auth)
 
-  function numberInCart() {
-    let agregados = 0;
+  function numberInCart () {
+    let agregados = 0
     for (let i = 0; i < productsInCart.length; i++) {
-      agregados = productsInCart[i].cantidad + agregados;
+      agregados = productsInCart[i].cantidad + agregados
     }
-    return agregados;
+    return agregados
   }
-
+  const dispatch = useDispatch()
+  function handleLogOut () {
+    dispatch(setAuth({}))
+  }
   return (
     <div className="nav">
       <div className="nav1">
@@ -35,7 +38,7 @@ export default function Nav () {
         <Link to="/log-in">
           <button className="button1">Iniciar sesión</button>
         </Link>
-        <button type='button' className="button2">Cerrar Sesion</button>
+        <button type='button' onClick={handleLogOut }  className="button2">Cerrar Sesion</button>
         <Link to="/sign-in">
           <button className="button2">Registrarse</button>
         </Link>

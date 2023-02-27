@@ -1,12 +1,12 @@
 import { clientAxios } from '../../config/clientAxios.js'
-import { loading, setMessage, setProducts, setProduct, setTypes, setBrands, setNumberOfpages } from './productsSlice.js'
+import { loading, setMessage, setProducts, setProduct, setTypes, setBrands, setNumberOfpages, setSearch } from './productsSlice.js'
 
 export const getProducts = () => {
   return async (dispatch, getState) => {
     try {
       dispatch(loading(true))
-      const { products: { pageCurrent, brand, type } } = getState()
-      const { data: { products, count } } = await clientAxios(`/products?number=12&page=${pageCurrent}&brandName=${brand.label}&typeName=${type.label}`)
+      const { products: { pageCurrent, brand, type, order } } = getState()
+      const { data: { products, count } } = await clientAxios(`/products?number=12&page=${pageCurrent}&brandName=${brand.label}&typeName=${type.label}&order=${order}`)
       if (brand.value || type.value) {
         dispatch(setNumberOfpages(Math.ceil(count / 12)))
       }
@@ -57,6 +57,20 @@ export const getBrands = () => {
       dispatch(setBrands(brands))
     } catch (error) {
       dispatch(setMessage(error.message))
+    }
+  }
+}
+
+export const getByNames = (name) => {
+  return async (dispatch) => {
+    try {
+      dispatch(loading(true))
+      const { data } = await clientAxios(`/products?search=${name}`)
+      dispatch(setSearch(data))
+    } catch (error) {
+      dispatch(setMessage(error.message))
+    } finally {
+      dispatch(loading(false))
     }
   }
 }
