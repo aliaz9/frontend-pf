@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cabin:wght@400;700&family=Tilt+Warp&display=swap');
+
+form {
+  font-family: Tilt Warp;
+  font-weight: 400;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title h1 {
+  font-family: Tilt Warp;
+  font-weight: 400;
+}
+.contForm {
+  padding: 1%;
+  width: 500px;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.formulario div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+}
+
+.formulario .inputDos div {
+  display: flex;
+  flex-direction: column;
+}
+
+.formulario .inputDos div input {
+  height: 20px;
+  padding: 2%;
+}
+
+.formulario label {
+  font-size: 17px;
+}
+
+.formulario input[type='text'] {
+  height: 20px;
+  padding: 1%;
+  border-radius: 5px;
+  border: none;
+  background-color: #f6f3ea;
+  outline: none;
+  transition: background-color 0.4s, border 0.4s, box-shadow 0.4s;
+}
+.formulario input[type='number'] {
+  height: 20px;
+  padding: 1%;
+  border-radius: 5px;
+  border: none;
+  background-color: #f3eadb;
+  outline: none;
+  transition: background-color 0.4s, border 0.4s, box-shadow 0.4s;
+}
+
+.formulario input::placeholder {
+  color: #ccd0d0;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.formulario input[type='text']:hover {
+  background-color: white;
+  border: solid 1px #f3f3f4;
+  box-shadow: 0 0 4px #ffbb00;
+}
+.formulario input[type='number']:hover {
+  background-color: white;
+  border: solid 1px #f3f3f4;
+  box-shadow: 0 0 4px #ffbb00;
+}
+
+.formulario input[type='text']:focus {
+  background-color: white;
+  border: solid 1px #f3f3f4;
+  box-shadow: 0 0 4px #ffbb00;
+}
+.formulario input[type='number']:focus {
+  background-color: white;
+  border: solid 1px #f3f3f4;
+  box-shadow: 0 0 4px #ffbb00;
+}
+.formulario textarea {
+  resize: none;
+  height: 45px;
+  padding: 1%;
+  border-radius: 5px;
+  border: none;
+  background-color: #f6f3ea;
+  outline: none;
+}
+.formulario textarea:hover {
+  background-color: white;
+  border: solid 1px #f3f3f4;
+  box-shadow: 0 0 4px #ffbb00;
+}
+
+.formulario textarea:focus {
+  background-color: white;
+  border: solid 1px #f3f3f4;
+  box-shadow: 0 0 4px #ffbb00;
+}
+
+.formulario textarea::placeholder {
+  color: #ccd0d0;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.formulario input[type='file'] {
+  cursor: pointer;
+}
+
+.formulario input[type='file']::before {
+  content: 'Seleccione un archivo';
+  position: absolute;
+  background-color: #f3eadb;
+}
+.adicional {
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
