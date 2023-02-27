@@ -57,7 +57,6 @@ export const getBrands = () => {
   }
 }
 
-<<<<<<< HEAD
 export const getByNames = (name) => {
   return async (dispatch) => {
     try {
@@ -69,7 +68,6 @@ export const getByNames = (name) => {
     } finally {
       dispatch(loading(false))
     }
-=======
 export const createProducts = async (formData) => {
   try {
     const result = await clientAxios.post('/products', formData, {
@@ -81,6 +79,5 @@ export const createProducts = async (formData) => {
     return result
   } catch (error) {
     dispatch(setMessage(error.message))
->>>>>>> origin/form
   }
 }

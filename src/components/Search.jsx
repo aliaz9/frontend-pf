@@ -1,4 +1,5 @@
 import { useState } from 'react'
+<<<<<<< HEAD
 import { cleanSearch, setBrand, setType } from '../redux/slices/productsSlice.js'
 import { getByNames, getProducts } from '../redux/slices/thunksProducts.js'
 import Style from './../styles/Search.module.css'
@@ -11,6 +12,9 @@ import { useSelector, useDispatch } from 'react-redux'
 // import { getProducts } from '../redux/slices/thunksProducts.js'
 import Select from 'react-select'
 
+=======
+import styles from "../styles/Search.module.css"
+>>>>>>> origin/pagination
 export default function Search () {
   const dispatch = useDispatch()
   const { types } = useSelector((state) => state.products)
@@ -54,6 +58,7 @@ export default function Search () {
           value={search}
           onChange={onChange}
           placeholder='Buscar..'
+          className={styles.button}
         />
         {/* rome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
         <i onClick={ (e) => handleSubmit(e)} className='fa-solid fa-magnifying-glass'/>

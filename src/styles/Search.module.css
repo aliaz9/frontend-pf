@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .container{
     display: flex;
     flex-direction: row;
@@ -22,3 +23,9 @@
  margin-left: 20px;
 }
   
+=======
+.button {
+    border-radius: 5px;
+    margin: 5px;
+}
+>>>>>>> origin/pagination
