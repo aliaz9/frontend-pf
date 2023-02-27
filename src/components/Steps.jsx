@@ -7,7 +7,7 @@ export default function Steps () {
         <div className={Styles.containerStepsAll}>
             <center><h2 className={Styles.titleSteps}>¡Cambia a energia solar en simples pasos!</h2></center>
             <div className={Styles.containerSteps}>
-                <hr className={Styles.separatorSteps}/>
+                {/* <hr className={Styles.separatorSteps}/> */}
                 <div className={Styles.steps}>
                     <img className={Styles.stepsImg} src="https://res.cloudinary.com/daieynebb/image/upload/v1677244506/FlatIcon/signup_wvpdb5.png" alt=""/>
                     <b className={Styles.stepsTitle}>Registrate</b>
