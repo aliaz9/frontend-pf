@@ -1,5 +1,5 @@
 import { useState } from 'react'
-
+import styles from "../styles/Search.module.css"
 export default function Search () {
   const [search, setSearch] = useState('')
 
@@ -23,6 +23,7 @@ export default function Search () {
           value={search}
           onChange={onChange}
           placeholder='Buscar..'
+          className={styles.button}
         />
         {/* rome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
         <i onClick={ (e) => handleSubmit(e)} className='fa-solid fa-magnifying-glass'/>

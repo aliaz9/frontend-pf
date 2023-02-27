@@ -5,8 +5,8 @@ export const getProducts = () => {
   return async (dispatch, getState) => {
     try {
       dispatch(loading(true))
-      const { products: { pageCurrent, brand, type } } = getState()
-      const { data: { products, count } } = await clientAxios(`/products?number=12&page=${pageCurrent}&brandName=${brand.label}&typeName=${type.label}`)
+      const { products: { pageCurrent, brand, type, order } } = getState()
+      const { data: { products, count } } = await clientAxios(`/products?number=12&page=${pageCurrent}&brandName=${brand.label}&typeName=${type.label}&order=${order.label}`)
       if (brand.value || type.value) {
         dispatch(setNumberOfpages(Math.ceil(count / 12)))
       }
@@ -60,3 +60,4 @@ export const getBrands = () => {
     }
   }
 }
+
