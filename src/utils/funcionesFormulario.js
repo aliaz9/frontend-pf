@@ -60,7 +60,6 @@ const Form = () => {
     formData.append('image', image)
     formData.append('document', document)
     const result = await createProducts(formData)
-    console.log(result)
   }
 
   return (
