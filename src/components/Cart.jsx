@@ -2,12 +2,15 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { addCart, remove } from '../redux/slices/thunksUsers.js'
 import { removeCart } from '../redux/slices/usersSlice.js'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import '../styles/Cart.css'
 
 export default function Cart () {
   const productsInCart = useSelector((state) => state.users.productsInCart)
   console.log(productsInCart)
   const dispatch = useDispatch()
+
 
   function handleAddCart (product) {
     dispatch(addCart(product))
@@ -27,7 +30,9 @@ export default function Cart () {
   }
 
   return (
+
     <div className="background">
+
       <div className="row">
         <div className="col-4">Producto</div>
         <div className="col-4">Cantidad</div>
