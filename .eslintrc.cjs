@@ -3,7 +3,7 @@ module.exports = {
     browser: true,
     es2021: true
   },
-  extends: ['eslint:recommended', 'plugin:react/recommended', 'standard'],
+  extends: ['plugin:react/recommended', 'standard'],
   overrides: [],
   parserOptions: {
     ecmaVersion: 'latest',
@@ -11,8 +11,13 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
+    // disable react must have prop-types and must be in scope
+    'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
-    // disable prop-types rule
-    'react/prop-types': 'off'
+    // disable space before function parentheses
+    'space-before-function-paren': 'off',
+    // disable ternary operator in new line
+    // disable multiline ternary operator
+    'multiline-ternary': 'off'
   }
 }

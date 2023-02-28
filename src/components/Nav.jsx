@@ -2,17 +2,19 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { setAuth } from '../redux/slices/usersSlice.js'
 import '../styles/Nav.css'
-export default function Nav () {
-  const productsInCart = useSelector((state) => state.users.productsInCart)
-
+export default function Nav() {
+  const productsInCart = useSelector(state => state.users.productsInCart)
+  const dispatch = useDispatch()
   function numberInCart() {
-    let agregados = 0;
+    let agregados = 0
     for (let i = 0; i < productsInCart.length; i++) {
-      agregados = productsInCart[i].cantidad + agregados;
+      agregados = productsInCart[i].cantidad + agregados
     }
-    return agregados;
+    return agregados
   }
-
+  const handleLogout = () => {
+    dispatch(setAuth({}))
+  }
   return (
     <div className="nav">
       <div className="nav1">
@@ -34,19 +36,20 @@ export default function Nav () {
         <Link to="/log-in">
           <button className="button1">Iniciar sesión</button>
         </Link>
-        <button type='button' onClick={handleLogout} className="button2">Cerrar Sesion</button>
+        <button type="button" onClick={handleLogout} className="button2">
+          Cerrar Sesion
+        </button>
         <Link to="/sign-in">
           <button className="button2">Registrarse</button>
         </Link>
         <div className="cart position-relative">
           <Link to="/shopping-cart">
             <i className="fa-solid fa-cart-shopping" />
-  { numberInCart
-    ? <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
-              {numberInCart()}
-            </span>
-    : null
-          }
+            {numberInCart ? (
+              <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
+                {numberInCart()}
+              </span>
+            ) : null}
           </Link>
         </div>
       </div>
