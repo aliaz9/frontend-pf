@@ -1,10 +1,13 @@
+import { replace } from 'formik'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { addCart, remove } from '../redux/slices/thunksUsers.js'
+import { Link, useNavigate } from 'react-router-dom'
+import { addCart, loaderPayment, remove } from '../redux/slices/thunksUsers.js'
 import { removeCart } from '../redux/slices/usersSlice.js'
 import '../styles/Cart.css'
 
 export default function Cart () {
+  const navigate = useNavigate()
+  const link = useSelector((state) => state.users.linkPayment)
   const productsInCart = useSelector((state) => state.users.productsInCart)
   console.log(productsInCart)
   const dispatch = useDispatch()
@@ -24,6 +27,15 @@ export default function Cart () {
       total = total + subtotal
     }
     return total
+  }
+
+  function handlePayment () {
+    const productPay = productsInCart[0]
+    dispatch(loaderPayment({ price: productPay.price, quantity: productPay.cantidad, title: productPay.title })).then(() => {
+      // navigate('https://www.google.com', { replace: true })
+      window.location.href('https://www.google.com')
+      console.log(link)
+    })
   }
 
   return (
@@ -68,10 +80,7 @@ export default function Cart () {
         {' '}
         <p>Total: {total()}</p>
       </div>
-
-      <Link to="/checkout">
-        <button type="button">Finalizar Compra</button>
-      </Link>
+        <button onClick={handlePayment} type="button">Finalizar Compra</button>
     </div>
   )
 }
