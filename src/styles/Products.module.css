@@ -9,6 +9,11 @@
 .titulo {
   font-size: 28px;
   margin-top: 20px;
+  text-align: center;
+  color: #002A39;
+  font-weight:bolder;
+  font-size: 40px;
+  margin-top: 60px;
 }
 
 .searchContainer input {
@@ -31,20 +36,22 @@
 }
 
 .containerSectionInfo {
-  background-color: red;
   display: flex;
   flex-direction: row;
+  margin: 80px;
+  border-radius: 20px;
 }
 
 .derecha {
   display: flex;
   flex-direction: column;
-  background-color: #F4F1EB;
+  background-color: #fff;
   background-size: cover;
   width: 100%;
   align-items: center;
   justify-content: center;
 }
+
 
 .izquierda img {
   display: flex;

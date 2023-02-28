@@ -1,6 +1,7 @@
 import Style from '../styles/Hero.module.css'
 import { Link } from 'react-router-dom'
 
+
 export default function Hero () {
   return (
     <div>
@@ -16,20 +17,37 @@ export default function Hero () {
         </div>
 
         <div className={Style.derecha}>
+         
+        <img
+            src={
+              'https://res.cloudinary.com/daieynebb/image/upload/v1677472341/Images/solar_panel_fvixdj.png'
+            }
+            alt="img-panelSolar"
+            className={Style.imgPanel}
+          />
           <img
             src={
-              'https://res.cloudinary.com/dugymmik7/image/upload/v1677016190/PF%20Henry/imgHero_drn6fx.jpg'
+              'https://res.cloudinary.com/daieynebb/image/upload/v1677495953/Images/forma_hri3ay.png'
             }
             alt="img-panelSolar"
             className={Style.imgHeroCSS}
           />
-          <img
+
+
+                  {/* <img
+            src={
+              'https://res.cloudinary.com/daieynebb/image/upload/v1677474266/Images/hombre_cln9re.png'
+            }
+            alt="img-panelSolar"
+            className={Style.imgHeroHombre}
+            /> */}
+          {/* <img
             src={
               'https://res.cloudinary.com/dugymmik7/image/upload/v1677016190/PF%20Henry/iconLogo_yibb6t.png'
             }
             alt="decoracion"
             className={Style.LogoDecoCSS}
-          />
+          /> */}
         </div>
       </div>
       <div>
