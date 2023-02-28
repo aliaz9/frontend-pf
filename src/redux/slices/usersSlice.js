@@ -41,11 +41,19 @@ export const users = createSlice(
       },
       setUserLoading (state, action) {
         state.loading = action.payload
+      },
+      setEdithUser: (state, action) => {
+        const { name, email } = action.payload
+        state.auth.name = name
+        state.auth.email = email
+
+        // state.pokemons = action.payload.pokemons
+        // console.log(state.auth.name)
       }
     }
   }
 )
 
-export const { setMessage, setCart, removeCart, addOne, lessOne, setAuth, setUserLoading } = users.actions
+export const { setMessage, setCart, removeCart, addOne, lessOne, setAuth, setUserLoading, setEdithUser } = users.actions
 
 export default users.reducer

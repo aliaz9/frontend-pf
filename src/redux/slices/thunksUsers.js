@@ -1,5 +1,5 @@
 import { clientAxios } from '../../config/clientAxios.js'
-import { addOne, lessOne, removeCart, setAuth, setCart, setMessage, setUserLoading } from './usersSlice.js'
+import { addOne, lessOne, removeCart, setAuth, setCart, setEdithUser, setMessage, setUserLoading } from './usersSlice.js'
 export const registerUser = (user) => {
   return async (dispatch) => {
     try {
@@ -89,5 +89,21 @@ export const recoverPassword = (email) => {
     } catch (error) {
       dispatch(setMessage(error.response.data))
     }
+  }
+}
+
+export const editUser = (user) => {
+  return async (dispatch) => {
+    try {
+      const { name, email } = user
+      dispatch(setUserLoading(true))
+      dispatch(setEdithUser({ name, email }))
+
+      const { data } = await clientAxios.put(`/users/${user.uid}`, { name, email })
+      dispatch(setMessage(data.msg))
+    } catch (error) {
+      dispatch(setMessage(error.response.data))
+    }
+    dispatch(setUserLoading(false))
   }
 }

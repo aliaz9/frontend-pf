@@ -64,6 +64,17 @@ small{
     margin: 10px 0;
 }
 
+.error{
+    color: red;
+}
+
+.btnImage:disabled{
+    background-color: #f3f7f8;
+    cursor: no-drop;
+    color: #cbd6de;
+}
+
+
 @media(max-width:640px) {
 
     .btnImage{

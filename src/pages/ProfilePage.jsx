@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import styles from '../styles/ProfilePage.module.css'
 import UserProfile from '../components/UserProfile.jsx'
+import UserNotFound from '../components/UserNotFound.jsx'
 import { useSelector } from 'react-redux'
 export default function Pagination () {
   const [style, setStyle] = useState(1)
   const [style1, setStyle1] = useState(0)
   const [style2, setStyle2] = useState(0)
 
-  const { name, email, image } = useSelector((state) => state.users.auth)
+  const { token } = useSelector((state) => state.users.auth)
 
   const handleChange = (value) => {
     switch (value) {
@@ -74,7 +75,16 @@ export default function Pagination () {
 
         <div>
             {
-                style === 1 ? <UserProfile name={name} email={email} image={image} /> : <h1>En construccion</h1>
+              token
+              // eslint-disable-next-line indent
+              ? (
+                    style === 1
+                      ? (
+                         <UserProfile token={token} />
+                        )
+                      : <h1>En construccion</h1>
+                  )
+                : <UserNotFound />
             }
         </div>
 
