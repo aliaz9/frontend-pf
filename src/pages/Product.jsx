@@ -6,11 +6,15 @@ import Style from "./../styles/ProductDetail.module.css"
 // import { addCart, getProductInfo } from '../../actions'
 import { getProductsDetails } from '../redux/slices/thunksProducts.js'
 import { addCart } from '../redux/slices/thunksUsers.js'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function ProductPage () {
   const productInfo = useSelector((state) => state.products.product)
   const dispatch = useDispatch()
   const params = useParams()
+
+
   function handleAddCart () {
     const productToAdd = {
       id: productInfo.id,
@@ -53,7 +57,7 @@ export default function ProductPage () {
                 <Score count={5} disabledStart = {0} disabledOpinion = {0} disabledNumber = {0}/>
             </div>
 
-          
+
               {/* <Score count={5} disabledStart = {0} disabledOpinion = {0} disabledNumber = {0}/> */}
     </div>
   )
