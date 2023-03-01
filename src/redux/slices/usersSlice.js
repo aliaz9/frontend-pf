@@ -10,6 +10,46 @@ export const users = createSlice({
     linkPayment: ''
   },
 
+
+    reducers: {
+      setMessage (state, action) {
+        state.message = action.payload
+      },
+      removeCart (state, action) {
+        state.productsInCart = state.productsInCart.filter(p => p.id !== action.payload)
+      },
+      setCart (state, action) {
+        state.productsInCart = [...state.productsInCart, action.payload]
+      },
+      addOne (state, action) {
+        state.productsInCart = state.productsInCart.map(p => {
+          if (p.id === action.payload.id) {
+            p.cantidad = p.cantidad + 1
+          }
+          return p
+        })
+      },
+      lessOne (state, action) {
+        state.productsInCart = state.productsInCart.map(p => {
+          if (p.id === action.payload) {
+            p.cantidad = p.cantidad - 1
+          }
+          return p
+        })
+      },
+      setAuth (state, action) {
+        state.auth = action.payload
+      },
+      setUserLoading (state, action) {
+        state.loading = action.payload
+      },
+      setEdithUser: (state, action) => {
+        const { name, email } = action.payload
+        state.auth.name = name
+        state.auth.email = email
+
+      }
+
   reducers: {
     setMessage(state, action) {
       state.message = action.payload
@@ -46,9 +86,11 @@ export const users = createSlice({
     },
     setLinkPayment(state, action) {
       state.linkPayment = action.payload
+
     }
   }
 })
+
 
 export const {
   setMessage,
@@ -60,5 +102,6 @@ export const {
   setUserLoading,
   setLinkPayment
 } = users.actions
+
 
 export default users.reducer
