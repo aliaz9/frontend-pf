@@ -49,10 +49,22 @@ const Form = () => {
   const handlerfile = (event) => {
     const property = event.target.name
     const value = event.target.files[0]
-    // formData.append(property, value)
-    if (property === 'image') setImage(value)
-    if (property === 'document') setDocument(value)
+    const extensionImg = /(.jpg|.jpeg|.png|.gif)$/i
+    const vinculo = value.name
+    if (property === 'image') {
+      if (extensionImg.exec(vinculo)) setImage(value)
+      else {
+        alert('El archivo ingresado no es una imagen')
+      }
+    }
+    if (property === 'document') {
+      if (value.type === 'application/pdf') setDocument(value)
+      else {
+        alert('El archivo ingresado no es un .pdf')
+      }
+    }
   }
+
   const handleCategoria = (event) => {
     setCategoria(event.target.value)
   }
@@ -66,13 +78,15 @@ const Form = () => {
     const result = await createProducts(formData)
   }
 
-  const panelesSolares = (
-    <div className={style.adicional}>
+
+  let panelesSolares = (
+    <div className={style.formulario}>
+
       {' '}
       {/* propiedades opcionales segun el producto */}
       {/* paneles solares */}
-      {/*Maxima potencia  */}
       <div className={style.inputDos}>
+        {/*Maxima potencia  */}
         <div>
           <label>
             <span>Potencia Maxima</span>
@@ -82,10 +96,12 @@ const Form = () => {
             value={form.pmax}
             onChange={inforHandeler}
             name="pmax"
+            autoComplete="off"
           />
         </div>
-        {/* Tension Maxima */}
+
         <div>
+          {/* Tension Maxima */}
           <label>
             <span>Voltaje Maxima</span>
           </label>
@@ -94,6 +110,7 @@ const Form = () => {
             value={form.vmax}
             onChange={inforHandeler}
             name="vmax"
+            autoComplete="off"
           />
         </div>
       </div>
@@ -108,10 +125,11 @@ const Form = () => {
             value={form.voc}
             onChange={inforHandeler}
             name="voc"
+            autoComplete="off"
           />
         </div>
-        {/* Intencvaluead en corto-circuito */}
         <div>
+          {/* Intencvaluead en corto-circuito */}
           <label>
             <span>Corriente en Corto-Circuito</span>
           </label>
@@ -120,6 +138,7 @@ const Form = () => {
             value={form.isc}
             onChange={inforHandeler}
             name="isc"
+            autoComplete="off"
           />
         </div>
       </div>
@@ -127,9 +146,10 @@ const Form = () => {
   )
 
   let invBatCont = (
-    <div className={style.adicional}>
+    <div className={style.inputDos}>
       {/* PARA INVERSORES, BATERIAS Y CONTROLADORES */}
       {/* Voltaje Nominal */}
+      {/* <div className={style.inputDos}> */}
       <div>
         <label>
           <span>Voltaje Nominal</span>
@@ -139,6 +159,7 @@ const Form = () => {
           value={form.RatedVoltage}
           onChange={inforHandeler}
           name="RatedVoltage"
+          autoComplete="off"
         />
       </div>
       {/* Corriente nominal */}
@@ -151,120 +172,139 @@ const Form = () => {
           value={form.RatedCurrent}
           onChange={inforHandeler}
           name="RatedCurrent"
+          autoComplete="off"
         />
       </div>
+      {/* </div> */}
     </div>
   )
 
   let baterias = (
-    <div className={style.adicional}>
+    <div className={style.formulario}>
       {/* Para Baterias */}
-      {/* Tecnologia */}
-      <div>
+      {/* <div className={style.inputDos}> */} {/* Tecnologia */}
+      <div className={style.divSolo}>
         <label>
           <span>Tecnologia de la Bateria</span>
         </label>
         <input
-          type="number"
+          type="text"
           value={form.tecnology}
           onChange={inforHandeler}
           name="tecnology"
+          autoComplete="off"
         />
       </div>
       {invBatCont}
+      {/* </div> */}
     </div>
   )
   let inversores = (
-    <div className={style.adicional}>
+    <div className={style.formulario}>
       {/* Para Inversores */}
       {/* Potencia de Salvaluea */}
-      <div>
-        <label>
-          <span>Potencia de Salvaluea</span>
-        </label>
-        <input
-          type="number"
-          value={form.powerOutput}
-          onChange={inforHandeler}
-          name="powerOutput"
-        />
+      <div className={style.inputDos}>
+        <div>
+          <label>
+            <span>Potencia de Salvaluea</span>
+          </label>
+          <input
+            type="number"
+            value={form.powerOutput}
+            onChange={inforHandeler}
+            name="powerOutput"
+            autoComplete="off"
+          />
+        </div>
+        {/* Pico de potencia */}
+        <div>
+          <label>
+            <span>Pico de Potencia</span>
+          </label>
+          <input
+            type="number"
+            value={form.peakPower}
+            onChange={inforHandeler}
+            name="peakPower"
+            autoComplete="off"
+          />
+        </div>
       </div>
-      {/* Pico de potencia */}
-      <div>
-        <label>
-          <span>Pico de Potencia</span>
-        </label>
-        <input
-          type="number"
-          value={form.peakPower}
-          onChange={inforHandeler}
-          name="peakPower"
-        />
-      </div>
+
       {invBatCont}
     </div>
   )
 
   let controladores = (
-    <div className={style.adicional}>
+    <div className={style.formulario}>
       {/* PARA CONTROLADORES */}
       {/* Voltaje de Recuperación */}
-      <div>
-        <label>
-          <span>Voltaje de Recuperación</span>
-        </label>
-        <input
-          type="number"
-          value={form.voltageRecovery}
-          onChange={inforHandeler}
-          name="voltageRecovery"
-        />
+      <div className={style.inputDos}>
+        <div>
+          <label>
+            <span>Voltaje de Recuperación</span>
+          </label>
+          <input
+            type="number"
+            value={form.voltageRecovery}
+            onChange={inforHandeler}
+            name="voltageRecovery"
+            autoComplete="off"
+          />
+        </div>
+        {/* Voltaje de Sobrecarga */}
+        <div>
+          <label>
+            <span>Voltaje de Sobre-Carga</span>
+          </label>
+          <input
+            type="number"
+            value={form.overloadVoltage}
+            onChange={inforHandeler}
+            name="overloadVoltage"
+            autoComplete="off"
+          />
+        </div>
       </div>
-      {/* Voltaje de Sobrecarga */}
-      <div>
-        <label>
-          <span>Voltaje de Sobre-Carga</span>
-        </label>
-        <input
-          type="number"
-          value={form.overloadVoltage}
-          onChange={inforHandeler}
-          name="overloadVoltage"
-        />
-      </div>
+
       {invBatCont}
     </div>
   )
 
   let todos = (
-    <div className={style.adicional}>
+    <div className={style.formulario}>
       {/* Para las 4 categorias */}
       {/* Eficiencia en porcentaje */}
-      <div>
-        <label>
-          <span>Eficiencia del Producto</span>
-        </label>
-        <input
-          type="number"
-          value={form.efficiency}
-          onChange={inforHandeler}
-          name="efficiency"
-        />
+      <div className={style.inputDos}>
+        <div>
+          <label>
+            <span>Eficiencia del Producto</span>
+          </label>
+          <input
+            type="number"
+            value={form.efficiency}
+            onChange={inforHandeler}
+            name="efficiency"
+            autoComplete="off"
+          />
+        </div>
+        {/* Dimenciones */}
+        <div>
+          <label>
+            <span>Dimensiones del Producto</span>
+          </label>
+          <input
+            type="text"
+            value={form.dimensions}
+            onChange={inforHandeler}
+            name="dimensions"
+            autoComplete="off"
+          />
+        </div>
       </div>
-      {/* Dimenciones */}
-      <div>
-        <label>
-          <span>Dimensiones del Producto</span>
-        </label>
-        <input
-          type="text"
-          value={form.dimensions}
-          onChange={inforHandeler}
-          name="dimensions"
-        />
-      </div>
+
       {/* Peso */}
-      <div>
+      <div className={style.divSolo}>
         <label>
           <span>Peso del Producto</span>
         </label>
@@ -273,6 +313,7 @@ const Form = () => {
           value={form.weight}
           onChange={inforHandeler}
           name="weight"
+          autoComplete="off"
         />
       </div>
     </div>
@@ -294,12 +335,15 @@ const Form = () => {
             <span>Nombre del Producto</span>
           </label>
           <input
-            // {...register('name', { required: true })}
+            {...register('name', {
+              required: true
+            })}
             type="text"
             value={form.name}
             onChange={inforHandeler}
             name="name"
             placeholder="Nuevo producto"
+            autoComplete="off"
           />
 
           <div className={style.inputDos}>
@@ -309,11 +353,15 @@ const Form = () => {
                 <span>Marca del Producto</span>
               </label>
               <input
+                {...register('brand', {
+                  required: true
+                })}
                 type="text"
                 value={form.brand}
                 onChange={inforHandeler}
                 name="brand"
                 placeholder="Marca del producto"
+                autoComplete="off"
               />
             </div>
             <div>
@@ -322,11 +370,15 @@ const Form = () => {
                 <span>Tipo de Producto</span>
               </label>
               <input
+                {...register('type', {
+                  required: true
+                })}
                 type="text"
                 value={form.type}
                 onChange={inforHandeler}
                 name="type"
                 placeholder="Tipo de producto"
+                autoComplete="off"
               />
             </div>
           </div>
@@ -338,11 +390,15 @@ const Form = () => {
                 <span>Precio del Producto</span>
               </label>
               <input
+                {...register('price', {
+                  required: true
+                })}
                 type="number"
                 value={form.price}
                 onChange={inforHandeler}
                 name="price"
                 placeholder="precio de venta"
+                autoComplete="off"
               />
             </div>
             <div>
@@ -352,11 +408,15 @@ const Form = () => {
                 <span>Garantia del Producto</span>
               </label>
               <input
+                {...register('warranty', {
+                  required: true
+                })}
                 type="number"
                 value={form.warranty}
                 onChange={inforHandeler}
                 name="warranty"
                 placeholder="Años de garantia"
+                autoComplete="off"
               />
             </div>
           </div>
@@ -367,37 +427,52 @@ const Form = () => {
             <span>Descripción del Producto</span>
           </label>
           <textarea
+            {...register('description', {
+              required: true
+            })}
             value={form.description}
             onChange={inforHandeler}
             name="description"
             placeholder="Descripcion del producto"
+            autoComplete="off"
           ></textarea>
 
           <div className={style.inputDos}>
             {/* Imagen del producto */}
-            <div>
+            <div className={style.file}>
               <label>
                 <span>Imagen del Producto</span>
               </label>
               <input
+                {...register('image', {
+                  required: true
+                })}
+                // value={image}
                 type="file"
-                // value={form.image}
                 onChange={handlerfile}
                 name="image"
+                autoComplete="off"
               />
+              {image && <img src={URL.createObjectURL(image)} />}
             </div>
-            <div>
+            <div className={style.file}>
               {/* Documentacion del producto */}
-
               <label>
                 <span>Documentación del Producto</span>
               </label>
               <input
+                {...register('document', {
+                  required: true
+                })}
                 type="file"
-                // value={form.document}
+                // value={document}
                 onChange={handlerfile}
                 name="document"
+                autoComplete="off"
               />
+              {document && (
+                <iframe src={URL.createObjectURL(document)}></iframe>
+              )}
             </div>
           </div>
 
