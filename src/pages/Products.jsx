@@ -1,10 +1,9 @@
 import styles from '../styles/Products.module.css'
 import Cards from '../components/Cards.jsx'
-import FilterAndOrder from '../components/FilterAndOrder.jsx'
+import BarStuff from '../components/Search.jsx'
 import Pagination from '../components/Pagination.jsx'
-import Search from '../components/Search.jsx'
 
-export default function Products () {
+export default function Products() {
   return (
     <div>
       <div className={styles.containerSectionInfo}>
@@ -29,13 +28,13 @@ export default function Products () {
         </div>
       </div>
       {/* Search  */}
-      <Search />
+      <BarStuff />
       {/* <FilterAndOrder/> */}
       <h1 className={styles.titulo}>Nuestros Productos</h1>
 
       <div className="Cards-component">
         <Cards />
-        <Pagination/>
+        <Pagination />
       </div>
     </div>
   )

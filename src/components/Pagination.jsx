@@ -1,13 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { setPageCurrent } from '../redux/slices/productsSlice.js'
-import { getProducts } from '../redux/slices/thunks.js'
-import styles from "../styles/Pagination.module.css"
-
 import { getProducts } from '../redux/slices/thunksProducts.js'
-export default function Pagination () {
-  const { pageCurrent } = useSelector((state) => state.products)
-  // const { products } = useSelector(state => state.products)
+import styles from '../styles/Pagination.module.css'
+
+export default function Pagination() {
   const dispatch = useDispatch()
+  const { pageCurrent } = useSelector((state) => state.products)
+  // const { products } = useSelector((state) => state.products)
   const { numberOfpages } = useSelector((state) => state.products)
   const nextPage = () => {
     dispatch(setPageCurrent(pageCurrent + 1))
@@ -17,16 +16,15 @@ export default function Pagination () {
     dispatch(setPageCurrent(pageCurrent - 1))
     dispatch(getProducts())
   }
-  const pageNumber = []
-  for (let i=0;i<numberOfpages;i++){
-    pageNumber.push(i+1)
-}
-const changePage = (e)=>{
-  console.log(e.target.value)
-    e.preventDefault();
-    dispatch(setPageCurrent(e.target.value)) ;
+  const pagesNumber = []
+  for (let i = 0; i < numberOfpages; i++) {
+    pagesNumber.push(i + 1)
+  }
+  const changePage = (e) => {
+    console.log(e.target.value)
+    dispatch(setPageCurrent(e.target.value))
     dispatch(getProducts())
-}
+  }
 
   return (
     <div>
@@ -39,9 +37,16 @@ const changePage = (e)=>{
         {' '}
         ←
       </button>
-      {pageNumber && pageNumber.map((i, key) => 
-         <button className={styles.button} key={key} value={i}  onClick= {changePage} >{i}</button>
-      )}
+      {pagesNumber?.map((i, key) => (
+        <button
+          className={styles.button}
+          key={key}
+          value={i}
+          onClick={changePage}
+        >
+          {i}
+        </button>
+      ))}
       <button
         type="button"
         onClick={() => nextPage()}

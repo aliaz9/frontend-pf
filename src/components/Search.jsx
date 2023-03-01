@@ -1,30 +1,15 @@
 import { useState } from 'react'
-import styles from "../styles/Search.module.css"
-import Style from "./../styles/Search.module.css"
-
+import styles from './../styles/Search.module.css'
 import { useDispatch, useSelector } from 'react-redux'
-import {
-  setBrand,
-  setType
-} from '../redux/slices/productsSlice.js'
+import { setOrder, setType } from '../redux/slices/productsSlice.js'
 import { getProducts } from '../redux/slices/thunksProducts.js'
 import Select from 'react-select'
 
-export default function Search () {
+export default function BarStuff() {
   const dispatch = useDispatch()
   const { types } = useSelector((state) => state.products)
-  const { brands } = useSelector((state) => state.products)
-
-  function handleBrandChange (brand) {
-    if (!brand) {
-      dispatch(setBrand({ value: '', label: '' }))
-      dispatch(getProducts())
-      return
-    }
-    dispatch(setBrand(brand))
-    dispatch(getProducts())
-  }
-  function handleTypeChange (type) {
+  const [search, setSearch] = useState('')
+  function handleTypeChange(type) {
     if (!type) {
       dispatch(setType({ value: '', label: '' }))
       dispatch(getProducts())
@@ -33,7 +18,6 @@ export default function Search () {
     dispatch(setType(type))
     dispatch(getProducts())
   }
-  const [search, setSearch] = useState('')
 
   const onChange = (e) => {
     setSearch(e.target.value)
@@ -46,42 +30,40 @@ export default function Search () {
     e.preventDefault()
     // dispatch(getByName(search))
   }
+
+  function handleOrder(order) {
+    if (!order) {
+      dispatch(setOrder({ value: '', label: '' }))
+      dispatch(getProducts())
+      return
+    }
+    dispatch(setOrder(order))
+    dispatch(getProducts())
+  }
+
+  const optionsOrder = [
+    { value: 'asc', label: 'asc' },
+    { value: 'desc', label: 'desc' }
+  ]
   return (
     <>
-      <div className={Style.container}>
-        <input 
-          type='search'
+      <div className={styles.container}>
+        <input
+          type="search"
           value={search}
           onChange={onChange}
-          placeholder='Buscar..'
+          placeholder="Buscar.."
           className={styles.button}
         />
-        {/* rome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
-        <i onClick={ (e) => handleSubmit(e)} className='fa-solid fa-magnifying-glass'/>
-
-
-{/* filtros ____________________________---- */}
-      <div className={Style.filters}>
-      <Select
-        options={brands}
-        onChange={handleBrandChange}
-        isClearable
-        // defaultValue={brands[0]}
-      />
-
-       <Select
-        options={types}
-        onChange={handleTypeChange}
-        isClearable
-        // defaultValue={''}
-      />
-      <select>
-        <option label="Seleccione un orden" value={''} />
-        <option label="asc" value={'asc'} />
-        <option label="desc" value={'desc'} />
-      </select>
-    </div>
-    </div>
+        <i
+          onClick={(e) => handleSubmit(e)}
+          className="fa-solid fa-magnifying-glass"
+        />
+        <div className={styles.filters}>
+          <Select options={types} onChange={handleTypeChange} isClearable />
+          <Select options={optionsOrder} onChange={handleOrder} isClearable />
+        </div>
+      </div>
     </>
   )
 }
