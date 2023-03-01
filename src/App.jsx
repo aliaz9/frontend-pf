@@ -1,19 +1,41 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import Layout from './Layout/Layout.jsx'
-import Home from './components/Home.jsx'
-import { useDispatch } from 'react-redux'
+import Home from './pages/Home.jsx'
+import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
-import { getBrands, getProducts, getTypes } from './redux/slices/thunks.js'
-import Products from './components/Products.jsx'
-import ProductPage from './components/Product.jsx'
-import About from './components/About.jsx'
-import SignIn from './components/Sing-in.jsx'
+import { getBrands, getProducts, getTypes } from './redux/slices/thunksProducts.js'
+import Products from './pages/Products.jsx'
+import About from './pages/About.jsx'
+import SignIn from './pages/Sing-in.jsx'
+import LoginForm from './pages/LoginForm.jsx'
+import ProductPage from './pages/Product.jsx'
+import Cart from './components/Cart.jsx'
+import ProfilePage from './pages/ProfilePage.jsx'
+import { autehnticateUser } from './redux/slices/thunksUsers.js'
 function App () {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getProducts())
     dispatch(getTypes())
     dispatch(getBrands())
+  }, [])
+
+  const cart = useSelector(state => state.users.productsInCart)
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart))
+  }, [cart])
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (!token) return
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    }
+    dispatch(autehnticateUser(config))
+    // navigate('/')
   }, [])
 
   return (
@@ -24,8 +46,10 @@ function App () {
             <Route path='/products' element={<Products/>}/>
             <Route path='/product/:id' element={<ProductPage/>} />
             <Route path='/about' element={<About/>} />
-            <Route path='/log-in' element={<h1>Log in</h1>} />
+            <Route path='/log-in' element={<LoginForm/>} />
             <Route path='/sign-in' element={<SignIn/>} />
+            <Route path='/shopping-cart' element={<Cart/>}/>
+            <Route path='/user-page-profile' element={<ProfilePage />}/>
             <Route path='*' element={<h1>404</h1>} />
           </Route>
         </Routes>

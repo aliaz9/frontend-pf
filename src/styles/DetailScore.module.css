@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+.containerScore{
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(500px, 1fr) );
+    gap: 5px;
+    margin: 20px auto;
+    padding: 0;
+    font-family: 'Inter', sans-serif;   
+}
+
+.cardScore{
+    background: #FFFFFF;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin: 15px;
+    padding: 12px;
+}
+
+.cardHead{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.cardData{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.cardData h5{
+    margin: 0;
+    color: #002A39;
+    font-weight: 600;
+}
+
+.cardData p{
+    margin: 0;
+    margin-bottom: 10px;
+    color: #74C8DB;
+    font-weight: 600;
+}
+
+.cardBody{
+    text-align: left;
+    margin-top: 10px;
+    font-weight: 400;
+}
+
+.cardImg{
+    border-radius:150px;
+    object-fit: cover;
+    margin: 15px;
+}
+
+.cardSeparator{
+    background-color:#FFBB00;
+    border: 1px solid #FFBB00;
+    width: 100%;
+}
+
+.cardScore:hover{
+    box-shadow: 0 0 20px #d2d4c8;
+}
+
+
+.headScore{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin: 30px 10px;  
+    font-family: 'Inter', sans-serif; 
+}
+
+.headScore h3{
+    margin: 10px 0;
+}
+
+
+@media(max-width:640px) {
+    .headScore {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .cardScore{
+        width: 86%;
+    }
+
+  }

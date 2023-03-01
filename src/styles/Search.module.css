@@ -1,4 +1,24 @@
 .button {
-    border-radius: 5px;
-    margin: 5px;
+  border-radius: 5px;
+  margin: 5px;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffbb00;
+  margin-top: 20px;
+  height: 50px;
+}
+
+.filters {
+  display: flex;
+  flex-direction: row;
+  max-width: 200px;
+  margin-left: 20px;
+}
+
+.filters select {
+  margin-left: 20px;
 }

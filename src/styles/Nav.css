@@ -8,8 +8,11 @@
   justify-content: space-between;
   align-items: center;
   margin: auto;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  background-color: #F4F1EB;
+}
+.img img{
+  margin: -20px;
+  max-height: 40px;
 }
 
 .nav1 {
@@ -52,16 +55,20 @@
 
 .nav2 button {
   margin: 20px;
+  max-width: 110px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
 
 .button1 {
   width: 10em;
-  margin-right: 10px;
+  margin-right: 8px;
   margin-bottom: 20px;
   font-family: "inter";
-  font-size: 13px;
-  padding: 18px 0px;
-  overflow: hidden;
+  font-size: 11px;
+    overflow: hidden;
   font-weight: 500;
   color: #fff;
   background-color: #FFBB00;
@@ -70,6 +77,10 @@
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease-out 0s;
   padding: 10px 0px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  
 }
 
 button:hover {
@@ -81,12 +92,12 @@ button:hover {
 }
 
 .button2 {
+  display: flex;
   width: 10em;
-  margin-right: 10px;
+  margin-right: 8px;
   margin-bottom: 20px;
   font-family: "inter";
-  font-size: 13px;
-  padding: 18px 0px;
+  font-size: 11px;
   overflow: hidden;
   font-weight: 500;
   color: #fff;
@@ -95,7 +106,12 @@ button:hover {
   border-radius: 3px;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease-out 0s;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
   padding: 10px 0px;
+
+  
 }
 
 

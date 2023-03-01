@@ -6,8 +6,27 @@
     flex-direction: row;
     height: 550px;
     padding: 0 50px 0 50px;
+    margin-bottom: -80px;
 
 }
+.imgPanel{
+    position: absolute;
+    height: 315px;
+    max-width: 100%;
+    z-index: 4;
+    margin-left: 80px;
+    margin-top: 40px;
+}
+.imgHeroCSS{
+    position: absolute;
+    z-index: 10;
+    margin-right: 60px;
+    max-width: 100%;
+    height: 400px;
+    z-index: 1;
+
+}
+
 .izquierda{
     display: flex;
     flex-direction: column;
@@ -15,6 +34,7 @@
     align-items:flex-start;
     padding: 80px;
     margin-right: 20px;
+    max-width: 750px;
 }
 
 .izquierda h1{
@@ -25,6 +45,7 @@
     line-height: 52px;
     color: #002A39;
     text-align: start;
+    margin-bottom: 20px;
 
 }
 .izquierda h4{
@@ -35,6 +56,8 @@
     font-size: 21px;
     line-height: 30px;
     color: #002A39;
+    margin-bottom: 20px;
+
 
 }
 
@@ -65,9 +88,13 @@
     cursor: pointer;
 }
 
-.imgHeroCSS{
-    max-width: 450px;
+
+.imgHeroHombre{
+    position: absolute;
+    max-width: 490px;
     z-index: 10;
+    margin-right: 60px;
+
 }
 
 .LogoDecoCSS{
@@ -82,7 +109,11 @@
 
 
 .derecha{
-    display: flex;
+    margin-top: 80px;
+    display: block;
     align-items: center;
     justify-content: center;
+
+
 }
+

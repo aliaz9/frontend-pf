@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+.btnModal{
+    display: flex;
+    background-color: white;
+    color: #002A39;
+    font-weight: bold;
+    font-size: large;
+    align-self: flex-end;
+    cursor: pointer;
+}
+
+.btnModal:hover {
+    color: #007faa;
+}
+
+.modalBackground {
+    position: fixed; /* Posición fija */
+    z-index: 1; /* Se situará por encima de otros elementos de la página*/
+    padding-top: 150px; /* El contenido estará situado a 200px de la parte superior */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Algura completa */
+    overflow: auto; /* Se activará el scroll si es necesario */
+    background-color: rgba(0,0,0,0.5); /* Color negro con opacidad del 50% */
+    font-family: 'Inter', sans-serif; 
+}
+
+
+.modalContainer {
+    display: flex;
+    flex-direction: column;
+    right: 0;
+    position: relative;
+    background-color: white;
+    margin: auto;
+    padding: 20px;
+    width: 50%;
+    -webkit-animation-name: animarsuperior;
+    -webkit-animation-duration: 0.5s;
+    animation-name: animarsuperior;
+    animation-duration: 0.5s;
+    border-radius: 5px;
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animarsuperior {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+.modalHead{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modalTitle{
+    font-size: 20px;
+    color: #002A39;
+}
+
+.modalBody{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+/* .modalBody p {
+    text-align: center;
+} */
+.modalFooter{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.separatorModal{
+    margin: 8px 0;
+    padding: 0;
+    background-color:#F4F1EB;
+    border: 1px solid #F4F1EB;
+    width: 100%;
+}
+
+.formModal{
+    flex: 1;
+}
+
+.formModalRight{
+    border-right: 1px solid #F4F1EB;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.formModal div p {
+    font-weight: 600;
+}
+
+.formModal div small {
+    font-weight: 400;
+    text-align: center;
+}
+
+.txtareaModal{
+    border-radius: 5px;
+    border: 2px solid #F4F1EB;
+    outline: none;
+    font-family: 'Inter', sans-serif; 
+    padding: 10px;
+}

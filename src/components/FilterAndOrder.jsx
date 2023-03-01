@@ -3,7 +3,7 @@ import {
   setBrand,
   setType
 } from '../redux/slices/productsSlice.js'
-import { getProducts } from '../redux/slices/thunks.js'
+import { getProducts } from '../redux/slices/thunksProducts.js'
 import Select from 'react-select'
 // import { useState } from 'react'
 
@@ -13,7 +13,6 @@ export default function FilterAndOrder () {
   const { brands } = useSelector((state) => state.products)
 
   function handleBrandChange (brand) {
-    console.log(brand)
     if (!brand) {
       dispatch(setBrand({ value: '', label: '' }))
       dispatch(getProducts())

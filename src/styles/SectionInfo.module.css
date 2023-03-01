@@ -1,20 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 .container {
-  background-color: #FFf;
+  background-color: #fff;
   display: flex;
   flex-direction: row;
   height: 350px;
+  margin: 80px;
+
 }
 
 .izquierda {
   display: flex;
+
 }
 
 .izquierda img {
   display: flex;
   width: 700px;
   object-fit: cover;
+  border-radius: 20px 0px 0px 20px;
 }
 
 
@@ -22,6 +26,7 @@
   display: flex;
   flex-direction: column;
   background-color: #FFBB00;
+  border-radius: 00px 20px 20px 0px;
   background-size: cover;
   width: 100%;
 }
