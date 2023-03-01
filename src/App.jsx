@@ -64,9 +64,9 @@ function App() {
           <Route path="/users/confirm/:token" element={<ConfirmUser />} />
           <Route path="/users/reset-password" element={<RecoverPassword />} />
           <Route path="*" element={<h1>404</h1>} />
-          <Route path="/admin" element={<LayoutAdmin />} />
+        </Route>
+        <Route path="/admin" element={<LayoutAdmin />}>
           <Route path="/admin/users" element={<Users />} />
-          <Route path="/admin/products" element={<AdminProducts />} />
         </Route>
       </Routes>
     </BrowserRouter>
