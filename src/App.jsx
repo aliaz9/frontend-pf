@@ -18,11 +18,12 @@ import ProfilePage from './pages/ProfilePage.jsx'
 import { autehnticateUser } from './redux/slices/thunksUsers.js'
 import ConfirmUser from './components/ConfirmUser.jsx'
 import { RecoverPassword } from './components/RecoverPassword.jsx'
-import Main from './admin/Main.jsx'
+// import Main from './admin/Main.jsx'
 import LayoutAdmin from './Layout/LayoutAdmin.jsx'
-import Users from './admin/Users.jsx'
+// import Users from './admin/Users.jsx'
+import { Main, Users, AdminProducts } from './admin'
 
-function App () {
+function App() {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getProducts())
@@ -64,7 +65,8 @@ function App () {
           <Route path="/users/reset-password" element={<RecoverPassword />} />
           <Route path="*" element={<h1>404</h1>} />
           <Route path="/admin" element={<LayoutAdmin />} />
-          <Route path="/admin/users" element={<Users/>} />
+          <Route path="/admin/users" element={<Users />} />
+          <Route path="/admin/products" element={<AdminProducts />} />
         </Route>
       </Routes>
     </BrowserRouter>
