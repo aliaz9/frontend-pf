@@ -4,6 +4,8 @@ import Steps from '../components/Steps.jsx'
 import SectionInfo from '../components/SectionInfo.jsx'
 import Cards from '../components/Cards.jsx'
 import Questions from '../components/Questions.jsx'
+import SomeCards from '../components/someCards.jsx'
+import Section1 from '../components/section1.jsx'
 
 export default function Home () {
   return (
@@ -11,8 +13,8 @@ export default function Home () {
       <Hero/>
       <Steps />
       <SectionInfo />
-      <h3 className={Style.title}>Nuestros productos más populares</h3>
-      <Cards />
+      <SomeCards />
+      <Section1/>
       <Questions />
     </div>
   )

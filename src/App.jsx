@@ -1,7 +1,7 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import Layout from './Layout/Layout.jsx'
 import Home from './pages/Home.jsx'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import {
   getBrands,
@@ -14,14 +14,38 @@ import SignIn from './pages/Sing-in.jsx'
 import LoginForm from './pages/LoginForm.jsx'
 import ProductPage from './pages/Product.jsx'
 import Cart from './components/Cart.jsx'
-import Form from './components/Form.jsx'
+import ProfilePage from './pages/ProfilePage.jsx'
+import { autehnticateUser } from './redux/slices/thunksUsers.js'
+import ConfirmUser from './components/ConfirmUser.jsx'
+import { RecoverPassword } from './components/RecoverPassword.jsx'
+import Main from './admin/Main.jsx'
+import LayoutAdmin from './Layout/LayoutAdmin.jsx'
+import Users from './admin/Users.jsx'
 
-function App() {
+function App () {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getProducts())
     dispatch(getTypes())
     dispatch(getBrands())
+  }, [])
+
+  const cart = useSelector((state) => state.users.productsInCart)
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart))
+  }, [cart])
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (!token) return
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    }
+    dispatch(autehnticateUser(config))
+    // navigate('/')
   }, [])
 
   return (
@@ -35,8 +59,12 @@ function App() {
           <Route path="/log-in" element={<LoginForm />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/shopping-cart" element={<Cart />} />
+          <Route path="/user-page-profile" element={<ProfilePage />} />
+          <Route path="/users/confirm/:token" element={<ConfirmUser />} />
+          <Route path="/users/reset-password" element={<RecoverPassword />} />
           <Route path="*" element={<h1>404</h1>} />
-          <Route path="/formulario" element={<Form />} />
+          <Route path="/admin" element={<LayoutAdmin />} />
+          <Route path="/admin/users" element={<Users/>} />
         </Route>
       </Routes>
     </BrowserRouter>

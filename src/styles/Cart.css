@@ -1,0 +1,24 @@
+.background {
+    margin-top: 100px;
+    margin-left: 150px;
+}
+
+.row {
+  margin-bottom: 30px;
+}
+
+.col-4 {
+    background-color: "";
+}
+
+.cart-image {
+    width: 150px;
+}
+
+.btn-warning {
+    width: 50px;
+}
+
+.btn-info {
+    width: 50px;
+} 

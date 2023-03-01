@@ -1,10 +1,92 @@
 import { clientAxios } from '../../config/clientAxios.js'
-import { setMessage } from './usersSlice.js'
+
+import {
+  addOne,
+  lessOne,
+  removeCart,
+  setAuth,
+  setCart,
+  setLinkPayment,
+  setMessage,
+  setUserLoading
+} from './usersSlice.js'
 
 export const registerUser = (user) => {
   return async (dispatch) => {
     try {
       const { data } = await clientAxios.post('/users/register', user)
+      dispatch(setMessage(data))
+      setTimeout(() => {
+        dispatch(setMessage({ msg: '', error: null }))
+      }, 5000)
+    } catch (error) {
+      dispatch(setMessage(error.response.data))
+
+      setTimeout(() => {
+        dispatch(setMessage({ msg: '', error: null }))
+      }, 5000)
+    }
+  }
+}
+export const logUser = (user) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await clientAxios.post('/auth/login', user)
+      // dispatch(setMessage(data))
+      dispatch(setAuth(data))
+      localStorage.setItem('token', data.token)
+      setTimeout(() => {
+        dispatch(setMessage({ msg: '', error: null }))
+      }, 5000)
+    } catch (error) {
+      dispatch(setMessage(error.response.data))
+      setTimeout(() => {
+        dispatch(setMessage({ msg: '', error: null }))
+      }, 5000)
+    }
+  }
+}
+
+export const addCart = (product) => {
+  return (dispatch, getState) => {
+    const {
+      users: { productsInCart }
+    } = getState()
+    if (productsInCart.some((el) => el.id === product.id)) {
+      dispatch(addOne(product))
+      return
+    }
+    dispatch(setCart(product))
+  }
+}
+
+export const remove = (product) => {
+  return (dispatch) => {
+    if (product.quantity === 1) {
+      dispatch(removeCart(product.id))
+      return
+    }
+    dispatch(lessOne(product.id))
+  }
+}
+
+export const autehnticateUser = (config) => {
+  return async (dispatch) => {
+    try {
+      dispatch(setUserLoading(true))
+      const { data } = await clientAxios('/users/profile', config)
+      dispatch(setAuth(data))
+    } catch (error) {
+      dispatch(setMessage(error.response.data))
+    }
+    dispatch(setUserLoading(false))
+  }
+}
+
+export const confirmUser = (token) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await clientAxios(`/users/confirm/${token}`)
       dispatch(setMessage(data))
     } catch (error) {
       dispatch(setMessage(error.response.data))
@@ -12,14 +94,42 @@ export const registerUser = (user) => {
   }
 }
 
-export const logUser = (user) => {
+export const recoverPassword = (email) => {
   return async (dispatch) => {
     try {
-      const { data } = await clientAxios.post('/auth/login', user)
+      const { data } = await clientAxios.post('/users/reset-password/', email)
       dispatch(setMessage(data))
-      localStorage.setItem('token', data.token)
     } catch (error) {
       dispatch(setMessage(error.response.data))
     }
+  }
+}
+
+
+export const editUser = (user) => {
+  return async (dispatch) => {
+    try {
+      const { name, email } = user
+      dispatch(setUserLoading(true))
+      dispatch(setEdithUser({ name, email }))
+
+      const { data } = await clientAxios.put(`/users/${user.uid}`, { name, email })
+      dispatch(setMessage(data.msg))
+    } catch (error) {
+      dispatch(setMessage(error.response.data))
+    }
+    dispatch(setUserLoading(false))
+
+export const loaderPayment = (product) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await clientAxios.post('user/payment', {
+        items: product
+      })
+      dispatch(setLinkPayment(data.link))
+    } catch (error) {
+      dispatch(setMessage(error.response.data))
+    }
+
   }
 }
