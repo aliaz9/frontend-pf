@@ -19,7 +19,6 @@ export default function Pagination() {
     pageNumber.push(i + 1)
   }
   const changePage = (e) => {
-    console.log(e.target.value)
     e.preventDefault()
     dispatch(setPageCurrent(e.target.value))
     dispatch(getProducts())
