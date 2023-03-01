@@ -8,7 +8,8 @@ import {
   setCart,
   setLinkPayment,
   setMessage,
-  setUserLoading
+  setUserLoading,
+  setEdithUser
 } from './usersSlice.js'
 
 export const registerUser = (user) => {
@@ -105,7 +106,6 @@ export const recoverPassword = (email) => {
   }
 }
 
-
 export const editUser = (user) => {
   return async (dispatch) => {
     try {
@@ -113,12 +113,17 @@ export const editUser = (user) => {
       dispatch(setUserLoading(true))
       dispatch(setEdithUser({ name, email }))
 
-      const { data } = await clientAxios.put(`/users/${user.uid}`, { name, email })
+      const { data } = await clientAxios.put(`/users/${user.uid}`, {
+        name,
+        email
+      })
       dispatch(setMessage(data.msg))
     } catch (error) {
       dispatch(setMessage(error.response.data))
     }
     dispatch(setUserLoading(false))
+  }
+}
 
 export const loaderPayment = (product) => {
   return async (dispatch) => {
@@ -130,6 +135,5 @@ export const loaderPayment = (product) => {
     } catch (error) {
       dispatch(setMessage(error.response.data))
     }
-
   }
 }
