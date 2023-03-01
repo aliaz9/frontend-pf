@@ -1,6 +1,6 @@
 import Main from './Main'
-import AdminProducts from './Products'
+import Products from './Products'
 import Sidebar from './Sidebar'
 import Users from './Users'
 
-export { Main, AdminProducts, Sidebar, Users }
+export { Main, Products, Sidebar, Users }

@@ -13,34 +13,26 @@ export default function Sidebar() {
             className={styles.image}
           />
           <ul className={styles.list}>
-            <il>
-              <a className={`${styles.navLink} nav-link`}>
-                <i className="bi-house" /> <span className="ms-1">Home</span>
-              </a>
+            <il className={`${styles.navLink} nav-link`}>
+              <i className="bi-house" /> <span className="ms-1">Home</span>
             </il>
 
-            <il>
+            <il className={`${styles.navLink} nav-link`}>
               <Link to="/admin/users">
-                <a className={`${styles.navLink} nav-link`}>
-                  <i className="bi-people" />{' '}
-                  <span className="ms-1">Usuarios</span>
-                </a>
+                <i className="bi-people" />{' '}
+                <span className="ms-1">Usuarios</span>
               </Link>
             </il>
 
-            <il>
-              <a className={`${styles.navLink} nav-link`}>
-                <i className="bi-bag-check" />{' '}
-                <span className="ms-1">Ventas</span>
-              </a>
+            <il className={`${styles.navLink} nav-link`}>
+              <i className="bi-bag-check" />{' '}
+              <span className="ms-1">Ventas</span>
             </il>
 
-            <il>
+            <il className={`${styles.navLink} nav-link`}>
               <Link to="/admin/products">
-                <a className={`${styles.navLink} nav-link`}>
-                  <i className="bi-box-seam" />{' '}
-                  <span className="ms-1">Productos</span>
-                </a>
+                <i className="bi-box-seam" />{' '}
+                <span className="ms-1">Productos</span>
               </Link>
             </il>
           </ul>

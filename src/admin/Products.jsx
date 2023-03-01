@@ -1,5 +1,5 @@
-const AdminProducts = () => {
+const Products = () => {
   return <div>Llegue a productos</div>
 }
 
-export default AdminProducts
+export default Products
