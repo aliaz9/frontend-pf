@@ -8,3 +8,20 @@
 .red {
     width: 150px;
 }
+
+.container {
+    margin-top: 100px;
+    margin-left: 50px;
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    margin-left: 50px;
+    margin-top: 100px;
+}
+
+.firstrow {
+    background-color: aquamarine;
+}

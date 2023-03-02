@@ -13,28 +13,28 @@ export default function Sidebar() {
             className={styles.image}
           />
           <ul className={styles.list}>
-            <il className={`${styles.navLink} nav-link`}>
+            <li className={`${styles.navLink} nav-link`}>
               <i className="bi-house" /> <span className="ms-1">Home</span>
-            </il>
+            </li>
 
-            <il className={`${styles.navLink} nav-link`}>
+            <li className={`${styles.navLink} nav-link`}>
               <Link to="/admin/users">
                 <i className="bi-people" />{' '}
                 <span className="ms-1">Usuarios</span>
               </Link>
-            </il>
+            </li>
 
-            <il className={`${styles.navLink} nav-link`}>
+            <li className={`${styles.navLink} nav-link`}>
               <i className="bi-bag-check" />{' '}
               <span className="ms-1">Ventas</span>
-            </il>
+            </li>
 
-            <il className={`${styles.navLink} nav-link`}>
+            <li className={`${styles.navLink} nav-link`}>
               <Link to="/admin/products">
                 <i className="bi-box-seam" />{' '}
                 <span className="ms-1">Productos</span>
               </Link>
-            </il>
+            </li>
           </ul>
         </div>
       </div>

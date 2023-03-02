@@ -64,7 +64,6 @@ function App() {
           <Route path="*" element={<h1>404</h1>} />
         </Route>
         <Route path="/admin/*" element={<LayoutAdmin />}>
-          {/* <Route path="/admin/users" element={<Users />} /> */}
         </Route>
       </Routes>
     </BrowserRouter>

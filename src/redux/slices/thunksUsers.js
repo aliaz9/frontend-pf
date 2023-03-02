@@ -9,7 +9,8 @@ import {
   setLinkPayment,
   setMessage,
   setUserLoading,
-  setEdithUser
+  setEdithUser,
+  getUsers
 } from './usersSlice.js'
 
 export const registerUser = (user) => {
@@ -135,5 +136,22 @@ export const loaderPayment = (product) => {
     } catch (error) {
       dispatch(setMessage(error.response.data))
     }
+  }
+}
+
+export const getUsers = () => {
+  return async (dispatch) => {
+    try {
+     // const data = await clientAxios(`https://run.mocky.io/v3/6d49b3ec-6ba1-4daf-98d8-92178fd8ac32`)
+      const data = await axios.get(`https://run.mocky.io/v3/6d49b3ec-6ba1-4daf-98d8-92178fd8ac32`);
+
+      console.log("entra en thunk", data)
+
+      dispatch(setUsers(data))
+
+    } catch (error) {
+      console.log(error)
+      dispatch(setMessage({ error: error.message }))
+    } 
   }
 }

@@ -13,7 +13,6 @@ export default function LayoutAdmin() {
     <div className={style.container}>
       <div>
         <Sidebar />
-        <Outlet />
       </div>
       <div>{routes}</div>
     </div>

@@ -1,9 +1,19 @@
 
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setUsers } from "../redux/slices/usersSlice";
 import styles from '../styles/Users.module.css'
 
 
 export default function Users() {
+
+const allUsers = useSelector((state) => state.users);
+let dispatch = useDispatch()
+
+useEffect(() => {
+dispatch(getUsers())
+console.log(allUsers.users)
+}, [allUsers])
 
     const users = [{
         id: 1,
@@ -26,13 +36,16 @@ export default function Users() {
     ]
 
     return (
-        <div class="container">
+        <div>
+        <h1 className={styles.title}>Usuarios</h1>
+
+     <div class={`${styles.container} container`}>
 
             <div className={`${styles.row} row`}>
-                <div class="col-4">
+                <div class="col-3">
                     Nombre
                 </div>
-                <div class="col-4">
+                <div class="col-3">
                     Email
                 </div>
                 <div class="col-2">
@@ -47,10 +60,10 @@ export default function Users() {
                     return (
 
                         <div class={`${styles.row} row`}>
-                            <div class="col-4">
+                            <div class="col-3">
                                 {u.name}
                             </div>
-                            <div class="col-4">
+                            <div class="col-3">
                                 {u.email}
                             </div>
                             <div class="col-2">
@@ -64,7 +77,7 @@ export default function Users() {
                 })}
 
             </div>
-
+            </div>
         </div>
     )
 }
