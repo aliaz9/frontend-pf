@@ -1,15 +1,48 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import style from '../styles/ProductsTable.module.css'
+import { setPageCurrent } from '../redux/slices/productsSlice'
+import { getProducts } from '../redux/slices/thunksProducts'
 
 const Products = () => {
+  const dispatch = useDispatch()
+
+  const { pageCurrent } = useSelector((state) => state.products)
+  const { numberOfpages } = useSelector((state) => state.products)
   const { products } = useSelector((state) => state.products)
+
+  const nextPage = () => {
+    dispatch(setPageCurrent(pageCurrent + 1))
+    dispatch(getProducts())
+  }
+  const previusPage = () => {
+    dispatch(setPageCurrent(pageCurrent - 1))
+    dispatch(getProducts())
+  }
 
   const handlerMod = (event) => {}
 
   return (
     <div className={`${style.container}`}>
+      <h1>Registro de Productos</h1>
+      <div className={style.pagination}>
+        <div>
+          <button
+            className={style.prev}
+            onClick={() => nextPage()}
+            disabled={pageCurrent === numberOfpages}
+          ></button>
+        </div>
+        <div>
+          <button
+            className={style.next}
+            onClick={() => previusPage()}
+            disabled={pageCurrent === 1}
+          ></button>
+        </div>
+      </div>
+
       <div className={`table-responsive ${style.contTable}`}>
         <table className={`table table-striped ${style.table}`}>
           <thead>
@@ -36,7 +69,9 @@ const Products = () => {
                   <td>{element.price + ' US'}</td>
                   <td>{element.image}</td>
                   <td>{element.document}</td>
-                  {/* <button onClick={handlerMod}></button> */}
+                  <td>
+                    <button onClick={handlerMod}></button>
+                  </td>
                 </tr>
               )
             })}

@@ -1,20 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cabin:wght@400;700&family=Tilt+Warp&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cabin:wght@400;700&family=Lobster&family=Tilt+Warp&display=swap');
 
 .container {
-  margin: 20px;
+  position: relative;
+  margin: 30px;
+  padding: 15px;
+  width: 1300px;
+  background-color: #e8f9fe;
+  border: 2px solid #047a95;
+  border-radius: 10px;
+}
+
+.container h1 {
+  font-family: Lobster;
+  color: #ffbb00;
+  /* -webkit-text-stroke: 1px #005b6f; */
 }
 
 .contTable {
-  overflow-x: scroll;
+  /* overflow-x: scroll; */
+  max-height: 700px;
+  border-radius: 10px;
 }
 .table {
-  width: 1550px;
+  min-width: max-content;
 }
-.table thead {
+.table th {
+  position: static;
+  top: 0px;
   background-color: #0291b1;
+}
+.table th,
+td {
+  border: 1px solid #047a95;
 }
 .tHead {
   color: rgb(255, 255, 255);
+  padding: 5px;
   font-family: Tilt Warp;
   font-weight: 400;
   font-size: 19px;
@@ -33,18 +54,55 @@
   height: 8px;
 }
 .tBody button {
+  position: relative;
   width: 25px;
   height: 25px;
-  background-color: black;
+  background-color: #b3cacf;
+  background-image: url(../../public/editar.png);
   margin: 0;
   padding: 0;
+  left: 35px;
+  top: 4px;
 }
 
 .crear {
+  margin-top: 30px;
   display: flex;
   gap: 15px;
 }
 .crear h1 {
   font-family: Tilt Warp;
   color: #047a95;
+}
+.container .pagination {
+  position: absolute;
+  right: 55px;
+  top: 20px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 30px;
+  /* flex-direction: row; */
+}
+
+.next {
+  width: 32px;
+  height: 32px;
+  border-radius: 30px;
+  background-color: transparent;
+}
+.prev {
+  width: 32px;
+  height: 32px;
+  border-radius: 30px;
+  background-color: transparent;
+}
+
+.next {
+  background-image: url(../../public/next-button.png);
+  background-repeat: no-repeat;
+}
+.prev {
+  background-image: url(../../public/previous.png);
+  background-repeat: no-repeat;
 }
