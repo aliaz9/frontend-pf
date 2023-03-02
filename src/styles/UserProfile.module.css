@@ -1,3 +1,7 @@
+.titleProfile{
+    width: 42%;
+}
+
 .imageProfile{
     display: flex;
     flex-direction: column;
@@ -5,7 +9,7 @@
     justify-content: center;
     gap: 10px;
     margin-bottom: 20px;
-}
+} 
 
 .imageProfile div{
     display: flex;
@@ -29,6 +33,12 @@
     width: 20%;
 }
 
+.btnEdit {
+    font-weight: bold;
+    padding: 10px;
+    width: 40%;
+}
+
 .infoProfile{
     display: flex;
     flex-direction: column;
@@ -46,7 +56,7 @@
     border-radius: 5px;
     border: 1px solid #d2e3da;
     padding: 10px 10px;
-    width: 55%;
+    width: 40%;
     outline: none;
     font-weight: 600;
     cursor: pointer;
@@ -68,7 +78,7 @@ small{
     color: red;
 }
 
-.btnImage:disabled{
+.btnEdit:disabled{
     background-color: #f3f7f8;
     cursor: no-drop;
     color: #cbd6de;
