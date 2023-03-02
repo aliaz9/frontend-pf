@@ -25,8 +25,10 @@ export default function Sidebar() {
             </li>
 
             <li className={`${styles.navLink} nav-link`}>
+              <Link to="/admin/orders">
               <i className="bi-bag-check" />{' '}
               <span className="ms-1">Ventas</span>
+              </Link>
             </li>
 
             <li className={`${styles.navLink} nav-link`}>

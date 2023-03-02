@@ -18,19 +18,19 @@ dispatch(users())
         <div>
         <h1 className={styles.title}>Usuarios</h1>
 
-     <div class={`${styles.container} container`}>
+     <div className={`${styles.container} container`}>
 
             <div className={`${styles.row} row`}>
-                <div class="col-3">
+                <div className="col-3">
                     Nombre
                 </div>
-                <div class="col-3">
+                <div className="col-3">
                     Email
                 </div>
-                <div class="col-2">
+                <div className="col-2">
                     Ordenes
                 </div>
-                <div class="col-2">
+                <div className="col-2">
                     Eliminar
                 </div>
 
@@ -38,17 +38,17 @@ dispatch(users())
 
                     return (
 
-                        <div class={`${styles.row} row`}>
-                            <div class="col-3">
+                        <div className={`${styles.row} row`}>
+                            <div className="col-3">
                                 {u.name}
                             </div>
-                            <div class="col-3">
+                            <div className="col-3">
                                 {u.email}
                             </div>
-                            <div class="col-2">
+                            <div className="col-2">
                             <button className={`${styles.blue} btn btn-primary`}> Ver Ordenes </button>
                             </div>
-                            <div class="col-2">
+                            <div className="col-2">
                             <button className={`${styles.red} btn btn-danger`}> Borrar </button>
                             </div>
                         </div>
