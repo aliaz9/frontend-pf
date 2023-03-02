@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import style from '../styles/Form.module.css'
-// import { useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { createProducts } from '../redux/slices/thunksProducts'
 // import { useDispatch } from 'react-redux'
 
 const Form = () => {
-  // const { register, handleSubmit } = useForm()
+  const { register, handleSubmit } = useForm()
   // const dispatch = useDispatch()
   const [image, setImage] = useState()
   const [document, setDocument] = useState()
@@ -78,10 +78,8 @@ const Form = () => {
     const result = await createProducts(formData)
   }
 
-
   let panelesSolares = (
     <div className={style.formulario}>
-
       {' '}
       {/* propiedades opcionales segun el producto */}
       {/* paneles solares */}

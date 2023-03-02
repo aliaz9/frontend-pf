@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cabin:wght@400;700&family=Tilt+Warp&display=swap');
+
+.container {
+  margin: 20px;
+}
+
+.contTable {
+  overflow-x: scroll;
+}
+.table {
+  width: 1550px;
+}
+.table thead {
+  background-color: #0291b1;
+}
+.tHead {
+  color: rgb(255, 255, 255);
+  font-family: Tilt Warp;
+  font-weight: 400;
+  font-size: 19px;
+}
+
+.tBody {
+  background-color: #74c8db;
+  color: rgb(95, 95, 95);
+}
+.tBody td {
+  color: rgb(242, 249, 255) !important;
+  font-family: Cabin !important;
+}
+
+.table hr {
+  height: 8px;
+}
+.tBody button {
+  width: 25px;
+  height: 25px;
+  background-color: black;
+  margin: 0;
+  padding: 0;
+}
+
+.crear {
+  display: flex;
+  gap: 15px;
+}
+.crear h1 {
+  font-family: Tilt Warp;
+  color: #047a95;
+}
