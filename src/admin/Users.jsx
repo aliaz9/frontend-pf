@@ -1,39 +1,18 @@
 
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setUsers } from "../redux/slices/usersSlice";
 import styles from '../styles/Users.module.css'
-
+import { users } from "../redux/slices/thunksAdmin";
 
 export default function Users() {
 
-const allUsers = useSelector((state) => state.users);
+const allUsers = useSelector((state) => state.admin.allUsers);
 let dispatch = useDispatch()
 
-useEffect(() => {
-dispatch(getUsers())
-console.log(allUsers.users)
-}, [allUsers])
 
-    const users = [{
-        id: 1,
-        name: "Alina Alvarez",
-        email: "alina@hasjd.com",
-        ordenes: [1, 5]
-    },
-    {
-        id: 2,
-        name: "Jose Alvarez",
-        email: "jose@hasjd.com",
-        ordenes: [2, 6]
-    },
-    {
-        id: 3,
-        name: "Pedro Alvarez",
-        email: "pedro@hasjd.com",
-        ordenes: [3, 4]
-    }
-    ]
+useEffect(() => {
+dispatch(users())
+}, [])
 
     return (
         <div>
@@ -55,7 +34,7 @@ console.log(allUsers.users)
                     Eliminar
                 </div>
 
-                {users.map(u => {
+                {allUsers && allUsers.map(u => {
 
                     return (
 

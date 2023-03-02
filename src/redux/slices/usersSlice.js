@@ -8,7 +8,6 @@ export const users = createSlice({
     auth: {},
     loading: false,
     linkPayment: '',
-    allUsers: []
   },
 
   reducers: {
@@ -53,9 +52,6 @@ export const users = createSlice({
       state.auth.name = name
       state.auth.email = email
     },
-    getUsers: (state, action) => {
-      state.allUsers = action.payload
-    }
   }
   // reducers: {
   //   setMessage (state, action) {
@@ -107,7 +103,6 @@ export const {
   setUserLoading,
   setLinkPayment,
   setEdithUser,
-  getUsers
 } = users.actions
 
 export default users.reducer
