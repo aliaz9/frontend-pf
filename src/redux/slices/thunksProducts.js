@@ -1,14 +1,28 @@
 import { clientAxios } from '../../config/clientAxios.js'
-import { loading, setMessage, setProducts, setProduct, setTypes, setBrands, setNumberOfpages } from './productsSlice.js'
+import {
+  loading,
+  setMessage,
+  setProducts,
+  setProduct,
+  setTypes,
+  setBrands,
+  setNumberOfpages
+} from './productsSlice.js'
 
 export const getProducts = () => {
   return async (dispatch, getState) => {
     try {
       dispatch(loading(true))
-      const { products: { pageCurrent, brand, type } } = getState()
-      const { data: { products, count } } = await clientAxios(`/products?number=12&page=${pageCurrent}&brandName=${brand.label}&typeName=${type.label}`)
-      if (brand.value || type.value) {
-        dispatch(setNumberOfpages(Math.ceil(count / 12)))
+      const {
+        products: { pageCurrent, type, order }
+      } = getState()
+      const {
+        data: { products, count }
+      } = await clientAxios(
+        `/products?page=${pageCurrent}&typeName=${type.label}&order=${order.label}`
+      )
+      if (type.value) {
+        dispatch(setNumberOfpages(Math.ceil(count / 9)))
       }
       dispatch(setProducts(products))
     } catch (error) {
@@ -37,9 +51,7 @@ export const getTypes = () => {
   return async (dispatch) => {
     try {
       const { data } = await clientAxios('/types')
-      const types = data.map(({ name }) => (
-        { label: name, value: name }
-      ))
+      const types = data.map(({ name }) => ({ label: name, value: name }))
       dispatch(setTypes(types))
     } catch (error) {
       dispatch(setMessage(error.message))
@@ -51,9 +63,7 @@ export const getBrands = () => {
   return async (dispatch) => {
     try {
       const { data } = await clientAxios('/brands')
-      const brands = data.map(({ name }) => (
-        { value: name, label: name }
-      ))
+      const brands = data.map(({ name }) => ({ value: name, label: name }))
       dispatch(setBrands(brands))
     } catch (error) {
       dispatch(setMessage(error.message))

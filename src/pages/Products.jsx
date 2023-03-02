@@ -1,16 +1,15 @@
 import styles from '../styles/Products.module.css'
 import Cards from '../components/Cards.jsx'
-import FilterAndOrder from '../components/FilterAndOrder.jsx'
+import BarStuff from '../components/Search.jsx'
 import Pagination from '../components/Pagination.jsx'
-import Search from '../components/Search.jsx'
 
-export default function Products () {
+export default function Products() {
   return (
     <div>
       <div className={styles.containerSectionInfo}>
         <div className={styles.izquierda}>
           <img
-            src="https://images.pexels.com/photos/8853537/pexels-photo-8853537.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            src="https://res.cloudinary.com/daieynebb/image/upload/v1677472341/Images/solar_panel_fvixdj.png"
             alt="img-panelSolar"
             className={styles.SectionInfoImg}
           />
@@ -29,13 +28,13 @@ export default function Products () {
         </div>
       </div>
       {/* Search  */}
-      <Search />
-      <FilterAndOrder/>
+      <BarStuff />
+      {/* <FilterAndOrder/> */}
       <h1 className={styles.titulo}>Nuestros Productos</h1>
 
       <div className="Cards-component">
         <Cards />
-        <Pagination/>
+        <Pagination />
       </div>
     </div>
   )

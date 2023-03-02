@@ -19,7 +19,7 @@ export default function DetailScore () {
                 <h3>Opiniones del Producto</h3>
                 <div>
                     <button onClick={ () => handleOpen(true)}>
-                        <i className="fa-solid fa-plus"></i>
+                        <i className="fa-solid fa-plus"/>
                         &nbsp;
                         Mi Opinion
                     </button>
@@ -41,7 +41,7 @@ export default function DetailScore () {
                     <hr className={styles.cardSeparator} />
                     <div className={styles.cardBody}>
                         <small>
-                            Muy buen curso, Oscar explica muy bien todos los conceptos y ya los estoy aplicando en mi trabajo.
+                            Muy buen producto, supero todas mis expectativas, lo recomiendo a todos que desean adquirir este producto.
                         </small>
                     </div>
                 </div>
@@ -59,7 +59,7 @@ export default function DetailScore () {
                     <hr className={styles.cardSeparator} />
                     <div className={styles.cardBody}>
                         <small>
-                            Muy buen curso, Oscar explica muy bien todos los conceptos y ya los estoy aplicando en mi trabajo.
+                            Muy buen producto, supero todas mis expectativas, lo recomiendo a todos que desean adquirir este producto.
                         </small>
                     </div>
                 </div>
@@ -77,7 +77,7 @@ export default function DetailScore () {
                     <hr className={styles.cardSeparator} />
                     <div className={styles.cardBody}>
                         <small>
-                            Muy buen curso, Oscar explica muy bien todos los conceptos y ya los estoy aplicando en mi trabajo.
+                            Muy buen producto, supero todas mis expectativas, lo recomiendo a todos que desean adquirir este producto.
                         </small>
                     </div>
                 </div>
@@ -95,7 +95,7 @@ export default function DetailScore () {
                     <hr className={styles.cardSeparator} />
                     <div className={styles.cardBody}>
                         <small>
-                            Muy buen curso, Oscar explica muy bien todos los conceptos y ya los estoy aplicando en mi trabajo.
+                            Muy buen producto, supero todas mis expectativas, lo recomiendo a todos que desean adquirir este producto.
                         </small>
                     </div>
                 </div>
@@ -113,7 +113,7 @@ export default function DetailScore () {
                     <hr className={styles.cardSeparator} />
                     <div className={styles.cardBody}>
                         <small>
-                            Muy buen curso, Oscar explica muy bien todos los conceptos y ya los estoy aplicando en mi trabajo.
+                            Muy buen producto, supero todas mis expectativas, lo recomiendo a todos que desean adquirir este producto.
                         </small>
                     </div>
                 </div>
@@ -131,7 +131,7 @@ export default function DetailScore () {
                     <hr className={styles.cardSeparator} />
                     <div className={styles.cardBody}>
                         <small>
-                            Muy buen curso, Oscar explica muy bien todos los conceptos y ya los estoy aplicando en mi trabajo.
+                            Muy buen producto, supero todas mis expectativas, lo recomiendo a todos que desean adquirir este producto.
                         </small>
                     </div>
                 </div>

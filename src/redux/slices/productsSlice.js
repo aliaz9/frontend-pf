@@ -10,7 +10,7 @@ export const productsSlice = createSlice({
     product: {},
     types: [],
     brands: [],
-    order: '',
+    order: { value: '', label: '' },
     brand: { value: '', label: '' },
     type: { value: '', label: '' },
     numberOfpages: 10,
@@ -50,6 +50,9 @@ export const productsSlice = createSlice({
     },
     setNumberOfpages: (state, action) => {
       state.numberOfpages = action.payload
+    },
+    setOrder: (state, action) => {
+      state.order = action.payload
     }
   }
 })
@@ -65,5 +68,6 @@ export const {
   setPageCurrent,
   setBrand,
   setType,
-  setNumberOfpages
+  setNumberOfpages,
+  setOrder
 } = productsSlice.actions
