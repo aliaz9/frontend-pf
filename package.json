@@ -24,6 +24,7 @@
     "react-router-dom": "^6.8.1",
     "react-select": "^5.7.0",
     "react-toastify": "^9.1.1",
+    "sweetalert2": "^11.7.3",
     "yup": "^1.0.0"
   },
   "devDependencies": {
