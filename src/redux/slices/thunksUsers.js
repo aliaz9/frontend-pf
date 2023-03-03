@@ -9,7 +9,7 @@ import {
   setLinkPayment,
   setMessage,
   setUserLoading,
-  setEdithUser,
+  setEdithUser
 } from './usersSlice.js'
 
 export const registerUser = (user) => {
@@ -32,7 +32,7 @@ export const registerUser = (user) => {
 export const logUser = (user) => {
   return async (dispatch) => {
     try {
-      const { data } = await clientAxios.post('/auth/login', user)
+      const { data } = await clientAxios.post('/users/user-login', user)
       // dispatch(setMessage(data))
       dispatch(setAuth(data))
       localStorage.setItem('token', data.token)

@@ -10,22 +10,17 @@ export const admin = createSlice({
 
   reducers: {
     setMessage: (state, action) => {
-    state.message = action.payload
+      state.message = action.payload
     },
     getUsers: (state, action) => {
       state.allUsers = action.payload
     },
     getOrders: (state, action) => {
-        state.allOrders = action.payload
+      state.allOrders = action.payload
     }
   }
-
 })
 
-export const {
-  setMessage,
-  getUsers,
-  getOrders,
-} = admin.actions
+export const { setMessage, getUsers, getOrders } = admin.actions
 
 export default admin.reducer
