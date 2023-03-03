@@ -22,7 +22,7 @@ export default function Pagination() {
   }
   const changePage = (e) => {
     console.log(e.target.value)
-    dispatch(setPageCurrent(e.target.value))
+    dispatch(setPageCurrent( parseInt(e.target.value)))
     dispatch(getProducts())
   }
 
