@@ -62,8 +62,7 @@ function App() {
           <Route path="/users/reset-password" element={<RecoverPassword />} />
           <Route path="*" element={<h1>404</h1>} />
         </Route>
-        <Route path="/admin/*" element={<LayoutAdmin />}>
-        </Route>
+        <Route path="/admin/*" element={<LayoutAdmin />}></Route>
       </Routes>
     </BrowserRouter>
   )
