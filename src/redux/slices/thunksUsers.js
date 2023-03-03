@@ -9,7 +9,7 @@ import {
   setLinkPayment,
   setMessage,
   setUserLoading,
-  setEdithUser
+  setEdithUser,
 } from './usersSlice.js'
 
 export const registerUser = (user) => {

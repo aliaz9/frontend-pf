@@ -3,6 +3,8 @@ import styles from '../styles/ProfilePage.module.css'
 import UserProfile from '../components/UserProfile.jsx'
 import UserNotFound from '../components/UserNotFound.jsx'
 import { useSelector } from 'react-redux'
+import ProductUser from '../components/ProductUser'
+import NewPassword from '../components/NewPassword'
 export default function Pagination () {
   const [style, setStyle] = useState(1)
   const [style1, setStyle1] = useState(0)
@@ -82,7 +84,9 @@ export default function Pagination () {
                       ? (
                          <UserProfile token={token} />
                         )
-                      : <h1>En construccion</h1>
+                      : (style1 === 1
+                          ? <NewPassword />
+                          : (style2 === 1 && <ProductUser />))
                   )
                 : <UserNotFound />
             }
