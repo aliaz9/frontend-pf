@@ -1,13 +1,12 @@
-import React from 'react'
 import { useState } from 'react'
 import style from '../styles/Form.module.css'
-import { useForm } from 'react-hook-form'
+// import { useForm } from 'react-hook-form'
 import { createProducts } from '../redux/slices/thunksProducts'
-import { useDispatch } from 'react-redux'
+// import { useDispatch } from 'react-redux'
 
 const Form = () => {
-  const { register, handleSubmit } = useForm()
-  const dispatch = useDispatch()
+  // const { register, handleSubmit } = useForm()
+  // const dispatch = useDispatch()
   const [image, setImage] = useState()
   const [document, setDocument] = useState()
   const [categoria, setCategoria] = useState('Otros')
@@ -77,11 +76,12 @@ const Form = () => {
     formData.append('image', image)
     formData.append('document', document)
     const result = await createProducts(formData)
-    console.log(result)
   }
+
 
   let panelesSolares = (
     <div className={style.formulario}>
+
       {' '}
       {/* propiedades opcionales segun el producto */}
       {/* paneles solares */}
