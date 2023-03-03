@@ -1,12 +1,27 @@
 import { clientAxios } from '../../config/clientAxios.js'
-import { loading, setMessage, setProducts, setProduct, setTypes, setBrands, setNumberOfpages, setSearch } from './productsSlice.js'
+import {
+  loading,
+  setMessage,
+  setProducts,
+  setProduct,
+  setTypes,
+  setBrands,
+  setNumberOfpages,
+  setSearch
+} from './productsSlice.js'
 
 export const getProducts = () => {
   return async (dispatch, getState) => {
     try {
       dispatch(loading(true))
-      const { products: { pageCurrent, brand, type, order } } = getState()
-      const { data: { products, count } } = await clientAxios(`/products?number=12&page=${pageCurrent}&brandName=${brand.label}&typeName=${type.label}&order=${order}`)
+      const {
+        products: { pageCurrent, brand, type, order }
+      } = getState()
+      const {
+        data: { products, count }
+      } = await clientAxios(
+        `/products?number=12&page=${pageCurrent}&brandName=${brand.label}&typeName=${type.label}&order=${order}`
+      )
       if (brand.value || type.value) {
         dispatch(setNumberOfpages(Math.ceil(count / 12)))
       }
@@ -71,18 +86,18 @@ export const getByNames = (name) => {
   }
 }
 
-// export const createProducts = async (formData) => {
-//   return async (dispatch) {
-//   try {
-//     const result = await clientAxios.post('/products', formData, {
-//       withCredentials: false,
-//       headers: {
-//         'Access-Control-Allow-Origin': '*'
-//       }
-//     })
-//     return result
-//   } catch (error) {
-//     dispatch(setMessage(error.message))
-//   }
-// }
+export const createProducts = async (formData) => {
+  // return async (dispatch) {
+  try {
+    const result = await clientAxios.post('/products', formData, {
+      withCredentials: false,
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      }
+    })
+    return result
+  } catch (error) {
+    dispatch(setMessage(error.message))
+  }
+}
 // }

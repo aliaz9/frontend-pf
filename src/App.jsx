@@ -19,7 +19,6 @@ import { autehnticateUser } from './redux/slices/thunksUsers.js'
 import ConfirmUser from './components/ConfirmUser.jsx'
 import { RecoverPassword } from './components/RecoverPassword.jsx'
 import LayoutAdmin from './Layout/LayoutAdmin.jsx'
-import { Users } from './admin'
 
 function App() {
   const dispatch = useDispatch()
