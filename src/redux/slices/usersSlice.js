@@ -51,6 +51,10 @@ export const users = createSlice({
       const { name, email } = action.payload
       state.auth.name = name
       state.auth.email = email
+    },
+    setEdithPwd: (state, action) => {
+      const { newPassword } = action.payload
+      state.auth.password = newPassword
     }
   }
   // reducers: {
@@ -102,7 +106,8 @@ export const {
   setAuth,
   setUserLoading,
   setLinkPayment,
-  setEdithUser
+  setEdithUser,
+  setEdithPwd
 } = users.actions
 
 export default users.reducer

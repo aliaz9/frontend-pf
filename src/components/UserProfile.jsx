@@ -1,20 +1,22 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { alertMsg } from '../helpers'
 import { editUser } from '../redux/slices/thunksUsers'
 import styles from '../styles/UserProfile.module.css'
+import Alert from './Alert'
 
 export default function UserProfile () {
   const dispatch = useDispatch()
   const { uid, name, email, image } = useSelector((state) => state.users.auth)
+  const { msg, error } = useSelector((state) => state.users.message)
   const [input, setInput] = useState({ uid, name, email })
   const [erros, setErros] = useState({})
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     await dispatch(editUser(input))
-    alert('Datos Actualizados')
   }
-
+  //  console.log(msg, error)
   const handleChange = (e) => {
     const property = e.target.name
     const value = e.target.value
@@ -45,6 +47,7 @@ export default function UserProfile () {
         <div>
             <div className={styles.titleProfile}>
               <h5><b>Perfil público</b></h5>
+              { msg && <small className={styles.error}>{error}</small>}
               <small>Las personas que visiten tu perfil tiene la posibilidad de ver la siguiente información</small><br /><br />
             </div>
             <form onSubmit={handleSubmit}>
