@@ -21,10 +21,10 @@ dispatch(users())
      <div class={`${styles.container} container`}>
 
             <div className={`${styles.row} row`}>
-                <div class="col-3">
+                <div class="col-4">
                     Nombre
                 </div>
-                <div class="col-3">
+                <div class="col-4">
                     Email
                 </div>
                 <div class="col-2">
@@ -39,10 +39,10 @@ dispatch(users())
                     return (
 
                         <div class={`${styles.row} row`}>
-                            <div class="col-3">
+                            <div class="col-4">
                                 {u.name}
                             </div>
-                            <div class="col-3">
+                            <div class="col-4">
                                 {u.email}
                             </div>
                             <div class="col-2">

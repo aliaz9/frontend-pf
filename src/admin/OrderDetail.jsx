@@ -6,42 +6,27 @@ import { Link } from "react-router-dom";
 import { getOrderDetail } from "../redux/slices/thunksAdmin";
 import styles from '../styles/OrderDetail.module.css'
 
-// import { getOrderById } 
 
 export default function OrderDetail() {
-
-    const order = {
-        id: 66,
-        name: "Alina Alvarez",
-        mail: "alina@gmail.com",
-        paymentId: "273947403038464933",
-        paymentStatus: "Pago Aprobado",
-        products: [{
-            idProduct: "1",
-            title: "Panel 1",
-            unit_price: 2000,
-            quantity: 1
-        }, {
-            idProduct: "2",
-            title: "Batería",
-            unit_price: 3000,
-            quantity: 1
-        }
-        ]
-    }
 
     let dispatch = useDispatch();
 
     useEffect(() => {
-      // dispatch(getOrderDetail(props.match.params.id))
-      dispatch(getOrderDetail());
-      console.log("orderDetail", orderDetail);
-  
+        // dispatch(getOrderDetail(props.match.params.id))
+        dispatch(getOrderDetail());
+
     }, [])
 
-    let orderDetail = useSelector((state) => state.admin.orderDetail);
+    let order = useSelector((state) => state.admin.orderDetail);
 
-
+    function total() {
+        let total = 0
+        for (let i = 0; i < order.products.length; i++) {
+            const subtotal = order.products[i].unit_price * order.products[i].quantity
+            total = total + subtotal
+        }
+        return total
+    }
 
     return (
 
@@ -51,63 +36,69 @@ export default function OrderDetail() {
                 <button className="btn btn-primary">BACK</button>
             </Link>
 
-            <div className={styles.datosComprador}>
-                <h1>Order: {order.id}</h1>
-                <h4>Datos del Cliente</h4>
-                <h6>{order.name}</h6>
-                <h6>{order.mail}</h6>
-            </div>
+            <div className={styles.datos}>
 
-            <div className={styles.pago}>
-                <h4>Mercado Pago</h4>
-                <p>{order.paymentStatus}</p>
-                <p>Identificador de la transacción: {order.paymentId}</p>
-            </div>
+                <div className={styles.datosComprador}>
+                    <h1>Order: {order.id}</h1>
+                    <h4>Datos del Cliente</h4>
+                    <h6>{order.name}</h6>
+                    <h6>{order.mail}</h6>
+                </div>
 
-            <div class={styles.container}>
-                <div class="row">
-                    <div class="col-3">
-                        Producto
-                    </div>
-                    <div class="col-3">
-                        Cantidad
-                    </div>
-                    <div class="col-3">
-                        Precio
-                    </div>
-                    <div class="col-3">
-                        Total
-                    </div>
+                <div className={styles.pago}>
+                    <h4>PayPal</h4>
+                    <p>Pago Aprobado</p>
+                    <p>Identificador de la transacción: {order.paymentId}</p>
                 </div>
             </div>
 
-            {
-                order && order.products.map(p => {
-                    return (
-                        <div class={styles.container}>
-                            <div class="row">
-                                <div class="col-3">
-                                    {p.title}
-                                </div>
-                                <div class="col-3">
-                                    {p.quantity}
-                                </div>
-                                <div class="col-3">
-                                    {p.unit_price}
-                                </div>
-                                <div class="col-3">
-                                    {p.quantity * p.unit_price}
+            <div className={styles.productos}>
+
+                <div className={styles.container}>
+                    <div className="row">
+                        <div className="col-3">
+                            Producto
+                        </div>
+                        <div className="col-3">
+                            Cantidad
+                        </div>
+                        <div className="col-3">
+                            Precio
+                        </div>
+                        <div className="col-3">
+                            Total
+                        </div>
+                    </div>
+                </div>
+
+                {
+                    order.products?.map((p, i) => {
+                        return (
+                            <div key={i} className={styles.container}>
+                                <div className="row">
+                                    <div className="col-3">
+                                        {p.title}
+                                    </div>
+                                    <div className="col-3">
+                                        {p.quantity}
+                                    </div>
+                                    <div className="col-3">
+                                        {p.unit_price}
+                                    </div>
+                                    <div className="col-3">
+                                        {p.quantity * p.unit_price}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    )
-                })
-            }
+                        )
+                    })
+                }
 
-            <div className="total">
-                <h4>Total: $700</h4>
+                <div className="total">
+                    {/* <h4 className={styles.total}>Total: ${total}</h4> */}
+                </div>
+
             </div>
-
 
         </div>
 

@@ -3,4 +3,6 @@
   grid-template-columns: auto 85%;
   min-height: 100vh;
   font-family: 'Inter';
+  width: 85vw;
+  margin: 0;
 }
