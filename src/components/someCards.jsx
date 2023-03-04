@@ -19,9 +19,29 @@ export default function SomeCards () {
     }
     return (
         <>
-            <div className={Style.cardContainer}>
-            {mapProducts(products)}
+        
+          <div className={Style.container}>
+          <img
+            src={
+              'https://res.cloudinary.com/daieynebb/image/upload/v1677494844/Images/wave_1_zmvymm.png'
+            }
+            alt="img-panelSolar"
+            className={Style.imgWave}
+          />
+
+
+            <div className={Style.container1}>     
+              
+              <h3 className={Style.title}>Algunos De Nuestros Productos</h3>
+
+              <div className={Style.cardContainer}>
+                {mapProducts(products)}
+              </div>
+
             </div>
+
+          </div>
+
         </>
         )
     }

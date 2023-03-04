@@ -3,12 +3,22 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-color: white;
+  background-color: #fff;
   margin-bottom: 60px;
+  margin-top: 60px;
+  
 }
 
 .containerImg img {
-  height: 500px;
+height: 400px;
+}
+
+.containerImg {
+  display: flex;
+  height: 400px;
+  align-items: center;
+  justify-content: center;
+  margin-right: 60px;
 }
 
 .productContent {
@@ -18,18 +28,26 @@
   justify-content: center;
   width: 380px;
   border-left: 1px solid;
+  padding-left: 40px;
 
 }
 
 .title {
-  font-size: 25px;
+  font-size: 35px;
   width: 250px;
+  text-align: center;
 }
 
 .price {
   font-size: 30px;
   font-weight: bold;
   color: forestgreen;
+}
+.precioexc{
+  font-family: "Roboto";  
+  color: #bbbbbb;
+  font-size: 13px;
+  margin-bottom: -5px;
 }
 
 .description {

@@ -1,0 +1,26 @@
+.container-not-found{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.text-not-found{
+    color:#002A39;
+    font-weight: 400;
+}
+
+.image-not-found {
+    width: 25%;
+    height: 25%;
+    /* border-radius: 150%; */
+}
+
+@media(max-width:640px) {
+
+    .text-not-found {
+        text-align: center;
+    }
+
+}
