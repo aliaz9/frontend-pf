@@ -2,7 +2,8 @@ import axios from "axios";
 
 import {
     setMessage,
-    getUsers
+    getUsers,
+    setOrderDetail
   } from './adminSlice.js'
   
 
@@ -16,5 +17,17 @@ export const users = () => {
         console.log(error)
         dispatch(setMessage({ error: error.message }))
       } 
+    }
+  }
+
+  export const getOrderDetail = () => {
+    return async (dispatch) => {
+        try {
+        const data = await axios.get(`https://run.mocky.io/v3/e075b095-a366-4d78-a10e-a1cda006a108`)
+        console.log(data.data)
+        dispatch(setOrderDetail(data.data))
+        } catch (error) {
+            dispatch(setMessage({error: error.message}))
+        }
     }
   }

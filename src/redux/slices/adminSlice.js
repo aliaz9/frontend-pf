@@ -4,7 +4,8 @@ export const admin = createSlice({
   name: 'admin',
   initialState: {
     message: { msg: '', error: null },
-    allUsers: []
+    allUsers: [],
+    orderDetail: {}
   },
 
   reducers: {
@@ -13,6 +14,9 @@ export const admin = createSlice({
     },
     getUsers: (state, action) => {
       state.allUsers = action.payload
+    },
+    setOrderDetail: (state, action) => {
+        state.orderDetail = action.payload
     }
   }
 
@@ -21,6 +25,7 @@ export const admin = createSlice({
 export const {
   setMessage,
   getUsers,
+  setOrderDetail
 } = admin.actions
 
 export default admin.reducer
