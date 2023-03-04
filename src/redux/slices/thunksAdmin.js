@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { clientAxios } from '../../config/clientAxios.js'
 
-import { setMessage, getUsers, getOrders } from './adminSlice.js'
+import { setMessage, getUsers, getOrders, getProduts } from './adminSlice.js'
 
 const config = {
   headers: {
@@ -30,6 +30,30 @@ export const orders = () => {
       dispatch(getOrders(data.data))
     } catch (error) {
       console.log(error)
+      dispatch(setMessage({ error: error.message }))
+    }
+  }
+}
+
+export const getProducts = () => {
+  return async (dispatch) => {
+    try {
+      const { data } = await clientAxios('/admin/products', config)
+      dispatch(getProduts(data))
+    } catch (error) {
+      dispatch(setMessage({ error: error.message }))
+    }
+  }
+}
+
+export const deletProduct = (id) => {
+  return async (dispatch) => {
+    try {
+      const res = await clientAxios.delete(`/admin/delete-product/${id}`)
+      const { data } = await clientAxios('/admin/products', config)
+      dispatch(getProduts(data))
+      return res.data.msg
+    } catch (error) {
       dispatch(setMessage({ error: error.message }))
     }
   }

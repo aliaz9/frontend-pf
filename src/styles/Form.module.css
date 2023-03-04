@@ -9,6 +9,7 @@ form {
   display: flex;
   flex-direction: column;
   margin-top: 35px;
+  align-items: center;
 }
 
 .title h1 {

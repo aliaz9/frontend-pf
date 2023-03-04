@@ -57,8 +57,9 @@ td {
   position: relative;
   width: 25px;
   height: 25px;
-  background-color: #b3cacf;
-  background-image: url(../../public/editar.png);
+  background-color: transparent;
+  background-image: url(../../borrar.png);
+  background-repeat: no-repeat;
   margin: 0;
   padding: 0;
   left: 35px;
@@ -99,10 +100,10 @@ td {
 }
 
 .next {
-  background-image: url(../../public/next-button.png);
+  background-image: url(../../next-button.png);
   background-repeat: no-repeat;
 }
 .prev {
-  background-image: url(../../public/previous.png);
+  background-image: url(../../previous.png);
   background-repeat: no-repeat;
 }
