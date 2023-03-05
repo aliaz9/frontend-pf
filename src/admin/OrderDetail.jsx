@@ -2,20 +2,19 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getOrderDetail } from "../redux/slices/thunksAdmin";
 import styles from '../styles/OrderDetail.module.css'
 
 
 export default function OrderDetail() {
 
-    let dispatch = useDispatch();
+    const { id } = useParams();
+    const dispatch = useDispatch();
 
-    useEffect(() => {
-        // dispatch(getOrderDetail(props.match.params.id))
-        dispatch(getOrderDetail());
-
-    }, [])
+    useEffect((id) => {
+        dispatch(getOrderDetail(id));
+    }, [dispatch, id])
 
     let order = useSelector((state) => state.admin.orderDetail);
 

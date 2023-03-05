@@ -9,7 +9,7 @@ export default function LayoutAdmin() {
   const routes = useRoutes([
     { path: '/products', element: <Products /> },
     { path: '/users', element: <Users /> },
-    { path: '/detalle', element: <OrderDetail /> }
+    { path: '/orders/:id', element: <OrderDetail /> }
   ])
   return (
     <div className={style.container}>
