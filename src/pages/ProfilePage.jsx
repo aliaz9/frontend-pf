@@ -10,7 +10,7 @@ export default function Pagination () {
   const [style1, setStyle1] = useState(0)
   const [style2, setStyle2] = useState(0)
 
-  const { token } = useSelector((state) => state.users.auth)
+  const { name } = useSelector((state) => state.users.auth)
 
   const handleChange = (value) => {
     switch (value) {
@@ -77,12 +77,12 @@ export default function Pagination () {
 
         <div>
             {
-              token
+              name
               // eslint-disable-next-line indent
               ? (
                     style === 1
                       ? (
-                         <UserProfile token={token} />
+                         <UserProfile />
                         )
                       : (style1 === 1
                           ? <NewPassword />

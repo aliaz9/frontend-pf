@@ -7,7 +7,7 @@ export const users = createSlice({
     productsInCart: JSON.parse(localStorage.getItem('cart')) || [],
     auth: {},
     loading: false,
-    linkPayment: '',
+    linkPayment: ''
   },
 
   reducers: {
@@ -52,6 +52,10 @@ export const users = createSlice({
       state.auth.name = name
       state.auth.email = email
     },
+    setEdithPwd: (state, action) => {
+      const { newPassword } = action.payload
+      state.auth.password = newPassword
+    }
   }
   // reducers: {
   //   setMessage (state, action) {
@@ -103,6 +107,7 @@ export const {
   setUserLoading,
   setLinkPayment,
   setEdithUser,
+  setEdithPwd
 } = users.actions
 
 export default users.reducer

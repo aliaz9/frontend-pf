@@ -1,5 +1,5 @@
 import { clientAxios } from '../../config/clientAxios.js'
-
+import Swal from 'sweetalert2';
 import {
   addOne,
   lessOne,
@@ -10,7 +10,16 @@ import {
   setMessage,
   setUserLoading,
   setEdithUser,
+  setEdithPwd
 } from './usersSlice.js'
+import { alertMsg } from '../../helpers/index.js';
+
+const config = {
+  headers: {
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${localStorage.getItem('token')}`
+  }
+}
 
 export const registerUser = (user) => {
   return async (dispatch) => {
@@ -32,7 +41,7 @@ export const registerUser = (user) => {
 export const logUser = (user) => {
   return async (dispatch) => {
     try {
-      const { data } = await clientAxios.post('/auth/login', user)
+      const { data } = await clientAxios.post('/users/user-login', user)
       // dispatch(setMessage(data))
       dispatch(setAuth(data))
       localStorage.setItem('token', data.token)
@@ -75,7 +84,7 @@ export const autehnticateUser = (config) => {
   return async (dispatch) => {
     try {
       dispatch(setUserLoading(true))
-      const { data } = await clientAxios('/users/profile', config)
+      const { data } = await clientAxios('/users/user-profile', config)
       dispatch(setAuth(data))
     } catch (error) {
       dispatch(setMessage(error.response.data))
@@ -113,11 +122,32 @@ export const editUser = (user) => {
       dispatch(setUserLoading(true))
       dispatch(setEdithUser({ name, email }))
 
-      const { data } = await clientAxios.put(`/users/${user.uid}`, {
+      const { data } = await clientAxios.put('/users/edit-user/', {
         name,
         email
-      })
+      }, config)
       dispatch(setMessage(data.msg))
+      alertMsg('Actualizado!!!', data.msg, 'success')
+    } catch (error) {
+      dispatch(setMessage(error.response.data))
+    }
+    dispatch(setUserLoading(false))
+  }
+}
+
+export const changePassword = (user) => {
+  return async (dispatch) => {
+    try {
+      // const { oldPassword, newPassword } = user
+      dispatch(setUserLoading(true))
+      // dispatch(setEdithUser({ oldPassword, newPassword }))
+      dispatch(setEdithPwd(user.newPassword))
+      const { data } = await clientAxios.put('/users/change-password', {
+        oldPassword: user.oldPassword,
+        newPassword: user.newPassword
+      }, config)
+      dispatch(setMessage(data.msg))
+      alertMsg('Actualizado!!!', data.msg, 'success')
     } catch (error) {
       dispatch(setMessage(error.response.data))
     }

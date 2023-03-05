@@ -8,17 +8,17 @@ form {
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  margin-top: 35px;
 }
 
 .title h1 {
   font-family: Tilt Warp;
   font-weight: 400;
+  /* font-size: ; */
 }
 .contForm {
   padding: 1%;
-  width: 500px;
+  width: 700px;
 }
 
 .formulario {
@@ -43,7 +43,7 @@ form {
 }
 
 .formulario .inputDos div input {
-  height: 20px;
+  /* height: 30px; */
   padding: 2%;
 }
 .formulario .divSolo {
@@ -58,7 +58,7 @@ form {
 }
 
 .formulario input[type='text'] {
-  height: 20px;
+  height: 40px;
   padding: 1%;
   border-radius: 5px;
   border: none;
@@ -70,7 +70,7 @@ form {
   transition: background-color 0.4s, border 0.4s, box-shadow 0.4s;
 }
 .formulario input[type='number'] {
-  height: 20px;
+  height: 40px;
   padding: 1%;
   border-radius: 5px;
   border: none;
@@ -111,7 +111,7 @@ form {
 }
 .formulario textarea {
   resize: none;
-  height: 45px;
+  height: 65px;
   padding: 1%;
   border-radius: 5px;
   border: none;
@@ -143,12 +143,12 @@ form {
   cursor: pointer;
   background-image: url(../../public/subir.png);
   background-repeat: no-repeat;
-  width: 112px;
+  width: 150px;
   margin-left: 10px;
-  margin-bottom: 100px;
+  margin-bottom: 120px;
 }
 .formulario input[type='file']::before {
-  content: 'Cargar Archivo';
+  content: 'Cargar Archivo    ';
   margin-left: 25px;
   color: #74c8db;
   font-family: Tilt Warp;
@@ -172,23 +172,24 @@ form {
 .formulario .file {
   position: relative;
 }
+
 .formulario .file img {
   position: absolute;
   margin: 0;
   padding: 0;
-  top: 60px;
-  left: 15px;
+  top: 70px;
+  left: 20px;
   max-width: 120px;
-  /* margin-top: 5px; */
+  max-height: 120px;
 }
 .formulario .file iframe {
   position: absolute;
   margin: 0;
   padding: 0;
   top: 70px;
-  left: 15px;
+  left: 30px;
   max-width: 120px;
-  max-height: 70px;
+  max-height: 120px;
 }
 .formulario button {
   margin-top: 15px;
