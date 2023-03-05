@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { alertMsg } from '../helpers'
 import { editUser } from '../redux/slices/thunksUsers'
 import styles from '../styles/UserProfile.module.css'
+import Alert from './Alert'
 
 export default function UserProfile () {
   const dispatch = useDispatch()
   const { uid, name, email, image } = useSelector((state) => state.users.auth)
+  const { msg, error } = useSelector((state) => state.users.message)
   const [input, setInput] = useState({ uid, name, email })
   const [erros, setErros] = useState({})
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     await dispatch(editUser(input))
-    alert('Datos Actualizados')
   }
-
+  //  console.log(msg, error)
   const handleChange = (e) => {
     const property = e.target.name
     const value = e.target.value
@@ -28,8 +30,8 @@ export default function UserProfile () {
       errors.name = '*Campo requerido'
     } else if (!(/^[ñíóáéú a-zA-Z ]+$/.test(input.name))) {
       errors.name = '*Solo se permiten caracteres alfabeticos'
-    } else if (input.name.length < 3 || input.name.length > 10) {
-      errors.name = '*Debe tener más de 3 y menos de 10 letras solo se permiten letras'
+    } else if (input.name.length < 3 || input.name.length > 20) {
+      errors.name = '*Debe tener más de 3 y menos de 20 letras solo se permiten letras'
     }
 
     if (input.email.length === 0) {
@@ -37,17 +39,17 @@ export default function UserProfile () {
     } else if (!(/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i.test(input.email))) {
       errors.email = '*Correo electronico invalido'
     }
-    //  else if (input.name.length < 3 || input.email.length > 10) {
-    //   errors.email = '*El correo electronico ya esta en uso'
-    // }
 
     return errors
   }
 
   return (
         <div>
-            <h1>Perfil público</h1>
-            <p>Las personas que visiten tu perfil verán la siguiente información</p><br />
+            <div className={styles.titleProfile}>
+              <h5><b>Perfil público</b></h5>
+              { msg && <small className={styles.error}>{error}</small>}
+              <small>Las personas que visiten tu perfil tiene la posibilidad de ver la siguiente información</small><br /><br />
+            </div>
             <form onSubmit={handleSubmit}>
                 <div className={styles.imageProfile}>
                     <small>Foto</small>
@@ -82,12 +84,12 @@ export default function UserProfile () {
                         <small className={styles.error}>{erros.email}</small>
                     )}
                 </div>
-                      <button
-                        className={styles.btnImage}
-                        disabled={Object.keys(erros).length}
-                        type="submit" >
-                          Actualizar
-                      </button>
+                <button
+                  className={styles.btnEdit}
+                  disabled={Object.keys(erros).length}
+                  type="submit" >
+                    Actualizar
+                </button>
             </form>
         </div>
   )

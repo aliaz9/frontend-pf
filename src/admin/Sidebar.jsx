@@ -5,7 +5,7 @@ import styles from '../styles/Sidebar.module.css'
 
 export default function Sidebar() {
   return (
-    <div className="container-fluid">
+    <div className={`container-fluid ${styles.container}`}>
       <div className="row">
         <div className={`${styles.col} col-auto min-vh-100 bg-light`}>
           <img
@@ -25,8 +25,10 @@ export default function Sidebar() {
             </li>
 
             <li className={`${styles.navLink} nav-link`}>
+              <Link to="/admin/orders">
               <i className="bi-bag-check" />{' '}
               <span className="ms-1">Ventas</span>
+              </Link>
             </li>
 
             <li className={`${styles.navLink} nav-link`}>
