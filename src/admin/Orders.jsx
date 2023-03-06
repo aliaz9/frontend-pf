@@ -2,7 +2,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from '../styles/Orders.module.css'
-import { orders, users } from "../redux/slices/thunksAdmin";
+import { orders } from "../redux/slices/thunksAdmin";
+import { Link } from "react-router-dom";
 
 export default function Orders() {
 
@@ -58,7 +59,9 @@ let dispatch = useDispatch()
                             </div>
 
                             <div className="col-3">
+                            <Link to={`/admin/orders/${u.id}`}>
                             <button className={`${styles.blue} btn btn-primary`}> Ver Detalle </button>
+                            </Link>
                             </div>
                             
                         </div>
