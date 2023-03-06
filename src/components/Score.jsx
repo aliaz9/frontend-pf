@@ -2,9 +2,16 @@ import React, { useState } from 'react'
 import styles from '../styles/Score.module.css'
 import DetailScore from './DetailScore'
 
-export default function Score ({ count, disabledStart = 0, disabledOpinion = 0, disabledNumber = 0, width = 1 }) {
+export default function Score({
+  count,
+  disabledStart = 0,
+  disabledOpinion = 0,
+  disabledNumber = 0,
+  width = 1
+}) {
   const colors = {
-    orange: '#FFBB00', grey: '#d2e3da'
+    orange: '#FFBB00',
+    grey: '#d2e3da'
   }
   const stars = Array(5).fill(0)
   const countStart = count
@@ -31,12 +38,12 @@ export default function Score ({ count, disabledStart = 0, disabledOpinion = 0, 
     }
   }
 
-  const handleClick = value => {
+  const handleClick = (value) => {
     setCurrentValue(value)
     setNumber(value)
   }
 
-  const handleMouseOver = value => {
+  const handleMouseOver = (value) => {
     setHoverValue(value)
   }
 
@@ -56,31 +63,41 @@ export default function Score ({ count, disabledStart = 0, disabledOpinion = 0, 
     <>
       <div className={styles.ContainerScore}>
         <div>
-            {
-                stars.map((_, index) => {
-                  return (
-                        <i
-                        className={`fa-solid fa-star fa-${width}x`}
-                        key={index}
-                        style={disabledStart === 0 ? ((countStart) > index ? { color: colors.orange } : { color: colors.grey }) : ((currentValue || hoverValue) > index ? { color: colors.orange } : { color: colors.grey }) }
-                        onClick={() => handleClick(index + 1)}
-                        onMouseOver={() => handleMouseOver(index + 1)}
-                        onMouseLeave={handleMouseLeave}
-                        ></i>)
-                })
-            }
-        <p className={`${disabledNumber === 0 ? styles.isVisibility : ''}`}>{ handleText() }</p>
+          {stars.map((_, index) => {
+            return (
+              <i
+                className={`fa-solid fa-star fa-${width}x`}
+                key={index}
+                style={
+                  disabledStart === 0
+                    ? countStart > index
+                      ? { color: colors.orange }
+                      : { color: colors.grey }
+                    : (currentValue || hoverValue) > index
+                    ? { color: colors.orange }
+                    : { color: colors.grey }
+                }
+                onClick={() => handleClick(index + 1)}
+                onMouseOver={() => handleMouseOver(index + 1)}
+                onMouseLeave={handleMouseLeave}
+              ></i>
+            )
+          })}
+          <p className={`${disabledNumber === 0 ? styles.isVisibility : ''}`}>
+            {handleText()}
+          </p>
         </div>
 
         <button
           className={`${disabledOpinion === 1 ? styles.isVisibility : ''}`}
-          onClick={ () => handleDisplay(true)}
+          onClick={() => handleDisplay(true)}
         >
-          <small className={styles.titleScore} title="Ver Opiniones" >80 Opiniones</small>
+          <small className={styles.titleScore} title="Ver Opiniones">
+            80 Opiniones
+          </small>
         </button>
       </div>
-        {display && <DetailScore />}
+      {display && <DetailScore />}
     </>
-
   )
 }

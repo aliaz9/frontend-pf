@@ -1,15 +1,20 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styles from '../styles/Users.module.css'
-import { users } from '../redux/slices/thunksAdmin'
+import { deleteUser, users } from '../redux/slices/thunksAdmin'
 
 export default function Users() {
+
   const allUsers = useSelector((state) => state.admin.allUsers)
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(users())
   }, [])
+
+  function handleDelete(id) {
+    dispatch(deleteUser(id))
+  }
 
   return (
     <div>
@@ -35,7 +40,7 @@ export default function Users() {
                     </button>
                   </div>
                   <div className="col-2">
-                    <button className={`${styles.red} btn btn-danger`}>
+                    <button className={`${styles.red} btn btn-danger`} onClick={() => handleDelete(u.id)}>
                       {' '}
                       Borrar{' '}
                     </button>

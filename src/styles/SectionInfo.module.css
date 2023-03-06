@@ -1,20 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-.container {
+
+.containerAll{
   background-color: #fff;
+  margin: 0;
+  padding: 0;
+
   display: flex;
   flex-direction: row;
-  height: 350px;
-  margin: 80px;
-
+  flex-wrap: nowrap;
 }
-
-.izquierda {
+.container {
   display: flex;
-
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin: 20px 100px 0px 100px;
 }
 
 .izquierda img {
+  height: 400px;
   display: flex;
   width: 700px;
   object-fit: cover;
@@ -23,60 +27,108 @@
 
 
 .derecha {
+  height: 400px;
   display: flex;
   flex-direction: column;
-  background-color: #FFBB00;
+  background-color: var(--amarillo);
   border-radius: 00px 20px 20px 0px;
   background-size: cover;
   width: 100%;
 }
 
 .derecha .containerText {
-  color: #002A39;
+  color: var(--azul);
   font-family: 'Inter';
   align-items: flex-start;
-  padding: 50px;
+  padding: 40px;
   text-align: start;
 }
 
-.derecha .containerText h1 {
+.derecha .containerText .h1Text {
   font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
-  font-size: 38px;
-  line-height: 42px;
-  color: #002A39;
+  font-size: 30px;
+  line-height: 30px;
+  color: var(--azul);
   text-align: start;
 }
 
-.derecha .containerText h4 {
-  font-family: 'Inter';
-  font-style: normal;
-  font-size: 21px;
-  line-height: 21px;
-  color: #002A39;
-  text-align: start;
-}
-
-.derecha .containerText p {
+.derecha .containerText .h4Text {
   font-family: 'Inter';
   font-style: normal;
   font-size: 18px;
-  line-height: 21px;
-  color: #002A39;
+  line-height: 18px;
+  color: var(--azul);
   text-align: start;
 }
 
+.derecha .containerText .pText{
+  font-family: 'Inter';
+  font-style: normal;
+  font-size: 15px;
+  line-height: 18px;
+  color: var(--azul);
+  text-align: start;
+}
 
+.derecha .comprarButton {
 
-
-
-.derecha .containerButton {
   align-items: center;
+  margin-left: 15%;
+
+  width: 10em;
+
+  margin-right: 8px;
+  margin-bottom: 0;
+
+  overflow: hidden;
+
+  font-family: "inter";
+  font-size: 11px;
+  font-weight: 600;
+
+  color: #fff;
+  background-color: var(--verde);
+
+  border: none;
+
+  border-radius: 3px;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease-out 0s;
+  padding: 10px 0px;
+  
+
+}
+.derecha .comprarButton:hover {
+  cursor: pointer;
+  background-color: var(--azul);
+
+  border: none;
+
+  border-radius: 3px;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease-out 0s;
+  padding: 10px 0px;
+  
 
 }
 
-.derecha button {
+.stepsBanner .imgBanner{
+  width: 100%;
+  height: 100%;
+  background-color: rebeccapurple;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: top;
+  margin-top: 4rem;
+
+}
+
+
+
+/* .derecha button {
   width: 22em;
   margin-right: 10px;
   margin-top: 10px;
@@ -94,12 +146,182 @@
   border-radius: 3px;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease-out 0s;
-}
-
+} */
+/* 
 .derecha button:hover {
   background-color: #002A39;
   box-shadow: 0px 5px 10px rgba(0, 102, 153, 0.3);
   color: #fff;
   transform: translateY(-3px);
   cursor: pointer;
+} */
+
+.buttonContainer{
+  display: flex;
+  align-items: center;
+  margin: 0;
+  justify-content: center;
+}
+
+@media(max-width: 480px){
+  .stepsBanner .imgBanner{
+    background-color: rgb(255, 255, 255);
+    margin: 20px 0 0  0;
+    padding: 0;
+    height: 80px;
+    width: auto;
+  
+  }
+  .containerAll{
+    background-color: #fff;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 40px 10px 40px;
+  }
+
+  .izquierda img {
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px 20px 0px 0px;
+  }
+
+  .derecha {
+    height: auto;
+    border-radius: 00px 0px 20px 20px;
+    align-items: center;
+  }
+  .derecha .containerText {
+    color: var(--azul);
+    font-family: 'Inter';
+    align-items: center;
+    padding: 20px;
+    height: auto;
+    text-align: center;
+  }
+  .derecha .containerText .h1Text {
+    font-size: 18px;
+    line-height: 18px;
+    text-align: center;
+  }
+  
+  .derecha .containerText .h4Text {
+
+    font-size: 15px;
+    line-height: 15px;
+    color: var(--azul);
+    text-align: center;
+  }
+  
+  .derecha .containerText .pText {
+    font-family: 'Inter';
+    font-size: 12px;
+    line-height: 12px;
+    color: var(--azul);
+    text-align: center;
+  }
+  .derecha .comprarButton {
+
+    align-items: center;
+    justify-content: center;
+    margin-left: 0;
+  
+    width: 10em;
+  
+    margin-right: 0px;
+    margin-bottom: 10px;  
+  }
+
+
+
+}
+@media(min-width: 768px){
+  .stepsBanner .imgBanner{
+    margin: 20px 0 0  0;
+    padding: 0;
+    height: 120px;
+    width: auto;
+  
+  }
+  .containerAll{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 40px 10px 40px;
+  }
+
+  .izquierda img {
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px 20px 0px 0px;
+  }
+
+  .derecha {
+    height: 280px;
+    border-radius: 00px 0px 20px 20px;
+    align-items: center;
+  }
+  .derecha .containerText {
+    color: var(--azul);
+    font-family: 'Inter';
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+  }
+  .derecha .containerText .h1Text {
+    font-size: 32px;
+    line-height: 32px;
+    text-align: center;
+  }
+  
+  .derecha .containerText .h4Text {
+
+    font-size: 21px;
+    line-height: 21px;
+    color: var(--azul);
+    text-align: center;
+  }
+  
+  .derecha .containerText .pText{
+    font-family: 'Inter';
+    font-size: 15px;
+    line-height: 12px;
+    color: var(--azul);
+    text-align: center;
+  }
+  .derecha .comprarButton {
+
+    align-items: center;
+    justify-content: center;
+    margin-left: 0;
+  
+    width: 10em;
+  
+    margin-right: 0px;
+    margin-bottom: 0;  
+  }
+
+
+
 }

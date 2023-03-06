@@ -9,13 +9,16 @@ import Section1 from '../components/section1.jsx'
 
 export default function Home () {
   return (
-    <div>
+    <div className={Style.home}>
       <Hero/>
-      <Steps />
+      <Steps /> 
       <SectionInfo />
+
       <SomeCards />
+                  
       <Section1/>
-      <Questions />
+      {/*
+      <Questions /> */}
     </div>
   )
 }

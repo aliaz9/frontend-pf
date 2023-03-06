@@ -7,7 +7,7 @@ const config = {
   }
 }
 export const clientAxios = axios.create({
-  baseURL: import.meta.env.VITE_APP_BACKEND_URL
+  baseURL: import.meta.env.VITE_APP_BACKEND_URL + '/api'
 })
 
 export const clientAuth = axios.create({
