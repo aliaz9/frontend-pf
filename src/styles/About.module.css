@@ -73,7 +73,7 @@
 
 }
 
-.derecha button {
+/* .derecha button {
   width: 22em;
   margin-right: 10px;
   margin-top: 10px;
@@ -91,7 +91,7 @@
   border-radius: 3px;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease-out 0s;
-}
+} */
 
 .derecha button:hover {
   background-color: #002A39;

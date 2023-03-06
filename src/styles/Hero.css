@@ -1,0 +1,13 @@
+.containerFondo{
+    display: flex;
+
+
+}
+
+.derecha{
+
+    background-image: url("https://res.cloudinary.com/daieynebb/image/upload/v1677623063/Fondos/hero1_ls6dvu.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+

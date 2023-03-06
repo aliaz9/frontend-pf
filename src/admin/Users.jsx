@@ -4,6 +4,7 @@ import styles from '../styles/Users.module.css'
 import { deleteUser, users } from '../redux/slices/thunksAdmin'
 
 export default function Users() {
+
   const allUsers = useSelector((state) => state.admin.allUsers)
   const dispatch = useDispatch()
 
