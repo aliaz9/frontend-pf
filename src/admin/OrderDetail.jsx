@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { getOrderDetail } from "../redux/slices/thunksAdmin";
+// import { getOrderDetail } from "../redux/slices/thunksAdmin";
 import styles from '../styles/OrderDetail.module.css'
 
 
@@ -13,7 +13,7 @@ export default function OrderDetail() {
     const dispatch = useDispatch();
 
     useEffect((id) => {
-        dispatch(getOrderDetail(id));
+        // dispatch(getOrderDetail(id));
     }, [dispatch, id])
 
     let order = useSelector((state) => state.admin.orderDetail);
