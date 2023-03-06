@@ -2,11 +2,9 @@ import React from 'react'
 import { Outlet } from 'react-router-dom'
 import Sidebar from '../admin/Sidebar.jsx'
 import { useRoutes } from 'react-router-dom'
-
-import { Products, Users, Form } from '../admin'
-
+import { Products, Users, Form, Orders } from '../admin'
 import style from '../styles/LayoutAdmin.module.css'
-import Orders from '../admin/Orders.jsx'
+
 
 export default function LayoutAdmin() {
   const routes = useRoutes([
@@ -18,7 +16,8 @@ export default function LayoutAdmin() {
     {
       path: '/users',
       element: <Users />
-    }
+    },
+    {  path: '/orders', element: <Orders />  }
   ])
   return (
     <div className={style.container}>
