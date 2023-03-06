@@ -1,30 +1,33 @@
 // import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { recoverPassword } from '../redux/slices/thunksUsers.js'
 import { useFormik } from 'formik'
+import { useParams } from 'react-router-dom'
+import { forgotPassword } from '../redux/slices/thunksUsers.js'
 
-export const RecoverPassword = () => {
+export const ChangePasswordForGot = () => {
   // Pass the useFormik() hook initial form values and a submit function that will
   // be called when the form is submitted
   const msg = useSelector((state) => state.users.message.msg)
+  const params = useParams()
+  const { token } = params
   const dispatch = useDispatch()
   const formik = useFormik({
     initialValues: {
-      email: ''
+      password: ''
     },
-    onSubmit: (values) => {
-      dispatch(recoverPassword(values))
+    onSubmit: (password) => {
+      dispatch(forgotPassword(token, password))
     }
   })
   return (
     <form onSubmit={formik.handleSubmit}>
-      <label htmlFor="email">Email Address</label>
+      <label htmlFor="password">Nueva Contraseña</label>
       <input
-        id="email"
-        name="email"
-        type="email"
+        id="password"
+        name="passwod"
+        type="passwod"
         onChange={formik.handleChange}
-        value={formik.values.email}
+        value={formik.values.password}
       />
       {msg}
 

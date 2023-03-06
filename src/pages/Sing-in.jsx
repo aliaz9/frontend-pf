@@ -4,7 +4,7 @@ import Alert from '../components/Alert.jsx'
 import { registerUser } from '../redux/slices/thunksUsers.js'
 import '../styles/Sing-in.css'
 
-export default function SignIn () {
+export default function SignIn() {
   const dispatch = useDispatch()
   const { msg, error } = useSelector((state) => state.users.message)
   return (
@@ -14,7 +14,6 @@ export default function SignIn () {
         initialValues={{ name: '', email: '', password: '' }}
         validate={(values) => {
           const errors = {}
-
           if (!values.email) {
             errors.email = 'Email requerido.'
           } else if (
@@ -48,7 +47,11 @@ export default function SignIn () {
               <label className="form-label">Contraseña:</label>
               <Field type="password" name="password" className="form-control" />
               {touched.password && (
-                <ErrorMessage name="password" className='alert alert-primary' component="span" />
+                <ErrorMessage
+                  name="password"
+                  className="alert alert-primary"
+                  component="span"
+                />
               )}
             </div>
 

@@ -19,6 +19,7 @@ import { autehnticateUser } from './redux/slices/thunksUsers.js'
 import ConfirmUser from './components/ConfirmUser.jsx'
 import { RecoverPassword } from './components/RecoverPassword.jsx'
 import LayoutAdmin from './Layout/LayoutAdmin.jsx'
+import { ChangePasswordForGot } from './components/ChangePasswordForGot.jsx'
 
 function App() {
   const dispatch = useDispatch()
@@ -60,6 +61,10 @@ function App() {
           <Route path="/user-page-profile" element={<ProfilePage />} />
           <Route path="/users/confirm/:token" element={<ConfirmUser />} />
           <Route path="/users/reset-password" element={<RecoverPassword />} />
+          <Route
+            path="/user/reset-password/:token"
+            element={<ChangePasswordForGot />}
+          />
           <Route path="*" element={<h1>404</h1>} />
         </Route>
         <Route path="/admin/*" element={<LayoutAdmin />}></Route>

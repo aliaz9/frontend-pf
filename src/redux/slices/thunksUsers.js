@@ -11,7 +11,7 @@ import {
   setEdithUser,
   setEdithPwd
 } from './usersSlice.js'
-import { alertMsg } from '../../helpers/index.js';
+import { alertMsg } from '../../helpers/index.js'
 
 const config = {
   headers: {
@@ -106,7 +106,7 @@ export const confirmUser = (token) => {
 export const recoverPassword = (email) => {
   return async (dispatch) => {
     try {
-      const { data } = await clientAxios.post('/users/reset-password/', email)
+      const { data } = await clientAxios.post('users/forgot-password', email)
       dispatch(setMessage(data))
     } catch (error) {
       dispatch(setMessage(error.response.data))
@@ -121,10 +121,14 @@ export const editUser = (user) => {
       dispatch(setUserLoading(true))
       dispatch(setEdithUser({ name, email }))
 
-      const { data } = await clientAxios.put('/users/edit-user/', {
-        name,
-        email
-      }, config)
+      const { data } = await clientAxios.put(
+        '/users/edit-user/',
+        {
+          name,
+          email
+        },
+        config
+      )
       dispatch(setMessage(data.msg))
       alertMsg('Actualizado!!!', data.msg, 'success')
     } catch (error) {
@@ -141,10 +145,14 @@ export const changePassword = (user) => {
       dispatch(setUserLoading(true))
       // dispatch(setEdithUser({ oldPassword, newPassword }))
       dispatch(setEdithPwd(user.newPassword))
-      const { data } = await clientAxios.put('/users/change-password', {
-        oldPassword: user.oldPassword,
-        newPassword: user.newPassword
-      }, config)
+      const { data } = await clientAxios.put(
+        '/users/change-password',
+        {
+          oldPassword: user.oldPassword,
+          newPassword: user.newPassword
+        },
+        config
+      )
       dispatch(setMessage(data.msg))
       alertMsg('Actualizado!!!', data.msg, 'success')
     } catch (error) {
@@ -157,10 +165,28 @@ export const changePassword = (user) => {
 export const loaderPayment = (product) => {
   return async (dispatch) => {
     try {
-      const { data } = await clientAxios.post('/users/add-to-cart', {
-        items: product
-      }, config)
+      const { data } = await clientAxios.post(
+        '/users/add-to-cart',
+        {
+          items: product
+        },
+        config
+      )
       dispatch(setLinkPayment(data.link))
+    } catch (error) {
+      dispatch(setMessage(error.response.data))
+    }
+  }
+}
+
+export const forgotPassword = (token, password) => {
+  return async (dispatch) => {
+    try {
+      const { data } = clientAxios.put(
+        `users/forgot-password/${token}`,
+        password
+      )
+      dispatch(setMessage(data))
     } catch (error) {
       dispatch(setMessage(error.response.data))
     }
