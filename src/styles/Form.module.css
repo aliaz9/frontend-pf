@@ -142,7 +142,7 @@ form {
 
 .formulario input[type='file'] {
   cursor: pointer;
-  background-image: url(../../public/subir.png);
+  background-image: url(../../subir.png);
   background-repeat: no-repeat;
   width: 150px;
   margin-left: 10px;

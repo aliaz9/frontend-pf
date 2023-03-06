@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import style from '../styles/Form.module.css'
 import { useForm } from 'react-hook-form'
-import { createProducts } from '../redux/slices/thunksProducts'
+import { createProducts } from '../redux/slices/thunksAdmin'
 import {
   functionPanels,
   functionBaterias,
@@ -17,11 +17,11 @@ const Form = () => {
   const [categoria, setCategoria] = useState('Otros')
 
   const [form, setForm] = useState({
-    name: '',
+    title: '',
     type: '',
     description: '',
     brand: '',
-    price: '',
+    unit_price: '',
     pmax: '',
     vmax: '',
     voc: '',
@@ -81,6 +81,35 @@ const Form = () => {
     formData.append('image', image)
     formData.append('document', document)
     const result = await createProducts(formData)
+    result.data.msg && alert(result.data.msg)
+    result.data.error && alert(result.data.error)
+    console.log(result)
+    setImage(null)
+    setDocument(null)
+    setForm({
+      ...form,
+      title: '',
+      type: '',
+      description: '',
+      brand: '',
+      unit_price: '',
+      pmax: '',
+      vmax: '',
+      voc: '',
+      isc: '',
+      efficiency: '',
+      warranty: '',
+      dimensions: '',
+      weight: '',
+      RatedVoltage: '',
+      RatedCurrent: '',
+      tecnology: '',
+      powerOutput: '',
+      peakPower: '',
+      outputVoltage: '',
+      voltageRecovery: '',
+      overloadVoltage: ''
+    })
   }
 
   const panelesSolares = functionPanels(form, inforHandeler)
@@ -105,13 +134,13 @@ const Form = () => {
             <span>Nombre del Producto</span>
           </label>
           <input
-            {...register('name', {
+            {...register('title', {
               required: true
             })}
             type="text"
-            value={form.name}
+            value={form.title}
             onChange={inforHandeler}
-            name="name"
+            name="title"
             placeholder="Nuevo producto"
             autoComplete="off"
           />
@@ -160,13 +189,13 @@ const Form = () => {
                 <span>Precio del Producto</span>
               </label>
               <input
-                {...register('price', {
+                {...register('unit_price', {
                   required: true
                 })}
                 type="number"
-                value={form.price}
+                value={form.unit_price}
                 onChange={inforHandeler}
-                name="price"
+                name="unit_price"
                 placeholder="precio de venta"
                 autoComplete="off"
               />
@@ -214,10 +243,10 @@ const Form = () => {
                 <span>Imagen del Producto</span>
               </label>
               <input
-                {...register('image', {
-                  required: true
-                })}
-                // value={image}
+                // {...register('image', {
+                //   required: true
+                // })}
+                value={image && ''}
                 type="file"
                 onChange={handlerfile}
                 name="image"
@@ -231,11 +260,11 @@ const Form = () => {
                 <span>Documentación del Producto</span>
               </label>
               <input
-                {...register('document', {
-                  required: true
-                })}
+                // {...register('document', {
+                //   required: true
+                // })}
                 type="file"
-                // value={document}
+                value={document && ''}
                 onChange={handlerfile}
                 name="document"
                 autoComplete="off"

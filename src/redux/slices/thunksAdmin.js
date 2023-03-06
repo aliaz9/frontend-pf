@@ -58,3 +58,17 @@ export const deletProduct = (id) => {
     }
   }
 }
+
+export const createProducts = async (formData) => {
+  try {
+    const result = await clientAxios.post('/admin/create-product', formData, {
+      withCredentials: false,
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      }
+    })
+    return result
+  } catch (error) {
+    return error
+  }
+}
