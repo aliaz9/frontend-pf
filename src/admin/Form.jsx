@@ -42,7 +42,8 @@ const Form = () => {
 
   const inforHandeler = (event) => {
     const property = event.target.name
-    const value = event.target.value
+    let value = event.target.value
+    if (property === 'unit_price') value = parseFloat(event.target.value)
     setForm({
       ...form,
       [property]: value
@@ -80,9 +81,11 @@ const Form = () => {
     }
     formData.append('image', image)
     formData.append('document', document)
-    const result = await createProducts(formData)
-    result.data.msg && alert(result.data.msg)
-    result.data.error && alert(result.data.error)
+    await createProducts(formData)
+      .then((result) => result.data.msg && alert(result.data.msg))
+      .then((result) => result.data.error && alert(result.data.error))
+      .catch((error) => alert(error))
+
     console.log(result)
     setImage(null)
     setDocument(null)
@@ -243,9 +246,6 @@ const Form = () => {
                 <span>Imagen del Producto</span>
               </label>
               <input
-                // {...register('image', {
-                //   required: true
-                // })}
                 value={image && ''}
                 type="file"
                 onChange={handlerfile}
@@ -260,9 +260,6 @@ const Form = () => {
                 <span>Documentación del Producto</span>
               </label>
               <input
-                // {...register('document', {
-                //   required: true
-                // })}
                 type="file"
                 value={document && ''}
                 onChange={handlerfile}

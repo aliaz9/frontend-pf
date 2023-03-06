@@ -34,7 +34,7 @@ const Products = () => {
   return (
     <div className={`${style.container}`}>
       <h1>Registro de Productos</h1>
-      <div className={style.pagination}>
+      {/* <div className={style.pagination}>
         <div>
           <button
             className={style.prev}
@@ -49,7 +49,7 @@ const Products = () => {
             disabled={pageCurrent === 1}
           ></button>
         </div>
-      </div>
+      </div> */}
 
       <div className={`table-responsive ${style.contTable}`}>
         <table className={`table table-striped ${style.table}`}>
