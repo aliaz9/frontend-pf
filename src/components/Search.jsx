@@ -1,12 +1,18 @@
 import { useState } from 'react'
-import Style from "./../styles/Search.module.css"
-
-import { useDispatch, useSelector } from 'react-redux'
 import {
+  cleanSearch,
   setBrand,
   setType
 } from '../redux/slices/productsSlice.js'
-import { getProducts } from '../redux/slices/thunksProducts.js'
+import { getByNames, getProducts } from '../redux/slices/thunksProducts.js'
+import Style from './../styles/Search.module.css'
+
+import { useSelector, useDispatch } from 'react-redux'
+// import {
+//   setBrand,
+//   setType
+// } from '../redux/slices/productsSlice.js'
+// import { getProducts } from '../redux/slices/thunksProducts.js'
 import Select from 'react-select'
 
 export default function Search () {
@@ -33,53 +39,55 @@ export default function Search () {
     dispatch(getProducts())
   }
   const [search, setSearch] = useState('')
-
   const onChange = (e) => {
     setSearch(e.target.value)
     if (e.target.value === '') {
-      // dispatch(cleanSearch())
+      dispatch(cleanSearch())
     }
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // dispatch(getByName(search))
+    dispatch(getByNames(search))
   }
   return (
     <>
       <div className={Style.container}>
-        <input 
-          type='search'
+        <input
+          type="search"
           value={search}
           onChange={onChange}
-          placeholder='Buscar..'
+          placeholder="Buscar.."
+          // className={styles.button}
         />
         {/* rome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
-        <i onClick={ (e) => handleSubmit(e)} className='fa-solid fa-magnifying-glass'/>
+        <i
+          onClick={(e) => handleSubmit(e)}
+          className="fa-solid fa-magnifying-glass"
+        />
 
+        {/* filtros ____________________________---- */}
+        <div className={Style.filters}>
+          <Select
+            options={brands}
+            onChange={handleBrandChange}
+            isClearable
+            // defaultValue={brands[0]}
+          />
 
-{/* filtros ____________________________---- */}
-      <div className={Style.filters}>
-      <Select
-        options={brands}
-        onChange={handleBrandChange}
-        isClearable
-        // defaultValue={brands[0]}
-      />
-
-       <Select
-        options={types}
-        onChange={handleTypeChange}
-        isClearable
-        // defaultValue={''}
-      />
-      <select>
-        <option label="Seleccione un orden" value={''} />
-        <option label="asc" value={'asc'} />
-        <option label="desc" value={'desc'} />
-      </select>
-    </div>
-    </div>
+          <Select
+            options={types}
+            onChange={handleTypeChange}
+            isClearable
+            // defaultValue={''}
+          />
+          <select>
+            <option label="Seleccione un orden" value={''} />
+            <option label="asc" value={'asc'} />
+            <option label="desc" value={'desc'} />
+          </select>
+        </div>
+      </div>
     </>
   )
 }

@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux'
 import {
   setBrand,
-  setType
+  setType,
+  setOrder
 } from '../redux/slices/productsSlice.js'
 import { getProducts } from '../redux/slices/thunksProducts.js'
 import Select from 'react-select'
@@ -30,7 +31,10 @@ export default function FilterAndOrder () {
     dispatch(setType(type))
     dispatch(getProducts())
   }
-
+  function handleOrderChange (e) {
+    dispatch(setOrder(e.target.value))
+    dispatch(getProducts())
+  }
   return (
     <div>
       <Select
@@ -46,10 +50,10 @@ export default function FilterAndOrder () {
         isClearable
         // defaultValue={''}
       />
-      <select>
+      <select onChange={handleOrderChange}>
         <option label="Seleccione un orden" value={''} />
         <option label="asc" value={'asc'} />
-        <option label="desc" value={'desc'} />
+         <option label="desc" value={'desc'} />
       </select>
     </div>
   )

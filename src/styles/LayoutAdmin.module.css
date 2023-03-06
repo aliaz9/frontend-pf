@@ -1,0 +1,11 @@
+.container {
+  display: grid;
+
+  grid-template-columns: auto auto;
+  overflow-x: hidden;
+
+  grid-template-columns: auto 85%;
+  min-height: 100vh;
+  font-family: 'Inter';
+
+}

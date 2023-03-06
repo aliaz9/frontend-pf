@@ -1,6 +1,5 @@
 import Style from '../styles/section1.module.css'
-import { Link } from 'react-router-dom'
-
+// import { Link } from 'react-router-dom'
 
 export default function Section1 () {
   return (
@@ -20,5 +19,5 @@ export default function Section1 () {
          <img className={Style.image} src="https://res.cloudinary.com/daieynebb/image/upload/v1678044606/Fondos/section1_zbmi5i.png" alt="" />
       </div>
     </div>
-
-  )}
+  )
+}
