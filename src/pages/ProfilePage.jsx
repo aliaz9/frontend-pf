@@ -5,12 +5,13 @@ import UserNotFound from '../components/UserNotFound.jsx'
 import { useSelector } from 'react-redux'
 import ProductUser from '../components/ProductUser'
 import NewPassword from '../components/NewPassword'
+import Loading from '../components/Loading'
 export default function Pagination () {
   const [style, setStyle] = useState(1)
   const [style1, setStyle1] = useState(0)
   const [style2, setStyle2] = useState(0)
-
-  const { name } = useSelector((state) => state.users.auth)
+  const { name, bought } = useSelector((state) => state.users.auth)
+  const loading = useSelector((state) => state.users.loading)
 
   const handleChange = (value) => {
     switch (value) {
@@ -48,50 +49,56 @@ export default function Pagination () {
   }
 
   return (
-    <div className={styles.containerProfile}>
-        <div className={styles.rightProfile}>
-            <div className={styles.boxProfile}>
-                <div
-                className={`${style === 0 ? styles.boxProfileContainer : styles.boxProfileActive}`}
-                onClick={() => handleChange(1)}
-                >
-                    <p>&nbsp;Perfil Publico</p>
-                    <div><i className="fa-solid fa-angle-right"></i></div>
-                </div>
-                <div
-                className={`${style1 === 0 ? styles.boxProfileContainer : styles.boxProfileActive}`}
-                onClick={() => handleChange(2)}
-                >
-                    <p>&nbsp;Cambiar Contraseña</p>
-                    <div><i className="fa-solid fa-angle-right"></i></div>
-                </div>
-                <div
-                className={`${style2 === 0 ? styles.boxProfileContainer : styles.boxProfileActive}`}
-                onClick={() => handleChange(3)}
-                >
-                    <p>&nbsp;Mis Productos</p>
-                    <div><i className="fa-solid fa-angle-right"></i></div>
-                </div>
+      // <div className={styles.containerProfile}>
+      <div>
+        { loading
+          ? (<Loading />)
+          : (
+          <div className={styles.containerProfile}>
+            <div className={styles.rightProfile}>
+              <div className={styles.boxProfile}>
+                  <div
+                  className={`${style === 0 ? styles.boxProfileContainer : styles.boxProfileActive}`}
+                  onClick={() => handleChange(1)}
+                  >
+                      <p>&nbsp;Perfil Publico</p>
+                      <div><i className="fa-solid fa-angle-right"></i></div>
+                  </div>
+                  <div
+                  className={`${style1 === 0 ? styles.boxProfileContainer : styles.boxProfileActive}`}
+                  onClick={() => handleChange(2)}
+                  >
+                      <p>&nbsp;Cambiar Contraseña</p>
+                      <div><i className="fa-solid fa-angle-right"></i></div>
+                  </div>
+                  <div
+                  className={`${style2 === 0 ? styles.boxProfileContainer : styles.boxProfileActive}`}
+                  onClick={() => handleChange(3)}
+                  >
+                      <p>&nbsp;Mis Productos</p>
+                      <div><i className="fa-solid fa-angle-right"></i></div>
+                  </div>
+              </div>
             </div>
-        </div>
+            <div>
+                {
+                  name
+                  // eslint-disable-next-line indent
+                  ? (
+                        style === 1
+                          ? (
+                            <UserProfile />
+                            )
+                          : (style1 === 1
+                              ? <NewPassword />
+                              : (style2 === 1 && <ProductUser bought= {bought} />))
+                      )
+                    : <UserNotFound />
+                }
+            </div>
+          </div>
+            )}
 
-        <div>
-            {
-              name
-              // eslint-disable-next-line indent
-              ? (
-                    style === 1
-                      ? (
-                         <UserProfile />
-                        )
-                      : (style1 === 1
-                          ? <NewPassword />
-                          : (style2 === 1 && <ProductUser />))
-                  )
-                : <UserNotFound />
-            }
-        </div>
-
-    </div>
+      </div>
   )
 }
