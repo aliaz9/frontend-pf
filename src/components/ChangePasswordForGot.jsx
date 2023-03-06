@@ -24,8 +24,8 @@ export const ChangePasswordForGot = () => {
       <label htmlFor="password">Nueva Contraseña</label>
       <input
         id="password"
-        name="passwod"
-        type="passwod"
+        name="password"
+        type="password"
         onChange={formik.handleChange}
         value={formik.values.password}
       />
