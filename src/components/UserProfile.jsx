@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { alertMsg } from '../helpers'
 import { editUser } from '../redux/slices/thunksUsers'
 import styles from '../styles/UserProfile.module.css'
-import Alert from './Alert'
 
 export default function UserProfile () {
   const dispatch = useDispatch()
@@ -11,7 +9,7 @@ export default function UserProfile () {
   const { msg, error } = useSelector((state) => state.users.message)
   const [input, setInput] = useState({ uid, name, email })
   const [erros, setErros] = useState({})
-
+  // console.log(useSelector((state) => state.users.auth))
   const handleSubmit = async (e) => {
     e.preventDefault()
     await dispatch(editUser(input))

@@ -5,7 +5,10 @@ import { Link } from 'react-router-dom'
 export default function SectionInfo () {
   return (
 
-    <div>
+    <>
+
+
+    <div className={Style.containerAll}>
         <div className={Style.container}>
 
             <div className={Style.izquierda}>
@@ -15,17 +18,28 @@ export default function SectionInfo () {
 
             <div className={Style.derecha}>
                 <div className={Style.containerText}>
-                    <h1>¿Estás listo para el cambio?</h1>
-                    <h4>Generá electricidad bajo costo y amigable con el medio ambiente</h4>
-                    <p>Tenemos todo lo que necesitas para sumarte a este cambio.</p>
-                    <Link to="/product">
-                    <button type='button'>Comprar ahora <i className="fa-solid fa-arrow-right"/></button>
+                    <h3 className={Style.h1Text}>¿Estás listo para el cambio?</h3>
+                    <h5 className={Style.h4Text}>Generá electricidad bajo costo y amigable con el medio ambiente</h5>
+                    <p className={Style.pText}>Tenemos todo lo que necesitas para sumarte a este cambio.</p>
+
+                </div>
+                <div className={Style.buttonContainer}>
+                <Link to="/product">
+                    <button className={Style.comprarButton} type='button'>Comprar ahora <i className="fa-solid fa-arrow-right"/></button>
                     </Link>
                 </div>
             </div>
 
         </div>
+       
 
     </div>
+
+    <div className={Style.stepsBanner}>
+                <img className={Style.imgBanner} src="https://res.cloudinary.com/daieynebb/image/upload/v1678019965/Fondos/BANNER-flores_qxtyxm.png" alt="" />
+
+                </div>
+
+    </>
   )
 }

@@ -1,39 +1,51 @@
 .container{
-    background-color: #FFBB00;
-    margin-top: 20px;
+    background-color: #fff;
+    flex-direction: column;
+    margin: 0;
+    width: 100%;
+
 
 }
 .container1{
-    background-color: #FFBB00;
-    margin-top: 30px;
-    margin-bottom: 70px;
+    background-color: var(--claro);
+
+    margin-top: -35px;
+
 }
 .cardContainer{
-    background-color: #FFBB00;
+    background-color: var(--claro);
     display: flex;
     justify-content: center;
     flex-direction: row;
-    margin: 50px 0 50px 0;
+    height: auto;
 
 }
-.imgWave{
-    max-height: 100px;
-    width: 100%;
-}
+
+
 
 h3{
     font-size: 30px;
-    margin-top: 50px;
-    color: rgb(255, 255, 255);
+    color: var(--azul);
     font-family: 'inter';
     text-align: center;
     font-weight: 700;
 
 }
-.title{
-    margin-top: 20px;
+
+@media (max-width: 480px){
+
+    .container{
+        display: none;
+
+    }
+
 }
 
-.imgSVG{
-    position: absolute;
+@media (max-width: 768px){
+
+    .container{
+        
+
+    }
+
 }

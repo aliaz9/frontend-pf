@@ -1,5 +1,4 @@
 import { clientAxios } from '../../config/clientAxios.js'
-import Swal from 'sweetalert2';
 import {
   addOne,
   lessOne,
@@ -96,7 +95,7 @@ export const autehnticateUser = (config) => {
 export const confirmUser = (token) => {
   return async (dispatch) => {
     try {
-      const { data } = await clientAxios(`/users/confirm/${token}`)
+      const { data } = await clientAxios(`/users/confirm-email/${token}`)
       dispatch(setMessage(data))
     } catch (error) {
       dispatch(setMessage(error.response.data))
@@ -158,9 +157,9 @@ export const changePassword = (user) => {
 export const loaderPayment = (product) => {
   return async (dispatch) => {
     try {
-      const { data } = await clientAxios.post('user/payment', {
+      const { data } = await clientAxios.post('/users/add-to-cart', {
         items: product
-      })
+      }, config)
       dispatch(setLinkPayment(data.link))
     } catch (error) {
       dispatch(setMessage(error.response.data))

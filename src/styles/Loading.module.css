@@ -1,0 +1,44 @@
+.container-loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 60%;
+  height: 100vh;
+}
+
+.spinner-loading {
+  width: 100px;
+  height: 100px;
+  display: grid;
+  border: 4.5px solid #0000;
+  border-radius: 50%;
+  border-color: #F4F1EB #0000;
+  animation: spinner-e04l1k 1s infinite linear;
+}
+
+.spinner-loading::before,
+.spinner-loading::after {
+  content: "";
+  grid-area: 1/1;
+  margin: 2.2px;
+  border: inherit;
+  border-radius: 50%;
+}
+
+.spinner-loading::before {
+  border-color: #474bff #0000;
+  animation: inherit;
+  animation-duration: 0.5s;
+  animation-direction: reverse;
+}
+
+.spinner-loading::after {
+  margin: 8.9px;
+}
+
+@keyframes spinner-e04l1k {
+  100% {
+    transform: rotate(1turn);
+  }
+}
