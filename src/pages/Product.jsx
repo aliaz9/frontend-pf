@@ -17,8 +17,10 @@ export default function ProductPage() {
       id: productInfo.id,
       title: productInfo.title,
       image: productInfo.image,
-      price: productInfo.price,
-      quantity: 1
+      price: productInfo.unit_price,
+      quantity: 1,
+      type: productInfo.typeName,
+      brand: productInfo.brandName
     }
     dispatch(addCart(productToAdd))
   }
@@ -36,29 +38,31 @@ export default function ProductPage() {
       <div className={Style.productContent}>
         <h1 className={Style.title}>{productInfo.title}</h1>
         <p className={Style.precioexc}>Precio Exclusivo Online</p>
-        <p className={Style.price}>{productInfo.price}</p>
+        <p className={Style.price}>{productInfo.unit_price}</p>
         <button className={Style.hola} onClick={() => handleAddCart()}>
           Agregar Al Carrito
         </button>
-
         <p className={Style.description}>{productInfo.description}</p>
-        <p className={Style.sinestilo}>{productInfo.type}</p>
-        <p className={Style.sinestilo}>{productInfo.brand}</p>
+        <div className={Style.definicion}>
+          <p>Tipo : {productInfo.typeName}</p>
+          <p>Marca: {productInfo.brandName}</p>
+        </div>
 
-        <Score
-          count={5}
-          disabledStart={0}
-          disabledOpinion={0}
-          disabledNumber={0}
-        />
+        <div className={Style.calificacion}>
+          <Score
+            count={5}
+            disabledStart={0}
+            disabledOpinion={0}
+            disabledNumber={0}
+          />
+          <Score
+            count={5}
+            disabledStart={0}
+            disabledOpinion={0}
+            disabledNumber={0}
+          />
+        </div>
       </div>
-
-      <Score
-        count={5}
-        disabledStart={0}
-        disabledOpinion={0}
-        disabledNumber={0}
-      />
     </div>
   )
 }
