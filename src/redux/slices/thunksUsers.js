@@ -29,6 +29,9 @@ export const registerUser = (user) => {
         dispatch(setMessage({ msg: '', error: null }))
       }, 5000)
     } catch (error) {
+      // if (Array.isArray(error.response.data)) {
+      //   return dispatch(setMessage(error.response.data[0]))
+      // }
       dispatch(setMessage(error.response.data))
 
       setTimeout(() => {

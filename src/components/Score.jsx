@@ -20,7 +20,6 @@ export default function Score({
   const [currentValue, setCurrentValue] = useState(0)
   const [hoverValue, setHoverValue] = useState(undefined)
   const [number, setNumber] = useState(0)
-
   const handleText = () => {
     switch (number) {
       case 1:

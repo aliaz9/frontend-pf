@@ -24,8 +24,8 @@ const LoginForm = () => {
 
   const { msg, error } = useSelector((state) => state.users.message)
   useEffect(() => {
-    if (auth.name) navigate('/')
-  }, [auth.name])
+    if (auth?.name) navigate('/')
+  }, [auth?.name])
   return (
     <div className={styles.cont_log}>
       <Formik

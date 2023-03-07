@@ -26,7 +26,6 @@ function App() {
   useEffect(() => {
     dispatch(getProducts())
     dispatch(getTypes())
-    dispatch(getBrands())
   }, [])
 
   const cart = useSelector((state) => state.users.productsInCart)
