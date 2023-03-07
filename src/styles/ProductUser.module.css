@@ -102,6 +102,21 @@
     align-self: center;
 }
 
+.not-products {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.not-products-img{
+    width: 50%;
+}
+
+.not-products-title{
+    color: #002A39;
+    text-align: center;
+}
 @media(max-width:640px) {
     .main-description{
         flex: 1/2;

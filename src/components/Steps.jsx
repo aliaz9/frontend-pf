@@ -5,7 +5,7 @@ import Styles from './../styles/Steps.module.css'
 export default function Steps () {
   return (
         <div className={Styles.containerStepsAll}>
-            <center><h2 className={Styles.titleSteps}>¡Cambia a energia solar en simples pasos!</h2></center>
+            <center><h2 className={Styles.titleSteps}>¡Cambia a energía solar en simples pasos!</h2></center>
             <div className={Styles.containerSteps}>
                 {/* <hr className={Styles.separatorSteps}/> */}
                 <div className={Styles.steps}>
@@ -28,7 +28,12 @@ export default function Steps () {
                     <b className={Styles.stepsTitle}>¡Coordinamos nuestra visita!</b>
                     <small className={Styles.stepsDescription}>Un asesor se comunicará para coordinar el día más pronto para la instalación</small>
                 </div>
+               
             </div>
+            {/* <div className={Styles.stepsBanner}>
+                <img className={Styles.imgBanner} src="https://res.cloudinary.com/daieynebb/image/upload/v1678019965/Fondos/BANNER-flores_qxtyxm.png" alt="" />
+
+                </div> */}
         </div>
     )
 }
