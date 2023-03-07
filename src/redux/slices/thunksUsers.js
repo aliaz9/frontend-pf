@@ -19,7 +19,7 @@ const config = {
     Authorization: `Bearer ${localStorage.getItem('token')}`
   }
 }
-
+const cartOfLS = JSON.parse(localStorage.getItem('cart')) || []
 export const registerUser = (user) => {
   return async (dispatch) => {
     try {
@@ -47,9 +47,8 @@ export const logUser = (user) => {
       // dispatch(setMessage(data))
       dispatch(setAuth(data))
       localStorage.setItem('token', data.token)
-      setTimeout(() => {
-        dispatch(setMessage({ msg: '', error: null }))
-      }, 5000)
+      clenMesageAfterTime()
+      localStorage.removeItem('cart')
     } catch (error) {
       dispatch(setMessage(error.response.data))
       setTimeout(() => {
@@ -193,5 +192,31 @@ export const forgotPassword = (token, password) => {
     } catch (error) {
       dispatch(setMessage(error.response.data))
     }
+  }
+}
+
+export const addToCartBackend = (productId) => {
+  console.log(productId)
+  return async (dispatch) => {
+    try {
+      await clientAxios.post(
+        '/users/add-to-cart',
+        {
+          productId
+        },
+        config
+      )
+    } catch (error) {
+      dispatch(setMessage(error.response.data))
+      console.log(error.response.data)
+    }
+  }
+}
+
+export const clenMesageAfterTime = () => {
+  return (dispatch) => {
+    setTimeout(() => {
+      dispatch(setMessage({ msg: '', error: null }))
+    }, 5000)
   }
 }

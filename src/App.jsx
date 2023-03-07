@@ -29,7 +29,7 @@ function App() {
   }, [])
 
   const cart = useSelector((state) => state.users.productsInCart)
-
+  const auth = useSelector((state) => state.users.auth)
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart))
   }, [cart])
