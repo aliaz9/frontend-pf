@@ -40,11 +40,13 @@ export const users = (filteroption) => {
 export const orders = (uid) => {
   return async (dispatch) => {
     try {
+      const { data } = await axios.get(
+        'https://run.mocky.io/v3/cfa338a1-4cb6-4984-9452-7ecb07f21362'
+      )
 
-      const { data } = await axios.get('https://run.mocky.io/v3/cfa338a1-4cb6-4984-9452-7ecb07f21362')
-
-      uid ?  dispatch(getOrders(data.filter(o => o.uid === uid))) : dispatch(getOrders(data));
-    
+      uid
+        ? dispatch(getOrders(data.filter((o) => o.uid === uid)))
+        : dispatch(getOrders(data))
     } catch (error) {
       console.log(error)
       dispatch(setMessage({ error: error.message }))
@@ -132,4 +134,4 @@ export const getOrderDetail = (id) => {
   }
 }
 
-//Pongo esto para poder commitear
+//Pongo esto para poder commitear x3
