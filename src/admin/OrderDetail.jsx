@@ -1,16 +1,8 @@
-<<<<<<< HEAD
-import React from "react";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
-// import { getOrderDetail } from "../redux/slices/thunksAdmin";
-=======
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
+// import { getOrderDetail } from "../redux/slices/thunksAdmin";
 import { getOrderDetail } from '../redux/slices/thunksAdmin'
->>>>>>> Dev3
 import styles from '../styles/OrderDetail.module.css'
 
 export default function OrderDetail() {
@@ -24,13 +16,13 @@ export default function OrderDetail() {
     [dispatch, id]
   )
 
-<<<<<<< HEAD
-    useEffect((id) => {
-        // dispatch(getOrderDetail(id));
-    }, [dispatch, id])
-=======
+  useEffect(
+    (id) => {
+      // dispatch(getOrderDetail(id));
+    },
+    [dispatch, id]
+  )
   const order = useSelector((state) => state.admin.orderDetail)
->>>>>>> Dev3
 
   //   function total() {
   //     let total = 0
