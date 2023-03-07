@@ -20,9 +20,19 @@ export default function Users() {
     dispatch(habilitarUser(id))
   }
 
+  function handleChange(e) {
+  dispatch(users(e.target.value))
+  }
+
   return (
     <div>
       <h1 className={styles.title}>Usuarios</h1>
+
+      <select onChange={(e) => handleChange(e)} class="form-select">
+        <option selected>Todos</option>
+        <option value="habilitados">Habilitados</option>
+        <option value="deshabilitados">Deshabilitados</option>
+      </select>
 
       <div className={`${styles.container} container`}>
         <div className={`${styles.row} row`}>

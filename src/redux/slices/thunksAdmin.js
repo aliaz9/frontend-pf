@@ -17,14 +17,18 @@ const config = {
   }
 }
 
-export const users = () => {
+export const users = (filteroption) => {
+
   return async (dispatch) => {
     try {
+
       //const { data } = await clientAxios('/admin/users', config)
       const { data } = await axios.get("https://run.mocky.io/v3/6d49b3ec-6ba1-4daf-98d8-92178fd8ac32")
-      
 
-      dispatch(getUsers(data))
+      if(filteroption === "habilitados") dispatch(getUsers(data.filter(u => u.disable === true)))
+      if(filteroption === "deshabilitados") dispatch(getUsers(data.filter(u => u.disable === false)))
+      if (!filteroption) dispatch(getUsers(data))
+    
     } catch (error) {
       dispatch(setMessage({ error: error.response.data }))
     }
