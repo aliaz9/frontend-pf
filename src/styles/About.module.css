@@ -166,3 +166,181 @@
     text-align: center;
   
   }
+
+
+
+
+  @media(max-width:480px){
+
+    .containerH1 {
+      display: flex;
+      width: 320px;
+      height: auto;
+    }
+
+    .containerText{
+      width: 100%;
+      height: auto;
+      text-align: center;
+    
+    }        
+    .containerText .h1{
+      font-size: 20px;
+      margin-top: 20px;
+    } 
+    .containerText .h4{
+      font-size: 18px;
+      margin-top: 18px;
+    text-align: center;
+    } 
+    
+    .Info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 320px;
+      height: auto;
+    }
+    
+    .boxInfo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    
+        /* altura de cada tarjeta */
+        width: 250px;
+        height: auto;
+        margin: 0 20px 0 20px;
+    
+      }
+    
+    
+      .boxInfoIMGcontainer{
+        position: absolute;
+        display: none;
+        margin: 0;    
+      }
+      .boxInfoIMG{
+        position: absolute;
+        display: none;
+        margin: 0;    
+      }
+
+
+      .button1 {
+        width: 12em;
+      
+        margin-bottom: 0;
+      
+        overflow: hidden;
+      
+        font-family: "inter";
+        font-size: 11px;
+        font-weight: 600;
+    
+        color: #fff;
+        background-color: var(--amarillo);
+    
+        border: none;
+    
+        border-radius: 3px;
+        box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease-out 0s;
+    
+        padding: 10px 0px;
+      
+      }
+    
+      .boxButton{
+        display: flex;
+        align-items:center;
+        justify-content: center;
+        height: 100px;
+      }
+      
+      .titleInfo {
+        color: var(--azul);
+        font-size: 21px;
+        margin-bottom: 40px;
+        margin-top: 30px;
+        font-weight: bolder;
+        width: 300px;
+      
+      }
+      .boxInfoIMGcontainer{
+    
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 300px;
+        width: 250px;
+      }
+      
+      
+      .boxInfo:hover {
+    
+        box-shadow: 3px 3px 10px rgba(121, 121, 121, 0.2);
+        transition: all 0.1s ease-out 0.1s;
+      
+      }
+    
+      .boxInfo h3 {
+        font-size: 20px;
+        font-weight: bold;
+    
+        color: var(--verde);
+        margin-bottom: 20px;
+      }
+      
+      
+      .boxInfo i{
+        color: var(--verde);
+        font-size: 25px;
+        margin-bottom: 25px;
+      }
+      
+      .boxInfo p {
+        position: relative;
+        width: 300px;
+        height: auto;
+        font-size: 13px;
+        font-family: 'Roboto';
+        line-height: 24px;
+        color: #949494;
+        text-align: center;
+        margin-left: 30px;
+        margin-right: 30px;
+
+      }
+      
+      .containerText h1{
+        font-weight: bolder;
+        font-size: 50px;
+        margin-bottom: 20px;
+      
+      }
+      
+      .containerText h4{
+        font-weight: bold;
+        font-size: 21px;
+        margin-bottom: 20px;
+      
+      }
+      
+      .containerText p{
+        margin-top: 20px;
+        width: 250px;
+        font-weight: lighter;
+        font-size: 15px;
+        margin-bottom: 20px;
+        text-align: center;
+      
+      }
+    
+    
+
+
+    
+  }
