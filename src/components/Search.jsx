@@ -6,7 +6,7 @@ import {
   setType
 } from '../redux/slices/productsSlice.js'
 import { getByNames, getProducts } from '../redux/slices/thunksProducts.js'
-import Style from './../styles/Search.module.css'
+import styles from './../styles/Search.module.css'
 
 import { useSelector, useDispatch } from 'react-redux'
 import Select from 'react-select'
@@ -68,7 +68,7 @@ export default function Search() {
           className="fa-solid fa-magnifying-glass"
         />
 
-        <div className={Style.filters}>
+        <div className={styles.filters}>
           <Select options={types} onChange={handleTypeChange} isClearable />
           <select onChange={handleOrder}>
             <option label="Seleccione un orden" value={''} />
