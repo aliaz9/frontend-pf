@@ -19,13 +19,23 @@ export default function Search() {
   const onChange = (e) => {
     setSearch(e.target.value)
     if (e.target.value === '') {
-      dispatch(cleanSearch())
+      // dispatch(cleanSearch())
     }
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    dispatch(getByNames(search))
+    // dispatch(getByName(search))
+  }
+
+  function handleOrder(order) {
+    if (!order) {
+      dispatch(setOrder({ value: '', label: '' }))
+      dispatch(getProducts())
+      return
+    }
+    dispatch(setOrder(order))
+    dispatch(getProducts())
   }
 
   // filter by types
@@ -45,12 +55,13 @@ export default function Search() {
   }
   return (
     <>
-      <div className={Style.container}>
+      <div className={styles.container}>
         <input
           type="search"
           value={search}
           onChange={onChange}
           placeholder="Buscar.."
+          className={styles.button}
         />
         <i
           onClick={(e) => handleSubmit(e)}

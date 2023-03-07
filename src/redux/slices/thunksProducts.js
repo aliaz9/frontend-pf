@@ -24,6 +24,7 @@ export const getProducts = () => {
       )
       if (brand.value || type.value) {
         dispatch(setNumberOfpages(Math.ceil(count / 12)))
+
       }
       dispatch(setProducts(products))
     } catch (error) {

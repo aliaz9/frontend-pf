@@ -1,10 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { setPageCurrent } from '../redux/slices/productsSlice.js'
 import { getProducts } from '../redux/slices/thunksProducts.js'
+import styles from '../styles/Pagination.module.css'
+
 export default function Pagination() {
-  const { pageCurrent } = useSelector((state) => state.products)
-  // const { products } = useSelector(state => state.products)
   const dispatch = useDispatch()
+  const { pageCurrent } = useSelector((state) => state.products)
+  // const { products } = useSelector((state) => state.products)
   const { numberOfpages } = useSelector((state) => state.products)
   const nextPage = () => {
     dispatch(setPageCurrent(pageCurrent + 1))
@@ -14,14 +16,15 @@ export default function Pagination() {
     dispatch(setPageCurrent(pageCurrent - 1))
     dispatch(getProducts())
   }
-  const pageNumber = []
+  const pagesNumber = []
   for (let i = 0; i < numberOfpages; i++) {
-    pageNumber.push(i + 1)
+    pagesNumber.push(i + 1)
   }
   const changePage = (e) => {
-    e.preventDefault()
-    dispatch(setPageCurrent(e.target.value))
+    console.log(e.target.value)
+    dispatch(setPageCurrent( parseInt(e.target.value)))
     dispatch(getProducts())
+  }
   }
 
   return (
@@ -35,17 +38,16 @@ export default function Pagination() {
         {' '}
         ←
       </button>
-      {pageNumber &&
-        pageNumber.map((i, key) => (
-          <button
-            // className={styles.button}
-            key={key}
-            value={i}
-            onClick={changePage}
-          >
-            {i}
-          </button>
-        ))}
+      {pagesNumber?.map((i, key) => (
+        <button
+          className={styles.button}
+          key={key}
+          value={i}
+          onClick={changePage}
+        >
+          {i}
+        </button>
+      ))}
       <button
         type="button"
         onClick={() => nextPage()}

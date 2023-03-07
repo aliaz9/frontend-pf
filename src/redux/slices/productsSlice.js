@@ -10,7 +10,7 @@ export const productsSlice = createSlice({
     product: {},
     types: [],
     brands: [],
-    order: '',
+    order: { value: '', label: '' },
     brand: { value: '', label: '' },
     type: { value: '', label: '' },
     numberOfpages: 10,
