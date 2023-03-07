@@ -1,12 +1,16 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styles from '../styles/Users.module.css'
-import { deleteUser, habilitarUser, users } from '../redux/slices/thunksAdmin'
+import {
+  deleteUser,
+  filterUser,
+  habilitarUser,
+  users
+} from '../redux/slices/thunksAdmin'
 
 export default function Users() {
   const allUsers = useSelector((state) => state.admin.allUsers)
   const dispatch = useDispatch()
-
 
   useEffect(() => {
     dispatch(users())
@@ -21,15 +25,19 @@ export default function Users() {
   }
 
   function handleChange(e) {
-  dispatch(users(e.target.value))
+    dispatch(filterUser(e.target.value))
   }
 
   return (
     <div>
       <h1 className={styles.title}>Usuarios</h1>
 
-      <select onChange={(e) => handleChange(e)} class="form-select">
-        <option selected>Todos</option>
+      <select
+        onChange={(e) => handleChange(e)}
+        className="form-select"
+        defaultValue={'todos'}
+      >
+        <option value="todos">Todos</option>
         <option value="habilitados">Habilitados</option>
         <option value="deshabilitados">Deshabilitados</option>
       </select>
@@ -56,30 +64,31 @@ export default function Users() {
                   </div>
 
                   <div className="col-2">
-                    {  u.disabled ? <p style={{ color: '#00ff00' }}>Activo</p> : <p style={{ color: '#ff0000' }}>Inactivo</p> }
+                    {u.disabled ? (
+                      <p style={{ color: '#ff0000' }}>Inactivo</p>
+                    ) : (
+                      <p style={{ color: '#00ff00' }}>Activo</p>
+                    )}
                   </div>
 
                   <div className="col-2">
-                    {
-                      u.disabled ?
-
-                        <button
-                          className={`${styles.red} btn btn-danger`}
-                          onClick={() => handleDelete(u.uid)}
-                        >
-                          {' '}
-                          Deshabilitar{' '}
-                        </button>
-                        :
-                        <button
-                          className={`${styles.red} btn btn-secondary`}
-                          onClick={() => handleHabilitar(u.uid)}
-                        >
-                          {' '}
-                          Habilitar{' '}
-                        </button>
-                    }
-
+                    {!u.disabled ? (
+                      <button
+                        className={`${styles.red} btn btn-danger`}
+                        onClick={() => handleDelete(u.uid)}
+                      >
+                        {' '}
+                        Deshabilitar{' '}
+                      </button>
+                    ) : (
+                      <button
+                        className={`${styles.red} btn btn-secondary`}
+                        onClick={() => handleHabilitar(u.uid)}
+                      >
+                        {' '}
+                        Habilitar{' '}
+                      </button>
+                    )}
                   </div>
                 </div>
               )
