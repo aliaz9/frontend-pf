@@ -27,45 +27,52 @@ const LoginForm = () => {
     if (auth.name) navigate('/')
   }, [auth.name])
   return (
-    <Formik
-      initialValues={{ email: '', password: '' }}
-      validationSchema={LoginSchema}
-      onSubmit={handleSubmit}
-    >
-      {({ isSubmitting }) => (
-        <Form className={styles['login-form']}>
-          <div>
-            <label htmlFor="email">Email</label>
-            <Field type="email" name="email" />
-            <ErrorMessage
-              name="email"
-              className={styles.error}
-              component="span"
-            />
-          </div>
-          <div>
-            <label htmlFor="password">Password</label>
-            <Field type="password" name="password" />
-            <ErrorMessage
-              name="password"
-              className={styles.error}
-              component="span"
-            />
-          </div>
+    <div className={styles.cont_log}>
+      <Formik
+        initialValues={{ email: '', password: '' }}
+        validationSchema={LoginSchema}
+        onSubmit={handleSubmit}
+      >
+        {({ isSubmitting }) => (
+          <Form className={styles['login-form']}>
+            <div className="mb-3">
+              <label htmlFor="email">Email:</label>
+              <Field type="email" name="email" className="form-control" />
+              <ErrorMessage
+                name="email"
+                className="form-label"
+                component="span"
+              />
+            </div>
+            <div>
+              <label htmlFor="password">Password:</label>
+              <Field type="password" name="password" className="form-control" />
+              <ErrorMessage
+                name="password"
+                className="form-label"
+                component="span"
+              />
+            </div>
 
-          <div>
-            <Link to="/users/reset-password">Olvidé mi contraseña</Link>
-          </div>
-          <div>
-            ¿No tienes una cuenta? <Link to="/signup">Regístrate aquí</Link>
-          </div>
-          <button type="submit" disabled={isSubmitting}>
-            Iniciar sesión
-          </button>
-          {msg && <Alert error={error}>{msg}</Alert>}
-        </Form>
-      )}
-    </Formik>
+            <div>
+              <Link to="/users/reset-password">Olvidé mi contraseña</Link>
+            </div>
+            <br />
+            <div>
+              ¿No tienes una cuenta? <Link to="/signup">Regístrate aquí</Link>
+            </div>
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="btn btn-primary"
+            >
+              Iniciar sesión
+            </button>
+            {msg && <Alert error={error}>{msg}</Alert>}
+          </Form>
+        )}
+      </Formik>
+    </div>
   )
 }
 

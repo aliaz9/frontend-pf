@@ -7,19 +7,41 @@
   width: 400px;
   border: 1px solid #ccc;
   padding: 20px;
-  margin-top: 10rem;
-  margin-bottom: 10rem;
   padding: 5rem;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 255, 255, 0.2945553221288515) 100%
+  );
 }
 
-.login-form div {
+.login-form input {
+  margin-top: 5%;
+}
+
+.login-form button {
+  margin-top: 5%;
+}
+
+.cont_log {
+  background-image: url('https://res.cloudinary.com/daieynebb/image/upload/v1677623063/Fondos/hero1_ls6dvu.png');
+  background-position: right;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* .login-form div {
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
 }
 .login-form label {
   margin-bottom: 5px;
-  font-weight: bold;
 }
 
 .login-form input[type='email'],
@@ -54,3 +76,5 @@ input {
   margin-bottom: 10px;
   width: 400x;
 }
+
+ */
