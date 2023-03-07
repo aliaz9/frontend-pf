@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styles from '../styles/Users.module.css'
 import { deleteUser, habilitarUser, users } from '../redux/slices/thunksAdmin'
+import { Link } from 'react-router-dom'
 
 export default function Users() {
   const allUsers = useSelector((state) => state.admin.allUsers)
@@ -21,7 +22,7 @@ export default function Users() {
   }
 
   function handleChange(e) {
-  dispatch(users(e.target.value))
+    dispatch(users(e.target.value))
   }
 
   return (
@@ -49,14 +50,16 @@ export default function Users() {
                   <div className="col-2">{u.name}</div>
                   <div className="col-2">{u.email}</div>
                   <div className="col-2">
-                    <button className={`${styles.blue} btn btn-primary`}>
-                      {' '}
-                      Ver Ordenes{' '}
-                    </button>
+                    <Link to={`/admin/orders/${u.uid}`}>
+                      <button className={`${styles.blue} btn btn-primary`}>
+                        {' '}
+                        Ver Ordenes{' '}
+                      </button>
+                    </Link>
                   </div>
 
                   <div className="col-2">
-                    {  u.disabled ? <p style={{ color: '#00ff00' }}>Activo</p> : <p style={{ color: '#ff0000' }}>Inactivo</p> }
+                    {u.disabled ? <p style={{ color: '#00ff00' }}>Activo</p> : <p style={{ color: '#ff0000' }}>Inactivo</p>}
                   </div>
 
                   <div className="col-2">
