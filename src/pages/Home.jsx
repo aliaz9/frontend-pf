@@ -7,7 +7,7 @@ import Section1 from '../components/section1.jsx'
 
 export default function Home() {
   return (
-    <div className={Style.home} className={Style.home}>
+    <div className={Style.home}>
       <Hero />
       <Steps />
       <SectionInfo />
@@ -15,8 +15,7 @@ export default function Home() {
       <Section1 />
       {/*
       {/*
-      <Questions /> */}{' '}
-      */}
+      <Questions /> */}
     </div>
   )
 }

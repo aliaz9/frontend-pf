@@ -71,10 +71,10 @@ const Products = () => {
               return (
                 <tr className={style.tBody} key={element.id}>
                   <td>{element.id}</td>
-                  <td>{element.name}</td>
+                  <td>{element.title}</td>
                   <td>{element.brandName}</td>
                   <td>{element.typeName}</td>
-                  <td>{element.price + ' US'}</td>
+                  <td>{element.unit_price + ' US'}</td>
                   <td>{element.image}</td>
                   <td>{element.document}</td>
                   <td>
@@ -87,7 +87,7 @@ const Products = () => {
         </table>
       </div>
       <div className={style.crear}>
-        <h1>Crear</h1>
+        <h1>Nuevo Producto</h1>
         <Link to="create">
           <button>Crear</button>
         </Link>

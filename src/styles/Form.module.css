@@ -194,4 +194,17 @@ form {
 }
 .formulario button {
   margin-top: 15px;
+  border: none;
+  border-radius: 5px;
+  width: 250px;
+  height: 50px;
+  background-color: #ffbb00;
+  color: white;
+  font-family: Cabin;
+  font-weight: 700;
+  font-size: 20px;
+  transition: 0.4s;
+}
+.formulario button:active {
+  background-color: #fcd362;
 }

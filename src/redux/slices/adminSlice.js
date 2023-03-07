@@ -6,10 +6,8 @@ export const admin = createSlice({
     message: { msg: '', error: null },
     allUsers: [],
     allOrders: [],
-    allProducts: []
-    orderDetail: {},
-   
-
+    allProducts: [],
+    orderDetail: {}
   },
 
   reducers: {
