@@ -11,7 +11,7 @@ import {
   setEdithUser,
   setEdithPwd
 } from './usersSlice.js'
-import { alertMsg } from '../../helpers/index.js';
+import { alertMsg } from '../../helpers/index.js'
 
 const config = {
   headers: {
@@ -19,7 +19,7 @@ const config = {
     Authorization: `Bearer ${localStorage.getItem('token')}`
   }
 }
-
+const cartOfLS = JSON.parse(localStorage.getItem('cart')) || []
 export const registerUser = (user) => {
   return async (dispatch) => {
     try {
@@ -29,6 +29,9 @@ export const registerUser = (user) => {
         dispatch(setMessage({ msg: '', error: null }))
       }, 5000)
     } catch (error) {
+      // if (Array.isArray(error.response.data)) {
+      //   return dispatch(setMessage(error.response.data[0]))
+      // }
       dispatch(setMessage(error.response.data))
 
       setTimeout(() => {
@@ -44,9 +47,8 @@ export const logUser = (user) => {
       // dispatch(setMessage(data))
       dispatch(setAuth(data))
       localStorage.setItem('token', data.token)
-      setTimeout(() => {
-        dispatch(setMessage({ msg: '', error: null }))
-      }, 5000)
+      clenMesageAfterTime()
+      localStorage.removeItem('cart')
     } catch (error) {
       dispatch(setMessage(error.response.data))
       setTimeout(() => {
@@ -95,7 +97,7 @@ export const autehnticateUser = (config) => {
 export const confirmUser = (token) => {
   return async (dispatch) => {
     try {
-      const { data } = await clientAxios(`/users/confirm-email/${token}`)
+      const { data } = await clientAxios(`/users/confirm-email-email/${token}`)
       dispatch(setMessage(data))
     } catch (error) {
       dispatch(setMessage(error.response.data))
@@ -106,7 +108,7 @@ export const confirmUser = (token) => {
 export const recoverPassword = (email) => {
   return async (dispatch) => {
     try {
-      const { data } = await clientAxios.post('/users/reset-password/', email)
+      const { data } = await clientAxios.post('users/forgot-password', email)
       dispatch(setMessage(data))
     } catch (error) {
       dispatch(setMessage(error.response.data))
@@ -121,10 +123,14 @@ export const editUser = (user) => {
       dispatch(setUserLoading(true))
       dispatch(setEdithUser({ name, email }))
 
-      const { data } = await clientAxios.put('/users/edit-user/', {
-        name,
-        email
-      }, config)
+      const { data } = await clientAxios.put(
+        '/users/edit-user/',
+        {
+          name,
+          email
+        },
+        config
+      )
       dispatch(setMessage(data.msg))
       alertMsg('Actualizado!!!', data.msg, 'success')
     } catch (error) {
@@ -141,10 +147,14 @@ export const changePassword = (user) => {
       dispatch(setUserLoading(true))
       // dispatch(setEdithUser({ oldPassword, newPassword }))
       dispatch(setEdithPwd(user.newPassword))
-      const { data } = await clientAxios.put('/users/change-password', {
-        oldPassword: user.oldPassword,
-        newPassword: user.newPassword
-      }, config)
+      const { data } = await clientAxios.put(
+        '/users/change-password',
+        {
+          oldPassword: user.oldPassword,
+          newPassword: user.newPassword
+        },
+        config
+      )
       dispatch(setMessage(data.msg))
       alertMsg('Actualizado!!!', data.msg, 'success')
     } catch (error) {
@@ -157,12 +167,56 @@ export const changePassword = (user) => {
 export const loaderPayment = (product) => {
   return async (dispatch) => {
     try {
-      const { data } = await clientAxios.post('/users/add-to-cart', {
-        items: product
-      }, config)
+      const { data } = await clientAxios.post(
+        '/users/add-to-cart',
+        {
+          items: product
+        },
+        config
+      )
       dispatch(setLinkPayment(data.link))
     } catch (error) {
       dispatch(setMessage(error.response.data))
     }
+  }
+}
+
+export const forgotPassword = (token, password) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await clientAxios.put(
+        `users/forgot-password/${token}`,
+        password
+      )
+      dispatch(setMessage(data))
+    } catch (error) {
+      dispatch(setMessage(error.response.data))
+    }
+  }
+}
+
+export const addToCartBackend = (productId) => {
+  console.log(productId)
+  return async (dispatch) => {
+    try {
+      await clientAxios.post(
+        '/users/add-to-cart',
+        {
+          productId
+        },
+        config
+      )
+    } catch (error) {
+      dispatch(setMessage(error.response.data))
+      console.log(error.response.data)
+    }
+  }
+}
+
+export const clenMesageAfterTime = () => {
+  return (dispatch) => {
+    setTimeout(() => {
+      dispatch(setMessage({ msg: '', error: null }))
+    }, 5000)
   }
 }
