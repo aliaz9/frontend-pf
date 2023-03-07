@@ -37,13 +37,14 @@ export const users = (filteroption) => {
   }
 }
 
-export const orders = () => {
+export const orders = (uid) => {
   return async (dispatch) => {
     try {
-      const data = await axios.get(
-        'https://run.mocky.io/v3/cfa338a1-4cb6-4984-9452-7ecb07f21362'
-      )
-      dispatch(getOrders(data.data))
+
+      const { data } = await axios.get('https://run.mocky.io/v3/cfa338a1-4cb6-4984-9452-7ecb07f21362')
+
+      uid ?  dispatch(getOrders(data.filter(o => o.uid === uid))) : dispatch(getOrders(data));
+    
     } catch (error) {
       console.log(error)
       dispatch(setMessage({ error: error.message }))
