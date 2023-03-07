@@ -5,6 +5,7 @@ import {
   setMessage,
   getUsers,
   getOrders,
+  getProduts,
   eliminateUser,
   setOrderDetail,
   habilitarUsuario
@@ -47,6 +48,44 @@ export const orders = () => {
       console.log(error)
       dispatch(setMessage({ error: error.message }))
     }
+  }
+}
+
+export const getProducts = () => {
+  return async (dispatch) => {
+    try {
+      const { data } = await clientAxios('/admin/products', config)
+      dispatch(getProduts(data))
+    } catch (error) {
+      dispatch(setMessage({ error: error.message }))
+    }
+  }
+}
+
+export const deletProduct = (id) => {
+  return async (dispatch) => {
+    try {
+      const res = await clientAxios.delete(`/admin/delete-product/${id}`)
+      const { data } = await clientAxios('/admin/products', config)
+      dispatch(getProduts(data))
+      return res.data.msg
+    } catch (error) {
+      dispatch(setMessage({ error: error.message }))
+    }
+  }
+}
+
+export const createProducts = async (formData) => {
+  try {
+    const result = await clientAxios.post('/admin/create-product', formData, {
+      withCredentials: false,
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      }
+    })
+    return result
+  } catch (error) {
+    return error
   }
 }
 

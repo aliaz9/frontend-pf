@@ -7,7 +7,6 @@ export default function Users() {
   const allUsers = useSelector((state) => state.admin.allUsers)
   const dispatch = useDispatch()
 
-
   useEffect(() => {
     dispatch(users())
   }, [])
@@ -21,7 +20,7 @@ export default function Users() {
   }
 
   function handleChange(e) {
-  dispatch(users(e.target.value))
+    dispatch(users(e.target.value))
   }
 
   return (
@@ -56,30 +55,31 @@ export default function Users() {
                   </div>
 
                   <div className="col-2">
-                    {  u.disabled ? <p style={{ color: '#00ff00' }}>Activo</p> : <p style={{ color: '#ff0000' }}>Inactivo</p> }
+                    {u.disabled ? (
+                      <p style={{ color: '#00ff00' }}>Activo</p>
+                    ) : (
+                      <p style={{ color: '#ff0000' }}>Inactivo</p>
+                    )}
                   </div>
 
                   <div className="col-2">
-                    {
-                      u.disabled ?
-
-                        <button
-                          className={`${styles.red} btn btn-danger`}
-                          onClick={() => handleDelete(u.uid)}
-                        >
-                          {' '}
-                          Deshabilitar{' '}
-                        </button>
-                        :
-                        <button
-                          className={`${styles.red} btn btn-secondary`}
-                          onClick={() => handleHabilitar(u.uid)}
-                        >
-                          {' '}
-                          Habilitar{' '}
-                        </button>
-                    }
-
+                    {u.disabled ? (
+                      <button
+                        className={`${styles.red} btn btn-danger`}
+                        onClick={() => handleDelete(u.uid)}
+                      >
+                        {' '}
+                        Deshabilitar{' '}
+                      </button>
+                    ) : (
+                      <button
+                        className={`${styles.red} btn btn-secondary`}
+                        onClick={() => handleHabilitar(u.uid)}
+                      >
+                        {' '}
+                        Habilitar{' '}
+                      </button>
+                    )}
                   </div>
                 </div>
               )
