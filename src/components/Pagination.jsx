@@ -6,7 +6,6 @@ import styles from '../styles/Pagination.module.css'
 export default function Pagination() {
   const dispatch = useDispatch()
   const { pageCurrent } = useSelector((state) => state.products)
-  // const { products } = useSelector((state) => state.products)
   const { numberOfpages } = useSelector((state) => state.products)
   const nextPage = () => {
     dispatch(setPageCurrent(pageCurrent + 1))
@@ -22,9 +21,8 @@ export default function Pagination() {
   }
   const changePage = (e) => {
     console.log(e.target.value)
-    dispatch(setPageCurrent( parseInt(e.target.value)))
+    dispatch(setPageCurrent(parseInt(e.target.value)))
     dispatch(getProducts())
-  }
   }
 
   return (
