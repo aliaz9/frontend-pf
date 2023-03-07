@@ -5,11 +5,11 @@ export const admin = createSlice({
   initialState: {
     message: { msg: '', error: null },
     allUsers: [],
-
-    orderDetail: {},
     allOrders: [],
-    allProducts: [],
-    orderDetail: {}
+    allProducts: []
+    orderDetail: {},
+   
+
   },
 
   reducers: {
