@@ -16,6 +16,8 @@ module.exports = {
     // disable react version
     'react/prop-types': 'off',
     // disable space before function parenthesis
-    'space-before-function-paren': 'off'
+    'space-before-function-paren': 'off',
+    // disable new line ternary operator
+    'multiline-ternary': 'off'
   }
 }

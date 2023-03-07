@@ -32,8 +32,7 @@ export const registerUser = (user) => {
       // if (Array.isArray(error.response.data)) {
       //   return dispatch(setMessage(error.response.data[0]))
       // }
-      dispatch(setMessage(error.response.data))
-
+      console.log(error.response.data)
       setTimeout(() => {
         dispatch(setMessage({ msg: '', error: null }))
       }, 5000)
@@ -48,6 +47,7 @@ export const logUser = (user) => {
       dispatch(setAuth(data))
       localStorage.setItem('token', data.token)
       clenMesageAfterTime()
+      dispatch(updateCart(cartOfLS))
       localStorage.removeItem('cart')
     } catch (error) {
       dispatch(setMessage(error.response.data))
@@ -218,5 +218,18 @@ export const clenMesageAfterTime = () => {
     setTimeout(() => {
       dispatch(setMessage({ msg: '', error: null }))
     }, 5000)
+  }
+}
+
+export const updateCart = async (cart) => {
+  try {
+    const { data } = await clientAxios.put(
+      '/users/update-cart',
+      { cart },
+      config
+    )
+    console.log(data)
+  } catch (error) {
+    console.log(error)
   }
 }
