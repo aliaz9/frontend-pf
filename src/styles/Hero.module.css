@@ -1,31 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+/* <<<MEDIAS>>> */
+
+@media (max-width: 952px){
+    
+    
+}
+
 .container{
-    background-color: #F4F1EB;
+
     display: flex;
     flex-direction: row;
-    height: 550px;
-    padding: 0 50px 0 50px;
-    margin-bottom: -80px;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    background-image: url("https://res.cloudinary.com/daieynebb/image/upload/v1677623063/Fondos/hero1_ls6dvu.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top right;
 
-}
-.imgPanel{
-    position: absolute;
-    height: 315px;
-    max-width: 100%;
-    z-index: 4;
-    margin-left: 80px;
-    margin-top: 40px;
-}
-.imgHeroCSS{
-    position: absolute;
-    z-index: 10;
-    margin-right: 60px;
-    max-width: 100%;
-    height: 400px;
-    z-index: 1;
 
+    /* Tendria que poner en tamaño medio 100VH y tamaño grande 10%%vh */
 }
+
+
 
 .izquierda{
     display: flex;
@@ -33,8 +32,8 @@
     justify-content: center;
     align-items:flex-start;
     padding: 80px;
-    margin-right: 20px;
-    max-width: 750px;
+    margin-left: 60px;
+    width: 600px;
 }
 
 .izquierda h1{
@@ -42,8 +41,9 @@
     font-style: normal;
     font-weight: 800;
     font-size: 48px;
-    line-height: 52px;
+    line-height: 60px;
     color: #002A39;
+
     text-align: start;
     margin-bottom: 20px;
 
@@ -54,9 +54,9 @@
     font-style: normal;
     font-weight: 600;
     font-size: 21px;
-    line-height: 30px;
+    line-height: 40px;
     color: #002A39;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 
 
 }
@@ -107,13 +107,105 @@
 
 }
 
+.izquierda h4{
 
-.derecha{
-    margin-top: 80px;
-    display: block;
-    align-items: center;
-    justify-content: center;
+    font-size: 21px;
+    width: 300px;
+
+    margin-bottom: 30px;
 
 
 }
+  
 
+@media(max-width: 768px){
+    .izquierda{
+        margin-left: 0;
+    }
+    .izquierda h1{
+        font-size: 32px;
+        width: 300px;
+        line-height: 50px;
+        margin-bottom: 0px;
+
+    }
+    .izquierda h4{
+
+        font-size: 21px;
+        width: 300px;
+
+        margin-bottom: 30px;
+    
+    
+    }
+}
+
+@media(max-width: 480px ){
+    .container{
+        background-image: url(https://res.cloudinary.com/daieynebb/image/upload/v1677872468/Fondos/heromobile_Mesa_de_trabajo_1_u4hgar.png);
+        background-size: 15rem;        
+        background-repeat: no-repeat;
+        background-position: center right;
+        margin: 40px 0 40px 0;
+        
+    }
+    
+    .izquierda{
+        margin-left: -2rem;
+        margin-top: -5rem;
+        display: flex;
+        align-items: start;
+        align-content: start;
+        justify-content: center;
+    }
+
+    .izquierda h1{
+        font-size: 18px;
+        width: 150px;
+        line-height: 30px;
+        margin-bottom: 0px;
+        color: var(--azul);
+
+    }
+    .izquierda h4{
+
+        font-size: 12px;
+        width: 200px;
+        line-height: 30px;    
+        margin-bottom: 20px;
+        color: var(--azul);
+    
+    }
+      
+  
+    .izquierda button{
+        display: flex;
+        text-align: center;      
+        align-items: center;
+        
+
+        width: 10rem;
+        height: 2rem;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        padding: 18px 0px;
+
+        font-size: 11px;
+        text-transform: uppercase;
+        
+        letter-spacing: 0.1em;
+        overflow: hidden;
+        font-weight: 500;
+
+        color: #fff;
+        background-color: #FFBB00;
+
+
+        border: none;
+        border-radius: 3px;
+
+        box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease-out 0s;
+    }
+
+}

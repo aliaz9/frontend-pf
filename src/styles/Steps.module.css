@@ -5,6 +5,7 @@
 
   margin-top: -50px;
   margin-bottom: 50px;
+  background-color: white;
 
 }
 
@@ -83,7 +84,7 @@
   z-index: 2;
 }
 
-button {
+/* button {
 
   width: 22em;
   margin-right: 10px;
@@ -109,4 +110,133 @@ button:hover {
   color: #fff;
   transform: translateY(-3px);
   cursor: pointer;
+} */
+
+.stepsBanner .imgBanner{
+  width: 100%;
+  background-color: rebeccapurple;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: top;
+  margin-top: 4rem;
+
+}
+
+/* MEDIAS */
+
+@media(max-width: 480px){
+  .titleSteps{
+
+    width: 230px;
+    font-weight: 800;
+    font-size: 20px;
+    word-break:keep-all;
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 80px;
+
+  }
+  .containerSteps {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 60px;
+  }
+  .stepsTitle {
+    font-size: 18px;
+    line-height: 32px;
+  }
+  .stepsDescription {
+    width: 180px;
+    line-height: 18px;
+    word-break:keep-all;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    text-align: center;
+  
+  }
+  .stepsBanner .imgBanner{
+    background-color: rebeccapurple;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: top;
+    height: 80px;
+    width: auto;
+    margin-top: 1rem;
+  
+  }
+
+
+}
+
+@media(min-width: 768px){
+  .titleSteps{
+
+    width: 500px;
+    font-weight: 800;
+    font-size: 35px;
+    word-break:keep-all;
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 0px;
+
+  }
+
+  
+  .stepsTitle {
+    font-size: 21px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    line-height: 32px;
+  }
+
+  
+  .stepsDescription {
+    width: 250px;
+    line-height: 21px;
+    word-break:keep-all;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    text-align: center;
+  
+  }
+   
+  .stepsBanner .imgBanner{
+    background-color: rgb(255, 255, 255);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: top;
+    height: 130px;
+    width: auto;
+    margin-top: 3rem;
+  
+  } 
+
+
+}
+
+@media(min-width: 768px){
+  .containerStepsAll{
+    margin-top: 40px;
+    
+  }
+  .titleSteps{
+
+    width: 800px;
+    font-weight: 800;
+    font-size: 40px;
+    word-break:keep-all;
+    text-align: center;
+    margin-bottom: 80px;
+    margin-top: 0px;
+
+  }
+
 }

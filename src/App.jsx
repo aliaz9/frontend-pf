@@ -8,6 +8,11 @@ import {
   getProducts,
   getTypes
 } from './redux/slices/thunksProducts.js'
+import {
+  getBrands,
+  getProducts,
+  getTypes
+} from './redux/slices/thunksProducts.js'
 import Products from './pages/Products.jsx'
 import About from './pages/About.jsx'
 import SignIn from './pages/Sing-in.jsx'
@@ -16,6 +21,10 @@ import ProductPage from './pages/Product.jsx'
 import Cart from './components/Cart.jsx'
 import ProfilePage from './pages/ProfilePage.jsx'
 import { autehnticateUser } from './redux/slices/thunksUsers.js'
+import ConfirmUser from './components/ConfirmUser.jsx'
+import { RecoverPassword } from './components/RecoverPassword.jsx'
+import LayoutAdmin from './Layout/LayoutAdmin.jsx'
+
 function App() {
   const dispatch = useDispatch()
   useEffect(() => {
@@ -54,8 +63,11 @@ function App() {
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/shopping-cart" element={<Cart />} />
           <Route path="/user-page-profile" element={<ProfilePage />} />
+          <Route path="/users/confirm/:token" element={<ConfirmUser />} />
+          <Route path="/users/reset-password" element={<RecoverPassword />} />
           <Route path="*" element={<h1>404</h1>} />
         </Route>
+        <Route path="/admin/*" element={<LayoutAdmin />}></Route>
       </Routes>
     </BrowserRouter>
   )

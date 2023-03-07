@@ -10,7 +10,7 @@ export default function SomeCards () {
     const { products } = useSelector(state => state.products)
   
     const mapProducts = (products) => {
-      return products.slice(0,3).map((product) => (
+      return products.slice(0,4).map((product) => (
       <Card
         key={product.id}
         product = {product}
@@ -21,14 +21,7 @@ export default function SomeCards () {
         <>
         
           <div className={Style.container}>
-          <img
-            src={
-              'https://res.cloudinary.com/daieynebb/image/upload/v1677494844/Images/wave_1_zmvymm.png'
-            }
-            alt="img-panelSolar"
-            className={Style.imgWave}
-          />
-
+            <img src="https://res.cloudinary.com/daieynebb/image/upload/v1678045784/Images/wave_3_czfq5u.svg" alt="" />
 
             <div className={Style.container1}>     
               
@@ -39,6 +32,8 @@ export default function SomeCards () {
               </div>
 
             </div>
+
+            <img src="https://res.cloudinary.com/daieynebb/image/upload/v1678045815/Images/wave_4_phn3z6.svg" alt="" />
 
           </div>
 

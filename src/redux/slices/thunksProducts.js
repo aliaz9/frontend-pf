@@ -6,7 +6,12 @@ import {
   setProduct,
   setTypes,
   setBrands,
+<<<<<<< HEAD
   setNumberOfpages
+=======
+  setNumberOfpages,
+  setSearch
+>>>>>>> 51c702bc57624eeee5245dee28961839d9ece6be
 } from './productsSlice.js'
 
 export const getProducts = () => {
@@ -14,15 +19,26 @@ export const getProducts = () => {
     try {
       dispatch(loading(true))
       const {
+<<<<<<< HEAD
         products: { pageCurrent, type, order }
+=======
+        products: { pageCurrent, brand, type, order }
+>>>>>>> 51c702bc57624eeee5245dee28961839d9ece6be
       } = getState()
       const {
         data: { products, count }
       } = await clientAxios(
+<<<<<<< HEAD
         `/products?page=${pageCurrent}&typeName=${type.label}&order=${order.label}`
       )
       if (type.value) {
         dispatch(setNumberOfpages(Math.ceil(count / 9)))
+=======
+        `/products?number=12&page=${pageCurrent}&brandName=${brand.label}&typeName=${type.label}&order=${order}`
+      )
+      if (brand.value || type.value) {
+        dispatch(setNumberOfpages(Math.ceil(count / 12)))
+>>>>>>> 51c702bc57624eeee5245dee28961839d9ece6be
       }
       dispatch(setProducts(products))
     } catch (error) {
@@ -70,3 +86,36 @@ export const getBrands = () => {
     }
   }
 }
+<<<<<<< HEAD
+=======
+
+export const getByNames = (name) => {
+  return async (dispatch) => {
+    try {
+      dispatch(loading(true))
+      const { data } = await clientAxios(`/products?search=${name}`)
+      dispatch(setSearch(data))
+    } catch (error) {
+      dispatch(setMessage(error.message))
+    } finally {
+      dispatch(loading(false))
+    }
+  }
+}
+
+export const createProducts = async (formData) => {
+  // return async (dispatch) {
+  try {
+    const result = await clientAxios.post('/products', formData, {
+      withCredentials: false,
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      }
+    })
+    return result
+  } catch (error) {
+    dispatch(setMessage(error.message))
+  }
+}
+// }
+>>>>>>> 51c702bc57624eeee5245dee28961839d9ece6be

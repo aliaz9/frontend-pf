@@ -1,0 +1,16 @@
+:root {
+    --amarillo: #FDC827;
+    --azul: #04454D;
+    --verde: #04BA71;
+    --claro: #F5F2EB;
+  }
+  
+.home{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+    /* background-color: red; */
+    
+}

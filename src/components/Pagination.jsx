@@ -25,6 +25,7 @@ export default function Pagination() {
     dispatch(setPageCurrent( parseInt(e.target.value)))
     dispatch(getProducts())
   }
+  }
 
   return (
     <div>
@@ -32,7 +33,7 @@ export default function Pagination() {
         type="button"
         onClick={() => previusPage()}
         disabled={pageCurrent === 1}
-        className={styles.Pagination}
+        // className={styles.Pagination}
       >
         {' '}
         ←
@@ -51,7 +52,7 @@ export default function Pagination() {
         type="button"
         onClick={() => nextPage()}
         disabled={pageCurrent === numberOfpages}
-        className={styles.Pagination}
+        // className={styles.Pagination}
       >
         →
       </button>

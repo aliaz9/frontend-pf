@@ -4,18 +4,15 @@ import Style from '../styles/Footer.module.css'
 
 export default function Footer() {
   return (
-    <div className={Style.mainFooter}>
+    <><div className={Style.mainFooter}>
       <div className={Style.container}>
         <div className={Style.row}>
           <div className={`${Style.col} ${Style.col1}`}>
             <img
-              src={
-                'https://res.cloudinary.com/dugymmik7/image/upload/v1677016190/PF%20Henry/lightLogo_thuhw2.png'
-              }
-              alt='logo'
-            />
+              src={'https://res.cloudinary.com/dugymmik7/image/upload/v1677016190/PF%20Henry/lightLogo_thuhw2.png'}
+              alt='logo' />
             <p>
-              Somos una empresa especializada en la comercialización de 
+              Somos una empresa especializada en la comercialización de
               paneles solares.
 
               Contamos con una amplia gama de los mismos.
@@ -56,14 +53,15 @@ export default function Footer() {
               <i className='fa-solid fa-location-dot'></i> 772 Av. Libertad.
               Buenos Aires
             </Link>
-            </div>
+          </div>
         </div>
-     
       </div>
-      <div className={Style.foot}>
-          <p>© 2023 Grupo 1. Proyecto Final - Henry. Derechos Reservados</p>
-          <p>Términos y Condiciones | Política de Privacidad | Disclaimer</p>
-        </div>
-    </div>
+
+    </div><div className={Style.foot}>
+
+      </div><div className={Style.foot}>
+        <p>© 2023 Grupo 1. Proyecto Final - Henry. Derechos Reservados</p>
+        <p>Términos y Condiciones | Política de Privacidad | Disclaimer</p>
+      </div></>
   )
 }

@@ -1,0 +1,24 @@
+.order {
+    margin-top: 80px;
+    margin-left: 100px;
+}
+
+.datos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+
+.productos {
+    margin-top: 100px;
+}
+
+.total {
+    background-color: ghostwhite;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
