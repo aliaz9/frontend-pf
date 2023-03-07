@@ -44,8 +44,8 @@ export const orders = () => {
 export const deleteUser = (id) => {
   return async (dispatch) => {
     try {
-      const { user } = await clientAxios(`/admin/delete-user/${id}`, config)
-      dispatch(eliminateUser(user))
+      await clientAxios.delete(`/admin/delete-user/${id}`, config)
+      dispatch(eliminateUser(id))
     } catch (error) {
       console.log(error)
       dispatch(setMessage({ error: error.message }))

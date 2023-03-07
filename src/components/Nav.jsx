@@ -35,9 +35,11 @@ export default function Nav() {
       </div>
       <div className="nav2">
         <Link to="/user-page-profile">{auth?.name}</Link>
-        <Link to="/log-in">
-          <button className="button1">Iniciar sesión</button>
-        </Link>
+        {!auth?.name && (
+          <Link to="/log-in">
+            <button className="button1">Iniciar sesión</button>
+          </Link>
+        )}
         {auth?.name && (
           <button type="button" onClick={handleLogOut} className="button2">
             Cerrar Sesion
