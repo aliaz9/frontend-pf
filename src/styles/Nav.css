@@ -1,30 +1,27 @@
 .nav {
-
   display: flex;
   width: 100%;
   height: 50px;
-  font-family: "inter";
+  font-family: 'inter';
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   margin: auto;
-  background-color: #F4F1EB;
+  background-color: #f4f1eb;
 }
-.img img{
+.img img {
   margin: -20px;
   max-height: 40px;
 }
 
 .nav1 {
-
   display: flex;
   flex-direction: row;
   justify-content: center;
   margin-left: 90px;
   height: 50px;
-  font-family: "inter";
+  font-family: 'inter';
   align-items: center;
-
 }
 
 .nav1 a {
@@ -32,20 +29,17 @@
   font-size: 18px;
   text-align: center;
   text-decoration: none;
-  color: #002A39;
+  color: #002a39;
   font-weight: bold;
 }
 
 .nav1 a:hover {
-
   text-decoration: underline;
   font-weight: bolder;
   cursor: pointer;
 }
 
-
 .nav2 {
-
   display: flex;
   justify-content: center;
   height: 50px;
@@ -66,12 +60,12 @@
   width: 10em;
   margin-right: 8px;
   margin-bottom: 20px;
-  font-family: "inter";
+  font-family: 'inter';
   font-size: 11px;
-    overflow: hidden;
+  overflow: hidden;
   font-weight: 500;
   color: #fff;
-  background-color: #FFBB00;
+  background-color: #ffbb00;
   border: none;
   border-radius: 3px;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
@@ -80,11 +74,9 @@
   text-align: center;
   justify-content: center;
   align-items: center;
-  
 }
 
 button:hover {
-
   box-shadow: 0px 5px 10px rgba(0, 102, 153, 0.3);
   color: #fff;
   transform: translateY(-3px);
@@ -96,12 +88,12 @@ button:hover {
   width: 10em;
   margin-right: 8px;
   margin-bottom: 20px;
-  font-family: "inter";
+  font-family: 'inter';
   font-size: 11px;
   overflow: hidden;
   font-weight: 500;
   color: #fff;
-  background-color: #74C8DB;
+  background-color: #74c8db;
   border: none;
   border-radius: 3px;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
@@ -110,16 +102,11 @@ button:hover {
   justify-content: center;
   align-items: center;
   padding: 10px 0px;
-
-  
 }
-
-
-
 
 .nav2 .cart {
   color: white;
-  background-color: #FFBB00;
+  background-color: #ffbb00;
   width: 35px;
   height: 35px;
   text-align: center;
@@ -130,9 +117,6 @@ button:hover {
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease-out 0s;
   cursor: pointer;
-
-
-
 }
 
 .nav2 .cart a {
@@ -142,6 +126,6 @@ button:hover {
 }
 
 .nav2 .cart a:hover {
-  color: #74C8DB;
+  color: #74c8db;
   transition: all 0.3s ease-out 0s;
 }

@@ -48,7 +48,6 @@ export default function Cart() {
       }
       return cosito
     })
-    console.log(productsModify)
     dispatch(loaderPayment(productsModify))
   }
 
