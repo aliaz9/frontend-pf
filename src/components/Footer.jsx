@@ -30,7 +30,7 @@ export default function Footer() {
           <div className={`${Style.col} ${Style.col2}`}>
             <h4>Enlaces Rápidos</h4>
 
-            <Link to='/'>Inicio</Link>
+            <Link to='/home'>Inicio</Link>
             <Link to='/about'>Acerca de</Link>
             <Link to='/products'>Productos</Link>
             <Link to='/'>Contacto</Link>
@@ -43,8 +43,8 @@ export default function Footer() {
           </div>
           <div className={`${Style.col} ${Style.col4}`}>
             <h4>Contactanos</h4>
-            <Link to='mailto:info@ecosun.com'>
-              <i className='fa-sharp fa-solid fa-envelope'></i> info@ecosun.com
+            <Link to='mailto:ecosunpf@gmail.com'>
+              <i className='fa-sharp fa-solid fa-envelope'></i> ecosunpf@gmail.com
             </Link>
             <Link to=''>
               <i className='fa-solid fa-phone'></i> +54 9 11 457 985 451
