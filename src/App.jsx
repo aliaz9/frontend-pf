@@ -62,7 +62,7 @@ function App() {
           <Route path="/users/confirm/:token" element={<ConfirmUser />} />
           <Route path="/users/reset-password" element={<RecoverPassword />} />
           <Route
-            path="/user/reset-password/:token"
+            path="/users/reset-password/:token"
             element={<ChangePasswordForGot />}
           />
           <Route path="*" element={<h1>404</h1>} />

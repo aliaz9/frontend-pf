@@ -21,6 +21,7 @@ export const ChangePasswordForGot = () => {
     }
   })
   return (
+
     <div className={styles.contMaxPsw}>
       <div className={styles.containerChangePsw}>
         <div className="box">
@@ -35,6 +36,7 @@ export const ChangePasswordForGot = () => {
               className="form-control"
             />
             {msg}
+
 
             <button type="submit" className="btn btn-primary">
               Submit

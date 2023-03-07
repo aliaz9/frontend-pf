@@ -182,7 +182,7 @@ export const loaderPayment = (product) => {
 export const forgotPassword = (token, password) => {
   return async (dispatch) => {
     try {
-      const { data } = clientAxios.put(
+      const { data } = await clientAxios.put(
         `users/forgot-password/${token}`,
         password
       )
