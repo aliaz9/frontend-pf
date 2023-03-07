@@ -1,10 +1,34 @@
 .form {
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0)
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0);
 }
 
 .box {
-  margin-top: 100px;
+  display: flex;
+  border-radius: 1rem;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  width: 400px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+  padding: 5rem;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 255, 255, 0.2945553221288515) 100%
+  );
+}
+
+.cont_singin {
+  background-image: url('https://res.cloudinary.com/daieynebb/image/upload/v1677623063/Fondos/hero1_ls6dvu.png');
+  background-position: right;
+  background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
