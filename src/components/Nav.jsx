@@ -4,8 +4,6 @@ import { setAuth } from '../redux/slices/usersSlice.js'
 import '../styles/Nav.css'
 export default function Nav() {
   const productsInCart = useSelector((state) => state.users.productsInCart)
-  const { name } = useSelector((state) => state.users.auth)
-
   function numberInCart() {
     let agregados = 0
     for (let i = 0; i < productsInCart.length; i++) {
@@ -16,7 +14,9 @@ export default function Nav() {
   const dispatch = useDispatch()
   function handleLogOut() {
     dispatch(setAuth({}))
+    localStorage.removeItem('token')
   }
+  const auth = useSelector((state) => state.users.auth)
   return (
     <div className="nav">
       <div className="nav1">
@@ -34,13 +34,17 @@ export default function Nav() {
         />
       </div>
       <div className="nav2">
-        <Link to="/user-page-profile">{name}</Link>
-        <Link to="/log-in">
-          <button className="button1">Iniciar sesión</button>
-        </Link>
-        <button type="button" onClick={handleLogOut} className="button2">
-          Cerrar Sesion
-        </button>
+        <Link to="/user-page-profile">{auth?.name}</Link>
+        {!auth?.name && (
+          <Link to="/log-in">
+            <button className="button1">Iniciar sesión</button>
+          </Link>
+        )}
+        {auth?.name && (
+          <button type="button" onClick={handleLogOut} className="button2">
+            Cerrar Sesion
+          </button>
+        )}
         <Link to="/sign-in">
           <button className="button2">Registrarse</button>
         </Link>

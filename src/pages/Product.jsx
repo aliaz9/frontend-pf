@@ -1,12 +1,10 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import Score from '../components/Score.jsx'
 import Style from './../styles/ProductDetail.module.css'
-// import { addCart, getProductInfo } from '../../actions'
 import { getProductsDetails } from '../redux/slices/thunksProducts.js'
 import { addCart } from '../redux/slices/thunksUsers.js'
-import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 export default function ProductPage() {
@@ -39,7 +37,6 @@ export default function ProductPage() {
         <h1 className={Style.title}>{productInfo.title}</h1>
         <p className={Style.precioexc}>Precio Exclusivo Online</p>
         <p className={Style.price}>{productInfo.price}</p>
-        {/* <button className="pp-button" onClick={() => dispatch(addCart({name: productInfo.name, price: productInfo.price}))}>ADD TO CART</button> */}
         <button className={Style.hola} onClick={() => handleAddCart()}>
           Agregar Al Carrito
         </button>
@@ -56,17 +53,12 @@ export default function ProductPage() {
         />
       </div>
 
-      {/* <Score count={5} disabledStart = {0} disabledOpinion = {0} disabledNumber = {0}/> */}
-
       <Score
         count={5}
         disabledStart={0}
         disabledOpinion={0}
         disabledNumber={0}
       />
-      {/* </div> */}
-
-      {/* <Score count={5} disabledStart = {0} disabledOpinion = {0} disabledNumber = {0}/> */}
     </div>
   )
 }

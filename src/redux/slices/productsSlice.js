@@ -47,13 +47,13 @@ export const productsSlice = createSlice({
     setNumberOfpages: (state, action) => {
       state.numberOfpages = action.payload
     },
-    setOrder (state, action) {
+    setOrder(state, action) {
       state.order = action.payload
     },
-    cleanSearch (state) {
+    cleanSearch(state) {
       state.search = []
     },
-    setSearch (state, action) {
+    setSearch(state, action) {
       state.search = action.payload
     }
   }
