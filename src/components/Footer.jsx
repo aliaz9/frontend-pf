@@ -15,8 +15,10 @@ export default function Footer() {
               alt='logo'
             />
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Explicabo, architecto veritatis temporibus libero esse laborum.
+              Somos una empresa especializada en la comercialización de 
+              paneles solares.
+
+              Contamos con una amplia gama de los mismos.
             </p>
             <div className={Style.icons}>
               <i className='fa-brands fa-instagram'></i>
@@ -29,8 +31,8 @@ export default function Footer() {
             <h4>Enlaces Rápidos</h4>
 
             <Link to='/'>Inicio</Link>
-            <Link to='/'>Acerca de</Link>
-            <Link to='/'>Productos</Link>
+            <Link to='/about'>Acerca de</Link>
+            <Link to='/products'>Productos</Link>
             <Link to='/'>Contacto</Link>
           </div>
           <div className={`${Style.col} ${Style.col3}`}>
@@ -54,13 +56,14 @@ export default function Footer() {
               <i className='fa-solid fa-location-dot'></i> 772 Av. Libertad.
               Buenos Aires
             </Link>
-          </div>
+            </div>
         </div>
-        <div className={Style.foot}>
+     
+      </div>
+      <div className={Style.foot}>
           <p>© 2023 Grupo 1. Proyecto Final - Henry. Derechos Reservados</p>
           <p>Términos y Condiciones | Política de Privacidad | Disclaimer</p>
         </div>
-      </div>
     </div>
   )
 }

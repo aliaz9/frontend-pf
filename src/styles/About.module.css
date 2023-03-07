@@ -1,105 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 .container {
-  background-color: #FFf;
-  display: flex;
-  flex-direction: row;
-  height: 350px;
-}
 
-.izquierda {
-  display: flex;
-}
-
-.izquierda img {
-  display: flex;
-  width: 700px;
-  object-fit: cover;
-}
-
-
-.derecha {
-  display: flex;
-  flex-direction: column;
-  background-color: #FFf;
-  background-size: cover;
   width: 100%;
-  justify-content: center;
 }
+.containerH1 {
+  display: flex;
+  width: 100%;
+  height: 450px;
+  background-image: url("https://res.cloudinary.com/daieynebb/image/upload/v1678137150/acerca_Mesa_de_trabajo_1_Mesa_de_trabajo_1_cfhiki.png");
+  background-repeat: no-repeat;
+  background-size: cover;  
 
-.derecha .containerText {
-  color: #002A39;
-  font-family: 'Inter';
+}
+.containerText{
+  font-family: 'inter';
+  display: flex;
+
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 50px;
-  text-align: center;
-}
-
-.derecha .containerText h1 {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 38px;
-  line-height: 50px;
-  color: #002A39;
-  text-align: center;
-}
-
-.derecha .containerText h4 {
-  font-family: 'Inter';
-  font-style: normal;
-  font-size: 21px;
-  line-height: 24px;
-  color: #002A39;
-  text-align: center;
-}
-
-.derecha .containerText p {
-  font-family: 'Inter';
-  font-style: normal;
-  font-size: 18px;
-  line-height: 24px;
-  color: #002A39;
-  text-align: center;
-}
-
-
-
-
-
-.derecha .containerButton {
-  align-items: center;
+  width: 100%;
+  height: 500px;
+  color: #FFf;
 
 }
 
-/* .derecha button {
-  width: 22em;
-  margin-right: 10px;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  font-family: 'Roboto', sans-serif;
-  font-size: 13px;
-  text-transform: uppercase;
-  padding: 18px 0px;
-  letter-spacing: 0.1em;
-  overflow: hidden;
-  font-weight: 500;
-  color: #002A39;
-  background-color: #FFBB00;
-  border: none;
-  border-radius: 3px;
-  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease-out 0s;
-} */
 
-.derecha button:hover {
-  background-color: #002A39;
-  box-shadow: 0px 5px 10px rgba(0, 102, 153, 0.3);
-  color: #fff;
-  transform: translateY(-3px);
-  cursor: pointer;
-}
+
+
+
 
 .Info {
   display: flex;
@@ -109,36 +39,130 @@
   justify-content: center;
   font-family: 'inter';
 }
-
-.titleInfo {
-  color: #28647a;
-  margin-top: 80px;
-  margin-bottom: 50px;
-
-}
-
 .boxInfo {
-  width: 500px;
-  margin: 30px;
-  border-radius: 5px;
-  padding: 10px;
-}
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-.boxInfo:hover {
-  box-shadow: 3px 3px 10px rgba(121, 121, 121, 0.1);
-  transition: all 0.1s ease-out 0.1s;
+    /* altura de cada tarjeta */
+    width: 700px;
+    height: 300px;
+    margin: 0;
+    margin-bottom: 30px;
 
-}
+  }
 
-.boxInfo h3 {
-  font-size: 20px;
-  font-weight: bold;
-  color: #28647a;
-}
 
-.boxInfo p {
-  font-size: 15px;
-  font-family: 'Roboto';
-  line-height: 24px;
-  color: #949494;
-}
+  .boxInfoIMG{
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    object-fit: contain;
+    height: 200px;
+    margin-bottom: 30px;
+
+  }
+  .button1 {
+    width: 12em;
+  
+    margin-bottom: 0;
+  
+    overflow: hidden;
+  
+    font-family: "inter";
+    font-size: 11px;
+    font-weight: 600;
+
+    color: #fff;
+    background-color: var(--amarillo);
+
+    border: none;
+
+    border-radius: 3px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-out 0s;
+
+    padding: 10px 0px;
+  
+  }
+
+  .boxButton{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    height: 100px;
+  }
+  
+  .titleInfo {
+    color: var(--azul);
+    font-size: 40px;
+    margin-bottom: 60px;
+    margin-top: 60px;
+    font-weight: bolder;
+  
+  }
+  .boxInfoIMGcontainer{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    width: 600px;
+  }
+  
+  
+  .boxInfo:hover {
+
+    box-shadow: 3px 3px 10px rgba(121, 121, 121, 0.2);
+    transition: all 0.1s ease-out 0.1s;
+  
+  }
+
+  .boxInfo h3 {
+    font-size: 20px;
+    font-weight: bold;
+
+    color: var(--verde);
+    margin-bottom: 20px;
+  }
+  
+  
+  .boxInfo i{
+    color: var(--verde);
+    font-size: 25px;
+    margin-bottom: 25px;
+  }
+  
+  .boxInfo p {
+    width: 500px;
+    font-size: 15px;
+    font-family: 'Roboto';
+    line-height: 24px;
+    color: #949494;
+    text-align: center;
+  }
+  
+  .containerText h1{
+    font-weight: bolder;
+    font-size: 50px;
+    margin-bottom: 20px;
+  
+  }
+  
+  .containerText h4{
+    font-weight: bold;
+    font-size: 21px;
+    margin-bottom: 20px;
+  
+  }
+  
+  .containerText p{
+    margin-top: 20px;
+    width: 250px;
+    font-weight: lighter;
+    font-size: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+  
+  }
