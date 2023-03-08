@@ -57,25 +57,26 @@ export default function Users() {
           {allUsers &&
             allUsers.map((u, indice) => {
               return (
-                <div key={indice} className={`${styles.row} row`}>
-                  <div className="col-2">{u.name}</div>
-                  <div className="col-2">{u.email}</div>
-                  <div className="col-2">
+                <tr>
+                {/* <div key={indice} className={`${styles.row} row`}> */}
+                  <th className="col-2">{u.name}</th>
+                  <th className="col-2">{u.email}</th>
+                  <th className="col-2">
                     <Link to={`/admin/orders/${u.uid}`}>
                       <button className={`${styles.blue} btn btn-primary`}>
                         {' '}
                         Ver Ordenes{' '}
                       </button>
                     </Link>
-                  </div>
+                  </th>
 
-                  <div className="col-2">
+                  <th className="col-2">
                     {u.disabled ? (
                       <p style={{ color: '#00ff00' }}>Activo</p>
                     ) : (
                       <p style={{ color: '#ff0000' }}>Inactivo</p>
                     )}
-                  </div>
+                  </th>
 
                   <th className="col-2">
                     {!u.disabled ? (
@@ -96,7 +97,7 @@ export default function Users() {
                       </button>
                     )}
                   </th>
-                </div>
+                </tr>
               )
             })}
         </tbody>
