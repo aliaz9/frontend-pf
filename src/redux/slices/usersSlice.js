@@ -8,7 +8,7 @@ export const users = createSlice({
     auth: {},
     loading: false,
     linkPayment: '',
-    reviews: {}
+    reviews: []
   },
 
   reducers: {
@@ -59,6 +59,9 @@ export const users = createSlice({
     },
     setReviews: (state, action) => {
       state.reviews = action.payload
+    },
+    setMyCart: (state, action) => {
+      state.reviews = action.payload
     }
   }
 })
@@ -74,7 +77,8 @@ export const {
   setLinkPayment,
   setEdithUser,
   setEdithPwd,
-  setReviews
+  setReviews,
+  setMyCart
 } = users.actions
 
 export default users.reducer

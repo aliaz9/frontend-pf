@@ -2,7 +2,7 @@
 
 
 .btnModal{
-    display: flex;
+    /* display: flex; */
     background-color: white;
     color: #002A39;
     font-weight: bold;
@@ -83,6 +83,7 @@
     margin: 0;
     padding: 0;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
 }
@@ -159,7 +160,6 @@
     transition: all 0.3s ease-out 0s;
 }
 
-
 .error{
     color: red;
 }
@@ -168,4 +168,32 @@
     background-color: #f3f7f8;
     cursor: no-drop;
     color: #cbd6de;
+}
+
+
+@media(max-width: 768px){
+
+/* .modalImg {
+    width: 50%;
+} */
+
+.modalBackground {
+    padding: 20px 0;
+}
+.modalContainer{
+    width: 90%;
+}
+
+.txtareaModal {
+    width: 100%;
+}
+
+.btnCancel{
+    display: none;
+}
+
+.btnSubmit{
+    width: 100%;
+}
+
 }

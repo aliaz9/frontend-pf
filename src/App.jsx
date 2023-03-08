@@ -20,6 +20,7 @@ import ConfirmUser from './components/ConfirmUser.jsx'
 import { RecoverPassword } from './components/RecoverPassword.jsx'
 import LayoutAdmin from './Layout/LayoutAdmin.jsx'
 import { ChangePasswordForGot } from './components/ChangePasswordForGot.jsx'
+import Error from './components/Error.jsx'
 
 function App() {
   const dispatch = useDispatch()
@@ -64,7 +65,7 @@ function App() {
             path="/users/reset-password/:token"
             element={<ChangePasswordForGot />}
           />
-          <Route path="*" element={<h1>404</h1>} />
+          <Route path="*" element={<Error />} />
         </Route>
         <Route path="/admin/*" element={<LayoutAdmin />}></Route>
       </Routes>
