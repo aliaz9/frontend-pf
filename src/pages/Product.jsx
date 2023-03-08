@@ -17,7 +17,8 @@ export default function ProductPage() {
       id: productInfo.id,
       title: productInfo.title,
       image: productInfo.image,
-      price: productInfo.unit_price,
+      description: productInfo.description,
+      unit_price: productInfo.unit_price,
       quantity: 1,
       type: productInfo.typeName,
       brand: productInfo.brandName
