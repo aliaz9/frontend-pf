@@ -219,7 +219,6 @@ export const cleanMessage = () => {
   }
 }
 
-
 export const addReviews = (review) => {
   return async (dispatch) => {
     try {
@@ -236,6 +235,8 @@ export const addReviews = (review) => {
     } catch (error) {
       dispatch(setMessage(error.response.data))
     }
+  }
+}
 
 export const updateCart = (token, cart) => {
   console.log(cart)
@@ -297,7 +298,6 @@ export const removeCartBack = (id) => {
       console.log(error)
       console.log(error.response.data)
     }
-
   }
 }
 

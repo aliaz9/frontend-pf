@@ -83,16 +83,16 @@ export default function ProductUser() {
                       &nbsp;{formatDate(b.date)}
                     </span>
                     <br />
-                    <Link style={{ textDecoration: 'none' }}>
+                    {/* <Link style={{ textDecoration: 'none' }}>
                       <button className={styles['btn-accion']} onClick={handleOpen}>
                         <i className="fa-solid fa-arrow-right"></i>
                       </button>
-                    </Link>
+                    </Link> */}
                   </div>
                 </div>
               )
             })}
-            {display && <Modal closeModal= { setDisplay } />}
+            {/* {display && <Modal closeModal= { setDisplay } />} */}
         </>
           )
         : (
