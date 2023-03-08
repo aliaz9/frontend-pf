@@ -52,7 +52,7 @@ export const getProductsDetails = (id) => {
 export const getTypes = () => {
   return async (dispatch) => {
     try {
-      const { data } = await clientAxios('/products/types')
+      const { data } = await clientAxios('/types')
       const types = data.map(({ name }) => ({ label: name, value: name }))
       dispatch(setTypes(types))
     } catch (error) {
