@@ -1,7 +1,12 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styles from '../styles/Users.module.css'
-import { deleteUser, habilitarUser, users } from '../redux/slices/thunksAdmin'
+import {
+  deleteUser,
+  filterUser,
+  habilitarUser,
+  users
+} from '../redux/slices/thunksAdmin'
 import { Link } from 'react-router-dom'
 
 export default function Users() {
@@ -21,27 +26,35 @@ export default function Users() {
   }
 
   function handleChange(e) {
-    dispatch(users(e.target.value))
-    dispatch(users(e.target.value))
+    dispatch(filterUser(e.target.value))
   }
 
   return (
+
     <div>
       <h1 className={styles.title}>Usuarios</h1>
 
-      <select onChange={(e) => handleChange(e)} class="form-select">
-        <option selected>Todos</option>
+      <select
+        onChange={(e) => handleChange(e)}
+        className={`${styles.select} form-select`}
+        defaultValue={'todos'}
+      >
+        <option value="todos">Todos</option>
         <option value="habilitados">Habilitados</option>
         <option value="deshabilitados">Deshabilitados</option>
       </select>
 
-      <div className={`${styles.container} container`}>
-        <div className={`${styles.row} row`}>
-          <div className="col-2">Nombre</div>
-          <div className="col-2">Email</div>
-          <div className="col-2">Ordenes</div>
-          <div className="col-2">Estado</div>
-          <div className="col-2">Acciones</div>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col-2">Nombre</th>
+            <th scope="col-2">Email</th>
+            <th scope="col-2">Ordenes</th>
+            <th scope="col-2">Estado</th>
+            <th scope="col-2">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
 
           {allUsers &&
             allUsers.map((u, indice) => {
@@ -66,10 +79,10 @@ export default function Users() {
                     )}
                   </div>
 
-                  <div className="col-2">
-                    {u.disabled ? (
+                  <th className="col-2">
+                    {!u.disabled ? (
                       <button
-                        className={`${styles.red} btn btn-danger`}
+                        className={`btn btn-danger`}
                         onClick={() => handleDelete(u.uid)}
                       >
                         {' '}
@@ -77,19 +90,20 @@ export default function Users() {
                       </button>
                     ) : (
                       <button
-                        className={`${styles.red} btn btn-secondary`}
+                        className={`btn btn-secondary`}
                         onClick={() => handleHabilitar(u.uid)}
                       >
                         {' '}
                         Habilitar{' '}
                       </button>
                     )}
-                  </div>
-                </div>
+                  </th>
+
+                </tr>
               )
             })}
-        </div>
-      </div>
+
+        </tbody>
+      </table>
     </div>
-  )
-}
+  )}
