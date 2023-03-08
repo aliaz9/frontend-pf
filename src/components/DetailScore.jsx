@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
+import { searchUser } from '../helpers'
 import styles from '../styles/DetailScore.module.css'
-import Modal from './Modal'
-import Opinion from './Opinion.jsx'
+import Modal from '../components/Modal.jsx'
+import Opinion from '../components/Opinion.jsx'
 
 export default function DetailScore() {
   const [display, setDisplay] = useState(false)
+  const { uid, name } = useSelector((state) => state.users.auth)
+  const productInfo = useSelector((state) => state.products.product)
   const handleOpen = () => {
-    if (display) {
-      setDisplay(false)
-    } else {
-      setDisplay(true)
-    }
+    setDisplay(!display)
   }
   return (
     <div>
@@ -18,10 +18,12 @@ export default function DetailScore() {
         <hr className={styles.cardSeparator} />
         <h3>Opiniones del Producto</h3>
         <div>
-          <button onClick={() => handleOpen(true)}>
-            <i className="fa-solid fa-plus" />
-            &nbsp; Mi Opinion
-          </button>
+          {(name && !searchUser(productInfo.reviews, uid)) &&
+            <button onClick={handleOpen}>
+              <i className="fa-solid fa-plus" />
+              &nbsp; Mi Opinion
+            </button>
+          }
         </div>
       </div>
       {display && <Modal closeModal={setDisplay} />}

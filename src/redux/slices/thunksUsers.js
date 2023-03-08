@@ -9,7 +9,8 @@ import {
   setMessage,
   setUserLoading,
   setEdithUser,
-  setEdithPwd
+  setEdithPwd,
+  setReviews
 } from './usersSlice.js'
 import { alertMsg } from '../../helpers/index.js'
 
@@ -217,6 +218,24 @@ export const cleanMessage = () => {
   }
 }
 
+
+export const addReviews = (review) => {
+  return async (dispatch) => {
+    try {
+      const { id, rating, reviews } = review
+      const { data } = await clientAxios.post(
+        `products/reviews/${id}`,
+        {
+          rating,
+          reviews
+        },
+        config
+      )
+      dispatch(setReviews(data))
+    } catch (error) {
+      dispatch(setMessage(error.response.data))
+    }
+
 export const updateCart = (token, cart) => {
   console.log(cart)
   return async (dispatch) => {
@@ -277,5 +296,6 @@ export const removeCartBack = (id) => {
       console.log(error)
       console.log(error.response.data)
     }
+
   }
 }

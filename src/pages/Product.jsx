@@ -35,10 +35,43 @@ export default function ProductPage() {
   }, [dispatch, id])
 
   return (
-    <div className={Style.containerAll} key={productInfo.id}>
-      <div className={Style.containerImg}>
-        <img src={productInfo.image} alt={productInfo.title} className="" />
+    <>
+      <div className={Style.containerAll} key={productInfo.id}>
+        <div className={Style.containerImg}>
+          <img src={productInfo.image} alt={productInfo.title} className="" />
+        </div>
+
+
+        <div className={Style.productContent}>
+          <h1 className={Style.title}>{productInfo.title}</h1>
+          <p className={Style.precioexc}>Precio Exclusivo Online</p>
+          <p className={Style.price}>{productInfo.price}</p>
+          <button className={Style.hola} onClick={() => handleAddCart()}>
+            Agregar Al Carrito
+          </button>
+
+          <p className={Style.description}>{productInfo.description}</p>
+          <p className={Style.sinestilo}>{productInfo.type}</p>
+          <p className={Style.sinestilo}>{productInfo.brand}</p>
+
+
+        </div>
+
+      {/* <Score
+        count={5}
+        disabledStart={0}
+        disabledOpinion={0}
+        disabledNumber={0}
+      /> */}
       </div>
+      <Score
+            count={productInfo.rating}
+            disabledStart={0}
+            disabledOpinion={0}
+            disabledNumber={0}
+            countOpinion={productInfo.reviews ? productInfo.reviews.length : 0}
+          />
+    </>
 
       <div className={Style.productContent}>
         <h1 className={Style.title}>{productInfo.title}</h1>
@@ -69,5 +102,6 @@ export default function ProductPage() {
         </div>
       </div>
     </div>
+
   )
 }
