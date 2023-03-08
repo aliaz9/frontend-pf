@@ -15,19 +15,25 @@ import LoginForm from './pages/LoginForm.jsx'
 import ProductPage from './pages/Product.jsx'
 import Cart from './components/Cart.jsx'
 import ProfilePage from './pages/ProfilePage.jsx'
-import { autehnticateUser } from './redux/slices/thunksUsers.js'
+import {
+  autehnticateUser,
+  getCartFromBack
+} from './redux/slices/thunksUsers.js'
 import ConfirmUser from './components/ConfirmUser.jsx'
 import { RecoverPassword } from './components/RecoverPassword.jsx'
 import LayoutAdmin from './Layout/LayoutAdmin.jsx'
 import { ChangePasswordForGot } from './components/ChangePasswordForGot.jsx'
 import Error from './components/Error.jsx'
+import Cosito from './Hooks/Alert.jsx'
+import { ToastContainer } from 'react-toastify'
+import PaySuccess from './components/PaySuccess.jsx'
 
 function App() {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getProducts())
     dispatch(getTypes())
-    dispatch(getBrands())
+    // dispatch(getBrands())
   }, [])
 
   const cart = useSelector((state) => state.users.productsInCart)
@@ -67,16 +73,14 @@ function App() {
           <Route path="/user-page-profile" element={<ProfilePage />} />
           <Route path="/users/confirm/:token" element={<ConfirmUser />} />
           <Route path="/users/reset-password" element={<RecoverPassword />} />
-          <Route
-            path="/payment/success"
-            element={<h1>Gracias por tu compra</h1>}
-          />
+          <Route path="/buy/capture" element={<PaySuccess />} />
           <Route
             path="/users/reset-password/:token"
             element={<ChangePasswordForGot />}
           />
           <Route path="*" element={<Error />} />
         </Route>
+
         <Route path="/admin/*" element={<LayoutAdmin />}></Route>
       </Routes>
     </BrowserRouter>

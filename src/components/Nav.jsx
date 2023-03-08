@@ -14,7 +14,7 @@ export default function Nav() {
   const dispatch = useDispatch()
   function handleLogOut() {
     dispatch(setAuth({}))
-    dispatch(restoreCart())
+    dispatch(restoreCart([]))
     localStorage.removeItem('token')
   }
   const auth = useSelector((state) => state.users.auth)
@@ -35,7 +35,9 @@ export default function Nav() {
         />
       </div>
       <div className="nav2">
-        <Link to="/user-page-profile">{auth?.name}</Link>
+        <Link to="/user-page-profile" className="nav-user">
+          {auth?.name}
+        </Link>
         {!auth?.name && (
           <Link to="/log-in">
             <button className="button1">Iniciar sesión</button>

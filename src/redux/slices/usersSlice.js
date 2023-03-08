@@ -64,11 +64,10 @@ export const users = createSlice({
       state.reviews = action.payload
     },
     restoreCart: (state, action) => {
-      state.productsInCart = []
+      state.productsInCart = action.payload
     }
   }
-}
-)
+})
 
 export const {
   setMessage,

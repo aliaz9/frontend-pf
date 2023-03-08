@@ -35,25 +35,25 @@ export default function Products() {
 
       <div className={styles.miniBannerContainer}>
         <div className={styles.miniBanner}>
-          <i class="fa-solid fa-truck"></i>
+          <i className="fa-solid fa-truck"></i>
           <h6 className={styles.h6}>Envio Gratis</h6>
           <p className={styles.p1}>Con tu compra de $1000</p>
         </div>
 
         <div className={styles.miniBanner}>
-          <i class="fa-solid fa-arrows-spin"></i>
+          <i className="fa-solid fa-arrows-spin"></i>
           <h6 className={styles.h6}>365 días</h6>
           <p className={styles.p1}>De Garantía</p>
         </div>
 
         <div className={styles.miniBanner}>
-          <i class="fa-regular fa-credit-card"></i>
+          <i className="fa-regular fa-credit-card"></i>
           <h6 className={styles.h6}>Pagos</h6>
           <p className={styles.p1}>Pago Seguro</p>
         </div>
 
         <div className={styles.miniBanner}>
-          <i class="fa-solid fa-certificate"></i>
+          <i className="fa-solid fa-certificate"></i>
           <h6 className={styles.h6}>Materiales</h6>
           <p className={styles.p1}>Solamente la mejor calidad</p>
         </div>
@@ -95,7 +95,7 @@ export default function Products() {
                 className={styles.input}
               ></input>
               <button type="submit" className={styles.buttonsubmit}>
-                <i class="fa-solid fa-paper-plane paperplane"></i>
+                <i className="fa-solid fa-paper-plane paperplane"></i>
               </button>
             </form>
           </div>
