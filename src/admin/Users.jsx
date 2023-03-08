@@ -7,6 +7,7 @@ import {
   habilitarUser,
   users
 } from '../redux/slices/thunksAdmin'
+import { Link } from 'react-router-dom'
 
 export default function Users() {
   const allUsers = useSelector((state) => state.admin.allUsers)
@@ -56,20 +57,25 @@ export default function Users() {
           {allUsers &&
             allUsers.map((u, indice) => {
               return (
-                <tr className="hola">
-                  <th className={`col-2`}>{u.name}</th>
-                  <th scope="col-2">{u.email}</th>
-                  <th className="col-2">
-                    <button className={`btn btn-primary`}> Ver Ordenes </button>
-                  </th>
+                <div key={indice} className={`${styles.row} row`}>
+                  <div className="col-2">{u.name}</div>
+                  <div className="col-2">{u.email}</div>
+                  <div className="col-2">
+                    <Link to={`/admin/orders/${u.uid}`}>
+                      <button className={`${styles.blue} btn btn-primary`}>
+                        {' '}
+                        Ver Ordenes{' '}
+                      </button>
+                    </Link>
+                  </div>
 
-                  <th className="col-2">
+                  <div className="col-2">
                     {u.disabled ? (
-                      <p style={{ color: '#ff0000' }}>Inactivo</p>
-                    ) : (
                       <p style={{ color: '#00ff00' }}>Activo</p>
+                    ) : (
+                      <p style={{ color: '#ff0000' }}>Inactivo</p>
                     )}
-                  </th>
+                  </div>
 
                   <th className="col-2">
                     {!u.disabled ? (
@@ -90,7 +96,7 @@ export default function Users() {
                       </button>
                     )}
                   </th>
-                </tr>
+                </div>
               )
             })}
         </tbody>

@@ -6,6 +6,10 @@ export default function SectionInfo () {
   return (
 
     <>
+        <div className={Style.stepsBanner}>
+                <img className={Style.imgBanner} src="https://res.cloudinary.com/daieynebb/image/upload/v1678019965/Fondos/BANNER-flores_qxtyxm.png" alt="" />
+
+        </div>
 
 
     <div className={Style.containerAll}>
@@ -35,10 +39,7 @@ export default function SectionInfo () {
 
     </div>
 
-    <div className={Style.stepsBanner}>
-                <img className={Style.imgBanner} src="https://res.cloudinary.com/daieynebb/image/upload/v1678019965/Fondos/BANNER-flores_qxtyxm.png" alt="" />
 
-                </div>
 
     </>
   )

@@ -20,10 +20,7 @@ const config = {
 export const users = () => {
   return async (dispatch) => {
     try {
-      //const { data } = await clientAxios('/admin/users', config)
-      const { data } = await axios.get(
-        `https://run.mocky.io/v3/6d49b3ec-6ba1-4daf-98d8-92178fd8ac32`
-      )
+      const { data } = await clientAxios('/admin/users', config)
       dispatch(getUsers(data))
       // const { data } = await axios.get(
       //   'https://run.mocky.io/v3/6d49b3ec-6ba1-4daf-98d8-92178fd8ac32'
@@ -40,13 +37,16 @@ export const users = () => {
   }
 }
 
-export const orders = () => {
+export const orders = (uid) => {
   return async (dispatch) => {
     try {
-      const data = await axios.get(
+      const { data } = await axios.get(
         'https://run.mocky.io/v3/cfa338a1-4cb6-4984-9452-7ecb07f21362'
       )
-      dispatch(getOrders(data.data))
+
+      uid
+        ? dispatch(getOrders(data.filter((o) => o.uid === uid)))
+        : dispatch(getOrders(data))
     } catch (error) {
       console.log(error)
       dispatch(setMessage({ error: error.message }))
@@ -116,18 +116,6 @@ export const habilitarUser = (id) => {
     }
   }
 }
-
-// export const deleteUser = (id) => {
-//   return async (dispatch) => {
-//     try {
-//       const { user } = await clientAxios(`/admin/delete-user/${id}`, config)
-//       dispatch(eliminateUser(user))
-//     } catch (error) {
-//       console.log(error)
-//       dispatch(setMessage({ error: error.message }))
-//     }
-//   }
-// }
 
 export const getOrderDetail = (id) => {
   return async (dispatch) => {

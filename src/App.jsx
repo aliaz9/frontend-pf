@@ -4,9 +4,9 @@ import Home from './pages/Home.jsx'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import {
-  getBrands,
   getProducts,
-  getTypes
+  getTypes,
+  getBrands
 } from './redux/slices/thunksProducts.js'
 import Products from './pages/Products.jsx'
 import About from './pages/About.jsx'
@@ -34,10 +34,10 @@ function App() {
 
   // si el usuario no esta logueado, guardo el carrito en el local storage
   useEffect(() => {
-    if (!auth?.name) {
+    if (!auth.name) {
       localStorage.setItem('cart', JSON.stringify(cart))
     }
-  }, [cart])
+  }, [cart.length])
 
   useEffect(() => {
     const token = localStorage.getItem('token')
@@ -66,6 +66,10 @@ function App() {
           <Route path="/user-page-profile" element={<ProfilePage />} />
           <Route path="/users/confirm/:token" element={<ConfirmUser />} />
           <Route path="/users/reset-password" element={<RecoverPassword />} />
+          <Route
+            path="/payment/success"
+            element={<h1>Gracias por tu compra</h1>}
+          />
           <Route
             path="/users/reset-password/:token"
             element={<ChangePasswordForGot />}

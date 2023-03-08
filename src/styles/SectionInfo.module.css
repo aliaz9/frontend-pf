@@ -9,7 +9,9 @@
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  margin-top: 30px;
 }
+
 .container {
   display: flex;
   flex-direction: row;
@@ -18,16 +20,16 @@
 }
 
 .izquierda img {
-  height: 400px;
+  height: 300px;
   display: flex;
-  width: 700px;
+  width: 600px;
   object-fit: cover;
   border-radius: 20px 0px 0px 20px;
 }
 
 
 .derecha {
-  height: 400px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   background-color: var(--amarillo);
@@ -52,6 +54,8 @@
   line-height: 30px;
   color: var(--azul);
   text-align: start;
+  margin-bottom: 30px;
+
 }
 
 .derecha .containerText .h4Text {
@@ -61,6 +65,8 @@
   line-height: 18px;
   color: var(--azul);
   text-align: start;
+  margin-bottom: 20px;
+
 }
 
 .derecha .containerText .pText{
@@ -70,16 +76,17 @@
   line-height: 18px;
   color: var(--azul);
   text-align: start;
+  margin-bottom: 0;
 }
 
 .derecha .comprarButton {
 
   align-items: center;
-  margin-left: 15%;
+
 
   width: 10em;
 
-  margin-right: 8px;
+ 
   margin-bottom: 0;
 
   overflow: hidden;
@@ -163,90 +170,9 @@
   justify-content: center;
 }
 
-@media(max-width: 480px){
-  .stepsBanner .imgBanner{
-    background-color: rgb(255, 255, 255);
-    margin: 20px 0 0  0;
-    padding: 0;
-    height: 80px;
-    width: auto;
-  
-  }
-  .containerAll{
-    background-color: #fff;
-    padding: 0;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-  }
-
-  .container {
-    display: flex;
-    flex-direction: column;
-    margin: 10px 40px 10px 40px;
-  }
-
-  .izquierda img {
-    height: 180px;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 20px 20px 0px 0px;
-  }
-
-  .derecha {
-    height: auto;
-    border-radius: 00px 0px 20px 20px;
-    align-items: center;
-  }
-  .derecha .containerText {
-    color: var(--azul);
-    font-family: 'Inter';
-    align-items: center;
-    padding: 20px;
-    height: auto;
-    text-align: center;
-  }
-  .derecha .containerText .h1Text {
-    font-size: 18px;
-    line-height: 18px;
-    text-align: center;
-  }
-  
-  .derecha .containerText .h4Text {
-
-    font-size: 15px;
-    line-height: 15px;
-    color: var(--azul);
-    text-align: center;
-  }
-  
-  .derecha .containerText .pText {
-    font-family: 'Inter';
-    font-size: 12px;
-    line-height: 12px;
-    color: var(--azul);
-    text-align: center;
-  }
-  .derecha .comprarButton {
-
-    align-items: center;
-    justify-content: center;
-    margin-left: 0;
-  
-    width: 10em;
-  
-    margin-right: 0px;
-    margin-bottom: 10px;  
-  }
 
 
-
-}
-@media(min-width: 768px){
+@media(max-width: 768px){
   .stepsBanner .imgBanner{
     margin: 20px 0 0  0;
     padding: 0;
@@ -322,6 +248,235 @@
     margin-bottom: 0;  
   }
 
+
+
+}
+
+
+
+
+
+@media(min-width: 1800px){
+  .containerAll{
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+    margin-top: 60px;
+  
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 20px 100px -100px 100px;
+  }
+  
+  .izquierda img {
+    height: 500px;
+    display: flex;
+    width: 700px;
+    object-fit: cover;
+    border-radius: 20px 0px 0px 20px;
+  }
+  
+  
+  .derecha {
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--amarillo);
+    border-radius: 00px 20px 20px 0px;
+    background-size: cover;
+    width: 100%;
+  }
+  
+  .derecha .containerText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+  }
+  
+  .derecha .containerText .h1Text {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 30px;
+    color: var(--azul);
+    text-align: start;
+    margin-bottom: 50px;
+  }
+  
+  .derecha .containerText .h4Text {
+    font-size: 30px;
+    line-height: 38px;
+    text-align: center;
+    margin-bottom: 50px;
+    width: 400px;
+
+  }
+  
+  .derecha .containerText .pText{
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: 25px;
+    width: 400px;
+    line-height: 30px;
+    color: var(--azul);
+    text-align: center;
+    margin-bottom: 20px;
+
+  }
+  .derecha .buttonContainer{
+    margin-bottom: 30px;
+
+
+  }
+  
+  .derecha .comprarButton {
+  
+    align-items: center;
+    margin-left: 0;
+  
+    width: 20em;
+  
+    margin-right: 0px;
+    margin-bottom: 0px;
+  
+    overflow: hidden;
+  
+    font-family: "inter";
+    font-size: 21px;
+    font-weight: 600;
+  
+    color: #fff;
+    background-color: var(--verde);
+  
+    border: none;
+  
+    border-radius: 3px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-out 0s;
+    padding: 10px 0px;
+    
+  
+  }
+  .derecha .comprarButton:hover {
+    cursor: pointer;
+    background-color: var(--azul);
+  
+    border: none;
+  
+    border-radius: 3px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-out 0s;
+    padding: 10px 0px;
+    
+  
+  }
+  
+  .stepsBanner .imgBanner{
+    width: 100%;
+    height: 100%;
+    background-color: rebeccapurple;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: top;
+    margin-top: 4rem;
+  
+  }
+
+
+}
+
+@media(max-width: 480px){
+  .stepsBanner .imgBanner{
+    background-color: rgb(255, 255, 255);
+    margin: 20px 0 0  0;
+    padding: 0;
+    height: 80px;
+    width: auto;
+  
+  }
+  .containerAll{
+    background-color: #fff;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 40px 10px 40px;
+  }
+
+  .izquierda img {
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px 20px 0px 0px;
+  }
+
+  .derecha {
+    height: auto;
+    border-radius: 00px 0px 20px 20px;
+    align-items: center;
+  }
+  .derecha .containerText {
+    color: var(--azul);
+    font-family: 'Inter';
+    align-items: center;
+    padding: 20px;
+    height: auto;
+    text-align: center;
+  }
+  .derecha .containerText .h1Text {
+    font-size: 18px;
+    line-height: 18px;
+
+  }
+  
+  .derecha .containerText .h4Text {
+
+    font-size: 15px;
+    line-height: 15px;
+    color: var(--azul);
+    text-align: center;
+  }
+  
+  .derecha .containerText .pText {
+    font-family: 'Inter';
+    font-size: 12px;
+    line-height: 12px;
+    color: var(--azul);
+    text-align: center;
+  }
+  .derecha .comprarButton {
+
+    align-items: center;
+    justify-content: center;
+    margin-left: 0;
+  
+    width: 10em;
+  
+    margin-right: 0px;
+    margin-bottom: 10px;  
+  }
 
 
 }

@@ -2,7 +2,13 @@ import { replace } from 'formik'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { addCart, loaderPayment, remove } from '../redux/slices/thunksUsers.js'
+import {
+  addCart,
+  addCartBack,
+  loaderPayment,
+  remove,
+  removeCartBack
+} from '../redux/slices/thunksUsers.js'
 import { removeCart, setLinkPayment } from '../redux/slices/usersSlice.js'
 
 // import { removeCart } from '../redux/slices/usersSlice.js'
@@ -16,17 +22,24 @@ export default function Cart() {
   const link = useSelector((state) => state.users.linkPayment)
   const productsInCart = useSelector((state) => state.users.productsInCart)
   const dispatch = useDispatch()
-
+  const auth = useSelector((state) => state.users.auth)
   function handleAddCart(product) {
     dispatch(addCart(product))
+
+    if (auth.name) {
+      dispatch(addCartBack(product.id))
+    }
   }
 
   function removeOne(product) {
     dispatch(remove(product))
+    if (auth.name) {
+      dispatch(removeCartBack(product.id))
+    }
   }
   useEffect(() => {
     if (link) {
-      window.open(link)
+      window.location.href = link
       dispatch(setLinkPayment(''))
     }
   }, [link])
@@ -40,15 +53,7 @@ export default function Cart() {
   }
 
   function handlePayment() {
-    const productsModify = productsInCart.map((el) => {
-      const cosito = {
-        title: el.title,
-        unit_price: el.price,
-        quantity: el.quantity
-      }
-      return cosito
-    })
-    dispatch(loaderPayment(productsModify))
+    dispatch(loaderPayment())
   }
 
   return (

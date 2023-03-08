@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { setAuth } from '../redux/slices/usersSlice.js'
+import { restoreCart, setAuth, setCart } from '../redux/slices/usersSlice.js'
 import '../styles/Nav.css'
 export default function Nav() {
   const productsInCart = useSelector((state) => state.users.productsInCart)
@@ -14,6 +14,7 @@ export default function Nav() {
   const dispatch = useDispatch()
   function handleLogOut() {
     dispatch(setAuth({}))
+    dispatch(restoreCart())
     localStorage.removeItem('token')
   }
   const auth = useSelector((state) => state.users.auth)
