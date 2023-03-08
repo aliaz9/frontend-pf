@@ -31,9 +31,14 @@ function App() {
 
   const cart = useSelector((state) => state.users.productsInCart)
   const auth = useSelector((state) => state.users.auth)
+
+  // si el usuario no esta logueado, guardo el carrito en el local storage
   useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cart))
+    if (!auth?.name) {
+      localStorage.setItem('cart', JSON.stringify(cart))
+    }
   }, [cart])
+
   useEffect(() => {
     const token = localStorage.getItem('token')
     if (!token) return
