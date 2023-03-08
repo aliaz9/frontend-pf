@@ -36,6 +36,7 @@
     border-radius: 5px;
     padding: 5px 10px;
     background-color: #fafafa;
+    margin-bottom: 10px;
 }
 
 
@@ -117,6 +118,11 @@
     color: #002A39;
     text-align: center;
 }
+
+.main-link {
+    color: #219ebc;
+}
+
 @media(max-width:640px) {
     .main-description{
         flex: 1/2;

@@ -6,7 +6,7 @@ import {
   setType
 } from '../redux/slices/productsSlice.js'
 import { getByNames, getProducts } from '../redux/slices/thunksProducts.js'
-import Style from './../styles/Search.module.css'
+import styles from './../styles/Search.module.css'
 
 import { useSelector, useDispatch } from 'react-redux'
 import Select from 'react-select'
@@ -26,6 +26,16 @@ export default function Search() {
   const handleSubmit = (e) => {
     e.preventDefault()
     dispatch(getByNames(search))
+  }
+
+  function handleOrder(order) {
+    if (!order) {
+      dispatch(setOrder({ value: '', label: '' }))
+      dispatch(getProducts())
+      return
+    }
+    dispatch(setOrder(order))
+    dispatch(getProducts())
   }
 
   // filter by types
@@ -52,17 +62,21 @@ export default function Search() {
 
   return (
     <>
+
       {/* <div className={Style.container}>
+
         <input
           type="search"
           value={search}
           onChange={onChange}
           placeholder="Buscar.."
+          className={styles.button}
         />
         <i
           onClick={(e) => handleSubmit(e)}
           className="fa-solid fa-magnifying-glass"
         /> */}
+
 
       <div className={Style.container}>
 
@@ -79,6 +93,7 @@ export default function Search() {
 
       
       <div className={Style.filters}>
+
           <Select options={types} onChange={handleTypeChange} isClearable />
 
           

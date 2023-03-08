@@ -1,9 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { Link } from 'react-router-dom'
 import styles from '../styles/Score.module.css'
 import DetailScore from './DetailScore'
+import { MessageContext } from './Modal'
 
 export default function Score({
   count,
+  countOpinion = 0,
   disabledStart = 0,
   disabledOpinion = 0,
   disabledNumber = 0,
@@ -19,7 +22,10 @@ export default function Score({
   /* creacion de opinion */
   const [currentValue, setCurrentValue] = useState(0)
   const [hoverValue, setHoverValue] = useState(undefined)
+
   const [number, setNumber] = useState(0)
+  const sendMessage = useContext(MessageContext)
+
   const handleText = () => {
     switch (number) {
       case 1:
@@ -40,6 +46,7 @@ export default function Score({
   const handleClick = (value) => {
     setCurrentValue(value)
     setNumber(value)
+    sendMessage(value)
   }
 
   const handleMouseOver = (value) => {
@@ -51,11 +58,7 @@ export default function Score({
   }
 
   const handleDisplay = () => {
-    if (display) {
-      setDisplay(false)
-    } else {
-      setDisplay(true)
-    }
+    setDisplay(!display)
   }
 
   return (
@@ -73,8 +76,8 @@ export default function Score({
                       ? { color: colors.orange }
                       : { color: colors.grey }
                     : (currentValue || hoverValue) > index
-                    ? { color: colors.orange }
-                    : { color: colors.grey }
+                        ? { color: colors.orange }
+                        : { color: colors.grey }
                 }
                 onClick={() => handleClick(index + 1)}
                 onMouseOver={() => handleMouseOver(index + 1)}
@@ -87,14 +90,14 @@ export default function Score({
           </p>
         </div>
 
-        <button
+        <Link
           className={`${disabledOpinion === 1 ? styles.isVisibility : ''}`}
-          onClick={() => handleDisplay(true)}
+          onClick={handleDisplay}
         >
-          <small className={styles.titleScore} title="Ver Opiniones">
-            80 Opiniones
-          </small>
-        </button>
+          <b className={styles.titleScore} title="Ver Opiniones">
+            {countOpinion} Opiniones
+          </b>
+        </Link>
       </div>
       {display && <DetailScore />}
     </>

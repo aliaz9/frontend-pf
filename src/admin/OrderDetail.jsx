@@ -1,20 +1,15 @@
+import React from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, useParams } from 'react-router-dom'
-// import { getOrderDetail } from "../redux/slices/thunksAdmin";
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import { getOrderDetail } from '../redux/slices/thunksAdmin'
+// import { getOrderDetail } from "../redux/slices/thunksAdmin";
 import styles from '../styles/OrderDetail.module.css'
 
 export default function OrderDetail() {
   const { id } = useParams()
   const dispatch = useDispatch()
-
-  useEffect(
-    (id) => {
-      dispatch(getOrderDetail(id))
-    },
-    [dispatch, id]
-  )
+  const navigate = useNavigate()
 
   useEffect(
     (id) => {
@@ -22,22 +17,21 @@ export default function OrderDetail() {
     },
     [dispatch, id]
   )
-  const order = useSelector((state) => state.admin.orderDetail)
 
-  //   function total() {
-  //     let total = 0
-  //     for (let i = 0; i < order.products.length; i++) {
-  //       const subtotal = order.products[i].unit_price * order.products[i].quantity
-  //       total = total + subtotal
-  //     }
-  //     return total
-  //   }
+  let order = useSelector((state) => state.admin.orderDetail)
+
+  function total() {
+    // let total = 0
+    // for (let i = 0; i < order.products.length; i++) {
+    //     const subtotal = order.products[i].unit_price * order.products[i].quantity
+    //     total = total + subtotal
+    // }
+    // return total
+  }
 
   return (
     <div className={styles.order}>
-      <Link to="/admin/orders">
-        <button className="btn btn-primary">BACK</button>
-      </Link>
+        <button onClick={() => navigate(-1)} className="btn btn-primary">BACK</button>
 
       <div className={styles.datos}>
         <div className={styles.datosComprador}>

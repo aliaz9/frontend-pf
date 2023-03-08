@@ -14,11 +14,13 @@ export default function Sidebar() {
           />
           <ul className={styles.list}>
             <li className={`${styles.navLink} nav-link`}>
-              <i className="bi-house" /> <span className="ms-1">Home</span>
+              <Link to="/">
+                <i className="bi-house" /> <span className="ms-1">Home</span>
+              </Link>
             </li>
 
             <li className={`${styles.navLink} nav-link`}>
-              <Link to="/admin/users">
+              <Link to="/admin">
                 <i className="bi-people" />{' '}
                 <span className="ms-1">Usuarios</span>
               </Link>
@@ -26,8 +28,8 @@ export default function Sidebar() {
 
             <li className={`${styles.navLink} nav-link`}>
               <Link to="/admin/orders">
-              <i className="bi-bag-check" />{' '}
-              <span className="ms-1">Ventas</span>
+                <i className="bi-bag-check" />{' '}
+                <span className="ms-1">Ventas</span>
               </Link>
             </li>
 

@@ -1,24 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cabin:wght@400;700&family=Lobster&family=Tilt+Warp&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
 .container {
+  margin: auto;
   position: relative;
-  margin: 30px;
-  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 1300px;
-  background-color: #e8f9fe;
-  border: 2px solid #047a95;
-  border-radius: 10px;
+  margin-top: 50px;
 }
 
 .container h1 {
-  font-family: Lobster;
-  color: #ffbb00;
+  font-family: Tilt Warp;
+  margin-bottom: 10px;
+  color: #047a95;
+  /* color: #ffbb00; */
   /* -webkit-text-stroke: 1px #005b6f; */
 }
 
 .contTable {
   /* overflow-x: scroll; */
-  max-height: 700px;
+  max-height: 500px;
   border-radius: 10px;
 }
 .table {
@@ -27,14 +29,11 @@
 .table th {
   position: static;
   top: 0px;
-  background-color: #0291b1;
+  /* background-color: #0291b1; */
 }
-.table th,
-td {
-  border: 1px solid #047a95;
-}
+
 .tHead {
-  color: rgb(255, 255, 255);
+  /* color: rgb(255, 255, 255); */
   padding: 5px;
   font-family: Tilt Warp;
   font-weight: 400;
@@ -42,33 +41,69 @@ td {
 }
 
 .tBody {
-  background-color: #74c8db;
-  color: rgb(95, 95, 95);
+  /* background-color: #74c8db; */
+  /* color: rgb(95, 95, 95); */
 }
 .tBody td {
-  color: rgb(242, 249, 255) !important;
-  font-family: Cabin !important;
+  /* color: rgb(242, 249, 255) !important; */
+  font-family: Poppins !important;
+  font-weight: 700;
+  font-size: 13px;
 }
 
 .table hr {
   height: 8px;
 }
+.deshabilitado {
+  color: red;
+}
+.deshabilitado::after {
+  content: 'Deshabilitado';
+}
+.habilitado {
+  color: rgb(6, 177, 6);
+}
+.habilitado::after {
+  content: 'Habilitado';
+}
 .tBody button {
   position: relative;
   width: 25px;
   height: 25px;
-  background-color: #b3cacf;
-  background-image: url(../../public/editar.png);
+  border: none;
+  background-color: transparent;
+  background-image: url(../../borrar.png);
+  background-repeat: no-repeat;
   margin: 0;
   padding: 0;
-  left: 35px;
+  left: 21px;
   top: 4px;
+  transition: 0.4s;
 }
 
 .crear {
+  position: relative;
   margin-top: 30px;
   display: flex;
   gap: 15px;
+}
+.crear button {
+  position: absolute;
+  top: 1px;
+  border: none;
+  border-radius: 5px;
+  width: 250px;
+  height: 50px;
+  background-color: #ffbb00;
+  color: white;
+  font-family: Cabin;
+  font-weight: 700;
+  font-size: 20px;
+  transition: 0.4s;
+}
+
+.crear button:active {
+  background-color: #fcd362;
 }
 .crear h1 {
   font-family: Tilt Warp;
@@ -99,10 +134,10 @@ td {
 }
 
 .next {
-  background-image: url(../../public/next-button.png);
+  background-image: url(../../next-button.png);
   background-repeat: no-repeat;
 }
 .prev {
-  background-image: url(../../public/previous.png);
+  background-image: url(../../previous.png);
   background-repeat: no-repeat;
 }

@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify'
 import { clientAxios } from '../../config/clientAxios.js'
 import {
   loading,
@@ -51,7 +52,7 @@ export const getProductsDetails = (id) => {
 export const getTypes = () => {
   return async (dispatch) => {
     try {
-      const { data } = await clientAxios('/products/types')
+      const { data } = await clientAxios('/types')
       const types = data.map(({ name }) => ({ label: name, value: name }))
       dispatch(setTypes(types))
     } catch (error) {
@@ -79,25 +80,9 @@ export const getByNames = (name) => {
       const { data } = await clientAxios(`/products/search?name=${name}`)
       dispatch(setSearch(data))
     } catch (error) {
-      dispatch(setMessage(error.message))
+      toast.error(error.response.data.msg)
     } finally {
       dispatch(loading(false))
     }
   }
 }
-
-export const createProducts = async (formData) => {
-  // return async (dispatch) {
-  try {
-    const result = await clientAxios.post('/products', formData, {
-      withCredentials: false,
-      headers: {
-        'Access-Control-Allow-Origin': '*'
-      }
-    })
-    return result
-  } catch (error) {
-    // dispatch(setMessage(error.message))
-  }
-}
-// }

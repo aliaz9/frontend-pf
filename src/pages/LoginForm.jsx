@@ -35,6 +35,7 @@ const LoginForm = () => {
       >
         {({ isSubmitting }) => (
           <Form className={styles['login-form']}>
+            <h1>Inicia Sesión Aquí</h1>
             <div className="mb-3">
               <label htmlFor="email">Email:</label>
               <Field type="email" name="email" className="form-control" />
@@ -59,7 +60,7 @@ const LoginForm = () => {
             </div>
             <br />
             <div>
-              ¿No tienes una cuenta? <Link to="/signup">Regístrate aquí</Link>
+              ¿No tienes una cuenta? <Link to="/sign-in">Regístrate aquí</Link>
             </div>
             <button
               type="submit"
@@ -68,7 +69,6 @@ const LoginForm = () => {
             >
               Iniciar sesión
             </button>
-            {msg && <Alert error={error}>{msg}</Alert>}
           </Form>
         )}
       </Formik>

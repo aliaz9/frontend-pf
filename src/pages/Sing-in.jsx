@@ -10,7 +10,7 @@ export default function SignIn() {
   return (
     <div className="cont_singin">
       <div className="box">
-        {/* <h1>Registrate!</h1> */}
+        <h1>Registrate!</h1>
         <Formik
           initialValues={{ name: '', email: '', password: '' }}
           validate={(values) => {
@@ -63,10 +63,8 @@ export default function SignIn() {
               </div>
 
               <button type="submit" className="btn btn-primary mb-3 ">
-                Regitrarse
+                Registrarse
               </button>
-
-              {msg && <Alert error={error}>{msg} </Alert>}
             </Form>
           )}
         </Formik>

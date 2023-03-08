@@ -1,4 +1,5 @@
 import { clientAxios } from '../../config/clientAxios.js'
+import { toast } from 'react-toastify'
 import {
   addOne,
   lessOne,
@@ -9,7 +10,10 @@ import {
   setMessage,
   setUserLoading,
   setEdithUser,
-  setEdithPwd
+  setEdithPwd,
+  setReviews,
+  setMyCart,
+  restoreCart
 } from './usersSlice.js'
 import { alertMsg } from '../../helpers/index.js'
 
@@ -19,23 +23,18 @@ const config = {
     Authorization: `Bearer ${localStorage.getItem('token')}`
   }
 }
-const cartOfLS = JSON.parse(localStorage.getItem('cart')) || []
 export const registerUser = (user) => {
   return async (dispatch) => {
     try {
       const { data } = await clientAxios.post('/users/register', user)
-      dispatch(setMessage(data))
-      setTimeout(() => {
-        dispatch(setMessage({ msg: '', error: null }))
-      }, 5000)
+      toast.success(data.msg)
     } catch (error) {
-      // if (Array.isArray(error.response.data)) {
-      //   return dispatch(setMessage(error.response.data[0]))
-      // }
-      console.log(error.response.data)
-      setTimeout(() => {
-        dispatch(setMessage({ msg: '', error: null }))
-      }, 5000)
+      if (Array.isArray(error.response.data)) {
+        toast.error(error.response.data[0].msg)
+        return
+      }
+      console.log(data)
+      toast.error(error.response.data.msg)
     }
   }
 }
@@ -43,17 +42,14 @@ export const logUser = (user) => {
   return async (dispatch) => {
     try {
       const { data } = await clientAxios.post('/users/user-login', user)
-      // dispatch(setMessage(data))
       dispatch(setAuth(data))
       localStorage.setItem('token', data.token)
-      clenMesageAfterTime()
-      dispatch(updateCart(cartOfLS))
+      const cartOfLS = JSON.parse(localStorage.getItem('cart')) || []
+      dispatch(updateCart(data.token, cartOfLS))
       localStorage.removeItem('cart')
+      await dispatch(getCartFromBack())
     } catch (error) {
-      dispatch(setMessage(error.response.data))
-      setTimeout(() => {
-        dispatch(setMessage({ msg: '', error: null }))
-      }, 5000)
+      toast.error(error.response.data.msg)
     }
   }
 }
@@ -88,7 +84,8 @@ export const autehnticateUser = (config) => {
       const { data } = await clientAxios('/users/user-profile', config)
       dispatch(setAuth(data))
     } catch (error) {
-      dispatch(setMessage(error.response.data))
+      // dispatch(setMessage(error.response.data))
+      console.log(error)
     }
     dispatch(setUserLoading(false))
   }
@@ -109,9 +106,9 @@ export const recoverPassword = (email) => {
   return async (dispatch) => {
     try {
       const { data } = await clientAxios.post('users/forgot-password', email)
-      dispatch(setMessage(data))
+      toast.success(data.msg)
     } catch (error) {
-      dispatch(setMessage(error.response.data))
+      toast.error(error.response.data.msg)
     }
   }
 }
@@ -164,19 +161,28 @@ export const changePassword = (user) => {
   }
 }
 
-export const loaderPayment = (product) => {
+export const loaderPayment = () => {
   return async (dispatch) => {
     try {
-      const { data } = await clientAxios.post(
-        '/users/add-to-cart',
-        {
-          items: product
-        },
-        config
-      )
-      dispatch(setLinkPayment(data.link))
+      // const { data } = await clientAxios.post('/payment/paypal', {
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //     Authorization: `Bearer ${localStorage.getItem('token')}`
+      //   }
+      // })
+      // with fetch
+      const response = await fetch('http://localhost:4000/api/payment/paypal', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+      })
+      const data = await response.json()
+      console.log(data)
+      dispatch(setLinkPayment(data.linkToPay))
     } catch (error) {
-      dispatch(setMessage(error.response.data))
+      console.log(error)
     }
   }
 }
@@ -188,9 +194,9 @@ export const forgotPassword = (token, password) => {
         `users/forgot-password/${token}`,
         password
       )
-      dispatch(setMessage(data))
+      toast.success(data.msg)
     } catch (error) {
-      dispatch(setMessage(error.response.data))
+      toast.error(error.response.data.msg)
     }
   }
 }
@@ -213,7 +219,7 @@ export const addToCartBackend = (productId) => {
   }
 }
 
-export const clenMesageAfterTime = () => {
+export const cleanMessage = () => {
   return (dispatch) => {
     setTimeout(() => {
       dispatch(setMessage({ msg: '', error: null }))
@@ -221,15 +227,105 @@ export const clenMesageAfterTime = () => {
   }
 }
 
-export const updateCart = async (cart) => {
-  try {
-    const { data } = await clientAxios.put(
-      '/users/update-cart',
-      { cart },
-      config
-    )
-    console.log(data)
-  } catch (error) {
-    console.log(error)
+export const addReviews = (review) => {
+  return async (dispatch) => {
+    try {
+      const { id, rating, reviews } = review
+      const { data } = await clientAxios.post(
+        `products/reviews/${id}`,
+        {
+          rating,
+          reviews
+        },
+        config
+      )
+      dispatch(setReviews(data))
+    } catch (error) {
+      dispatch(setMessage(error.response.data))
+    }
+  }
+}
+
+export const updateCart = (token, cart) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await clientAxios.put(
+        '/users/update-cart',
+        { cart },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`
+          }
+        }
+      )
+      toast.success(data.msg)
+    } catch (error) {
+      toast.error(error.response.data.msg)
+    }
+  }
+}
+
+export const addCartBack = (id) => {
+  return async () => {
+    try {
+      const { data } = await clientAxios.post(
+        '/users/add-to-cart',
+        {
+          productId: id
+        },
+        config
+      )
+      toast.success('Producto agregado al carrito')
+    } catch (error) {
+      toast.error('Ha ocurrido un error intenta  mas tarde')
+    }
+  }
+}
+
+export const removeCartBack = (id) => {
+  console.log(localStorage.getItem('token'))
+  return async (dispatch) => {
+    try {
+      const { data } = await clientAxios.post(
+        '/users/less-to-cart',
+        {
+          productId: id
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+          }
+        }
+      )
+      dispatch(setMessage(data.msg))
+    } catch (error) {
+      console.log(error)
+      console.log(error.response.data)
+    }
+  }
+}
+
+export const getCart = () => {
+  return async (dispatch) => {
+    try {
+      const { data } = await clientAxios.get('/users/get-cart', config)
+      dispatch(setMyCart(data))
+      // await console.log(data)
+    } catch (error) {
+      dispatch(setMessage(error.response.data))
+    }
+  }
+}
+
+export const getCartFromBack = () => {
+  return async (dispatch) => {
+    try {
+      const { data } = await clientAxios.get('/users/get-cart', config)
+      dispatch(restoreCart(data))
+    } catch (error) {
+      toast.error('Ha ocurrido un error intenta  mas tarde')
+    }
   }
 }

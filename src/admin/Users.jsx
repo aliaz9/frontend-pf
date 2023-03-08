@@ -7,9 +7,11 @@ import {
   habilitarUser,
   users
 } from '../redux/slices/thunksAdmin'
+import { Link } from 'react-router-dom'
 
 export default function Users() {
-  const allUsers = useSelector((state) => state.admin.allUsers)
+  const allUsers = useSelector((state) => state.admin.allUsers);
+  const onlyUsers = allUsers.filter(u => u.role === "user");
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -29,7 +31,6 @@ export default function Users() {
   }
 
   return (
-
     <div>
       <h1 className={styles.title}>Usuarios</h1>
 
@@ -43,7 +44,7 @@ export default function Users() {
         <option value="deshabilitados">Deshabilitados</option>
       </select>
 
-      <table class="table table-hover">
+      <table className="table table-hover">
         <thead>
           <tr>
             <th scope="col-2">Nombre</th>
@@ -54,25 +55,26 @@ export default function Users() {
           </tr>
         </thead>
         <tbody>
-
-          {allUsers &&
-            allUsers.map((u, indice) => {
+          {onlyUsers &&
+            onlyUsers.map((u, indice) => {
               return (
-                <tr className="hola">
-                  <th className={`col-2`}>{u.name}</th>
-                  <th scope="col-2">{u.email}</th>
+                <tr key={indice}>
+                  <th className="col-2">{u.name}</th>
+                  <th className="col-2">{u.email}</th>
                   <th className="col-2">
-                    <button className={`btn btn-primary`}>
-                      {' '}
-                      Ver Ordenes{' '}
-                    </button>
+                    <Link to={`/admin/orders/${u.uid}`}>
+                      <button className={`${styles.blue} btn btn-primary`}>
+                        {' '}
+                        Ver Ordenes{' '}
+                      </button>
+                    </Link>
                   </th>
 
                   <th className="col-2">
                     {u.disabled ? (
-                      <p style={{ color: '#ff0000' }}>Inactivo</p>
-                    ) : (
                       <p style={{ color: '#00ff00' }}>Activo</p>
+                    ) : (
+                      <p style={{ color: '#ff0000' }}>Inactivo</p>
                     )}
                   </th>
 
@@ -80,7 +82,7 @@ export default function Users() {
                     {!u.disabled ? (
                       <button
                         className={`btn btn-danger`}
-                        onClick={() => handleDelete(u.uid)}
+                        onClick={() => handleDelete(u.id)}
                       >
                         {' '}
                         Deshabilitar{' '}
@@ -95,12 +97,11 @@ export default function Users() {
                       </button>
                     )}
                   </th>
-
                 </tr>
               )
             })}
-
         </tbody>
       </table>
     </div>
-  )}
+  )
+}

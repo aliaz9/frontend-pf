@@ -129,3 +129,8 @@ button:hover {
   color: #74c8db;
   transition: all 0.3s ease-out 0s;
 }
+
+.nav-user {
+  text-transform: capitalize;
+  font-weight: 700;
+}
