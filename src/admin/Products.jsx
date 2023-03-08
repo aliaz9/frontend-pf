@@ -28,7 +28,7 @@ const Products = () => {
 
   const handlerDelete = (event) => {
     const id = event.target.id
-    dispatch(deletProduct(id)).then((res) => alert(res))
+    dispatch(deletProduct(id))
   }
 
   return (
@@ -62,12 +62,14 @@ const Products = () => {
               <th className={` ${style.tHead}`}>Precio</th>
               <th className={` ${style.tHead}`}>Imagen</th>
               <th className={` ${style.tHead}`}>Documentación</th>
+              <th className={` ${style.tHead}`}>Estado</th>
               <th className={` ${style.tHead}`}>Borrar</th>
             </tr>
           </thead>
           {/* <hr /> */}
           <tbody>
             {allProducts.map((element) => {
+              console.log(allProducts)
               return (
                 <tr className={style.tBody} key={element.id}>
                   <td>{element.id}</td>
@@ -77,6 +79,11 @@ const Products = () => {
                   <td>{element.unit_price + ' US'}</td>
                   <td>{element.image}</td>
                   <td>{element.document}</td>
+                  <td
+                    className={`${
+                      element.disabled ? style.deshabilitado : style.habilitado
+                    }`}
+                  ></td>
                   <td>
                     <button id={element.id} onClick={handlerDelete}></button>
                   </td>
