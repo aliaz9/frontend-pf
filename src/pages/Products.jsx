@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from '../styles/Products.module.css'
 import Cards from '../components/Cards.jsx'
-import BarStuff from '../components/Search.jsx'
+import Search from '../components/Search.jsx'
 import Pagination from '../components/Pagination.jsx'
 
 export default function Products() {

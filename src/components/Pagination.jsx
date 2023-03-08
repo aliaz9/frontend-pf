@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { setPageCurrent } from '../redux/slices/productsSlice.js'
 import { getProducts } from '../redux/slices/thunksProducts.js'
-import styles from '../styles/Pagination.module.css'
+import styles from '../styles/pagination.module.css'
 
 export default function Pagination() {
   const dispatch = useDispatch()
@@ -31,7 +31,7 @@ export default function Pagination() {
         type="button"
         onClick={() => previusPage()}
         disabled={pageCurrent === 1}
-        // className={styles.Pagination}
+        className={styles.Pagination}
       >
         {' '}
         ←
@@ -50,7 +50,7 @@ export default function Pagination() {
         type="button"
         onClick={() => nextPage()}
         disabled={pageCurrent === numberOfpages}
-        // className={styles.Pagination}
+        className={styles.Pagination}
       >
         →
       </button>

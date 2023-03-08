@@ -30,7 +30,6 @@ export default function Users() {
   }
 
   return (
-
     <div>
       <h1 className={styles.title}>Usuarios</h1>
 
@@ -55,7 +54,6 @@ export default function Users() {
           </tr>
         </thead>
         <tbody>
-
           {allUsers &&
             allUsers.map((u, indice) => {
               return (
@@ -98,12 +96,11 @@ export default function Users() {
                       </button>
                     )}
                   </th>
-
-                </tr>
+                </div>
               )
             })}
-
         </tbody>
       </table>
     </div>
-  )}
+  )
+}
