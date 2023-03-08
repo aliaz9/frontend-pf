@@ -28,6 +28,7 @@
 
     margin: 0 200px 0 200px;
 
+    font-family: 'inter';
 }
 .derecha{
     display: flex;
@@ -37,15 +38,21 @@
 
     height: 100%;
     width: 100%;
+    margin-right: 80px;
 
 }
 
-.izquierda li{
+.izquierda .li{
     list-style: none;
     margin-bottom: 20px;
+    font-size: 20px;
+    margin-bottom: 20px;
 }
-.izquierda h1{
+.izquierda .h1{
    color: var(--azul);
+   font-size: 40px;
+   font-weight: bold;
+   margin-bottom: 20px;
 }
 
 .image{
@@ -58,28 +65,18 @@
     margin-right: 15px;
 }
 
-.izquierda h5{
+.izquierda .h5{
     color: rgb(124, 151, 141);
-    font-size: 15px;
-    line-height: 15px;
+    font-size: 21px;
+    line-height: 30px;
     font-weight: 500;
+       margin-bottom: 20px;
+
 }
 
-@media(max-width:480px){
-    .container{
-        display: flex;
-        flex-direction: column;
-        width: 300px;
-        height: auto;
-    }
-    .izquierda{
-        width: 250px;
-    }
-    .derecha{
-        display: none;
-    }
-}
-@media(min-width:768px){
+
+
+@media(max-width:768px){
     .container{
         width: 700px;
         height: auto;
@@ -97,7 +94,7 @@
         justify-content: center;        
         width: 300px;
     }
-    .izquierda h1{
+    .izquierda .h1{
         width: 500px;
     }
     .izquierda h5{
@@ -108,4 +105,90 @@
     }
     
 
+}
+
+
+@media(min-width:1800px){
+
+    .container{
+        width: 100%;
+        height: auto;    
+        margin-bottom: 40px;
+    }
+
+
+    .izquierda{
+        width: 600px;
+    }
+
+    .derecha{
+        display: flex;
+        align-items: center;
+        justify-content: center;        
+        width: 700px;
+        height: auto;
+    }
+
+    .image{
+        height: 600px;
+        width: auto;
+    }
+
+    .izquierda .h1{
+        font-size: 60px;
+        width: 600px;
+    }
+    .izquierda .h5{
+        width: 600px;
+        font-size: 30px;
+        line-height: 40px;
+
+
+    }
+    .izquierda .li{
+        width: 600px;
+        font-size: 30px;
+
+
+
+    }
+    
+
+}
+
+@media(max-width:480px){
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: auto;
+        margin-top: 30px;
+    }
+    .izquierda{
+        width: 250px;
+    }
+    .derecha{
+        display: none;
+    }
+
+    .izquierda .h1{
+        font-size: 20px;
+        width: 250px;
+    }
+    .izquierda .h5{
+        font-size: 13px;
+        line-height: 18px;
+
+        width: 250px;
+    }
+    .izquierda .li{
+
+        font-size: 15px;
+        line-height: 15px;
+        margin-top: 20px;
+
+    }
+    
 }

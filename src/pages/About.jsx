@@ -9,7 +9,7 @@ export default function About (){
     <div className={styles.containerH1}>
               <div className={styles.containerText}>
                 <h1 className={styles.h1}>¿Estás listo para el cambio?</h1>
-                <h4>Puedes ahorrar dinero invirtiendo en energía solar.</h4>
+                <h4 className={styles.h4}>Puedes ahorrar dinero invirtiendo en energía solar.</h4>
 
                 <Link to="/products">
                   <button class={styles.button1}>
@@ -17,7 +17,7 @@ export default function About (){
                   </button>
                 </Link>
 
-                <p>Tenemos todo lo que necesitas para sumarte a este cambio.</p>
+                <p className={styles.p}>Tenemos todo lo que necesitas para sumarte a este cambio.</p>
 
                 </div>
             </div>
@@ -33,7 +33,7 @@ export default function About (){
                 <div className={styles.boxInfo}>
                   <i class="fa-solid fa-solar-panel"></i>
                   <h3>CONTRA EL CAMBIO CLIMÁTICO</h3>
-                  <p>
+                  <p className={styles.p}>
                     La energía solar no emite gases de efecto invernadero, por lo que no
                     contribuye al calentamiento global. De hecho, se muestra como una de
                     las tecnologías renovables más eficientes en la lucha contra el
@@ -110,7 +110,10 @@ export default function About (){
                 </p>
               </div>          
 
-             <div className={styles.boxButton}>
+
+            
+          </div>
+          <div className={styles.boxButton}>
               
 
               <a href="#top">
@@ -120,8 +123,6 @@ export default function About (){
               </a> 
 
             </div>
-            
-          </div>
   </>
 
 )}
