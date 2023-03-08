@@ -82,6 +82,10 @@
     margin: 10px 0;
 }
 
+.disabledOpinion {
+    color: #74C8DB;
+    cursor: pointer;
+}
 
 @media(max-width:640px) {
     .headScore {

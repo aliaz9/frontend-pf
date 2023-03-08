@@ -8,7 +8,7 @@ export const users = createSlice({
     auth: { name: '', email: '', role: ' ' },
     loading: false,
     linkPayment: '',
-    reviews: {}
+    reviews: []
   },
 
   reducers: {
@@ -57,14 +57,18 @@ export const users = createSlice({
       const { newPassword } = action.payload
       state.auth.password = newPassword
     },
-
     setReviews: (state, action) => {
       state.reviews = action.payload
+    },
+    setMyCart: (state, action) => {
+      state.reviews = action.payload
+    },
     restoreCart: (state, action) => {
       state.productsInCart = []
     }
   }
-})
+}
+)
 
 export const {
   setMessage,
@@ -77,7 +81,8 @@ export const {
   setLinkPayment,
   setEdithUser,
   setEdithPwd,
-  setReviews
+  setReviews,
+  setMyCart,
   restoreCart
 } = users.actions
 

@@ -62,3 +62,15 @@ export const searchUser = (arr, element) => {
   }
   return resultArr
 }
+
+// verificar si el usuario compro el producto segun endpoint de cart
+export const searchProduct = (arr, element) => {
+  let resultArr = 0
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].productId === element) {
+      // eslint-disable-next-line no-unused-vars
+      resultArr++
+    }
+  }
+  return resultArr
+}

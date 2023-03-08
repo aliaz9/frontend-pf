@@ -87,7 +87,7 @@ export default function Modal({ closeModal }) {
                   placeholder="Ejemplo: Compré este producto el mes pasado y me encanta..."
                   onChange={handleChange}
                   value={ input.reviews }
-                  onFocus
+                  autoFocus
                   required
                 />
                 {erros.reviews && (

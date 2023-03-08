@@ -10,7 +10,8 @@ import {
   setUserLoading,
   setEdithUser,
   setEdithPwd,
-  setReviews
+  setReviews,
+  setMyCart
 } from './usersSlice.js'
 import { alertMsg } from '../../helpers/index.js'
 
@@ -218,7 +219,6 @@ export const cleanMessage = () => {
   }
 }
 
-
 export const addReviews = (review) => {
   return async (dispatch) => {
     try {
@@ -235,6 +235,8 @@ export const addReviews = (review) => {
     } catch (error) {
       dispatch(setMessage(error.response.data))
     }
+  }
+}
 
 export const updateCart = (token, cart) => {
   console.log(cart)
@@ -296,6 +298,20 @@ export const removeCartBack = (id) => {
       console.log(error)
       console.log(error.response.data)
     }
+  }
+}
 
+export const getCart = () => {
+  return async (dispatch) => {
+    try {
+      const { data } = await clientAxios.get(
+        'users/get-cart',
+        config
+      )
+      dispatch(setMyCart(data))
+      // await console.log(data)
+    } catch (error) {
+      dispatch(setMessage(error.response.data))
+    }
   }
 }

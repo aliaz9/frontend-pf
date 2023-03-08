@@ -1,0 +1,31 @@
+.error-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.error-img{
+    width: 30%;
+}
+
+.error-text{
+    color: #002A39;
+    font-weight: 600;
+}
+
+.error-btn{
+    width: 100%;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    padding: 10px 5px;
+    color: #fff;
+    font-weight: 600;
+    background-color: #FFBB00;
+    border: none;
+    border-radius: 5px;
+    /* box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15); */
+    transition: all 0.3s ease-out 0s;
+}
