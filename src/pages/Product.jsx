@@ -18,6 +18,8 @@ export default function ProductPage() {
       title: productInfo.title,
       image: productInfo.image,
       price: productInfo.price,
+      description: productInfo.description,
+      unit_price: productInfo.unit_price,
       quantity: 1
     }
     dispatch(addCart(productToAdd))

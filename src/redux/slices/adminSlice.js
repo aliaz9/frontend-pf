@@ -23,7 +23,10 @@ export const admin = createSlice({
       state.allOrders = action.payload
     },
     eliminateUser: (state, action) => {
-      state.allUsers = state.allUsers.filter((u) => u.uid !== action.payload)
+      state.allUsers = state.allUsers
+    },
+    habilitarUsuario: (state, action) => {
+      state.allUsers = state.allUsers
     }
   }
 })
@@ -33,7 +36,8 @@ export const {
   getUsers,
   getOrders,
   eliminateUser,
-  setOrderDetail
+  setOrderDetail,
+  habilitarUsuario
 } = admin.actions
 
 export default admin.reducer

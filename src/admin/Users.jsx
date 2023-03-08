@@ -1,7 +1,12 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styles from '../styles/Users.module.css'
-import { deleteUser, users } from '../redux/slices/thunksAdmin'
+import {
+  deleteUser,
+  filterUser,
+  habilitarUser,
+  users
+} from '../redux/slices/thunksAdmin'
 
 export default function Users() {
   const allUsers = useSelector((state) => state.admin.allUsers)
@@ -15,43 +20,87 @@ export default function Users() {
     dispatch(deleteUser(id))
   }
 
+  function handleHabilitar(id) {
+    dispatch(habilitarUser(id))
+  }
+
+  function handleChange(e) {
+    dispatch(filterUser(e.target.value))
+  }
+
   return (
+
     <div>
       <h1 className={styles.title}>Usuarios</h1>
 
-      <div className={`${styles.container} container`}>
-        <div className={`${styles.row} row`}>
-          <div className="col-3">Nombre</div>
-          <div className="col-3">Email</div>
-          <div className="col-2">Ordenes</div>
-          <div className="col-2">Eliminar</div>
+      <select
+        onChange={(e) => handleChange(e)}
+        className={`${styles.select} form-select`}
+        defaultValue={'todos'}
+      >
+        <option value="todos">Todos</option>
+        <option value="habilitados">Habilitados</option>
+        <option value="deshabilitados">Deshabilitados</option>
+      </select>
+
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col-2">Nombre</th>
+            <th scope="col-2">Email</th>
+            <th scope="col-2">Ordenes</th>
+            <th scope="col-2">Estado</th>
+            <th scope="col-2">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
 
           {allUsers &&
             allUsers.map((u, indice) => {
               return (
-                <div key={indice} className={`${styles.row} row`}>
-                  <div className="col-3">{u.name}</div>
-                  <div className="col-3">{u.email}</div>
-                  <div className="col-2">
-                    <button className={`${styles.blue} btn btn-primary`}>
+                <tr className="hola">
+                  <th className={`col-2`}>{u.name}</th>
+                  <th scope="col-2">{u.email}</th>
+                  <th className="col-2">
+                    <button className={`btn btn-primary`}>
                       {' '}
                       Ver Ordenes{' '}
                     </button>
-                  </div>
-                  <div className="col-2">
-                    <button
-                      className={`${styles.red} btn btn-danger`}
-                      onClick={() => handleDelete(u.uid)}
-                    >
-                      {' '}
-                      Borrar{' '}
-                    </button>
-                  </div>
-                </div>
+                  </th>
+
+                  <th className="col-2">
+                    {u.disabled ? (
+                      <p style={{ color: '#ff0000' }}>Inactivo</p>
+                    ) : (
+                      <p style={{ color: '#00ff00' }}>Activo</p>
+                    )}
+                  </th>
+
+                  <th className="col-2">
+                    {!u.disabled ? (
+                      <button
+                        className={`btn btn-danger`}
+                        onClick={() => handleDelete(u.uid)}
+                      >
+                        {' '}
+                        Deshabilitar{' '}
+                      </button>
+                    ) : (
+                      <button
+                        className={`btn btn-secondary`}
+                        onClick={() => handleHabilitar(u.uid)}
+                      >
+                        {' '}
+                        Habilitar{' '}
+                      </button>
+                    )}
+                  </th>
+
+                </tr>
               )
             })}
-        </div>
-      </div>
+
+        </tbody>
+      </table>
     </div>
-  )
-}
+  )}
