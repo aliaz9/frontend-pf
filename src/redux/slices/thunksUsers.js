@@ -98,7 +98,7 @@ export const autehnticateUser = (config) => {
 export const confirmUser = (token) => {
   return async (dispatch) => {
     try {
-      const { data } = await clientAxios(`/users/confirm-email/${token}`)
+      const { data } = await clientAxios(`/users/confirm-email-email/${token}`)
       dispatch(setMessage(data))
     } catch (error) {
       dispatch(setMessage(error.response.data))

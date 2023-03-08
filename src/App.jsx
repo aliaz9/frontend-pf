@@ -4,9 +4,9 @@ import Home from './pages/Home.jsx'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import {
-  getBrands,
   getProducts,
-  getTypes
+  getTypes,
+  getBrands
 } from './redux/slices/thunksProducts.js'
 import Products from './pages/Products.jsx'
 import About from './pages/About.jsx'
