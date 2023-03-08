@@ -5,12 +5,12 @@ export default function Section1 () {
   return (
     <div className={Style.container}>
       <div className={Style.izquierda}>
-         <h1>¿Qué ventajas tiene la Energía Solar?</h1>
-         <h5>Los paneles solares son una buena alternativa si quieres consumir energía propia, limpia y ahorrar dinero a largo plazo:</h5>
+         <h1 className={Style.h1}>¿Qué ventajas tiene la Energía Solar?</h1>
+         <h5 className={Style.h5}>Los paneles solares son una buena alternativa si quieres consumir energía propia, limpia y ahorrar dinero a largo plazo:</h5>
         <ul>
-          <li><i class="fa-solid fa-leaf"></i>Cero emisiones contaminantes</li>
-          <li><i class="fa-solid fa-leaf"></i>Ahorro energético</li>
-          <li><i class="fa-solid fa-leaf"></i>No genera ruido</li>
+          <li className={Style.li}><i class="fa-solid fa-leaf"></i>Cero emisiones contaminantes</li>
+          <li className={Style.li}><i class="fa-solid fa-leaf"></i>Ahorro energético</li>
+          <li className={Style.li}><i class="fa-solid fa-leaf"></i>No genera ruido</li>
         </ul>
 
       </div>
