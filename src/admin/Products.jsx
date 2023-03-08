@@ -69,7 +69,6 @@ const Products = () => {
           {/* <hr /> */}
           <tbody>
             {allProducts.map((element) => {
-              console.log(allProducts)
               return (
                 <tr className={style.tBody} key={element.id}>
                   <td>{element.id}</td>

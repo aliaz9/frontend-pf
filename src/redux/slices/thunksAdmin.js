@@ -68,7 +68,10 @@ export const getProducts = () => {
 export const deletProduct = (id) => {
   return async (dispatch) => {
     try {
-      const res = await clientAxios.delete(`/admin/delete-product/${id}`)
+      const res = await clientAxios.delete(
+        `/admin/delete-product/${id}`,
+        config
+      )
       const { data } = await clientAxios('/admin/products', config)
       dispatch(getProduts(data))
       return res.data.msg

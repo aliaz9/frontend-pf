@@ -9,7 +9,7 @@ export default function LayoutAdmin() {
   const routes = useRoutes([
     { path: '/products', element: <Products /> },
     { path: '/products/create', element: <Form /> },
-    { path: '/users', element: <Users /> },
+    { path: '/', element: <Users /> },
     { path: '/orders/:id', element: <OrderDetail /> },
     { path: '/orders', element: <Orders /> }
   ])

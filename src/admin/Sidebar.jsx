@@ -20,7 +20,7 @@ export default function Sidebar() {
             </li>
 
             <li className={`${styles.navLink} nav-link`}>
-              <Link to="/admin/users">
+              <Link to="/admin">
                 <i className="bi-people" />{' '}
                 <span className="ms-1">Usuarios</span>
               </Link>
