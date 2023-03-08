@@ -5,8 +5,9 @@ export const admin = createSlice({
   initialState: {
     message: { msg: '', error: null },
     allUsers: [],
-    orderDetail: {},
-    allOrders: []
+    allOrders: [],
+    allProducts: [],
+    orderDetail: {}
   },
 
   reducers: {
@@ -19,11 +20,29 @@ export const admin = createSlice({
     setOrderDetail: (state, action) => {
       state.orderDetail = action.payload
     },
+    setOrderDetail: (state, action) => {
+      state.orderDetail = action.payload
+    },
     getOrders: (state, action) => {
       state.allOrders = action.payload
     },
+
+    getProduts: (state, action) => {
+      state.allProducts = action.payload
+    },
+
     eliminateUser: (state, action) => {
-      state.allUsers = state.allUsers.filter((u) => u.uid !== action.payload)
+      state.allUsers = allUsers.filter((u) => u.id !== action.payload)
+
+      getProduts: (state, action) => {
+        state.allProducts = action.payload
+      }
+    },
+    eliminateUser: (state, action) => {
+      state.allUsers = state.allUsers
+    },
+    habilitarUsuario: (state, action) => {
+      state.allUsers = state.allUsers
     }
   }
 })
@@ -32,8 +51,10 @@ export const {
   setMessage,
   getUsers,
   getOrders,
+  getProduts,
   eliminateUser,
-  setOrderDetail
+  setOrderDetail,
+  habilitarUsuario
 } = admin.actions
 
 export default admin.reducer

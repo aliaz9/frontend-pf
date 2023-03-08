@@ -5,7 +5,7 @@ export const users = createSlice({
   initialState: {
     message: { msg: '', error: null },
     productsInCart: JSON.parse(localStorage.getItem('cart')) || [],
-    auth: {},
+    auth: { name: '', email: '', role: ' ' },
     loading: false,
     linkPayment: '',
     reviews: []
@@ -57,11 +57,17 @@ export const users = createSlice({
       const { newPassword } = action.payload
       state.auth.password = newPassword
     },
+
     setReviews: (state, action) => {
       state.reviews = action.payload
+<<<<<<< HEAD
     },
     setMyCart: (state, action) => {
       state.reviews = action.payload
+=======
+    restoreCart: (state, action) => {
+      state.productsInCart = []
+>>>>>>> 7ff6543a6f85a6e88c9e2a81cb68602efa58bb7d
     }
   }
 })
@@ -77,8 +83,13 @@ export const {
   setLinkPayment,
   setEdithUser,
   setEdithPwd,
+<<<<<<< HEAD
   setReviews,
   setMyCart
+=======
+  setReviews
+  restoreCart
+>>>>>>> 7ff6543a6f85a6e88c9e2a81cb68602efa58bb7d
 } = users.actions
 
 export default users.reducer
