@@ -7,12 +7,12 @@
     justify-content: center;
     align-items: center;
     gap: 5px;
+    margin-bottom: 5px;
 }
 
 .titleScore{
     color: #002A39;
     font-weight: 600;
-    font-family: 'Inter', sans-serif;   
 }
 
 .titleScore:hover{

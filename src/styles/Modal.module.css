@@ -32,6 +32,7 @@
 .modalContainer {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     right: 0;
     position: relative;
     background-color: white;
@@ -89,8 +90,8 @@
 .separatorModal{
     margin: 8px 0;
     padding: 0;
-    background-color:#F4F1EB;
-    border: 1px solid #F4F1EB;
+    background-color:#d2e3da;
+    border: 1px solid #d2e3da;
     width: 100%;
 }
 
@@ -99,7 +100,7 @@
 }
 
 .formModalRight{
-    border-right: 1px solid #F4F1EB;
+    border-right: 1px solid #d2e3da;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -122,4 +123,49 @@
     outline: none;
     font-family: 'Inter', sans-serif; 
     padding: 10px;
+}
+
+.modalImg{
+    object-fit: fill;
+    width: 60%;
+    height: 60%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.btnSubmit{
+    width: 40%;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    padding: 18px 0px;
+    color: #fff;
+    background-color: #FFBB00;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-out 0s;
+}
+
+.btnCancel{
+    width: 40%;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    padding: 18px 0px;
+    color: #fff;
+    background-color: #c7c5b3;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-out 0s;
+}
+
+
+.error{
+    color: red;
+}
+
+.btnSubmit:disabled{
+    background-color: #f3f7f8;
+    cursor: no-drop;
+    color: #cbd6de;
 }
