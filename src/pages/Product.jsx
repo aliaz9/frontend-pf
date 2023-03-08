@@ -4,12 +4,13 @@ import { useParams } from 'react-router-dom'
 import Score from '../components/Score.jsx'
 import Style from './../styles/ProductDetail.module.css'
 import { getProductsDetails } from '../redux/slices/thunksProducts.js'
-import { addCart } from '../redux/slices/thunksUsers.js'
+import { addCart, addCartBack } from '../redux/slices/thunksUsers.js'
 import 'react-toastify/dist/ReactToastify.css'
 
 export default function ProductPage() {
   const productInfo = useSelector((state) => state.products.product)
   const dispatch = useDispatch()
+  const auth = useSelector((state) => state.users.auth)
   const params = useParams()
 
   function handleAddCart() {
@@ -23,6 +24,9 @@ export default function ProductPage() {
       quantity: 1
     }
     dispatch(addCart(productToAdd))
+    if (auth.name) {
+      dispatch(addCartBack(productInfo.id))
+    }
   }
   const { id } = params
   useEffect(() => {

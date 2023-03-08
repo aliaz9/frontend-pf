@@ -1,8 +1,9 @@
+import React from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
-// import { getOrderDetail } from "../redux/slices/thunksAdmin";
 import { getOrderDetail } from '../redux/slices/thunksAdmin'
+// import { getOrderDetail } from "../redux/slices/thunksAdmin";
 import styles from '../styles/OrderDetail.module.css'
 
 export default function OrderDetail() {
@@ -11,27 +12,21 @@ export default function OrderDetail() {
 
   useEffect(
     (id) => {
-      dispatch(getOrderDetail(id))
-    },
-    [dispatch, id]
-  )
-
-  useEffect(
-    (id) => {
       // dispatch(getOrderDetail(id));
     },
     [dispatch, id]
   )
-  const order = useSelector((state) => state.admin.orderDetail)
 
-  //   function total() {
-  //     let total = 0
-  //     for (let i = 0; i < order.products.length; i++) {
-  //       const subtotal = order.products[i].unit_price * order.products[i].quantity
-  //       total = total + subtotal
-  //     }
-  //     return total
-  //   }
+  let order = useSelector((state) => state.admin.orderDetail)
+
+  function total() {
+    // let total = 0
+    // for (let i = 0; i < order.products.length; i++) {
+    //     const subtotal = order.products[i].unit_price * order.products[i].quantity
+    //     total = total + subtotal
+    // }
+    // return total
+  }
 
   return (
     <div className={styles.order}>

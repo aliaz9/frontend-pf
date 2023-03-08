@@ -20,7 +20,6 @@ const config = {
     Authorization: `Bearer ${localStorage.getItem('token')}`
   }
 }
-const cartOfLS = JSON.parse(localStorage.getItem('cart')) || []
 export const registerUser = (user) => {
   return async (dispatch) => {
     try {
@@ -47,11 +46,12 @@ export const logUser = (user) => {
       // dispatch(setMessage(data))
       dispatch(setAuth(data))
       localStorage.setItem('token', data.token)
-      clenMesageAfterTime()
-      dispatch(updateCart(cartOfLS))
+      cleanMessage()
+      const cartOfLS = JSON.parse(localStorage.getItem('cart')) || []
+      dispatch(updateCart(data.token, cartOfLS))
       localStorage.removeItem('cart')
     } catch (error) {
-      dispatch(setMessage(error.response.data))
+      // dispatch(setMessage(error.response.data))
       setTimeout(() => {
         dispatch(setMessage({ msg: '', error: null }))
       }, 5000)
@@ -89,7 +89,8 @@ export const autehnticateUser = (config) => {
       const { data } = await clientAxios('/users/user-profile', config)
       dispatch(setAuth(data))
     } catch (error) {
-      dispatch(setMessage(error.response.data))
+      // dispatch(setMessage(error.response.data))
+      console.log(error)
     }
     dispatch(setUserLoading(false))
   }
@@ -98,7 +99,7 @@ export const autehnticateUser = (config) => {
 export const confirmUser = (token) => {
   return async (dispatch) => {
     try {
-      const { data } = await clientAxios(`/users/confirm-email/${token}`)
+      const { data } = await clientAxios(`/users/confirm-email-email/${token}`)
       dispatch(setMessage(data))
     } catch (error) {
       dispatch(setMessage(error.response.data))
@@ -168,15 +169,10 @@ export const changePassword = (user) => {
 export const loaderPayment = (product) => {
   return async (dispatch) => {
     try {
-      const { data } = await clientAxios.post(
-        '/users/add-to-cart',
-        {
-          items: product
-        },
-        config
-      )
-      dispatch(setLinkPayment(data.link))
+      const { data } = await clientAxios.post('payment/paypal', config)
+      dispatch(setLinkPayment(data.linkToPay))
     } catch (error) {
+      console.log(error)
       dispatch(setMessage(error.response.data))
     }
   }
@@ -214,13 +210,14 @@ export const addToCartBackend = (productId) => {
   }
 }
 
-export const clenMesageAfterTime = () => {
+export const cleanMessage = () => {
   return (dispatch) => {
     setTimeout(() => {
       dispatch(setMessage({ msg: '', error: null }))
     }, 5000)
   }
 }
+
 
 export const addReviews = (review) => {
   return async (dispatch) => {
@@ -239,15 +236,66 @@ export const addReviews = (review) => {
       dispatch(setMessage(error.response.data))
     }
 
-export const updateCart = async (cart) => {
-  try {
-    const { data } = await clientAxios.put(
-      '/users/update-cart',
-      { cart },
-      config
-    )
-    console.log(data)
-  } catch (error) {
-    console.log(error)
+export const updateCart = (token, cart) => {
+  console.log(cart)
+  return async (dispatch) => {
+    try {
+      const { data } = await clientAxios.put(
+        '/users/update-cart',
+        { cart },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`
+          }
+        }
+      )
+      dispatch(setMessage(data))
+      cleanMessage()
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
+export const addCartBack = (id) => {
+  return async () => {
+    try {
+      const { data } = await clientAxios.post(
+        '/users/add-to-cart',
+        {
+          productId: id
+        },
+        config
+      )
+      console.log(data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
+export const removeCartBack = (id) => {
+  console.log(localStorage.getItem('token'))
+  return async (dispatch) => {
+    try {
+      const { data } = await clientAxios.post(
+        '/users/less-to-cart',
+        {
+          productId: id
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+          }
+        }
+      )
+      dispatch(setMessage(data.msg))
+    } catch (error) {
+      console.log(error)
+      console.log(error.response.data)
+    }
+
   }
 }

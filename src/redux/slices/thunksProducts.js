@@ -24,6 +24,7 @@ export const getProducts = () => {
       )
       if (brand.value || type.value) {
         dispatch(setNumberOfpages(Math.ceil(count / 12)))
+
       }
       dispatch(setProducts(products))
     } catch (error) {
@@ -85,19 +86,3 @@ export const getByNames = (name) => {
     }
   }
 }
-
-export const createProducts = async (formData) => {
-  // return async (dispatch) {
-  try {
-    const result = await clientAxios.post('/products', formData, {
-      withCredentials: false,
-      headers: {
-        'Access-Control-Allow-Origin': '*'
-      }
-    })
-    return result
-  } catch (error) {
-    // dispatch(setMessage(error.message))
-  }
-}
-// }

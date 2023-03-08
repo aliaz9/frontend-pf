@@ -57,18 +57,40 @@ td {
   position: relative;
   width: 25px;
   height: 25px;
-  background-color: #b3cacf;
-  background-image: url(../../public/editar.png);
+  border: none;
+  background-color: transparent;
+  background-image: url(../../borrar.png);
+  background-repeat: no-repeat;
   margin: 0;
   padding: 0;
-  left: 35px;
+  left: 21px;
   top: 4px;
+  transition: 0.4s;
 }
 
 .crear {
+  position: relative;
   margin-top: 30px;
   display: flex;
   gap: 15px;
+}
+.crear button {
+  position: absolute;
+  top: 1px;
+  border: none;
+  border-radius: 5px;
+  width: 250px;
+  height: 50px;
+  background-color: #ffbb00;
+  color: white;
+  font-family: Cabin;
+  font-weight: 700;
+  font-size: 20px;
+  transition: 0.4s;
+}
+
+.crear button:active {
+  background-color: #fcd362;
 }
 .crear h1 {
   font-family: Tilt Warp;
@@ -99,10 +121,10 @@ td {
 }
 
 .next {
-  background-image: url(../../public/next-button.png);
+  background-image: url(../../next-button.png);
   background-repeat: no-repeat;
 }
 .prev {
-  background-image: url(../../public/previous.png);
+  background-image: url(../../previous.png);
   background-repeat: no-repeat;
 }

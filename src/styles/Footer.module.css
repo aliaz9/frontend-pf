@@ -36,6 +36,7 @@
 }
 .col p {
   margin-top: 20px;
+  width: fit-content;
 }
 
 .col1 {
@@ -108,4 +109,35 @@
 .col4 a:hover {
   text-decoration: underline;
   color: #ffbb00;
+}
+
+.foot {
+  background: #002a39;
+}
+
+@media (max-width: 725px) {
+  .container {
+    height: max-content;
+  }
+  .row {
+    display: grid;
+    justify-content: center;
+    margin-top: 0;
+  }
+  .col {
+    width: fit-content;
+    margin: 0 auto;
+  }
+  .col h4 {
+    margin: 0 auto;
+  }
+  .col p {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+.foot {
+  padding-top: 15px;
+  display: grid;
 }
