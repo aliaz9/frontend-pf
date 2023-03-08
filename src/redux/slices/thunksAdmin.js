@@ -68,7 +68,10 @@ export const getProducts = () => {
 export const deletProduct = (id) => {
   return async (dispatch) => {
     try {
-      const res = await clientAxios.delete(`/admin/delete-product/${id}`)
+      const res = await clientAxios.delete(
+        `/admin/delete-product/${id}`,
+        config
+      )
       const { data } = await clientAxios('/admin/products', config)
       dispatch(getProduts(data))
       return res.data.msg
@@ -83,7 +86,9 @@ export const createProducts = async (formData) => {
     const result = await clientAxios.post('/admin/create-product', formData, {
       withCredentials: false,
       headers: {
-        'Access-Control-Allow-Origin': '*'
+        // 'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'multipart/form-data',
+        Authorization: `Bearer ${localStorage.getItem('token')}`
       }
     })
     return result

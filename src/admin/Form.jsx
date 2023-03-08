@@ -246,7 +246,7 @@ const Form = () => {
                 <span>Imagen del Producto</span>
               </label>
               <input
-                value={image && ''}
+                // value={image && ''}
                 type="file"
                 onChange={handlerfile}
                 name="image"
@@ -261,7 +261,7 @@ const Form = () => {
               </label>
               <input
                 type="file"
-                value={document && ''}
+                // value={document && ''}
                 onChange={handlerfile}
                 name="document"
                 autoComplete="off"

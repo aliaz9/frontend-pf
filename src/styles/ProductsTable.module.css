@@ -54,6 +54,18 @@
 .table hr {
   height: 8px;
 }
+.deshabilitado {
+  color: red;
+}
+.deshabilitado::after {
+  content: 'Deshabilitado';
+}
+.habilitado {
+  color: rgb(6, 177, 6);
+}
+.habilitado::after {
+  content: 'Habilitado';
+}
 .tBody button {
   position: relative;
   width: 25px;
