@@ -10,7 +10,7 @@ export const productsSlice = createSlice({
     product: {},
     types: [],
     brands: [],
-    order: { value: '', label: '' },
+    order: '',
     brand: { value: '', label: '' },
     type: { value: '', label: '' },
     numberOfpages: 10,
@@ -50,10 +50,10 @@ export const productsSlice = createSlice({
     setOrder(state, action) {
       state.order = action.payload
     },
-    cleanSearch (state) {
+    cleanSearch(state) {
       state.search = []
     },
-    setSearch (state, action) {
+    setSearch(state, action) {
       state.search = action.payload
     }
   }

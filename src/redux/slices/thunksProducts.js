@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify'
 import { clientAxios } from '../../config/clientAxios.js'
 import {
   loading,
@@ -24,7 +25,6 @@ export const getProducts = () => {
       )
       if (brand.value || type.value) {
         dispatch(setNumberOfpages(Math.ceil(count / 12)))
-
       }
       dispatch(setProducts(products))
     } catch (error) {
@@ -80,7 +80,7 @@ export const getByNames = (name) => {
       const { data } = await clientAxios(`/products/search?name=${name}`)
       dispatch(setSearch(data))
     } catch (error) {
-      dispatch(setMessage(error.message))
+      toast.error(error.response.data.msg)
     } finally {
       dispatch(loading(false))
     }

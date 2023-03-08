@@ -8,7 +8,7 @@ const PaySuccess = () => {
     }
   }
   useEffect(() => {
-    fetch('http://localhost:4000/paypal/drop-cart', config)
+    fetch('http://localhost:4000/api/payment/paypal/drop-cart', config)
       .then((res) => res.json())
       .then((res) => {
         console.log(res)

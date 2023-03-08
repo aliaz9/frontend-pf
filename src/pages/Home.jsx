@@ -4,6 +4,7 @@ import Steps from '../components/Steps.jsx'
 import SectionInfo from '../components/SectionInfo.jsx'
 import SomeCards from '../components/someCards.jsx'
 import Section1 from '../components/section1.jsx'
+import { ToastContainer } from 'react-toastify'
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       {/*
       {/*
       <Questions /> */}
+      <ToastContainer />
     </div>
   )
 }

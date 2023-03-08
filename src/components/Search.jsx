@@ -19,13 +19,13 @@ export default function Search() {
   const onChange = (e) => {
     setSearch(e.target.value)
     if (e.target.value === '') {
-      // dispatch(cleanSearch())
+      dispatch(cleanSearch())
     }
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // dispatch(getByName(search))
+    dispatch(getByNames(search))
   }
 
   function handleOrder(order) {
