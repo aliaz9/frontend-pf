@@ -1,12 +1,22 @@
 .containerAll {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: #fff;
   margin-bottom: 60px;
   margin-top: 60px;
   
+}
+
+.container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  margin-bottom: 60px;
+  margin-top: 60px;  
 }
 
 .containerImg img {
