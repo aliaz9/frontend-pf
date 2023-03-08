@@ -1,8 +1,11 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import styles from '../styles/Modal.module.css'
 import Score from './Score'
 
 export default function Modal({ closeModal }) {
+  const productInfo = useSelector((state) => state.products.product)
+
   return (
     <div className={styles.modalBackground}>
       <div className={styles.modalContainer}>
@@ -10,19 +13,14 @@ export default function Modal({ closeModal }) {
           <div className={styles.modalTitle}>
             <b>Calificar Producto</b>
           </div>
-          {/* rome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
           <div className={styles.btnModal} onClick={() => closeModal(false)}>
             <i className="fa-solid fa-x" />
           </div>
         </div>
         <hr className={styles.separatorModal} />
         <div className={styles.formModalRight}>
-          <img
-            src="https://mipclista.com/3621-large_default/pc-gamer-draco-rgb-core-i5-12400f.jpg"
-            width={200}
-            alt="Imagen Producto"
-          />
-          <p>PC Gamer Draco RGB Core I5 12400F</p>
+          <img src={productInfo.image} width={200} alt="Imagen Producto" />
+          <p>{productInfo.title}</p>
         </div>
         <form action="" className={styles.formModal}>
           <div>
@@ -53,6 +51,5 @@ export default function Modal({ closeModal }) {
         <button type="button">Aceptar</button>
       </div>
     </div>
-    // </div>
   )
 }

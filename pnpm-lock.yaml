@@ -26,6 +26,7 @@ specifiers:
   react-select: ^5.7.0
   react-toastify: ^9.1.1
   standard: ^17.0.0
+  sweetalert2: ^11.7.3
   vite: ^4.1.0
   yup: ^1.0.0
 
@@ -45,6 +46,7 @@ dependencies:
   react-router-dom: 6.8.1_biqbaboplfbrettd7655fr4n2y
   react-select: 5.7.0_zula6vjvt3wdocc4mwcxqa6nzi
   react-toastify: 9.1.1_biqbaboplfbrettd7655fr4n2y
+  sweetalert2: 11.7.3
   yup: 1.0.0
 
 devDependencies:
@@ -2859,6 +2861,10 @@ packages:
   /supports-preserve-symlinks-flag/1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
+
+  /sweetalert2/11.7.3:
+    resolution: {integrity: sha512-fUN/fyVSBZNtY4Rr/Qtxn7tNNnlRAbUhQxTQ9uOo0xVMIHBmqq4/9pau5N9dB2pvkB353XL/ywRAycscLoYU3w==}
+    dev: false
 
   /text-table/0.2.0:
     resolution: {integrity: sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==}

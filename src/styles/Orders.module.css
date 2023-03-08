@@ -1,27 +1,17 @@
-.row {
-}
-
-.blue {
-    width: 180px;
-}
-
-.red {
-    width: 150px;
-}
-
-.container {
-    margin-top: 100px;
-    margin-left: 50px;
-}
 
 .title {
     display: flex;
     flex-direction: row;
     justify-content: left;
-    margin-left: 50px;
     margin-top: 100px;
+    margin-bottom: 100px;
 }
 
-.firstrow {
-    background-color: aquamarine;
+.select {
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+.hola {
+    font-weight: normal;
 }

@@ -7,70 +7,53 @@ import { Link } from "react-router-dom";
 
 export default function Orders() {
 
-const allOrders = useSelector((state) => state.admin.allOrders);
-let dispatch = useDispatch()
+    const allOrders = useSelector((state) => state.admin.allOrders);
+    let dispatch = useDispatch()
 
- useEffect(() => {
-    dispatch(orders())
- }, [])
+    useEffect(() => {
+        dispatch(orders())
+    }, [])
 
     return (
         <div>
-        <h1 className={styles.title}>Ordenes</h1>
+            <h1 className={styles.title}>Ordenes</h1>
 
-     <div className={`${styles.container} container`}>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col-2">Numero</th>
+                        <th scope="col-2">Fecha</th>
+                        <th scope="col-3">Comprador</th>
+                        <th scope="col-2">Total</th>
+                        <th scope="col-3">Detalle</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-            <div className={`${styles.row} row`}>
-                <div className="col-2">
-                    Numero
-                </div>
-                <div className="col-2">
-                    Fecha
-                </div>
-                <div className="col-3">
-                    Comprador
-                </div>
-                <div className="col-2">
-                    Total
-                </div>
-                <div className="col-3">
-                    Detalle
-                </div>
+                    {allOrders && allOrders.map(o => {
 
+                        return (
 
-                {allOrders && allOrders.map(u => {
+                            <tr>
+                                <th className={`col-2`}>{o.number}</th> 
+                                <th className={`col-2`}>{o.date}</th> 
+                                <th className={`col-3`}>{o.name}</th>
+                                <th className={`col-2`}>{o.total}</th>
 
-                    return (
+                                <th className="col-3">
+                                    <Link to={`/admin/orders/${o.id}`}>
+                                        <button className={`${styles.blue} btn btn-primary`}> Ver Detalle </button>
+                                    </Link>
+                                </th>
 
-                        <div key={u.id} className={`${styles.row} row`}>
-                            <div className="col-2">
-                                {u.id}
-                            </div>
-                            <div className="col-2">
-                                {u.date}
-                            </div>
-                            
-                            <div className="col-3">
-                                {u.name}
-                            </div>
+                            </tr>
+                        )
+                    })}
 
-                            <div className="col-2">
-                                {u.total}
-                            </div>
-
-                            <div className="col-3">
-                            <Link to={`/admin/orders/${u.id}`}>
-                            <button className={`${styles.blue} btn btn-primary`}> Ver Detalle </button>
-                            </Link>
-                            </div>
-                            
-                        </div>
-                    )
-                })}
-
-            </div>
-            </div>
+                </tbody>
+            </table>
         </div>
+
     )
 }
 

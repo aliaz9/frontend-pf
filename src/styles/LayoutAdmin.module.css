@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: auto auto;
   overflow-x: hidden;
-  grid-template-columns: auto 85%;
+  grid-template-columns: auto 70%;
   min-height: 100vh;
   font-family: 'Inter';
   width: 100vw;
