@@ -10,7 +10,8 @@ import {
 import { Link } from 'react-router-dom'
 
 export default function Users() {
-  const allUsers = useSelector((state) => state.admin.allUsers)
+  const allUsers = useSelector((state) => state.admin.allUsers);
+  const onlyUsers = allUsers.filter(u => u.role === "user");
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -54,11 +55,10 @@ export default function Users() {
           </tr>
         </thead>
         <tbody>
-          {allUsers &&
-            allUsers.map((u, indice) => {
+          {onlyUsers &&
+            onlyUsers.map((u, indice) => {
               return (
-                <tr>
-                {/* <div key={indice} className={`${styles.row} row`}> */}
+                <tr key={indice}>
                   <th className="col-2">{u.name}</th>
                   <th className="col-2">{u.email}</th>
                   <th className="col-2">

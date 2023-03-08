@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import { getOrderDetail } from '../redux/slices/thunksAdmin'
 // import { getOrderDetail } from "../redux/slices/thunksAdmin";
 import styles from '../styles/OrderDetail.module.css'
@@ -9,6 +9,7 @@ import styles from '../styles/OrderDetail.module.css'
 export default function OrderDetail() {
   const { id } = useParams()
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   useEffect(
     (id) => {
@@ -30,9 +31,7 @@ export default function OrderDetail() {
 
   return (
     <div className={styles.order}>
-      <Link to="/admin/orders">
-        <button className="btn btn-primary">BACK</button>
-      </Link>
+        <button onClick={() => navigate(-1)} className="btn btn-primary">BACK</button>
 
       <div className={styles.datos}>
         <div className={styles.datosComprador}>
