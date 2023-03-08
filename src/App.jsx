@@ -33,10 +33,10 @@ function App() {
 
   // si el usuario no esta logueado, guardo el carrito en el local storage
   useEffect(() => {
-    if (!auth?.name) {
+    if (!auth.name) {
       localStorage.setItem('cart', JSON.stringify(cart))
     }
-  }, [cart])
+  }, [cart.length])
 
   useEffect(() => {
     const token = localStorage.getItem('token')
@@ -65,6 +65,10 @@ function App() {
           <Route path="/user-page-profile" element={<ProfilePage />} />
           <Route path="/users/confirm/:token" element={<ConfirmUser />} />
           <Route path="/users/reset-password" element={<RecoverPassword />} />
+          <Route
+            path="/payment/success"
+            element={<h1>Gracias por tu compra</h1>}
+          />
           <Route
             path="/users/reset-password/:token"
             element={<ChangePasswordForGot />}
