@@ -81,7 +81,7 @@ export default function Users() {
                     {!u.disabled ? (
                       <button
                         className={`btn btn-danger`}
-                        onClick={() => handleDelete(u.uid)}
+                        onClick={() => handleDelete(u.id)}
                       >
                         {' '}
                         Deshabilitar{' '}

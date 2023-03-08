@@ -52,7 +52,7 @@ const Products = () => {
       </div> */}
 
       <div className={`table-responsive ${style.contTable}`}>
-        <table className={`table table-striped ${style.table}`}>
+        <table className={`table table-hover ${style.table}`}>
           <thead>
             <tr>
               <th className={` ${style.tHead}`}>ID</th>
