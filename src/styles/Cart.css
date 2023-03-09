@@ -1,24 +1,115 @@
-.background {
-    margin-top: 100px;
-    margin-left: 150px;
+.containerSUP{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+.containerAll{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    height: 500px;
+
+}
+.containter{
+    background-color: var(--claro);
+}
+.containerProduct{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    padding: 30px;
+    
 }
 
-.row {
-  margin-bottom: 30px;
+.img1{
+    width: auto;
+    height: 200px;
+}
+.title1{
+    font-family: 'inter';
+    font-size: 25px;
+    font-weight: bold;
+
 }
 
-.col-4 {
-    background-color: "";
+.containerFunciones{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.buttonContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
 }
 
-.cart-image {
-    width: 150px;
+.buttonRed{
+    background-color: red;
+    border: none;
+    height: 30px;
+    width: 30px;
+    color: #fff;
+    font-weight: bolder;
+    font-family:sans-serif;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 40px;
+}
+.titleprice{
+    color: green;
+    font-weight: bold;
+    font-size: 30px;
 }
 
-.btn-warning {
-    width: 50px;
-}
+.button15 {
+    width: 10em;
+    margin-right: 8px;
+    margin-bottom: 100px;
+  
+    font-family: 'inter';
+    font-size: 11px;
+    overflow: hidden;
+    font-weight: 500;
+  
+    color: #fff;
+    background-color: var(--amarillo);
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-out 0s;
+  
+    padding: 10px 0px;
+  
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .button15:hover {
+    box-shadow: 0px 5px 10px rgba(0, 153, 41, 0.3);
+    color: #fff;
+    transform: translateY(-3px);
+    cursor: pointer;
+  }
+  
+  .button12{
+    background-color: var(--verde);
+    border: none;
+    height: 30px;
+    width: 30px;
+    color: #fff;
+    font-weight: bolder;
+    font-family:sans-serif;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 40px;
+    margin: 0 4px;
 
-.btn-info {
-    width: 50px;
-} 
+  }

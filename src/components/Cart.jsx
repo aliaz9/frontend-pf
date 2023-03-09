@@ -46,7 +46,7 @@ export default function Cart() {
   function total() {
     let total = 0
     for (let i = 0; i < productsInCart.length; i++) {
-      const subtotal = productsInCart[i].price * productsInCart[i].quantity
+      const subtotal = productsInCart[i].unit_price * productsInCart[i].quantity
       total = total + subtotal
     }
     return total
@@ -57,50 +57,70 @@ export default function Cart() {
   }
 
   return (
-    <div className="background">
-      <div className="row">
-        <div className="col-4">Producto</div>
-        <div className="col-4">Cantidad</div>
-        <div className="col-4">Precio</div>
-      </div>
+    <div className="containerSUP">
+    <div className="containerAll">
+
 
       {productsInCart.map((p) => {
         return (
-          <div className="row" key={p.id}>
-            <div className="col-4">
-              <img src={p.image} className="cart-image" alt="imagen-carrito" />
-              <div className="container-data">
-                <p className="title">{p.title} </p>
-                <p className="title">{p.price}</p>
-                <button
-                  className="btn btn-warning"
-                  onClick={() => dispatch(removeCart(p.id))}
-                >
-                  x
-                </button>
+          <div className="container"> 
+              <div className="containerProduct">   
+              <p className="title1">{p.title} </p>
+                <img src={p.image} className="cart-image img1" alt="imagen-carrito" />
+
+                <p className="titleprice">${p.unit_price}</p>
+              </div>      
+
+              <div className="row" key={p.id}>
+
+                <div className="containerFunciones">
+                      <p>Quitar del carrito</p>
+                      <button
+                        className="buttonRed"
+                        onClick={() => dispatch(removeCart(p.id))}
+                      >
+                        X
+                      </button>
+
+
+                    <p className="title"> Cantidad: {p.quantity} </p>
+                    <p className="pp">${p.unit_price * p.quantity}</p>
+
+
+                      <div className="buttonContainer">
+                        <button className="button12" onClick={() => handleAddCart(p)}>
+                        +
+                        </button>
+                        <button className="button12" onClick={() => removeOne(p)}>
+                        -
+                        </button>
+                      </div>
+
+                      <div>
+                        {' '}
+                        <p className="pp">Total: ${total()}</p>
+                      </div>
+
+                    </div>
+
+
               </div>
-            </div>
-            <div className="col-4">
-              <p className="title"> {p.quantity} </p>
-              <button className="btn btn-info" onClick={() => handleAddCart(p)}>
-                +
-              </button>
-              <button className="btn btn-info" onClick={() => removeOne(p)}>
-                -
-              </button>
-            </div>
-            <div className="col-4">{<p>{p.price * p.quantity}</p>}</div>
-          </div>
+
+            </div>                  
+              
+          
         )
       })}
 
-      <div>
-        {' '}
-        <p>Total: {total()}</p>
-      </div>
-      <button onClick={handlePayment} type="button">
-        Finalizar Compra
-      </button>
+
+
     </div>
+    <div className="buttonContainer">
+              <button  className="button15" onClick={handlePayment} type="button">
+                Finalizar Compra
+              </button>
+          </div>
+    </div>
+
   )
 }
