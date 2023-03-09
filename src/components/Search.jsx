@@ -6,7 +6,7 @@ import {
   setType
 } from '../redux/slices/productsSlice.js'
 import { getByNames, getProducts } from '../redux/slices/thunksProducts.js'
-import styles from './../styles/Search.module.css'
+import Style from './../styles/Search.module.css'
 
 import { useSelector, useDispatch } from 'react-redux'
 import Select from 'react-select'
@@ -53,9 +53,11 @@ export default function Search() {
     dispatch(setOrder(e.target.value))
     dispatch(getProducts())
   }
+
   return (
     <>
-      <div className={styles.container}>
+      {/* <div className={Style.container}>
+
         <input
           type="search"
           value={search}
@@ -66,14 +68,34 @@ export default function Search() {
         <i
           onClick={(e) => handleSubmit(e)}
           className="fa-solid fa-magnifying-glass"
-        />
+        /> */}
 
-        <div className={styles.filters}>
+      <div className={Style.container}>
+        {/* <p className={Style.p}>Busca por nombre, filtra y ordena: </p> */}
+
+        <div className={Style.searchBox}>
+          <button className={Style.btnSearch}>
+            <i onClick={(e) => handleSubmit(e)} class="fas fa-search" />
+          </button>
+
+          <input
+            type="search"
+            value={search}
+            onChange={onChange}
+            placeholder="Buscar..."
+            className={Style.inputSearch}
+          ></input>
+        </div>
+
+        <div className={Style.filters}>
           <Select options={types} onChange={handleTypeChange} isClearable />
+        </div>
+
+        <div className={Style.select}>
           <select onChange={handleOrder}>
             <option label="Seleccione un orden" value={''} />
-            <option label="asc" value={'asc'} />
-            <option label="desc" value={'desc'} />
+            <option label="Ascendente" value={'asc'} />
+            <option label="Descendente" value={'desc'} />
           </select>
         </div>
       </div>
