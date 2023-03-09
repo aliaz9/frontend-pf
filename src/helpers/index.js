@@ -1,4 +1,3 @@
-
 import Swal from 'sweetalert2'
 const isNumber = /\d/
 const isEspecial = /^[a-zA-Z0-9]+$/
@@ -6,7 +5,7 @@ const isEspecial = /^[a-zA-Z0-9]+$/
 // verificar si al menos una letra es mayuscula
 export const verifyUppercase = (value) => {
   for (let i = 0; i < value.length; i++) {
-    if (!(isNumber.test(value[i]) || !(isEspecial.test(value[i])))) {
+    if (!(isNumber.test(value[i]) || !isEspecial.test(value[i]))) {
       if (value[i].toUpperCase() === value[i]) {
         return true
       }
@@ -18,7 +17,7 @@ export const verifyUppercase = (value) => {
 // verificar si al menos una letra es minuscula
 export const verifyLowercase = (value) => {
   for (let i = 0; i < value.length; i++) {
-    if (!(isNumber.test(value[i]) || !(isEspecial.test(value[i])))) {
+    if (!(isNumber.test(value[i]) || !isEspecial.test(value[i]))) {
       if (value[i].toLowerCase() === value[i]) {
         return true
       }
@@ -42,13 +41,15 @@ export const formatDate = (date) => {
 
   // Obtener nombre del mes en letras
   const opcionesFecha = { month: 'long' }
-  const newMonth = new Intl.DateTimeFormat('es-ES', opcionesFecha).format(NewDate)
+  const newMonth = new Intl.DateTimeFormat('es-ES', opcionesFecha).format(
+    NewDate
+  )
 
   // Formatear la fecha con el nombre del mes
   const day = NewDate.getDate()
   const year = NewDate.getFullYear()
 
-  return `${day + 1} ${newMonth} ${year}`
+  return `${day} ${newMonth} ${year}`
 }
 
 // verificar si el usuario segun endpoint de products
