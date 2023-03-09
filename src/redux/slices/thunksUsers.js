@@ -325,7 +325,7 @@ export const getCartFromBack = () => {
       const { data } = await clientAxios.get('/users/get-cart', config)
       dispatch(restoreCart(data))
     } catch (error) {
-      toast.error('Ha ocurrido un error intenta  mas tarde')
+      // toast.error('Ha ocurrido un error intenta  mas tarde')
     }
   }
 }
