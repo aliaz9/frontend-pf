@@ -1,0 +1,10 @@
+version: 1.0
+services:
+  web:
+    build:
+      env:
+        NODE_ENV: production
+      dockerfile: Dockerfile
+      path: .
+    http:
+      8080: $PORT

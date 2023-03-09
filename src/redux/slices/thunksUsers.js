@@ -172,13 +172,16 @@ export const loaderPayment = () => {
       //   }
       // })
       // with fetch
-      const response = await fetch('http://localhost:4000/api/payment/paypal', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${localStorage.getItem('token')}`
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/payment/paypal`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+          }
         }
-      })
+      )
       const data = await response.json()
       console.log(data)
       dispatch(setLinkPayment(data.linkToPay))
