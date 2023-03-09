@@ -12,7 +12,7 @@ export default function Pagination() {
     dispatch(getProducts())
   }
   const previusPage = () => {
-    dispatch(setPageCurrent(pageCurrent - 1))
+    dispatch(setPageCurrent(pageCurrent - 1)) 
     dispatch(getProducts())
   }
   const pagesNumber = []
@@ -26,34 +26,34 @@ export default function Pagination() {
   }
 
   return (
-    <div>
-      <button
-        type="button"
-        onClick={() => previusPage()}
-        disabled={pageCurrent === 1}
-        className={styles.Pagination}
-      >
-        {' '}
-        ←
-      </button>
-      {pagesNumber?.map((i, key) => (
+    <div className={styles.container}>
         <button
-          className={styles.button}
-          key={key}
-          value={i}
-          onClick={changePage}
+          type="button"
+          onClick={() => previusPage()}
+          disabled={pageCurrent === 1}
+          className={styles.pagination}
         >
-          {i}
+          {' '}
+          ←
         </button>
-      ))}
-      <button
-        type="button"
-        onClick={() => nextPage()}
-        disabled={pageCurrent === numberOfpages}
-        className={styles.Pagination}
-      >
-        →
-      </button>
+        {pagesNumber?.map((i, key) => (
+          <button
+            className={styles.button11}
+            key={key}
+            value={i}
+            onClick={changePage}
+          >
+            {i}
+          </button>
+        ))}
+        <button
+          type="button"
+          onClick={() => nextPage()}
+          disabled={pageCurrent === numberOfpages}
+          className={styles.pagination}
+        >
+          →
+        </button>
     </div>
   )
 }
