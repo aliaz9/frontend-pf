@@ -1,13 +1,66 @@
-.Pagination {
-  width: 30px;
-  height: 30px;
+.container{
+  display: flex;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-family: 'inter';
+  font-size: 13px;
+  font-weight: bold;
+  
 }
 
-.button {
-  width: 30px;
-  height: 30px;
+.pagination {
+  width: 25px;
+  height: 25px;
   align-items: center;
   text-align: center;
   display: inline-block;
+  background-color: rgb(224, 224, 224);
+  border-radius: 5px;
+  margin: 0 3px;
+  border: none;
+  font-weight: bolder;
+  
 }
+
+.button11 {
+  width: 25px;
+  height: 25px;
+  align-items: center;
+  text-align: center;
+  display: inline-block;
+  background-color: rgb(224, 224, 224);
+  border-radius: 5px;
+  margin: 0 3px;
+  border: none;
+  font-weight: bold;
+  color: var(--azul);
+}
+
+.button11:hover {
+  width: 25px;
+  height: 25px;
+  align-items: center;
+  text-align: center;
+  display: inline-block;
+  background-color: var(--claro);
+  border-radius: 5px;
+  margin: 0 3px;
+  border: none;
+  box-shadow: none;
+}
+.button11:focus{
+  width: 25px;
+  height: 25px;
+  align-items: center;
+  text-align: center;
+  display: inline-block;
+  background-color: rgb(224, 224, 224);
+  border-radius: 5px;
+  margin: 0 3px;
+  border: none;
+}
+
+
+
