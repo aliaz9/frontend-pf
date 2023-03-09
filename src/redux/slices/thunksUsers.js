@@ -44,7 +44,9 @@ export const logUser = (user) => {
       dispatch(setAuth(data))
       localStorage.setItem('token', data.token)
       const cartOfLS = JSON.parse(localStorage.getItem('cart')) || []
-      dispatch(updateCart(data.token, cartOfLS))
+      setTimeout(() => {
+        dispatch(updateCart(data.token, cartOfLS))
+      }, 2000)
       localStorage.removeItem('cart')
       await dispatch(getCartFromBack())
     } catch (error) {
@@ -277,7 +279,7 @@ export const addCartBack = (id) => {
       )
       toast.success('Producto agregado al carrito')
     } catch (error) {
-      toast.error('Ha ocurrido un error intenta  mas tarde')
+      // toast.error('Ha ocurrido un error intenta  mas tarde')
     }
   }
 }
