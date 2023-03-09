@@ -173,7 +173,7 @@ export const loaderPayment = () => {
       // })
       // with fetch
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/api/payment/paypal`,
+        `${import.meta.env.VITE_APP_BACKEND_URL}/api/payment/paypal`,
         {
           method: 'POST',
           headers: {
