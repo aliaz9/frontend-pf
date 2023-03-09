@@ -6,7 +6,7 @@ import {
   setType
 } from '../redux/slices/productsSlice.js'
 import { getByNames, getProducts } from '../redux/slices/thunksProducts.js'
-import styles from './../styles/Search.module.css'
+import Style from './../styles/Search.module.css'
 
 import { useSelector, useDispatch } from 'react-redux'
 import Select from 'react-select'
@@ -54,15 +54,8 @@ export default function Search() {
     dispatch(getProducts())
   }
 
-
-
-
-
-
-
   return (
     <>
-
       {/* <div className={Style.container}>
 
         <input
@@ -77,50 +70,35 @@ export default function Search() {
           className="fa-solid fa-magnifying-glass"
         /> */}
 
-
       <div className={Style.container}>
+        {/* <p className={Style.p}>Busca por nombre, filtra y ordena: </p> */}
 
-        <p className={Style.p}>Busca por nombre, filtra y ordena: </p>
+        <div className={Style.searchBox}>
+          <button className={Style.btnSearch}>
+            <i onClick={(e) => handleSubmit(e)} class="fas fa-search" />
+          </button>
 
-      <div className={Style.searchBox}>
-        <button className={Style.btnSearch}><i onClick={(e) => handleSubmit(e)} class="fas fa-search"/></button>
+          <input
+            type="search"
+            value={search}
+            onChange={onChange}
+            placeholder="Buscar..."
+            className={Style.inputSearch}
+          ></input>
+        </div>
 
-        <input type="search" value={search} onChange={onChange} placeholder="Buscar..." className={Style.inputSearch} >
-        </input>
-
-      </div>
-
-
-      
-      <div className={Style.filters}>
-
+        <div className={Style.filters}>
           <Select options={types} onChange={handleTypeChange} isClearable />
-
-          
-
         </div>
 
         <div className={Style.select}>
-
           <select onChange={handleOrder}>
             <option label="Seleccione un orden" value={''} />
             <option label="Ascendente" value={'asc'} />
             <option label="Descendente" value={'desc'} />
           </select>
-
-          </div>
-
-
-
-
+        </div>
       </div>
-
-
-
-
-
-
-
     </>
   )
 }

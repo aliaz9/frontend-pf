@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { toast } from 'react-toastify'
 import { clientAxios } from '../../config/clientAxios.js'
 import {
   setMessage,
@@ -40,16 +41,14 @@ export const users = () => {
 export const orders = (uid) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get(
-        'https://run.mocky.io/v3/cfa338a1-4cb6-4984-9452-7ecb07f21362'
-      )
-
-      uid
-        ? dispatch(getOrders(data.filter((o) => o.uid === uid)))
-        : dispatch(getOrders(data))
+      const { data } = await clientAxios('/admin/orders', config)
+      dispatch(getOrders(data))
+      // uid
+      //   ? dispatch(getOrders(data.filter((o) => o.uid === uid)))
+      //   : dispatch(getOrders(data))
     } catch (error) {
       console.log(error)
-      dispatch(setMessage({ error: error.message }))
+      toast.error(error.response.data.msg)
     }
   }
 }
@@ -100,11 +99,15 @@ export const createProducts = async (formData) => {
 export const deleteUser = (id) => {
   return async (dispatch) => {
     try {
-      await clientAxios.delete(`/admin/delete-user/${id}`, config)
+      const { data } = await clientAxios.delete(
+        `/admin/delete-user/${id}`,
+        config
+      )
+      toast.success(data.msg)
       dispatch(eliminateUser(id))
     } catch (error) {
       console.log(error)
-      dispatch(setMessage({ error: error.message }))
+      toast.error(error.response.data.msg)
     }
   }
 }
@@ -112,8 +115,11 @@ export const deleteUser = (id) => {
 export const habilitarUser = (id) => {
   return async (dispatch) => {
     try {
-      console.log(id)
-      await clientAxios.put(`/admin/enable-user/${id}`, config)
+      const { data } = await clientAxios.post(
+        `/admin/enable-user/${id}`,
+        config
+      )
+      toast.success(data.msg)
       dispatch(habilitarUsuario(id))
     } catch (error) {
       console.log(error)

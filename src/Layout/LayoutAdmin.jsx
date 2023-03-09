@@ -4,6 +4,7 @@ import { Products, Users, Form } from '../admin'
 import style from '../styles/LayoutAdmin.module.css'
 import OrderDetail from '../admin/OrderDetail.jsx'
 import Orders from '../admin/Orders.jsx'
+import { ToastContainer } from 'react-toastify'
 
 export default function LayoutAdmin() {
   const routes = useRoutes([
@@ -19,6 +20,7 @@ export default function LayoutAdmin() {
       <div className={style.division}>
         <Sidebar />
         <Outlet />
+        <ToastContainer />
       </div>
       <div className={style.division}>{routes}</div>
     </div>
