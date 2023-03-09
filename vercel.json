@@ -11,4 +11,4 @@
 { "source": "/users/reset-password", "destination": "/users/reset-password" } ,
 { "source": "/buy/capture", "destination": "/buy/capture" },
 { "source": "/users/reset-password/:token", "destination": "/users/reset-password/:token" },
-{ "source": "/admin/*", "destination": "/admin/*" }] }
+{ "source": "/admin/", "destination": "/admin/" }] }
