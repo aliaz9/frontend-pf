@@ -8,6 +8,8 @@ import { getProductsDetails } from '../redux/slices/thunksProducts.js'
 import { addCart, addCartBack } from '../redux/slices/thunksUsers.js'
 import 'react-toastify/dist/ReactToastify.css'
 
+import { ToastContainer, toast } from 'react-toastify';
+
 export default function ProductPage() {
   const productInfo = useSelector((state) => state.products.product)
   const dispatch = useDispatch()
@@ -35,16 +37,16 @@ export default function ProductPage() {
     dispatch(getProductsDetails(id))
   }, [dispatch, id])
 
+  const notify = () => toast.success("¡Producto agregado al carrito!");
+
   return (
 
     <div className={Style.containerAll} key={productInfo.id}>
 
-        <div className={Style.container} key={productInfo.id}>
-
-
+      <div className={Style.container} key={productInfo.id}>
 
         <div className={Style.containerImg}>
-          <img src={productInfo.image} alt={productInfo.title} className={Style.Img} />
+        <img src={productInfo.image} alt={productInfo.title} className={Style.Img} />
         </div>
 
 
@@ -52,30 +54,38 @@ export default function ProductPage() {
           <h1 className={Style.title}>{productInfo.title}</h1>
 
           <p className={Style.precioexc}>Precio Exclusivo Online</p>
-          <p className={Style.price}>{productInfo.price}</p>
-
-          <button className={Style.hola} onClick={() => handleAddCart()}>
-            Agregar Al Carrito
-          </button>
+          <p className={Style.price}>${productInfo.unit_price}</p>
 
           <p className={Style.description}>{productInfo.description}</p>
           <p className={Style.sinestilo}>{productInfo.type}</p>
           <p className={Style.sinestilo}>{productInfo.brand}</p>
 
+          
+          <div onClick={notify}>
+          <button className={Style.button3}  onClick={() => {handleAddCart()}}>
+            Agregar Al Carrito
+          </button>
+          <ToastContainer />
+          </div>
+
+    
+
 
         </div>
 
-        
 
       </div>
 
-      <div>
-        <Score
-            count={5}
-            disabledStart={0}
-            disabledOpinion={0}
-            disabledNumber={0}
-          />
+
+
+
+        <div>
+          <Score
+              count={5}
+              disabledStart={0}
+              disabledOpinion={0}
+              disabledNumber={0}
+            />
         </div>
 
     </div>
