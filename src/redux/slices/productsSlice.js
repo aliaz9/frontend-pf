@@ -13,7 +13,7 @@ export const productsSlice = createSlice({
     order: '',
     brand: { value: '', label: '' },
     type: { value: '', label: '' },
-    numberOfpages: 10,
+    numberOfpages: 3,
     pageCurrent: 1
   },
   reducers: {
