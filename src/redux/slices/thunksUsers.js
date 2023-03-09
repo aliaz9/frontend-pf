@@ -33,7 +33,6 @@ export const registerUser = (user) => {
         toast.error(error.response.data[0].msg)
         return
       }
-      console.log(data)
       toast.error(error.response.data.msg)
     }
   }
@@ -301,7 +300,6 @@ export const removeCartBack = (id) => {
       )
       dispatch(setMessage(data.msg))
     } catch (error) {
-      console.log(error)
       console.log(error.response.data)
     }
   }

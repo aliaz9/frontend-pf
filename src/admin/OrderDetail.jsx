@@ -1,50 +1,47 @@
-import React from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams, useNavigate } from 'react-router-dom'
-import { getOrderDetail } from '../redux/slices/thunksAdmin'
+import { orders } from '../redux/slices/thunksAdmin.js'
+// import { getOrderDetail } from '../redux/slices/thunksAdmin'
 // import { getOrderDetail } from "../redux/slices/thunksAdmin";
 import styles from '../styles/OrderDetail.module.css'
 
 export default function OrderDetail() {
-  const { id } = useParams()
   const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(orders())
+  }, [])
+  const { id } = useParams()
+  console.log(id)
   const navigate = useNavigate()
+  const allOrders = useSelector((state) => state.admin.allOrders)
+  const filter = allOrders.filter((el) => el.bought[0].UserUid === id)
 
-  useEffect(
-    (id) => {
-      // dispatch(getOrderDetail(id));
-    },
-    [dispatch, id]
-  )
-
-  let order = useSelector((state) => state.admin.orderDetail)
-
-  function total() {
-    // let total = 0
-    // for (let i = 0; i < order.products.length; i++) {
-    //     const subtotal = order.products[i].unit_price * order.products[i].quantity
-    //     total = total + subtotal
-    // }
-    // return total
-  }
+  // function total() {
+  //   filter[0].bought.reduce((acc, curr) => {
+  //     total = acc + curr.unit_price
+  //   }, 0)
+  //   return total
+  // }
 
   return (
     <div className={styles.order}>
-        <button onClick={() => navigate(-1)} className="btn btn-primary">BACK</button>
+      <button onClick={() => navigate(-1)} className="btn btn-primary">
+        BACK
+      </button>
 
       <div className={styles.datos}>
         <div className={styles.datosComprador}>
-          <h1>Order: {order.id}</h1>
+          <h1>Order: {filter[0]?.bought[0]?.id}</h1>
           <h4>Datos del Cliente</h4>
-          <h6>{order.name}</h6>
-          <h6>{order.mail}</h6>
+          <h6>{filter[0].name}</h6>
+          {/* <h6>{order.mail}</h6> */}
         </div>
 
         <div className={styles.pago}>
           <h4>PayPal</h4>
           <p>Pago Aprobado</p>
-          <p>Identificador de la transacción: {order.paymentId}</p>
+          {/* <p>Identificador de la transacción: {order.paymentId}</p> */}
         </div>
       </div>
 
@@ -58,7 +55,7 @@ export default function OrderDetail() {
           </div>
         </div>
 
-        {order.products?.map((p, i) => {
+        {filter[0].bought.map((p, i) => {
           return (
             <div key={i} className={styles.container}>
               <div className="row">
@@ -72,7 +69,7 @@ export default function OrderDetail() {
         })}
 
         <div className="total">
-          {/* <h4 className={styles.total}>Total: ${total}</h4> */}
+          {/* <h4 className={styles.total}>Total: ${total()}</h4> */}
         </div>
       </div>
     </div>

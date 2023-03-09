@@ -10,8 +10,8 @@ import {
 import { Link } from 'react-router-dom'
 
 export default function Users() {
-  const allUsers = useSelector((state) => state.admin.allUsers);
-  const onlyUsers = allUsers.filter(u => u.role === "user");
+  const allUsers = useSelector((state) => state.admin.allUsers)
+  const onlyUsers = allUsers.filter((u) => u.role === 'user')
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -71,7 +71,7 @@ export default function Users() {
                   </th>
 
                   <th className="col-2">
-                    {u.disabled ? (
+                    {!u.disabled ? (
                       <p style={{ color: '#00ff00' }}>Activo</p>
                     ) : (
                       <p style={{ color: '#ff0000' }}>Inactivo</p>
@@ -82,7 +82,7 @@ export default function Users() {
                     {!u.disabled ? (
                       <button
                         className={`btn btn-danger`}
-                        onClick={() => handleDelete(u.id)}
+                        onClick={() => handleDelete(u.uid)}
                       >
                         {' '}
                         Deshabilitar{' '}

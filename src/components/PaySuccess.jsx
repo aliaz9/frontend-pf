@@ -9,7 +9,7 @@ const PaySuccess = () => {
   }
   useEffect(() => {
     fetch(
-      `${import.meta.VITE_APP_BACKEND_URL}api/payment/paypal/drop-cart`,
+      `${import.meta.env.VITE_APP_BACKEND_URL}/api/payment/paypal/drop-cart`,
       config
     )
       .then((res) => res.json())

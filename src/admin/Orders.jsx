@@ -29,15 +29,18 @@ export default function Orders() {
         <tbody>
           {allOrders &&
             allOrders.map((o) => {
+              const total = o.bought.reduce((acc, curr) => {
+                return acc + curr.unit_price
+              }, 0)
               return (
                 <tr>
-                  <th className={`col-2`}>{o.number}</th>
-                  <th className={`col-2`}>{o.date}</th>
+                  <th className={`col-2`}>{o.bought[0]?.id}</th>
+                  <th className={`col-2`}>2023</th>
                   <th className={`col-3`}>{o.name}</th>
-                  <th className={`col-2`}>{o.total}</th>
+                  <th className={`col-2`}>{total}</th>
 
                   <th className="col-3">
-                    <Link to={`/admin/orders/${o.id}`}>
+                    <Link to={`/admin/orders/${o.bought[0].UserUid}`}>
                       <button className={`${styles.blue} btn btn-primary`}>
                         {' '}
                         Ver Detalle{' '}
