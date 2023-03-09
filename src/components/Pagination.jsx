@@ -12,7 +12,7 @@ export default function Pagination() {
     dispatch(getProducts())
   }
   const previusPage = () => {
-    dispatch(setPageCurrent(pageCurrent - 1))
+    dispatch(setPageCurrent(pageCurrent - 1)) 
     dispatch(getProducts())
   }
   const pagesNumber = []
